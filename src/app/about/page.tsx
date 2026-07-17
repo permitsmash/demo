@@ -16,9 +16,6 @@ export default async function Page() {
       <section className="relative bg-primary overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-md py-xl flex flex-col md:flex-row items-center gap-lg">
           <div className="flex-1 text-on-primary z-10">
-            <span className="text-label-caps font-label-caps text-secondary-fixed uppercase tracking-widest mb-sm block">
-              {siteCopy.serviceArea}
-            </span>
             <h1 className="font-h1 text-h1 mb-md">{t(about.title, { name: site.name })}</h1>
             <p className="font-body-lg text-body-lg text-on-primary-container mb-lg">
               {about.heroDesc}
