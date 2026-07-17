@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeDrive Pro - Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdcc3",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "primary-container": "#1a2b48",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-container": "#262c32",
+                        "secondary": "#904d00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "primary-fixed": "#d7e2ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#44474d",
+                        "secondary-container": "#fd8b00",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#161c22",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#8d939a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "error": "#ba1a1a",
+                        "primary": "#031632",
+                        "on-primary-fixed": "#081b38",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-tint": "#4e5f7e",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "tertiary-fixed": "#dde3eb",
+                        "inverse-primary": "#b6c7eb",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-fixed": "#2f1500",
+                        "on-background": "#0b1c30",
+                        "tertiary": "#11171d",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "outline": "#75777e",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#603100",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "lg": "48px",
+                        "container-max": "1200px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "button": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "button": ["16px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant w-full top-0 z-50">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-md py-4 w-full">
+<a class="text-h3 font-h2 text-primary" href="#">SafeDrive Pro</a>
+<nav class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Courses &amp; Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Gift Cards</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">FAQ's</a>
+<a class="text-secondary-container font-bold border-b-2 border-secondary-container py-1 transition-colors duration-200 font-button text-button" href="#">Resources</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Contact Us</a>
+</nav>
+<div class="hidden md:flex items-center gap-sm">
+<a class="font-button text-button text-primary border border-primary rounded-DEFAULT px-md py-sm hover:bg-surface-container transition-colors duration-200 active:scale-95" href="#">Sign In</a>
+<a class="font-button text-button bg-primary text-on-primary rounded-DEFAULT px-md py-sm hover:bg-primary-container transition-colors duration-200 active:scale-95" href="#">Sign Up</a>
+</div>
+<!-- Mobile Menu Button (simplified) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-h3 font-h3">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-[1200px] mx-auto px-md py-xl flex flex-col gap-xl">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center gap-md">
+<h1 class="text-h1 font-h1 text-primary">Study Resources</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-[800px]">
+            Access our comprehensive library of study materials designed to help you succeed. From practice tests to essential guides, everything you need to become a confident, safe driver is right here.
+        </p>
+<div class="w-full max-w-2xl relative mt-sm">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-md py-sm rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:border-primary outline-none text-body-md text-on-surface shadow-sm transition-all" placeholder="Search for guides, videos, or specific topics..." type="text"/>
+</div>
+</section>
+<!-- Content Layout with Sidebar -->
+<section class="flex flex-col lg:flex-row gap-xl items-start">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 shrink-0 flex flex-col gap-md sticky top-md">
+<h2 class="text-h3 font-h3 text-primary border-b border-outline-variant pb-xs">Topics</h2>
+<ul class="flex flex-col gap-xs">
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT bg-primary text-on-primary font-button text-button transition-colors">All Topics</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary font-button text-button transition-colors">Maneuvers</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary font-button text-button transition-colors">Road Signs</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary font-button text-button transition-colors">Legal &amp; Rules</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary font-button text-button transition-colors">Vehicle Basics</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-primary font-button text-button transition-colors">Emergencies</button>
+</li>
+</ul>
+</aside>
+<!-- Main Categories -->
+<div class="flex-1 flex flex-col gap-xl w-full">
+<!-- Category: Theory Test Prep -->
+<div class="flex flex-col gap-md">
+<h2 class="text-h2 font-h2 text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-h2 text-secondary-container" style="font-variation-settings: 'FILL' 1;">quiz</span> Theory Test Prep
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center justify-between mb-xs">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Legal &amp; Rules</span>
+<span class="flex items-center gap-xs text-on-surface-variant text-label-caps"><span class="material-symbols-outlined text-[16px]">schedule</span> 15 min read</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Official Highway Code Review</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">A comprehensive breakdown of the most critical rules and regulations you need to know for your theory exam.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                            Read Guide <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center justify-between mb-xs">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Road Signs</span>
+<span class="flex items-center gap-xs text-on-surface-variant text-label-caps"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span> 50 Questions</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Road Signs Masterclass Quiz</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">Test your knowledge of warning, regulatory, and informational signs with this extensive practice quiz.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                            Start Quiz <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Category: Practical Driving Guides -->
+<div class="flex flex-col gap-md">
+<h2 class="text-h2 font-h2 text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-h2 text-secondary-container" style="font-variation-settings: 'FILL' 1;">menu_book</span> Practical Driving Guides
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center justify-between mb-xs">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Maneuvers</span>
+<span class="flex items-center gap-xs text-on-surface-variant text-label-caps"><span class="material-symbols-outlined text-[16px]">schedule</span> 8 min read</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Parallel Parking Step-by-Step</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">Master the art of parallel parking with our detailed guide, complete with diagrams and reference points.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                            Read Guide <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center justify-between mb-xs">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Vehicle Basics</span>
+<span class="flex items-center gap-xs text-on-surface-variant text-label-caps"><span class="material-symbols-outlined text-[16px]">download</span> 2.4 MB PDF</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Pre-Drive Checklist &amp; Maintenance</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">A downloadable checklist for daily vehicle checks and basic maintenance every driver should know.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                            Download PDF <span class="material-symbols-outlined text-[18px]">download</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Category: Video Lessons -->
+<div class="flex flex-col gap-md">
+<h2 class="text-h2 font-h2 text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-h2 text-secondary-container" style="font-variation-settings: 'FILL' 1;">play_circle</span> Video Lessons
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
+<div class="bg-surface-container h-40 w-full flex items-center justify-center relative group cursor-pointer">
+<span class="material-symbols-outlined text-[64px] text-primary opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="absolute bottom-2 right-2 bg-tertiary/80 text-on-tertiary text-label-caps px-2 py-1 rounded-sm">12:45</span>
+</div>
+<div class="p-md flex flex-col gap-sm flex-grow">
+<div class="flex items-center gap-sm">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Emergencies</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Handling Adverse Weather</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">Visual demonstration of defensive driving techniques in heavy rain and icy conditions.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                                Watch Video <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
+<div class="bg-surface-container h-40 w-full flex items-center justify-center relative group cursor-pointer">
+<span class="material-symbols-outlined text-[64px] text-primary opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="absolute bottom-2 right-2 bg-tertiary/80 text-on-tertiary text-label-caps px-2 py-1 rounded-sm">08:20</span>
+</div>
+<div class="p-md flex flex-col gap-sm flex-grow">
+<div class="flex items-center gap-sm">
+<span class="text-label-caps font-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded-sm">Maneuvers</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Navigating Complex Roundabouts</h3>
+<p class="text-body-md font-body-md text-on-surface-variant flex-grow">Learn how to approach, signal, and exit multi-lane roundabouts safely and confidently.</p>
+<a class="mt-sm text-secondary-container font-button text-button hover:text-secondary flex items-center gap-xs w-max transition-colors" href="#">
+                                Watch Video <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full border-t border-on-primary-fixed-variant mt-xl">
+<div class="max-w-[1200px] mx-auto px-md py-xl flex flex-col md:flex-row justify-between items-start gap-lg w-full">
+<div class="flex flex-col gap-sm">
+<span class="text-h3 font-h2 text-on-primary">SafeDrive Pro</span>
+<p class="font-body-md text-body-md text-on-primary-container max-w-sm mt-sm">Empowering confident, safe drivers through professional instruction and comprehensive resources.</p>
+</div>
+<nav class="flex flex-wrap gap-x-lg gap-y-md">
+<a class="font-body-md text-body-md text-on-primary-container hover:text-secondary-fixed transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-secondary-fixed transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-secondary-fixed transition-colors duration-200" href="#">Legal Information</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-secondary-fixed transition-colors duration-200" href="#">Site Map</a>
+</nav>
+</div>
+<div class="max-w-[1200px] mx-auto px-md pb-lg flex w-full">
+<p class="font-body-md text-body-md text-on-primary-container">© 2024 SafeDrive Pro. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

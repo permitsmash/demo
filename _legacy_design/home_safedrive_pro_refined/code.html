@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeDrive Pro - Master the Road with Confidence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdcc3",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "primary-container": "#1a2b48",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary-container": "#262c32",
+                        "secondary": "#904d00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "primary-fixed": "#d7e2ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#44474d",
+                        "secondary-container": "#fd8b00",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#161c22",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#8d939a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "primary-fixed-dim": "#b6c7eb",
+                        "error": "#ba1a1a",
+                        "primary": "#031632",
+                        "on-primary-fixed": "#081b38",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed-variant": "#374765",
+                        "surface-tint": "#4e5f7e",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "tertiary-fixed": "#dde3eb",
+                        "inverse-primary": "#b6c7eb",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-fixed": "#2f1500",
+                        "on-background": "#0b1c30",
+                        "tertiary": "#11171d",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "outline": "#75777e",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-container": "#8293b5",
+                        "on-secondary-container": "#603100",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "lg": "48px",
+                        "container-max": "1200px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "button": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "button": ["16px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest border-b border-outline-variant w-full top-0 sticky z-50">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-md w-full py-4">
+<div class="text-h3 font-h2 text-primary">SafeDrive Pro</div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-secondary-container font-bold border-b-2 border-secondary-container pb-xs hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Courses &amp; Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Gift Cards</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">FAQ's</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Resources</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-button text-button" href="#">Contact Us</a>
+</div>
+<div class="flex gap-sm items-center">
+<button class="hidden md:block font-button text-button text-primary hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-100 px-sm py-sm">Sign In</button>
+<button class="bg-primary text-on-primary font-button text-button px-md py-sm rounded active:scale-95 transition-transform duration-100 hover:bg-inverse-surface">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative bg-surface-container-low overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-md py-xl md:py-[120px] grid md:grid-cols-2 gap-lg items-center min-h-[600px]">
+<div class="z-10 flex flex-col gap-md">
+<h1 class="font-h1 text-h1 text-primary">Master the Road with Confidence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Expert instruction, modern vehicles, and flexible scheduling. Start your journey to becoming a safe, skilled driver today with SafeDrive Pro.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-sm mt-sm">
+<button class="bg-secondary-container text-on-primary font-button text-button px-lg py-md rounded hover:bg-secondary transition-colors active:scale-95 shadow-sm inline-flex items-center justify-center gap-xs">
+                            Book Your First Lesson
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+<button class="border-2 border-primary text-primary bg-transparent font-button text-button px-lg py-md rounded hover:bg-primary hover:text-on-primary transition-colors active:scale-95 inline-flex items-center justify-center">
+                            View Curriculum
+                        </button>
+</div>
+</div>
+<div class="relative h-[400px] md:h-full w-full rounded-lg overflow-hidden shadow-md">
+<img alt="Driving instructor and student in car" class="absolute inset-0 w-full h-full object-cover" data-alt="A professional driving instructor sitting in the passenger seat of a modern, clean, silver sedan, guiding a focused young adult learner driver. The scene is shot from outside the car looking in through the windshield, with bright, natural daylight illuminating their faces. The mood is calm, confident, and professional, reflecting a safe learning environment. The setting suggests a quiet suburban road, adhering to a high-contrast minimalist, corporate aesthetic with a professional Navy Blue and Safety Orange undertone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-cpjciJtIv0WSQutqYlVi4_VEbPirIbZrOF-hOdwfhENpwElALGcXwdPGQD0AmgmAdAg-YfR4aItuTGavsuxP9Pk_YLy0bKkYuzMAlacttD0KRVhYas_nkTn4-i55vTsmuCi0RU23u203XL5w60WXn3xU9JL6z7JOjjv92waYl2pipUSVXVnVBdSsrlF-5janO5-SRfT3XA_F7vuH7Wap6La7C0WZ6tFuYmv8GiMFJ2-FALWHnt2GWs3ytAd-3FnN6s2vdDKutQY"/>
+</div>
+</div>
+</section>
+<!-- Accreditations Bar -->
+<div class="bg-surface border-b border-outline-variant py-sm">
+<div class="max-w-[1200px] mx-auto px-md flex flex-wrap justify-center md:justify-between gap-md items-center text-on-surface-variant font-label-caps text-label-caps opacity-80">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[20px]">verified</span> STATE CERTIFIED CURRICULUM</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[20px]">workspace_premium</span> 5-STAR SAFETY RATING</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[20px]">military_tech</span> AWARD WINNING INSTRUCTORS</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[20px]">gpp_good</span> FULLY INSURED &amp; BONDED</div>
+</div>
+</div>
+<!-- Why Choose Us -->
+<section class="bg-surface-container-lowest py-xl">
+<div class="max-w-[1200px] mx-auto px-md">
+<div class="text-center mb-lg">
+<h2 class="font-h2 text-h2 text-primary mb-sm">Why Choose SafeDrive Pro?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">We combine experienced instructors with modern teaching methods to ensure you learn safely and efficiently.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- Feature 1 -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:shadow-sm transition-shadow duration-200">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Certified Instructors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our instructors are state-certified professionals with years of experience and thorough background checks.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:shadow-sm transition-shadow duration-200">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Flexible Scheduling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Book lessons 7 days a week. We offer easy online scheduling to fit around your work or school hours.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-md rounded-lg border border-outline-variant bg-surface hover:shadow-sm transition-shadow duration-200">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Modern Fleet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Learn in safe, dual-controlled, modern vehicles equipped with the latest safety features and technology.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Student Success -->
+<section class="bg-surface py-xl border-y border-outline-variant">
+<div class="max-w-[1200px] mx-auto px-md">
+<div class="text-center mb-lg">
+<h2 class="font-h2 text-h2 text-primary mb-sm">Student Success Stories</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Hear from our students who mastered the road with SafeDrive Pro.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-sm flex flex-col h-full">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-md flex-grow">"Passed first time! The instructors were so patient and the flexible scheduling really helped with my school hours. Highly recommend the Teen Package."</p>
+<div class="font-h3 text-[16px] text-primary font-semibold">- Sarah J.</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-sm flex flex-col h-full">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-md flex-grow">"I was really nervous about highway driving, but the Defensive Driving course gave me the confidence I needed. The modern cars felt incredibly safe."</p>
+<div class="font-h3 text-[16px] text-primary font-semibold">- Michael T.</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-sm flex flex-col h-full">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-md flex-grow">"The Adult Brush-Up sessions were perfect. I hadn't driven in years and just two sessions got me comfortable behind the wheel again."</p>
+<div class="font-h3 text-[16px] text-primary font-semibold">- Emily R.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Courses Bento -->
+<section class="bg-surface-container py-xl">
+<div class="max-w-[1200px] mx-auto px-md">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-h2 text-h2 text-primary mb-sm">Our Most Popular Courses</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Tailored packages designed to meet your specific learning needs and goals.</p>
+</div>
+<button class="hidden md:flex text-primary font-button text-button items-center gap-xs hover:text-secondary transition-colors">
+                        View All Courses <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[minmax(300px,auto)]">
+<!-- Course Card 1 - Large -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden flex flex-col md:flex-row hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div class="md:w-2/5 relative min-h-[200px]">
+<img alt="Teen learning to drive" class="absolute inset-0 w-full h-full object-cover" data-alt="A focused teenager smiling slightly while holding the steering wheel of a modern car, looking forward. Shot from the perspective of the back seat, capturing the driver and a glimpse of the road ahead on a sunny day. The lighting is bright and clear, reflecting a positive, empowering mood. The aesthetic is clean and professional, aligning with a corporate, high-contrast light mode design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT1mkAMGGnZBREO1V2SV_RxJlBX0JWNXyT4ENIltT7EnfWxOBA0KmIyzLfzTLKJP33lypo_MLdgEhjWBpzSFqomNXDeAgWqlyNxaAWmfoC56irIXHlF8RdpPfyrX0mbTw-BZ4e1LkBi8W2aLRjFUbGbhnU6pbFA3CqXX19rjXsD1KZJe79z3YHT74WHS2tZXHfxsBGPqdgz4_MGO2XEKK7OS14lxeb8qUi-JkVLwK9hwO6Eb9Va9wnVxpjYAJ96EWyvVKxK8gmjwQ"/>
+</div>
+<div class="p-md flex flex-col justify-between flex-1 relative">
+<div class="absolute top-0 right-0 mt-md mr-md">
+<span class="inline-flex items-center gap-xs bg-secondary-container text-on-primary font-label-caps text-label-caps px-sm py-xs rounded-full shadow-sm font-bold tracking-wider">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span> MOST POPULAR
+                                </span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-primary mb-xs mt-sm">Complete Teen Package</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md pr-xl">The ultimate package for new drivers. Includes 30 hours of classroom instruction and 10 hours of behind-the-wheel training.</p>
+<ul class="space-y-sm mb-md">
+<li class="flex items-center gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">check_circle</span> Classroom &amp; Online Options
+                                    </li>
+<li class="flex items-center gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">check_circle</span> DPS Road Test Included
+                                    </li>
+</ul>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-md mt-auto">
+<span class="font-h3 text-h3 text-primary">$499</span>
+<button class="bg-primary text-on-primary font-button text-button px-md py-sm rounded hover:bg-inverse-surface transition-colors active:scale-95">Enroll Now</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 - Small -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary mb-sm">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Adult Brush-Up</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Perfect for adults needing a refresher or preparing for a licensing test. 2-hour specialized sessions.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-button text-button text-primary">$120 / session</span>
+<button class="border border-primary text-primary font-button text-button px-sm py-sm rounded hover:bg-surface-dim transition-colors active:scale-95">Book</button>
+</div>
+</div>
+<!-- Course Card 3 - Small -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary mb-sm">
+<span class="material-symbols-outlined text-[24px]">shield</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-xs">Defensive Driving</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Ticket dismissal or insurance discount course. State-approved curriculum.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-button text-button text-primary">$40</span>
+<button class="border border-primary text-primary font-button text-button px-sm py-sm rounded hover:bg-surface-dim transition-colors active:scale-95">Book</button>
+</div>
+</div>
+<!-- CTA Block -->
+<div class="md:col-span-8 bg-primary rounded-lg border border-primary p-md flex flex-col md:flex-row items-center justify-between gap-md text-on-primary hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div>
+<h3 class="font-h3 text-h3 mb-xs">Not sure where to start?</h3>
+<p class="font-body-md text-body-md text-on-primary-container">Take our quick assessment to find the right course for your skill level.</p>
+</div>
+<button class="bg-secondary-container text-on-primary font-button text-button px-md py-md rounded hover:bg-secondary transition-colors active:scale-95 whitespace-nowrap">Take Assessment</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest Resources -->
+<section class="bg-surface-container-lowest py-xl border-t border-outline-variant">
+<div class="max-w-[1200px] mx-auto px-md">
+<h2 class="font-h2 text-h2 text-primary mb-lg text-center">Latest Resources &amp; Guides</h2>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- Resource 1 -->
+<a class="group block border border-outline-variant rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200" href="#">
+<div class="h-48 bg-surface-dim relative overflow-hidden">
+<img alt="Car dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a modern car dashboard and steering wheel, focusing on the speedometer and instrument cluster. The image is brightly lit, emphasizing clarity and safety. The color palette is neutral with high contrast, aligning with a professional, clean corporate aesthetic. The mood is informative and secure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ7hFdJ6099qKHR5qJi3kQLR5gySeAkJbK2_kDZiTvVFjzt__mjfBGudp1VgfJP4d5tgrLtLibdIgPTjpgx15YkfpQkafvlmE1IOSHxYg-_1wo2CqgXy8ZCO__pv8QNroHdz9ldJkJEBo5mZj5gzNwMRQZLF5JfpU_mNuozLuW3oastN5ZZ1EjRkE2U-x0fFnrlH93DcWTx7oTBQQozQFRkvOkvTM3ObeYYWjvZysttCEjbsAm4KJLwA4eSPl2U1w72p7prxUvcwI"/>
+</div>
+<div class="p-md">
+<span class="text-secondary-container font-label-caps text-label-caps mb-xs block">DRIVING TIPS</span>
+<h3 class="font-h3 text-h3 text-primary mb-xs group-hover:text-secondary transition-colors">5 Essential Tips for Highway Driving</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Master the art of merging, maintaining speed, and staying safe on busy highways.</p>
+</div>
+</a>
+<!-- Resource 2 -->
+<a class="group block border border-outline-variant rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200" href="#">
+<div class="h-48 bg-surface-dim relative overflow-hidden">
+<img alt="Person taking notes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A top-down view of a person taking notes on a clipboard with a pen, next to a printed driving manual. The scene is brightly lit with a clean, white background, conveying a sense of study and preparation. The aesthetic is high-contrast minimalist, fitting a professional educational setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm4JgCB6npTNw7o6VZB1tHaJ25z5_n7SaAmvITGOGsQG7s0m0Tn6aAWVVnb7plN3HrzbU2tYoxspOHKIBdiaO2lKhBqzLaQJB9fQn2OvHhH-yXGmW7lMG7scIY1es-jn15rEaC5FDlLmWC9PVFOSgFGQee3uJGCF688_ATf5Vg48pfXHAqRW13MYfyR79JJ550F3PoqEJyEnKGeuir4Ep4_nF0xYiZgbcASm0JpAHF2y5hrG2hitj38seJPi1hG6pJ0O-Yd0QHqEo"/>
+</div>
+<div class="p-md">
+<span class="text-secondary-container font-label-caps text-label-caps mb-xs block">TEST PREP</span>
+<h3 class="font-h3 text-h3 text-primary mb-xs group-hover:text-secondary transition-colors">How to Pass Your Road Test on the First Try</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A comprehensive checklist of what examiners look for during your driving test.</p>
+</div>
+</a>
+<!-- Resource 3 -->
+<a class="group block border border-outline-variant rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200" href="#">
+<div class="h-48 bg-surface-dim relative overflow-hidden">
+<img alt="Car parallel parking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, modern car shown from a slightly elevated angle, demonstrating a parallel parking maneuver between two cones on a quiet street. The lighting is crisp and clear daylight. The image has a professional, instructional feel, utilizing a clean color palette typical of a corporate driving school brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_99ndaPeJ9GB5xAMGaY47s4itnFn7MyTD6enEMHF-hWPWExcXPAsWhvTJ9lem7x76soaYC42gUNLrqUFbR8hh5fsBWbSQLllsMSDo_iqVa-nofr_73Qgwiem3v0ofB2gSobm1sSWrTs2Ze4on8zPBVdJzKrcochv-SOHpGMzERoyFiu03Ss7bGxF65Q09R-zBgN5e27PcI93zMI8OWvggetTEhkbr7BbtS1DMBNqn3LZGPYL9XfDJsXVtO219lArXGWYlpLNKeiE"/>
+</div>
+<div class="p-md">
+<span class="text-secondary-container font-label-caps text-label-caps mb-xs block">MANEUVERS</span>
+<h3 class="font-h3 text-h3 text-primary mb-xs group-hover:text-secondary transition-colors">The Step-by-Step Guide to Parallel Parking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Demystify parallel parking with our simple, foolproof technique used by experts.</p>
+</div>
+</a>
+</div>
+<div class="text-center mt-lg">
+<button class="border-2 border-primary text-primary font-button text-button px-lg py-md rounded hover:bg-surface-dim transition-colors active:scale-95">View All Resources</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-on-background text-on-primary dark:text-primary-fixed w-full border-t border-on-primary-fixed-variant">
+<div class="max-w-[1200px] mx-auto px-md py-xl flex flex-col md:flex-row justify-between items-start gap-lg">
+<div class="flex flex-col gap-md max-w-sm">
+<div class="text-h3 font-h2 text-on-primary dark:text-primary-fixed">SafeDrive Pro</div>
+<p class="font-body-md text-body-md text-on-primary-container">Empowering drivers with the skills and confidence for a lifetime of safe driving.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-lg md:gap-xl">
+<div class="flex flex-col gap-sm">
+<span class="font-button text-button text-on-primary mb-xs">Company</span>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Contact</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-button text-button text-on-primary mb-xs">Legal</span>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Legal Information</a>
+<a class="font-body-md text-body-md text-on-primary-container dark:text-on-primary-fixed-variant hover:text-secondary-fixed transition-colors duration-200 active:opacity-80" href="#">Site Map</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-md py-md border-t border-on-primary-fixed-variant/20 flex flex-col md:flex-row justify-between items-center gap-sm">
+<p class="font-body-md text-body-md text-on-primary-container">© 2024 SafeDrive Pro. All rights reserved.</p>
+<div class="flex gap-md">
+<!-- Social placeholders -->
+<div class="w-8 h-8 rounded-full bg-on-primary-container/20"></div>
+<div class="w-8 h-8 rounded-full bg-on-primary-container/20"></div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -17,14 +17,57 @@ export const site = {
   officeHours: "Mon-Fri 10am-4pm",
   cancellationHours: "Mon-Fri 10am-4pm",
   roadTestLocations: [
-    "Watertown",
-    "Lowell",
-    "Wilmington",
-    "Haverhill",
-    "Lawrence",
-    "Revere",
-    "Worcester",
-    "Milford",
+    {
+      name: "Watertown",
+      address: "550 Arsenal St., Watertown, MA 02472",
+      image: "/rmv/watertown.png",
+      mapsUrl: "https://maps.app.goo.gl/TxUZrAcU5Y64GGvJ6",
+    },
+    {
+      name: "Lowell",
+      address: "77 Middlesex St., Lowell, MA 01852",
+      image: "/rmv/lowell.jpg",
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Lowell+RMV+77+Middlesex+Street+Lowell+MA",
+    },
+    {
+      name: "Wilmington",
+      address: "355 Middlesex Ave., Wilmington, MA 01887",
+      image: "/rmv/wilmington.jpg",
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Wilmington+RMV+355+Middlesex+Avenue+Wilmington+MA",
+    },
+    {
+      name: "Haverhill",
+      address: "229c Lincoln Ave., Haverhill, MA 01830",
+      image: "/rmv/haverhill.png",
+      mapsUrl: "https://maps.app.goo.gl/agjuSD3zxhsyikVc7",
+    },
+    {
+      name: "Lawrence",
+      address: "73 Winthrop Ave., Lawrence, MA 01843",
+      image: "/rmv/lawrence.png",
+      mapsUrl: "https://maps.app.goo.gl/u4PAA2nQtzofQrjA6",
+    },
+    {
+      name: "Revere",
+      address: "301 Rear Revere Beach Pkwy, Revere, MA 02151",
+      image: "/rmv/revere.jpg",
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Revere+RMV+301+Revere+Beach+Parkway+Revere+MA",
+    },
+    {
+      name: "Worcester",
+      address: "50 Southwest Cutoff, Worcester, MA 01604",
+      image: "/rmv/worcester.png",
+      mapsUrl: "https://maps.app.goo.gl/g7rEn858CSaNzC186",
+    },
+    {
+      name: "Milford",
+      address: "138 S Main St., Milford, MA 01757",
+      image: "/rmv/milford.png",
+      mapsUrl: "https://maps.app.goo.gl/C1kZMWREwe3sSopA8",
+    },
   ],
   acceleratedCourses: [
     {
@@ -42,7 +85,7 @@ export const site = {
   ],
   googleReviews: {
     rating: 4.9,
-    totalReviews: 200,
+    totalReviews: 1275,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=JMC+Driving+School+973+Main+Street+Waltham+MA+02451",
     reviews: [
@@ -121,4 +164,26 @@ export const site = {
     ],
   },
   languages: ["English", "Português", "Español"],
+  homepageFaqs: [
+    {
+      question: "Which areas does JMC Driving School serve?",
+      answer:
+        "JMC Driving School serves Waltham, MA and surrounding areas, with road test sponsorship available at Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, and Milford.",
+    },
+    {
+      question: "How do I register for driver's ed or driving lessons?",
+      answer:
+        "You can register through our website, by phone at (781) 373-1730, or by visiting our Waltham office during office hours (Mon–Fri 10am–4pm).",
+    },
+    {
+      question: "Do you offer road test sponsorship?",
+      answer:
+        "Yes. Road test sponsorship is available at the JMC office and at RMV locations across Massachusetts, including Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, and Milford.",
+    },
+    {
+      question: "What is your refund policy?",
+      answer:
+        "You are entitled to a full refund within 7 days of purchase if no services were used. The road test fee is non-refundable.",
+    },
+  ],
 } as const;

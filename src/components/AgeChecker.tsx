@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "@/components/LocaleProvider";
 
 function calculateIsEligible(birthdate: string) {
   if (!birthdate) return null;
@@ -16,6 +17,8 @@ function calculateIsEligible(birthdate: string) {
 }
 
 export default function AgeChecker() {
+  const { messages } = useLocale();
+  const ac = messages.ageChecker;
   const [date, setDate] = useState("");
   const eligible = calculateIsEligible(date);
 
@@ -28,18 +31,11 @@ export default function AgeChecker() {
         >
           event
         </span>
-        <h3 className="font-h3 text-h3 text-primary">
-          Check age eligibility
-        </h3>
+        <h3 className="font-h3 text-h3 text-primary">{ac.title}</h3>
       </div>
-      <p className="font-body-sm text-body-sm text-on-surface-variant">
-        Per RMV rules, students must be at least <strong>15 years 9 months</strong>{" "}
-        old by the first day of class.
-      </p>
+      <p className="font-body-sm text-body-sm text-on-surface-variant">{ac.desc}</p>
       <label className="flex flex-col gap-xs mt-xs">
-        <span className="font-button text-button text-primary">
-          Student&apos;s date of birth
-        </span>
+        <span className="font-button text-button text-primary">{ac.dobLabel}</span>
         <input
           type="date"
           value={date}
@@ -58,14 +54,9 @@ export default function AgeChecker() {
           <span className="material-symbols-outlined text-sm mt-[2px]">
             {eligible ? "check_circle" : "error"}
           </span>
-          <span>
-            {eligible
-              ? "This student meets the minimum age requirement."
-              : "This student does not yet meet the 15 years 9 months minimum age requirement."}
-          </span>
+          <span>{eligible ? ac.eligible : ac.notEligible}</span>
         </div>
       )}
     </section>
   );
 }
-

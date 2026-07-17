@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* JMC brand: navy primary, gold secondary, white surfaces */
+  /* JMC brand: navy primary, red secondary, white surfaces */
   --color-primary: #0b1c30;
   --color-on-primary: #ffffff;
   --color-on-background: #0b1c30;
@@ -18,24 +18,24 @@
   --color-surface-container-highest: #f0f0f0;
   --color-on-surface-variant: #4a5568;
 
-  --color-secondary: #c99200;
-  --color-on-secondary: #0b1c30;
-  --color-secondary-container: #f5b800;
-  --color-on-secondary-container: #0b1c30;
-  --color-secondary-fixed: #ffe082;
-  --color-secondary-fixed-dim: #f5b800;
+  --color-secondary: #9b0d18;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #c1121f;
+  --color-on-secondary-container: #ffffff;
+  --color-secondary-fixed: #fde8ea;
+  --color-secondary-fixed-dim: #f5d0d3;
   --color-on-secondary-fixed: #0b1c30;
-  --color-on-secondary-fixed-variant: #7a5a00;
+  --color-on-secondary-fixed-variant: #9b0d18;
 
   --color-primary-container: #152238;
   --color-on-primary-container: #d7e2ff;
-  --color-primary-fixed: #fff8e1;
-  --color-primary-fixed-dim: #ffe082;
+  --color-primary-fixed: #fde8ea;
+  --color-primary-fixed-dim: #f5d0d3;
   --color-on-primary-fixed: #0b1c30;
   --color-on-primary-fixed-variant: #374765;
   --color-inverse-surface: #0b1c30;
   --color-inverse-on-surface: #ffffff;
-  --color-inverse-primary: #f5b800;
+  --color-inverse-primary: #c1121f;
   --color-surface-tint: #0b1c30;
 
   --color-tertiary: #11171d;
