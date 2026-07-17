@@ -21,9 +21,12 @@ export default async function Page() {
     <>
       <HomepageJsonLd />
 
-      <section className="relative bg-surface overflow-hidden">
+      <section className="relative bg-surface-container-lowest overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-md py-xl md:py-[120px] grid md:grid-cols-2 gap-lg items-center min-h-[600px]">
           <div className="order-2 md:order-1 z-10 flex flex-col gap-md">
+            <span className="text-label-caps font-label-caps text-secondary-container uppercase tracking-widest">
+              {siteCopy.serviceArea}
+            </span>
             <h1 className="font-h1 text-h1 text-primary">{siteCopy.tagline}</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[32rem]">
               {siteCopy.description}
@@ -70,6 +73,20 @@ export default async function Page() {
               >
                 {common.viewPrograms}
               </Link>
+            </div>
+            <div className="mt-md flex flex-wrap gap-sm">
+              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-secondary-container text-[18px]">verified</span>
+                {home.certifiedInstructors}
+              </span>
+              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-secondary-container text-[18px]">calendar_month</span>
+                {home.flexibleScheduling}
+              </span>
+              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
+                <span className="material-symbols-outlined text-secondary-container text-[18px]">assignment_turned_in</span>
+                {home.roadTestSponsorship}
+              </span>
             </div>
           </div>
           <div className="order-1 md:order-2 relative h-[400px] md:h-full min-h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest/60 border border-outline-variant">
@@ -149,7 +166,7 @@ export default async function Page() {
             {site.acceleratedCourses.map((course, index) => (
               <div
                 key={course.label}
-                className="bg-surface-dim p-md rounded-lg border border-outline-variant text-center"
+                className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
               >
                 <h3 className="font-h3 text-h3 text-primary mb-xs">
                   {home[courseLabels[index] ?? "courseAugust"]}
@@ -157,6 +174,20 @@ export default async function Page() {
                 <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
               </div>
             ))}
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-sm">
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="inline-flex items-center justify-center bg-primary text-on-primary font-button text-button px-lg py-md rounded hover:bg-inverse-surface transition-colors"
+            >
+              {t(common.callNow, { phone: site.phone })}
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border-2 border-primary text-primary font-button text-button px-lg py-md rounded hover:bg-surface-dim transition-colors"
+            >
+              {home.contactOffice}
+            </Link>
           </div>
         </div>
       </section>
@@ -254,6 +285,20 @@ export default async function Page() {
                 {home.refundDesc}
               </p>
             </div>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-sm mt-lg">
+            <Link
+              href="/courses"
+              className="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container font-button text-button px-lg py-md rounded hover:bg-secondary transition-colors"
+            >
+              {common.viewPrograms}
+            </Link>
+            <a
+              href={`tel:${site.phoneTel}`}
+              className="inline-flex items-center justify-center border-2 border-on-primary text-on-primary font-button text-button px-lg py-md rounded hover:bg-on-primary/10 transition-colors"
+            >
+              {t(common.callNow, { phone: site.phone })}
+            </a>
           </div>
         </div>
       </section>

@@ -77,6 +77,7 @@ export const es: Messages = {
     acceleratedDescSuffix: "para más detalles.",
     drivingPrograms: "programas de manejo",
     classSchedule: "calendario de clases",
+    contactOffice: "Contactar la oficina",
     roadTestTitle: "Patrocinios para examen de manejo",
     roadTestDesc: "Disponible en la oficina de JMC en Waltham o en ubicaciones del RMV en:",
     rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",

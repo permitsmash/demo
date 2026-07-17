@@ -76,6 +76,7 @@ export const en = {
     acceleratedDescSuffix: "for full details.",
     drivingPrograms: "driving programs",
     classSchedule: "class schedule",
+    contactOffice: "Contact the office",
     roadTestTitle: "Road Test Sponsorships",
     roadTestDesc: "Available at the JMC office in Waltham or RMV locations in:",
     rmvAria: "{name} RMV Service Center — open in Google Maps",

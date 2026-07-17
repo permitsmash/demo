@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary text-on-primary w-full">
+    <footer className="bg-primary text-on-primary w-full border-t-4 border-secondary-container">
       <div className="max-w-[1200px] mx-auto px-md py-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-xl">
           <div className="lg:col-span-4 flex flex-col gap-md">
