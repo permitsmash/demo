@@ -24,9 +24,6 @@ export default async function Page() {
       <section className="relative bg-surface-container-lowest overflow-hidden">
         <div className="relative max-w-[1200px] mx-auto px-md py-xl md:py-[120px] grid md:grid-cols-2 gap-lg items-center min-h-[600px]">
           <div className="order-2 md:order-1 z-10 flex flex-col gap-md">
-            <span className="text-label-caps font-label-caps text-secondary-container uppercase tracking-widest">
-              {siteCopy.serviceArea}
-            </span>
             <h1 className="font-h1 text-h1 text-primary">{siteCopy.tagline}</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[32rem]">
               {siteCopy.description}
