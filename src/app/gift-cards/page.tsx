@@ -1,0 +1,212 @@
+export default function Page() {
+  return (
+    <div className="max-w-[1200px] mx-auto px-md py-lg md:py-xl flex flex-col gap-xl w-full">
+      {/*  Hero Section  */}
+<section className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div className="md:col-span-6 flex flex-col gap-md pr-lg">
+<h1 className="font-h1 text-h1 text-primary">Give the Gift of Confidence on the Road</h1>
+<p className="font-body-lg text-body-lg text-on-surface-variant">
+                    Whether it's for a teenager getting behind the wheel for the first time or an adult looking to master defensive driving, a JMC Driving School gift card is the perfect start to a lifetime of safe journeys.
+                </p>
+<div className="flex gap-sm mt-sm">
+<span className="flex items-center gap-xs font-label-caps text-label-caps text-primary bg-surface-container px-sm py-xs rounded-full">
+<span className="material-symbols-outlined text-[16px]">verified</span>
+                        State Certified
+                    </span>
+<span className="flex items-center gap-xs font-label-caps text-label-caps text-primary bg-surface-container px-sm py-xs rounded-full">
+<span className="material-symbols-outlined text-[16px]">star</span>
+                        Top Rated Instructors
+                    </span>
+</div>
+</div>
+<div className="md:col-span-6 relative h-[400px] rounded-lg overflow-hidden ambient-shadow">
+<img alt="Happy student in a car" className="absolute inset-0 w-full h-full object-cover" data-alt="A professional, high-contrast photograph of a smiling young adult sitting in the driver's seat of a clean, modern vehicle, holding a shiny set of car keys towards the camera. The lighting is crisp and natural, highlighting the pristine interior of the car and the genuine joy on the driver's face. The overarching visual style is corporate yet approachable, utilizing a color palette dominated by deep navy blues and subtle bright orange accents in the environment. The mood conveys confidence, safety, and the exciting milestone of learning to drive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlCjlTNEOaHTxb4LyD0q1syrKyH7Ndz8jCVVtmWOdEs_nbmBsKHH8AFB9v--CuHlC5IBVO4_GWyrPt3HKw7JgwNHLGN2t7Y-g1Wf5fXrBDrzDMRv6-IzVxfp6m4acxIT_j41BRcyUqwaxCKk6qQitgstuU85UFCXN_BuiL4ARt_0l8mPrjudWXEN0T93HU9UjuzDGZmIzorPKMCVMdeNGKKfTsf-dJHdYwEvp0-X9dSq5K549gkJYjly01WYjI17SnGE3aQiW9INI"/>
+</div>
+</section>
+{/*  Bento Grid Purchase Flow  */}
+<section className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+{/*  Left Column: The Configuration Flow  */}
+<div className="lg:col-span-8 flex flex-col gap-lg">
+{/*  Step 1: Select Amount  */}
+<div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg ambient-shadow">
+<h2 className="font-h3 text-h3 text-primary mb-md flex items-center gap-sm">
+<span className="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-button text-button">1</span>
+                        Select Amount
+                    </h2>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-sm">
+{/*  Option: $50  */}
+<button className="border border-outline-variant rounded-DEFAULT py-md flex flex-col items-center justify-center gap-xs hover:border-primary transition-colors bg-surface hover:bg-surface-container-low">
+<span className="font-h2 text-h2 text-primary">$50</span>
+<span className="font-label-caps text-label-caps text-on-surface-variant">Evaluation Lesson</span>
+</button>
+{/*  Option: $100 (Selected State)  */}
+<button className="border-2 border-primary rounded-DEFAULT py-md flex flex-col items-center justify-center gap-xs bg-surface-container-low relative overflow-hidden">
+<div className="absolute top-0 right-0 bg-primary text-on-primary p-xs rounded-bl-DEFAULT">
+<span className="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span className="font-h2 text-h2 text-primary">$100</span>
+<span className="font-label-caps text-label-caps text-on-surface-variant">Standard Lesson</span>
+</button>
+{/*  Option: $250  */}
+<button className="border border-outline-variant rounded-DEFAULT py-md flex flex-col items-center justify-center gap-xs hover:border-primary transition-colors bg-surface hover:bg-surface-container-low">
+<span className="font-h2 text-h2 text-primary">$250</span>
+<span className="font-label-caps text-label-caps text-on-surface-variant">Course Package</span>
+</button>
+{/*  Option: Custom  */}
+<button className="border border-outline-variant rounded-DEFAULT py-md flex flex-col items-center justify-center gap-xs hover:border-primary transition-colors bg-surface hover:bg-surface-container-low">
+<span className="material-symbols-outlined text-h2 text-primary">edit</span>
+<span className="font-label-caps text-label-caps text-on-surface-variant">Custom Amount</span>
+</button>
+</div>
+</div>
+{/*  Step 2: Personalize  */}
+<div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg ambient-shadow">
+<h2 className="font-h3 text-h3 text-primary mb-md flex items-center gap-sm">
+<span className="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-button text-button">2</span>
+                        Personalize
+                    </h2>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div className="flex flex-col gap-xs">
+<label className="font-button text-button text-primary">Recipient's Name</label>
+<input className="border border-outline-variant rounded-DEFAULT p-sm bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary w-full" placeholder="Jane Doe" type="text"/>
+</div>
+<div className="flex flex-col gap-xs">
+<label className="font-button text-button text-primary">Your Name</label>
+<input className="border border-outline-variant rounded-DEFAULT p-sm bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary w-full" placeholder="John Smith" type="text"/>
+</div>
+<div className="md:col-span-2 flex flex-col gap-xs">
+<label className="font-button text-button text-primary">Personal Message (Optional)</label>
+<textarea className="border border-outline-variant rounded-DEFAULT p-sm bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary w-full resize-none" placeholder="Write a supportive message here..." rows={3}></textarea>
+</div>
+</div>
+</div>
+{/*  Step 3: Delivery  */}
+<div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg ambient-shadow">
+<h2 className="font-h3 text-h3 text-primary mb-md flex items-center gap-sm">
+<span className="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-button text-button">3</span>
+                        Delivery Method
+                    </h2>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+{/*  Email Delivery  */}
+<label className="cursor-pointer border-2 border-primary rounded-DEFAULT p-md flex items-start gap-sm bg-surface-container-low relative">
+<div className="mt-1">
+<input defaultChecked className="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="delivery" type="radio"/>
+</div>
+<div className="flex flex-col gap-xs">
+<span className="font-button text-button text-primary flex items-center gap-xs">
+<span className="material-symbols-outlined text-[18px]">mail</span>
+                                    Email to Recipient
+                                </span>
+<span className="font-body-md text-body-md text-on-surface-variant text-sm">Send instantly or schedule for a specific date.</span>
+</div>
+</label>
+{/*  Print Delivery  */}
+<label className="cursor-pointer border border-outline-variant hover:border-primary rounded-DEFAULT p-md flex items-start gap-sm bg-surface transition-colors">
+<div className="mt-1">
+<input className="w-5 h-5 text-primary focus:ring-primary border-outline-variant" name="delivery" type="radio"/>
+</div>
+<div className="flex flex-col gap-xs">
+<span className="font-button text-button text-primary flex items-center gap-xs">
+<span className="material-symbols-outlined text-[18px]">print</span>
+                                    Print at Home
+                                </span>
+<span className="font-body-md text-body-md text-on-surface-variant text-sm">Receive a PDF to print and hand-deliver yourself.</span>
+</div>
+</label>
+</div>
+{/*  Email details (conditionally visible in real app)  */}
+<div className="mt-md pt-md border-t border-outline-variant grid grid-cols-1 md:grid-cols-2 gap-md">
+<div className="flex flex-col gap-xs">
+<label className="font-button text-button text-primary">Recipient's Email</label>
+<input className="border border-outline-variant rounded-DEFAULT p-sm bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary w-full" placeholder="jane@example.com" type="email"/>
+</div>
+<div className="flex flex-col gap-xs">
+<label className="font-button text-button text-primary">Delivery Date</label>
+<input className="border border-outline-variant rounded-DEFAULT p-sm bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary w-full text-on-surface-variant" type="date"/>
+</div>
+</div>
+</div>
+</div>
+{/*  Right Column: Order Summary & Mockup  */}
+<div className="lg:col-span-4 sticky top-lg">
+<div className="bg-primary-container text-on-primary-container rounded-lg p-lg ambient-shadow flex flex-col gap-md">
+{/*  Gift Card Mockup  */}
+<div className="w-full aspect-[1.586/1] rounded-lg bg-gradient-to-br from-primary to-inverse-surface p-md flex flex-col justify-between ambient-shadow border border-outline-variant/20 relative overflow-hidden">
+{/*  Abstract design element  */}
+<div className="absolute -right-10 -top-10 w-40 h-40 bg-secondary-container opacity-20 rounded-full blur-2xl"></div>
+<div className="flex justify-between items-start z-10">
+<span className="font-h3 text-h3 text-on-primary tracking-tight">JMC Driving School</span>
+<span className="material-symbols-outlined text-on-primary" data-weight="fill">directions_car</span>
+</div>
+<div className="z-10 flex flex-col">
+<span className="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-widest">Gift Card</span>
+<span className="font-h1 text-h1 text-on-primary mt-[-4px]">$100</span>
+</div>
+</div>
+<hr className="border-on-primary-fixed-variant my-xs"/>
+{/*  Summary details  */}
+<div className="flex flex-col gap-sm">
+<div className="flex justify-between items-center">
+<span className="font-body-md text-body-md text-primary-fixed-dim">Gift Card Value</span>
+<span className="font-button text-button text-on-primary">$100.00</span>
+</div>
+<div className="flex justify-between items-center">
+<span className="font-body-md text-body-md text-primary-fixed-dim">Delivery (Email)</span>
+<span className="font-button text-button text-on-primary">Free</span>
+</div>
+</div>
+<hr className="border-on-primary-fixed-variant my-xs"/>
+<div className="flex justify-between items-end mb-sm">
+<span className="font-h3 text-h3 text-on-primary">Total</span>
+<span className="font-h2 text-h2 text-on-primary">$100.00</span>
+</div>
+{/*  CTA Button  */}
+<button className="bg-secondary-container text-on-secondary-container font-button text-button w-full py-md rounded-DEFAULT text-center ambient-shadow-hover transition-all duration-200">
+                        Purchase Gift Card
+                    </button>
+<p className="font-label-caps text-label-caps text-center text-primary-fixed-dim mt-xs">
+                        Secure checkout. Cards never expire.
+                    </p>
+</div>
+</div>
+</section>
+{/*  How It Works Section  */}
+<section className="mt-xl border-t border-outline-variant pt-xl text-center flex flex-col items-center">
+<h2 className="font-h2 text-h2 text-primary mb-xl">Redeeming is Simple</h2>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-lg w-full max-w-[1000px]">
+<div className="flex flex-col items-center gap-md">
+<div className="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span className="material-symbols-outlined text-[32px]" data-weight="fill">shopping_cart</span>
+</div>
+<h3 className="font-button text-button text-primary">1. Purchase Online</h3>
+<p className="font-body-md text-body-md text-on-surface-variant max-w-[250px]">
+                        Select your amount, personalize your message, and check out securely in minutes.
+                    </p>
+</div>
+<div className="flex flex-col items-center gap-md relative">
+{/*  Connector Line (Desktop)  */}
+<div className="hidden md:block absolute top-8 -left-1/2 w-full h-[2px] bg-surface-container-high -z-10"></div>
+<div className="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span className="material-symbols-outlined text-[32px]" data-weight="fill">mail</span>
+</div>
+<h3 className="font-button text-button text-primary">2. Instant Delivery</h3>
+<p className="font-body-md text-body-md text-on-surface-variant max-w-[250px]">
+                        The digital gift card is emailed instantly to the recipient with your custom message.
+                    </p>
+</div>
+<div className="flex flex-col items-center gap-md relative">
+{/*  Connector Line (Desktop)  */}
+<div className="hidden md:block absolute top-8 -left-1/2 w-full h-[2px] bg-surface-container-high -z-10"></div>
+<div className="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span className="material-symbols-outlined text-[32px]" data-weight="fill">directions_car</span>
+</div>
+<h3 className="font-button text-button text-primary">3. Start Driving</h3>
+<p className="font-body-md text-body-md text-on-surface-variant max-w-[250px]">
+                        They can use their unique code to book lessons or courses directly on our website.
+                    </p>
+</div>
+</div>
+</section>
+    </div>
+  );
+}
