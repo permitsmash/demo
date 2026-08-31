@@ -2,19 +2,18 @@ import { coursesEn, type CoursesMessages } from "./pages/courses";
 import { classesEn } from "./pages/classes";
 import { faqPageEn } from "./pages/faq";
 import { legalEn } from "./pages/legal";
-import { giftCardsEn } from "./pages/gift-cards";
 import { resourcesEn } from "./pages/resources";
 import {
   ageCheckerEn,
   authEn,
   careersEn,
 } from "./pages/misc";
+import { enrollmentEn, type EnrollmentMessages } from "./pages/enrollment";
 
 export const en = {
   nav: {
     programs: "Programs",
     classes: "Classes",
-    giftCards: "Gift Cards",
     about: "About",
     contact: "Contact",
     faq: "FAQ",
@@ -132,7 +131,7 @@ export const en = {
     missionP2:
       "Whether you are starting from zero or preparing for your road test, our certified instructors provide the professional instruction and support you need to succeed. We conduct all Driver's Ed classes in-person with smaller groups to ensure personalized attention.",
     missionP3Prefix:
-      "Our team serves a diverse community and offers support in English, Português, and Español. Contact our office at",
+      "Our team serves a diverse community and offers support in English, Português, Español, and Kreyòl Ayisyen. Contact our office at",
     missionP3Or: "or",
     missionP3Suffix: "to learn more about availability.",
     officeInfo: "Office Information",
@@ -183,11 +182,11 @@ export const en = {
   classes: classesEn,
   faqPage: faqPageEn,
   legal: legalEn,
-  giftCards: giftCardsEn,
   resources: resourcesEn,
   careers: careersEn,
   auth: authEn,
   ageChecker: ageCheckerEn,
+  enrollment: enrollmentEn,
 } as const;
 
 type HomeStringKey = Exclude<keyof typeof en.home, "faqs">;
@@ -206,9 +205,9 @@ export type Messages = {
   classes: { [K in keyof typeof en.classes]: string };
   faqPage: typeof faqPageEn;
   legal: { [K in keyof typeof en.legal]: string };
-  giftCards: { [K in keyof typeof en.giftCards]: string };
   resources: { [K in keyof typeof en.resources]: string };
   careers: { [K in keyof typeof en.careers]: string };
   auth: { [K in keyof typeof en.auth]: string };
   ageChecker: { [K in keyof typeof en.ageChecker]: string };
+  enrollment: EnrollmentMessages;
 };

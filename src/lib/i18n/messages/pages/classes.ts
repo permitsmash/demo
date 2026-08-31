@@ -11,7 +11,7 @@ export const classesEn = {
   session: "Session",
   dates: "Dates",
   action: "Action",
-  contactOffice: "Contact Office",
+  contactOffice: "Call to schedule",
   attentionTitle: "ATTENTION: Driver's Ed Classes: In-Person",
   attentionP1:
     "Dear Students and Parents: All Driver's Ed classes will be conducted in-person! As we offer smaller groups, slots are limited. Please hurry to guarantee your spot.",
@@ -37,7 +37,7 @@ export const classesEs = {
   session: "Sesión",
   dates: "Fechas",
   action: "Acción",
-  contactOffice: "Contactar oficina",
+  contactOffice: "Llamar para agendar",
   attentionTitle: "ATENCIÓN: clases de educación vial en persona",
   attentionP1:
     "Estimados estudiantes y padres: ¡Todas las clases de educación vial se impartirán en persona! Como ofrecemos grupos más pequeños, los cupos son limitados. Apúrese para garantizar su lugar.",
@@ -66,7 +66,7 @@ export const classesPt = {
   session: "Sessão",
   dates: "Datas",
   action: "Ação",
-  contactOffice: "Contatar escritório",
+  contactOffice: "Ligar para agendar",
   attentionTitle: "ATENÇÃO: aulas de educação para motoristas presenciais",
   attentionP1:
     "Caros alunos e pais: Todas as aulas de educação para motoristas serão realizadas presencialmente! Como oferecemos grupos menores, as vagas são limitadas. Apresse-se para garantir sua vaga.",
@@ -79,4 +79,31 @@ export const classesPt = {
   needHelp: "Precisa de ajuda?",
   needHelpDesc:
     "Ligue para nosso escritório no {phone} durante o horário de atendimento ({hours}) e ajudaremos você a encontrar a aula certa.",
+};
+
+export const classesHt = {
+  label: "Mizajou enpòtan",
+  title: "Edikasyon pou Chofè: Kou Akselere",
+  subtitle:
+    "Sesyon entansif an pèsòn ak dat fiks. Tout klas Edikasyon pou Chofè yo fèt an pèsòn nan biwo nou an nan Waltham. Tanpri kontakte biwo a pou plis enfòmasyon ak disponibilite.",
+  location: "Kote",
+  classFormat: "Fòma Klas",
+  classFormatDesc: "Klas an pèsòn ak gwoup pi piti. Plas limite.",
+  upcomingTitle: "Pwochen Sesyon Akselere",
+  upcomingDesc: "Kontakte biwo a pou konfime disponibilite epi enskri nan yon kou akselere.",
+  session: "Sesyon",
+  dates: "Dat",
+  action: "Aksyon",
+  contactOffice: "Rele pou pran randevou",
+  attentionTitle: "ATANSYON: Klas Edikasyon pou Chofè: An Pèsòn",
+  attentionP1:
+    "Chè Elèv ak Paran: Tout klas Edikasyon pou Chofè yo ap fèt an pèsòn! Paske nou ofri gwoup pi piti, plas yo limite. Tanpri prese pou garanti plas ou.",
+  attentionP2Prefix: "Ou ka enskri sou sit entènèt nou an, pa telefòn, oswa vizite biwo nou an. Kontakte nou nan",
+  attentionP2Or: "oswa",
+  refundDesc:
+    "Ou gen dwa pou yon ranbousman konplè nan 7 jou apre acha a si pa gen sèvis ki te itilize.",
+  roadTestNonRefundable: "FRÈ EGZAMEN WOUT LA PA REMBOURSAB.",
+  needHelp: "Ou bezwen èd?",
+  needHelpDesc:
+    "Rele biwo nou an nan {phone} pandan lè biwo a ({hours}) epi n ap ede ou jwenn klas ki bon pou ou.",
 };

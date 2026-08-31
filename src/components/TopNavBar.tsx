@@ -18,16 +18,15 @@ export default function TopNavBar() {
   const navLinks = [
     { href: "/courses", label: nav.programs },
     { href: "/classes", label: nav.classes },
-    { href: "/gift-cards", label: nav.giftCards },
     { href: "/about", label: nav.about },
     { href: "/contact", label: nav.contact },
     { href: "/faq", label: nav.faq },
   ];
 
   return (
-    <nav className="bg-primary border-b border-on-primary/10 w-full sticky top-0 z-50">
+    <nav className="bg-white border-b border-outline-variant w-full sticky top-0 z-50">
       <div className="hidden md:block bg-error text-on-error">
-        <div className="relative max-w-[1200px] mx-auto px-md py-1 flex items-center justify-between gap-md">
+        <div className="relative container-page py-1 flex items-center justify-between gap-md">
           <div className="text-body-sm font-body-sm">
             <span>{siteCopy.serviceArea}</span>
             <span className="mx-2">·</span>
@@ -38,7 +37,7 @@ export default function TopNavBar() {
           <LanguageSwitcher variant="banner" />
         </div>
       </div>
-      <div className="flex items-center max-w-[1200px] mx-auto px-md w-full py-4 gap-lg">
+      <div className="flex items-center container-page w-full py-3 gap-md">
         <Link href="/" className="flex shrink-0 items-center gap-xs">
           <Image
             src={logo}
@@ -60,7 +59,7 @@ export default function TopNavBar() {
                 className={`font-button text-button transition-colors duration-200 hover:text-secondary-container ${
                   isActive 
                     ? 'text-secondary-container font-bold border-b-2 border-secondary-container pb-xs' 
-                    : 'text-on-primary/80'
+                    : 'text-on-surface-variant'
                 }`}
               >
                 {link.label}
@@ -68,39 +67,39 @@ export default function TopNavBar() {
             );
           })}
         </div>
-        <div className="ml-auto flex gap-sm items-center">
-          <div className="md:hidden">
-            <LanguageSwitcher />
-          </div>
+        <div className="ml-auto hidden md:flex gap-sm items-center">
           <Link
             href="/sign-in"
-            className="hidden md:block font-button text-button text-on-primary hover:text-secondary-container transition-colors duration-200 active:scale-95 transition-transform duration-100 px-sm py-sm"
+            className="btn-ghost"
           >
             {nav.signIn}
           </Link>
           <Link
-            href="/sign-up"
-            className="hidden md:inline-flex bg-secondary-container text-on-secondary-container font-button text-button px-md py-sm rounded active:scale-95 transition-transform duration-100 hover:bg-secondary"
+            href="/courses"
+            className="btn-primary btn-primary-sm"
           >
             {nav.enroll}
           </Link>
+        </div>
+        <div className="ml-auto flex md:hidden gap-sm items-center">
+          <LanguageSwitcher />
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-on-primary/20 text-on-primary hover:bg-on-primary/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-container"
+            className="inline-flex items-center justify-center w-10 h-10 rounded border border-outline-variant text-primary hover:bg-surface-dim focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-container"
             aria-label={nav.toggleMenu}
             aria-expanded={isMobileOpen}
             onClick={() => setIsMobileOpen((prev) => !prev)}
           >
-            <span className="material-symbols-outlined">
+            <span className="material-symbols-outlined icon-base">
               {isMobileOpen ? 'close' : 'menu'}
             </span>
           </button>
         </div>
       </div>
       {isMobileOpen && (
-        <div className="md:hidden border-t border-on-primary/10 bg-primary">
-          <div className="max-w-[1200px] mx-auto px-md py-md flex flex-col gap-sm">
-            <p className="font-body-sm text-body-sm text-on-primary/80 pb-sm border-b border-on-primary/10">
+        <div className="md:hidden border-t border-outline-variant bg-white">
+          <div className="container-page py-md flex flex-col gap-sm">
+            <p className="font-body-sm text-body-sm text-on-surface-variant pb-sm border-b border-outline-variant">
               {siteCopy.serviceArea} ·{" "}
               <a href={`tel:${site.phoneTel}`} className="text-secondary-container">
                 {site.phone}
@@ -115,7 +114,7 @@ export default function TopNavBar() {
                   className={`font-button text-button py-xs ${
                     isActive
                       ? 'text-secondary-container font-bold'
-                      : 'text-on-primary/80 hover:text-secondary-container'
+                      : 'text-on-surface-variant hover:text-secondary-container'
                   }`}
                   onClick={() => setIsMobileOpen(false)}
                 >
@@ -123,17 +122,17 @@ export default function TopNavBar() {
                 </Link>
               );
             })}
-            <div className="pt-sm mt-sm border-t border-on-primary/10 flex gap-sm">
+            <div className="pt-sm mt-sm border-t border-outline-variant flex gap-sm">
               <Link
                 href="/sign-in"
-                className="flex-1 text-center font-button text-button text-on-primary border border-on-primary/20 rounded px-sm py-sm hover:bg-on-primary/10"
+                className="flex-1 text-center font-button text-button text-primary border border-outline-variant rounded px-sm py-sm hover:bg-surface-dim"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {nav.signIn}
               </Link>
               <Link
-                href="/sign-up"
-                className="flex-1 text-center font-button text-button bg-secondary-container text-on-secondary-container rounded px-sm py-sm hover:bg-secondary"
+                href="/courses"
+                className="flex-1 text-center btn-primary btn-primary-sm"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {nav.enroll}

@@ -23,35 +23,32 @@ export default function AgeChecker() {
   const eligible = calculateIsEligible(date);
 
   return (
-    <section className="w-full max-w-[420px] bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col gap-sm">
+    <section className="w-full max-w-content-md card flex flex-col gap-sm">
       <div className="flex items-center gap-xs">
-        <span
-          className="material-symbols-outlined text-secondary-container"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
+        <span className="material-symbols-outlined icon-base icon-filled text-secondary-container">
           event
         </span>
-        <h3 className="font-h3 text-h3 text-primary">{ac.title}</h3>
+        <h3 className="text-h3 text-primary">{ac.title}</h3>
       </div>
-      <p className="font-body-sm text-body-sm text-on-surface-variant">{ac.desc}</p>
+      <p className="text-body-sm text-on-surface-variant">{ac.desc}</p>
       <label className="flex flex-col gap-xs mt-xs">
-        <span className="font-button text-button text-primary">{ac.dobLabel}</span>
+        <span className="form-label">{ac.dobLabel}</span>
         <input
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="border border-outline-variant rounded-DEFAULT px-sm py-xs bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-primary"
+          className="input-field"
         />
       </label>
       {eligible !== null && (
         <div
-          className={`mt-xs rounded-md px-sm py-xs font-body-sm text-body-sm flex items-start gap-xs ${
+          className={`mt-xs rounded-md px-sm py-xs text-body-sm flex items-start gap-xs ${
             eligible
               ? "bg-secondary-container/10 text-secondary-container"
               : "bg-error-container/10 text-error"
           }`}
         >
-          <span className="material-symbols-outlined text-sm mt-[2px]">
+          <span className="material-symbols-outlined icon-sm mt-[2px]">
             {eligible ? "check_circle" : "error"}
           </span>
           <span>{eligible ? ac.eligible : ac.notEligible}</span>

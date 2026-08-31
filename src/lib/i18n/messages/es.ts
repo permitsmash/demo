@@ -3,19 +3,18 @@ import { coursesEs } from "./pages/courses";
 import { classesEs } from "./pages/classes";
 import { faqPageEs } from "./pages/faq";
 import { legalEs } from "./pages/legal";
-import { giftCardsEs } from "./pages/gift-cards";
 import { resourcesEs } from "./pages/resources";
 import {
   ageCheckerEs,
   authEs,
   careersEs,
 } from "./pages/misc";
+import { enrollmentEs } from "./pages/enrollment";
 
 export const es: Messages = {
   nav: {
     programs: "Programas",
     classes: "Clases",
-    giftCards: "Tarjetas de regalo",
     about: "Nosotros",
     contact: "Contacto",
     faq: "Preguntas frecuentes",
@@ -135,7 +134,7 @@ export const es: Messages = {
     missionP2:
       "Ya sea que comience desde cero o se prepare para su examen de manejo, nuestros instructores certificados brindan la instrucción profesional y el apoyo que necesita para tener éxito. Impartimos todas las clases de educación vial en persona con grupos más pequeños para garantizar atención personalizada.",
     missionP3Prefix:
-      "Nuestro equipo atiende a una comunidad diversa y ofrece apoyo en inglés, portugués y español. Contacte nuestra oficina al",
+      "Nuestro equipo atiende a una comunidad diversa y ofrece apoyo en inglés, portugués, español y criollo haitiano. Contacte nuestra oficina al",
     missionP3Or: "o",
     missionP3Suffix: "para conocer la disponibilidad.",
     officeInfo: "Información de la oficina",
@@ -186,9 +185,9 @@ export const es: Messages = {
   classes: classesEs,
   faqPage: faqPageEs,
   legal: legalEs,
-  giftCards: giftCardsEs,
   resources: resourcesEs,
   careers: careersEs,
   auth: authEs,
   ageChecker: ageCheckerEs,
+  enrollment: enrollmentEs,
 };

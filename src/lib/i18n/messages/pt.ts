@@ -3,19 +3,18 @@ import { coursesPt } from "./pages/courses";
 import { classesPt } from "./pages/classes";
 import { faqPagePt } from "./pages/faq";
 import { legalPt } from "./pages/legal";
-import { giftCardsPt } from "./pages/gift-cards";
 import { resourcesPt } from "./pages/resources";
 import {
   ageCheckerPt,
   authPt,
   careersPt,
 } from "./pages/misc";
+import { enrollmentPt } from "./pages/enrollment";
 
 export const pt: Messages = {
   nav: {
     programs: "Programas",
     classes: "Aulas",
-    giftCards: "Cartões-presente",
     about: "Sobre nós",
     contact: "Contato",
     faq: "Perguntas frequentes",
@@ -135,7 +134,7 @@ export const pt: Messages = {
     missionP2:
       "Seja começando do zero ou se preparando para o exame prático, nossos instrutores certificados oferecem a instrução profissional e o apoio que você precisa para ter sucesso. Realizamos todas as aulas de educação para motoristas presencialmente, em grupos menores, para garantir atenção personalizada.",
     missionP3Prefix:
-      "Nossa equipe atende uma comunidade diversa e oferece suporte em inglês, português e espanhol. Entre em contato com nosso escritório pelo",
+      "Nossa equipe atende uma comunidade diversa e oferece suporte em inglês, português, espanhol e crioulo haitiano. Entre em contato com nosso escritório pelo",
     missionP3Or: "ou",
     missionP3Suffix: "para saber sobre disponibilidade.",
     officeInfo: "Informações do escritório",
@@ -186,9 +185,9 @@ export const pt: Messages = {
   classes: classesPt,
   faqPage: faqPagePt,
   legal: legalPt,
-  giftCards: giftCardsPt,
   resources: resourcesPt,
   careers: careersPt,
   auth: authPt,
   ageChecker: ageCheckerPt,
+  enrollment: enrollmentPt,
 };

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import heroDriving from "@/app/hero-driving.jpg";
+import { GoogleMark } from "@/components/GoogleMark";
 import { AttentionAvatar3D } from "@/components/AttentionAvatar3DClient";
 import { HomepageJsonLd } from "@/components/HomepageJsonLd";
 import { ReviewScroller } from "@/components/ReviewScroller";
@@ -21,113 +21,99 @@ export default async function Page() {
     <>
       <HomepageJsonLd />
 
-      <section className="relative bg-surface-container-lowest overflow-hidden">
-        <div className="relative max-w-[1200px] mx-auto px-md py-xl md:py-[120px] grid md:grid-cols-2 gap-lg items-center min-h-[600px]">
-          <div className="order-2 md:order-1 z-10 flex flex-col gap-md">
+      <section className="hero-section relative overflow-hidden flex items-center">
+        <Image
+          src="/images/hero.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+        <div className="hero-scrim absolute inset-0" aria-hidden="true" />
+        <div className="relative container-page py-lg md:py-xl z-10 w-full">
+          <div className="max-w-prose-lg mx-auto flex flex-col items-center gap-md text-center">
             <h1 className="font-h1 text-h1 text-primary">{siteCopy.tagline}</h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[32rem]">
+            <p className="font-body-lg text-body-lg text-on-surface max-w-prose">
               {siteCopy.description}
             </p>
             <a
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-sm self-start bg-surface-container-lowest border border-outline-variant rounded-full px-md py-sm hover:border-secondary-container transition-colors"
+              className="inline-flex items-center gap-sm bg-surface-container-lowest border border-outline-variant rounded-full px-md py-sm hover:border-secondary-container transition-colors shadow-sm"
               aria-label={t(common.googleReviewsAria, { rating, count: totalReviews })}
             >
-              <span className="flex text-secondary-container">
+              <span className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    className="material-symbols-outlined text-[18px]"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
+                  <span key={i} className="material-symbols-outlined icon-base rating-star">
                     star
                   </span>
                 ))}
               </span>
-              <span className="font-h3 text-[16px] text-primary font-semibold">{rating}</span>
+              <span className="font-h3 text-lead text-primary">{rating}</span>
               <span className="font-body-sm text-body-sm text-on-surface-variant">
-                {t(common.googleReviews, { count: totalReviews })}
+                ({totalReviews}+ reviews)
               </span>
+              <GoogleMark className="text-on-surface-variant" />
             </a>
-            <div className="flex flex-col sm:flex-row gap-sm mt-sm">
-              <a
-                href={`tel:${site.phoneTel}`}
-                className="bg-secondary-container text-on-secondary-container font-button text-button px-lg py-md rounded hover:bg-secondary transition-colors active:scale-95 shadow-sm inline-flex items-center justify-center gap-xs"
-              >
+            <div className="flex flex-col sm:flex-row gap-sm mt-sm justify-center">
+              <a href={`tel:${site.phoneTel}`} className="btn-primary pressable">
                 {t(common.callNow, { phone: site.phone })}
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontVariationSettings: "'FILL' 0" }}
-                >
-                  call
-                </span>
+                <span className="material-symbols-outlined">call</span>
               </a>
-              <Link
-                href="/courses"
-                className="border-2 border-primary text-primary bg-transparent font-button text-button px-lg py-md rounded hover:bg-primary hover:text-on-primary transition-colors active:scale-95 inline-flex items-center justify-center"
-              >
+              <Link href="/courses" className="btn-outline pressable">
                 {common.viewPrograms}
               </Link>
             </div>
-            <div className="mt-md flex flex-wrap gap-sm">
-              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
-                <span className="material-symbols-outlined text-secondary-container text-[18px]">verified</span>
+            <div className="mt-md flex flex-wrap gap-sm justify-center">
+              <span className="pill pill-solid">
+                <span className="material-symbols-outlined text-secondary-container icon-base">verified</span>
                 {home.certifiedInstructors}
               </span>
-              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
-                <span className="material-symbols-outlined text-secondary-container text-[18px]">calendar_month</span>
+              <span className="pill pill-solid">
+                <span className="material-symbols-outlined text-secondary-container icon-base">calendar_month</span>
                 {home.flexibleScheduling}
               </span>
-              <span className="inline-flex items-center gap-xs bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant rounded-full px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
-                <span className="material-symbols-outlined text-secondary-container text-[18px]">assignment_turned_in</span>
+              <span className="pill pill-solid">
+                <span className="material-symbols-outlined text-secondary-container icon-base">assignment_turned_in</span>
                 {home.roadTestSponsorship}
               </span>
             </div>
           </div>
-          <div className="order-1 md:order-2 relative h-[400px] md:h-full min-h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest/60 border border-outline-variant">
-            <Image
-              src={heroDriving}
-              alt={t(home.heroAlt, { name: site.name })}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
         </div>
       </section>
 
-      <section className="bg-surface-dim py-xl">
-        <div className="max-w-[1200px] mx-auto px-md text-center">
+      <section className="section bg-surface-dim">
+        <div className="container-page text-center">
           <h2 className="font-h2 text-h2 text-primary mb-sm">
             {t(home.whyChoose, { name: site.name })}
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto mb-lg">
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto mb-lg">
             {home.whyChooseDesc}
           </p>
           <div className="grid md:grid-cols-3 gap-md">
-            <div className="p-md rounded-lg border border-outline-variant bg-surface">
-              <div className="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md mx-auto">
-                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+            <div className="card-elevated">
+              <div className="icon-box mb-md mx-auto">
+                <span className="material-symbols-outlined icon-lg icon-filled">verified</span>
               </div>
               <h3 className="font-h3 text-h3 text-primary mb-xs">{home.certifiedInstructors}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
                 {home.certifiedInstructorsDesc}
               </p>
             </div>
-            <div className="p-md rounded-lg border border-outline-variant bg-surface">
-              <div className="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md mx-auto">
-                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>calendar_month</span>
+            <div className="card-elevated">
+              <div className="icon-box mb-md mx-auto">
+                <span className="material-symbols-outlined icon-lg icon-filled">calendar_month</span>
               </div>
               <h3 className="font-h3 text-h3 text-primary mb-xs">{home.flexibleScheduling}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
                 {home.flexibleSchedulingDesc}
               </p>
             </div>
-            <div className="p-md rounded-lg border border-outline-variant bg-surface">
-              <div className="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-primary mb-md mx-auto">
-                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>assignment_turned_in</span>
+            <div className="card-elevated">
+              <div className="icon-box mb-md mx-auto">
+                <span className="material-symbols-outlined icon-lg icon-filled">assignment_turned_in</span>
               </div>
               <h3 className="font-h3 text-h3 text-primary mb-xs">{home.roadTestSponsorship}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
@@ -138,16 +124,13 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="bg-surface py-xl">
-        <div className="max-w-[1200px] mx-auto px-md">
+      <section className="section bg-surface">
+        <div className="container-page">
           <div className="text-center mb-lg">
-            <span className="text-label-caps font-label-caps text-secondary-container uppercase tracking-widest">
-              {home.programsLabel}
-            </span>
-            <h2 className="font-h2 text-h2 text-primary mb-sm mt-sm">
+            <h2 className="font-h2 text-h2 text-primary mb-sm">
               {home.acceleratedTitle}
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
               {home.acceleratedDescPrefix}{" "}
               <Link href="/courses" className="text-secondary-container font-semibold hover:underline">
                 {home.drivingPrograms}
@@ -172,28 +155,14 @@ export default async function Page() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-sm">
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="inline-flex items-center justify-center bg-primary text-on-primary font-button text-button px-lg py-md rounded hover:bg-inverse-surface transition-colors"
-            >
-              {t(common.callNow, { phone: site.phone })}
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center border-2 border-primary text-primary font-button text-button px-lg py-md rounded hover:bg-surface-dim transition-colors"
-            >
-              {home.contactOffice}
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="bg-surface-dim py-xl">
-        <div className="max-w-[1200px] mx-auto px-md">
+      <section className="section bg-surface-dim">
+        <div className="container-page">
           <div className="text-center mb-lg">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.roadTestTitle}</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
               {home.roadTestDesc}
             </p>
           </div>
@@ -204,7 +173,7 @@ export default async function Page() {
                 href={location.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-lg overflow-hidden border border-outline-variant bg-surface shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                className="group block overflow-hidden rounded-lg border border-outline-variant elevation-1 lift-on-hover"
                 aria-label={t(home.rmvAria, { name: location.name })}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -216,10 +185,8 @@ export default async function Page() {
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-sm py-md pt-xl">
-                    <p className="font-h3 text-[16px] text-white">{location.name}</p>
-                    <p className="font-body-sm text-[12px] text-white/80 leading-snug mt-xs">
-                      {location.address}
-                    </p>
+                    <p className="text-overlay">{location.name}</p>
+                    <p className="text-overlay-muted">{location.address}</p>
                   </div>
                 </div>
               </a>
@@ -228,11 +195,11 @@ export default async function Page() {
         </div>
       </section>
 
-      <section id="reviews" className="bg-surface py-xl overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-md mb-lg">
+      <section id="reviews" className="section bg-surface overflow-hidden">
+        <div className="container-page mb-lg">
           <div className="text-center">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.reviewsTitle}</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
               {t(home.reviewsDesc, { name: site.name })}
             </p>
           </div>
@@ -240,19 +207,19 @@ export default async function Page() {
         <ReviewScroller />
       </section>
 
-      <section className="bg-primary py-xl overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-md">
+      <section className="section bg-primary overflow-hidden">
+        <div className="container-page">
           <div className="grid md:grid-cols-[minmax(220px,280px)_1fr] gap-lg items-center mb-lg">
             <AttentionAvatar3D />
             <div className="text-center md:text-left">
-              <span className="inline-flex items-center gap-xs bg-secondary-container text-on-secondary-container font-label-caps text-label-caps uppercase tracking-widest px-md py-xs rounded-full mb-sm">
-                <span className="material-symbols-outlined text-[16px]">campaign</span>
+              <span className="badge mb-sm">
+                <span className="material-symbols-outlined icon-sm">campaign</span>
                 {home.attentionLabel}
               </span>
               <h2 className="font-h2 text-h2 text-on-primary mb-md">
                 {home.attentionTitle}
               </h2>
-              <div className="space-y-md font-body-md text-body-md text-on-primary-container max-w-[48rem] mx-auto md:mx-0 text-left">
+              <div className="space-y-md font-body-md text-body-md text-on-primary-container max-w-prose-xl mx-auto md:mx-0 text-left">
                 <p>
                   <strong>{home.attentionGreeting}</strong> {home.attentionP1}
                 </p>
@@ -265,7 +232,7 @@ export default async function Page() {
               </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-md max-w-[48rem] md:max-w-none mx-auto text-left">
+          <div className="grid md:grid-cols-3 gap-md max-w-prose-xl md:max-w-none mx-auto text-left">
             <div className="bg-on-primary/10 rounded-lg p-md border border-on-primary/20">
               <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.officeHours}</h3>
               <p className="font-body-md text-body-md text-on-primary-container">{siteCopy.officeHours}</p>
@@ -283,56 +250,36 @@ export default async function Page() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-sm mt-lg">
-            <Link
-              href="/courses"
-              className="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container font-button text-button px-lg py-md rounded hover:bg-secondary transition-colors"
-            >
-              {common.viewPrograms}
-            </Link>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="inline-flex items-center justify-center border-2 border-on-primary text-on-primary font-button text-button px-lg py-md rounded hover:bg-on-primary/10 transition-colors"
-            >
-              {t(common.callNow, { phone: site.phone })}
-            </a>
-          </div>
         </div>
       </section>
 
-      <section className="bg-surface-dim py-xl">
-        <div className="max-w-[1200px] mx-auto px-md">
+      <section className="section bg-surface-dim">
+        <div className="container-page">
           <div className="text-center mb-lg">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.faqTitle}</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
               {home.faqDesc}
             </p>
           </div>
-          <div className="max-w-[48rem] mx-auto flex flex-col gap-sm">
+          <div className="max-w-prose-xl mx-auto flex flex-col gap-sm">
             {home.faqs.map((item) => (
-              <details
-                key={item.question}
-                className="group bg-surface border border-outline-variant rounded-lg overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-              >
-                <summary className="font-h3 text-[18px] text-on-surface p-md cursor-pointer flex justify-between items-center gap-md hover:bg-surface-container-low transition-colors">
+              <details key={item.question} className="accordion group">
+                <summary className="accordion-summary">
                   {item.question}
                   <span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform duration-200 shrink-0">
                     expand_more
                   </span>
                 </summary>
-                <div className="px-md pb-md pt-0 font-body-md text-body-md text-on-surface-variant border-t border-outline-variant">
-                  <p className="pt-md">{item.answer}</p>
+                <div className="accordion-body">
+                  <p>{item.answer}</p>
                 </div>
               </details>
             ))}
           </div>
           <div className="text-center mt-lg">
-            <Link
-              href="/faq"
-              className="inline-flex items-center gap-xs font-button text-button text-secondary-container hover:text-secondary transition-colors"
-            >
+            <Link href="/faq" className="btn-link">
               {common.viewAllFaqs}
-              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+              <span className="material-symbols-outlined icon-base">arrow_forward</span>
             </Link>
           </div>
         </div>

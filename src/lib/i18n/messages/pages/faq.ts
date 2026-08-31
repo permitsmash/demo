@@ -532,3 +532,180 @@ export const faqPagePt = {
 };
 
 export type FaqPageMessages = typeof faqPageEn;
+
+const faqProgramsHt: FaqItem[] = [
+  {
+    question: "Ki pwogram nou ofri?",
+    answer:
+      "Nou ofri Pwogram Edikasyon Chofè, Klas Paran/Gadyen, Leson Kondwi pou Granmoun, Leson sou Otowout, ak Patwone pou Egzamen sou Wout la. Ou ka wè tout opsyon yo sou paj Pwogram nou an oswa kontakte biwo a pou jwenn gid.",
+  },
+  {
+    question: "Kijan mwen ka konnen ki pwogram ki bon pou mwen?",
+    answer:
+      "Sa depann de laj ou, eksperyans kondwi ou genyen kounye a, ak sa ou bezwen plis — Edikasyon Chofè, leson kondwi, leson refè, oswa patwone pou egzamen sou wout la. Kontakte nou epi n ap ede ou chwazi pi bon opsyon an.",
+  },
+  {
+    question: "Èske mwen bezwen ranpli yon fòm sou entènèt?",
+    answer:
+      "Gen kèk sèvis ki gen fòm enskripsyon sou entènèt pou fasilite. Si ou prefere, ou ka kontakte biwo a dirèkteman pou jwenn gid anvan ou soumèt yon fòm.",
+  },
+  {
+    question: "Èske granmoun ka enskri pou leson menm si yo débutan?",
+    answer:
+      "Wi. Elèv granmoun ka enskri kit yo débutan konplè, bezwen fòmasyon refè, oswa vle patwone ki konsantre sou egzamen sou wout la.",
+  },
+];
+
+const faqLessonsHt: FaqItem[] = [
+  {
+    question: "Kijan mwen ka pran randevou pou leson kondwi?",
+    answer:
+      "Rele biwo a nan (781) 373-1730 oswa voye yon mesaj ak jou ak lè ou prefere yo. Disponibilite a ka varye selon demann lan ak orè enstriktè yo.",
+  },
+  {
+    question: "Èske gen leson ki disponib nan fen semèn nan?",
+    answer:
+      "Disponibilite a ka varye, kidonk pi bon fason pou konfime opsyon orè aktyèl yo se kontakte biwo a dirèkteman.",
+  },
+  {
+    question: "Kisa mwen dwe pote nan yon leson?",
+    answer:
+      "Ou dwe rive nan biwo JMC la kèk minit anvan lè ou te pran randevou a. Si ou gen restriksyon B sou pèmi ou, linèt oswa lens yo obligatwa.",
+  },
+  {
+    question: "Kisa ki rive si mwen bezwen anile oswa chanje randevou a?",
+    answer:
+      "Ou dwe bay 48 èdtan avètisman pandan lè biwo a louvri (2 jou ouvrab) pou chanje yon leson san frè. Si ou pa bay avètisman kòrèk la, ou pral pèdi leson an ak peman an.",
+  },
+  {
+    question: "Konbyen tan chak leson kondwi dire?",
+    answer:
+      "Leson kondwi estanda nou yo dire 90 minit. Nou jwenn ke dire sa a se pi bon pou kenbe konsantrasyon pandan nou gen ase tan pou pratike plizyè manèv ak wout.",
+  },
+  {
+    question: "Kijan mwen ka jwenn yon klas epi enskri?",
+    answer:
+      "Fason ki pi fasil la se itilize paj Klas sou sit sa a pou wè dat kou akselere yo, oswa kontakte biwo nou an nan (781) 373-1730 oswa contact@jmcdrivingschool.com. Ou ka enskri sou sit entènèt nou an, pa telefòn, oswa vizite biwo nou an nan Waltham.",
+  },
+  {
+    question: "Èske gen yon klas obligatwa pou paran/gadyen?",
+    answer:
+      "Wi. Pou nouvo elèv depi 1ye me 2019, Biwo Enskripsyon MA a egzije yon klas obligatwa 2 èdtan pou paran/gadyen. Li dwe fini anvan nenpòt leson sou wout la kòmanse, men li pa bezwen fini anvan sesyon klas yo.",
+  },
+  {
+    question: "Ki dokiman mwen dwe pote nan premye leson mwen an?",
+    answer:
+      "Pou premye leson kondwi ou an, ou dwe pote pèmi aprantisaj fizik ou ki valab. Kopi dijital yo pa aksepte selon lwa eta a. Ou dwe mete soulye fèmen tou epi pote linèt korektif si pèmi ou egzije sa.",
+  },
+];
+
+const faqTestHt: FaqItem[] = [
+  {
+    question: "Èske nou ofri patwone pou egzamen sou wout la?",
+    answer:
+      "Wi. JMC Driving School ofri patwone pou egzamen sou wout la nan biwo nou an nan Waltham ak nan kote RMV yo nan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, ak Milford. Nou ofri patwone pou egzamen samdi nan biwo JMC a oswa jou ouvrab nan kèk kote RMV. Kontakte biwo a pou frè ak disponibilite aktyèl yo. Frè egzamen sou wout la pa ranbousab.",
+  },
+  {
+    question: "Èske mwen ta dwe rele anvan mwen soumèt fòm egzamen sou wout la?",
+    answer:
+      "Wi. Li rekòmande pou rele an premye pou nou ka konfime disponibilite, zòn RMV ou prefere a, lè, ak nenpòt egzijans anvan ou kontinye.",
+  },
+  {
+    question: "Èske nou ka ede mwen prepare anvan dat egzamen sou wout la mwen an?",
+    answer:
+      "Absoliman. Nou kouvri tout règ, regleman, ak manèv yo pandan leson nou yo. Nou konseye chofè ki gen eksperyans pran omwen 2 leson anvan egzamen sou wout la.",
+  },
+  {
+    question: "Kote mwen ka pratike pou egzamen pèmi a?",
+    answer:
+      "Ou ka itilize paj Resous nou an pou gid etid ak materyèl pratik, epi sit prensipal JMC Driving School la gen lyen tou pou tès pratik pèmi ofisyèl yo. Zouti sa yo se yon bon fason pou prepare anvan ou pran randevou pou egzamen pèmi ou an.",
+  },
+];
+
+const faqGeneralHt: FaqItem[] = [
+  {
+    question: "Ki egzijans laj pou kòmanse leson kondwi?",
+    answer:
+      "Selon règ RMV Massachusetts la, elèv yo dwe gen omwen 15 an ak 9 mwa anvan premye jou klas la. Yon pèmi aprantisaj valab obligatwa anvan nenpòt leson sou wout (kondwi) ka pran randevou.",
+  },
+  {
+    question: "Ki zòn nou sèvi?",
+    answer:
+      "JMC Driving School sèvi Waltham, MA ak zòn ki tou pre yo, enkli patwone pou egzamen sou wout la nan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, ak Milford. Kontakte biwo a pou konfime disponibilite pwogram nan zòn ou an.",
+  },
+  {
+    question: "Èske mwen bezwen pwòp kont mwen oswa yon paran ka enskri pou mwen?",
+    answer:
+      "Lè w ap enskri sou entènèt, kont la toujou dwe kreye nan non elèv la ak enfòmasyon elèv la. Yon paran/gadyen ka fè peman an, men pwofil la dwe matche ak elèv la.",
+  },
+  {
+    question: "Èske nou ede elèv nan plizyè lang?",
+    answer:
+      "Wi. Sipò disponib nan angle (English), pòtigè (Portuguese), panyòl (Spanish), ak kreyòl ayisyen (Haitian Creole).",
+  },
+  {
+    question: "Kote nou sitiye?",
+    answer: "973 Main Street, Waltham, MA 02451",
+  },
+  {
+    question: "Kijan mwen ka kontakte JMC Driving School?",
+    answer:
+      "Ou ka rele nou nan (781) 373-1730 oswa voye imèl nan contact@jmcdrivingschool.com. Lè biwo a: lun–vèn 10am–4pm.",
+  },
+  {
+    question: "Èske nou gen yon règleman sou vi prive?",
+    answer:
+      "Wi. Ou ka li li sou paj Enfòmasyon Legal nou an.",
+  },
+];
+
+const faqPricingHt: FaqItem[] = [
+  {
+    question: "Ki metòd peman nou aksepte?",
+    answer:
+      "Nou aksepte prensipal kat kredi ak debi pou peman sou entènèt. Ou ka peye an pèsòn tou nan biwo nou an nan Waltham pandan lè biwo a pibliye yo (lun–vèn 10am–4pm).",
+  },
+  {
+    question: "Èske gen yon depo obligatwa?",
+    answer:
+      "Wi. Yon depo $400 obligatwa anvan sesyon klas yo kòmanse pou pake pwogram konplè a. Rès la dwe peye nan dènye jou klas la.",
+  },
+  {
+    question: "Ki règleman sou souchaj gaz la?",
+    answer:
+      "Si pri gaz la rive nan $4.00 oswa pi wo, yon souchaj $5.00 pa leson sou wout la ajoute pou ede kouvri depans gaz la.",
+  },
+  {
+    question: "Kijan frè RMV yo diferan de frè JMC Driving School yo?",
+    answer:
+      "Frè JMC Driving School yo kouvri klas, leson sou wout, obsèvasyon, ak sètifika. Apa de sa, RMV Massachusetts la chaje $50 pou lisans lan ak $35 pou egzamen eta a (total $85). Frè RMV yo peye dirèkteman bay eta a, ideyalman sou entènèt anvan dat egzamen ou an.",
+  },
+  {
+    question: "Èske nou ofri sètifika kado?",
+    answer:
+      "Wi. Sètifika kado disponib epi yo ka itilize pou leson oswa pwogram konplè. Vizite paj Kat Kado nou an oswa kontakte biwo a pou achte.",
+  },
+];
+
+export const faqPageHt = {
+  title: "Kesyon yo Poze Souvan",
+  subtitle:
+    "Repons rapid sou pwogram, enskripsyon, orè, egzamen sou wout, ak règleman jeneral.",
+  searchPlaceholder: "Chèche sijè, pa egzanp 'règleman anilasyon'",
+  programs: "Pwogram ak Enskripsyon",
+  lessons: "Leson ak Orè",
+  test: "Egzamen sou Wout",
+  general: "Enfòmasyon Jeneral",
+  pricing: "Pri ak Peman",
+  ctaTitle: "Ou gen lòt kesyon?",
+  ctaDesc:
+    "Si ou pa jwenn sa w ap chèche a, ekip sipò nou an pare pou ede ou nan vwayaj ou an.",
+  contactSupport: "Kontakte Sipò",
+  categories: {
+    programs: faqProgramsHt,
+    lessons: faqLessonsHt,
+    test: faqTestHt,
+    general: faqGeneralHt,
+    pricing: faqPricingHt,
+  },
+};

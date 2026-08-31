@@ -85,7 +85,7 @@ export const site = {
   ],
   googleReviews: {
     rating: 4.9,
-    totalReviews: 1275,
+    totalReviews: 1315,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=JMC+Driving+School+973+Main+Street+Waltham+MA+02451",
     reviews: [
@@ -163,7 +163,7 @@ export const site = {
       },
     ],
   },
-  languages: ["English", "Português", "Español"],
+  languages: ["English", "Português", "Español", "Kreyòl Ayisyen"],
   homepageFaqs: [
     {
       question: "Which areas does JMC Driving School serve?",

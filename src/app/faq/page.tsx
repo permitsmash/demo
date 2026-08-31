@@ -6,18 +6,15 @@ function FaqItems({ items }: { items: readonly { question: string; answer: strin
   return (
     <div className="flex flex-col gap-sm">
       {items.map((item) => (
-        <details
-          key={item.question}
-          className="group bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-        >
-          <summary className="font-h3 text-h3 text-on-surface p-md cursor-pointer flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        <details key={item.question} className="accordion group">
+          <summary className="accordion-summary">
             {item.question}
-            <span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform duration-200">
+            <span className="material-symbols-outlined icon-base text-outline-variant group-open:rotate-180 transition-transform duration-200">
               expand_more
             </span>
           </summary>
-          <div className="p-md pt-0 text-on-surface-variant font-body-md text-body-md border-t border-outline-variant mt-2 pt-4">
-            {item.answer}
+          <div className="accordion-body">
+            <p>{item.answer}</p>
           </div>
         </details>
       ))}
@@ -47,7 +44,7 @@ export default async function Page() {
 
   return (
     <>
-      <section className="relative bg-primary py-xl px-md overflow-hidden">
+      <section className="relative bg-primary section-padded overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-cover bg-center"
           style={{
@@ -55,17 +52,17 @@ export default async function Page() {
               "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQLRiXY0UmgyTnjZ47s3bJ4guCUbznXjn3F4yeilgOslORiBcPPT_WzwEN0swh_yw9nazNDr4MW0Y6G9-n0ptCL_SCtVm10vmq3QZu0nxRazxNCZcBlq7xOCkSqoq1Wer_6TBtAAqTZo77ZXhUnnGpdXt_2E2qUOSKNEU5KFciHj-7BOOWJheGide-U2B2UJySNqkfEMCzcOA-cKAePAjGG7kGiTp5WRtVaHGtav672vzgcicBGyxxFNdZa-yBOCDnK8tLJZWyq4A')",
           }}
         />
-        <div className="relative max-w-[1200px] mx-auto text-center z-10">
+        <div className="relative container-page text-center z-10">
           <h1 className="font-h1 text-h1 text-on-primary mb-md">{f.title}</h1>
-          <p className="font-body-lg text-body-lg text-on-primary-container max-w-[42rem] mx-auto mb-lg">
+          <p className="text-body-lg text-on-primary-container max-w-prose mx-auto mb-lg">
             {f.subtitle}
           </p>
-          <div className="max-w-[36rem] mx-auto relative group">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">
+          <div className="max-w-prose-md mx-auto relative group">
+            <span className="material-symbols-outlined icon-base absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">
               search
             </span>
             <input
-              className="w-full pl-12 pr-4 py-3 rounded-lg border-none bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm focus:ring-2 focus:ring-secondary-container focus:outline-none transition-shadow"
+              className="input-field-icon rounded-lg elevation-1"
               placeholder={f.searchPlaceholder}
               type="text"
             />
@@ -73,7 +70,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="max-w-[1200px] mx-auto px-md py-xl">
+      <section className="container-page section">
         <div className="grid md:grid-cols-12 gap-xl items-start">
           <aside className="hidden md:block md:col-span-3 sticky top-32">
             <nav className="flex flex-col gap-sm border-l border-outline-variant pl-sm">
@@ -83,7 +80,7 @@ export default async function Page() {
                   className={`py-2 pl-3 transition-colors ${
                     index === 0
                       ? "font-button text-button text-secondary-container border-l-2 border-secondary-container -ml-[13px]"
-                      : "font-body-md text-body-md text-on-surface-variant hover:text-primary"
+                      : "text-body-md text-on-surface-variant hover:text-primary"
                   }`}
                   href={`#${cat.id}`}
                 >
@@ -97,7 +94,7 @@ export default async function Page() {
             {categorySections.map((section) => (
               <div key={section.id} className="scroll-mt-32" id={section.id}>
                 <div className="flex items-center gap-sm mb-md border-b border-outline-variant pb-2">
-                  <span className="material-symbols-outlined text-secondary-container">
+                  <span className="material-symbols-outlined icon-base text-secondary-container">
                     {section.icon}
                   </span>
                   <h2 className="font-h2 text-h2 text-primary">{f[section.labelKey]}</h2>
@@ -109,17 +106,12 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="bg-surface-container-low py-xl px-md border-t border-outline-variant">
-        <div className="max-w-[48rem] mx-auto text-center flex flex-col items-center">
-          <span className="material-symbols-outlined text-primary text-4xl mb-sm" style={{ fontSize: "48px" }}>
-            support_agent
-          </span>
+      <section className="section-padded bg-surface-container-low border-t border-outline-variant">
+        <div className="max-w-prose mx-auto text-center flex flex-col items-center">
+          <span className="material-symbols-outlined icon-2xl text-primary mb-sm">support_agent</span>
           <h2 className="font-h2 text-h2 text-primary mb-sm">{f.ctaTitle}</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-lg">{f.ctaDesc}</p>
-          <Link
-            href="/contact"
-            className="bg-secondary-container text-on-secondary-container font-button text-button px-lg py-3 rounded-lg hover:bg-secondary transition-colors duration-200 shadow-sm w-full sm:w-auto inline-flex items-center justify-center"
-          >
+          <p className="text-body-md text-on-surface-variant mb-lg">{f.ctaDesc}</p>
+          <Link href="/contact" className="btn-primary w-full sm:w-auto">
             {f.contactSupport}
           </Link>
         </div>

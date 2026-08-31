@@ -207,3 +207,73 @@ export const ageCheckerPt = {
   eligible: "Este aluno atende ao requisito mínimo de idade.",
   notEligible: "Este aluno ainda não atende ao requisito mínimo de 15 anos e 9 meses.",
 };
+
+export const careersHt = {
+  heroTitle: "Vin Jwenn Ekip Enstriktè Ekspè Nou yo",
+  heroDesc:
+    "Fòme pwochen jenerasyon chofè ki an sekirite ak ki gen konfyans. Bati yon karyè ki gen valè ak sipò ki dirije endisti a, orè fleksib, ak resous avanse.",
+  viewPositions: "Gade Pozisyon Ki Disponib",
+  whyWorkTitle: "Poukisa Travay Ak Nou",
+  whyWorkDesc:
+    "Nou envesti nan ekip nou an pou yo ka envesti nan elèv nou yo. Dekouvri yon anviwònman travay ki fèt pou siksè ou.",
+  flexibleScheduling: "Orè Fleksib",
+  flexibleSchedulingDesc:
+    "Fè yon orè travay ki adapte ak lavi ou. Nou ofri opòtinite tan plen, demi-tan, ak wikenn.",
+  modernFleet: "Flòt Modèn",
+  modernFleetDesc:
+    "Anseye nan machin avanse, byen antretyen, ki gen doub kontwòl ak fonksyon sekirite avanse.",
+  professionalGrowth: "Devlopman Pwofesyonèl",
+  professionalGrowthDesc:
+    "Fòmasyon kontinyèl, sipò pou sètifikasyon, ak chemen klè pou avanse nan karyè nan konpayi an.",
+  coreValues: "Valè Fondamantal Nou yo",
+  integrity: "Entegrite",
+  integrityDesc:
+    "Nou respekte pi wo estanda etik yo, asire onètete ak transparans nan chak leson.",
+  patience: "Pasyans",
+  patienceDesc:
+    "Aprann kondwi se yon vwayaj. Nou kreye yon anviwònman kalm ak sipòtif kote elèv yo santi yo alèz pou fè erè e grandi.",
+  safetyFirst: "Sekirite An Premye",
+  safetyFirstDesc:
+    "Sekirite se pa sèlman yon priyorite; se prensip fondamantal nou an. Nou enstale abitid kondwi defansif ki pwoteje elèv nou yo ak kominote a pou tout lavi.",
+  openPositions: "Pozisyon Ki Disponib",
+  certifiedInstructor: "Enstriktè Kondwi Sètifye",
+  multipleLocations: "Plizyè Kote",
+  fullPartTime: "Tan Plen / Demi-Tan",
+  applyNow: "Aplike Kounye a",
+  instructorCoordinator: "Kowòdonatè Enstriktè",
+  walthamOffice: "Biwo Waltham",
+  fullTime: "Tan Plen",
+  viewDetails: "Gade Detay",
+  dontSeeFit: "Ou pa wè yon pozisyon ki bon pou ou?",
+  generalApplicationDesc:
+    "Nou toujou ap chèche pwofesyonèl pasyone pou rantre nan ekip nou an. Voye CV ou epi n ap kenbe ou nan tèt nou pou opòtinite nan lavni.",
+  submitGeneralApplication: "Soumèt Aplikasyon Jeneral",
+};
+
+export const authHt = {
+  welcomeBack: "Byenveni Anko",
+  signInSubtitle: "Tanpri konekte pou kontinye pwogrè ou.",
+  orSignInEmail: "oswa konekte ak imèl",
+  password: "Modpas",
+  forgotPassword: "Ou bliye modpas ou?",
+  noAccount: "Ou pa gen yon kont?",
+  signUp: "Enskri",
+  createAccount: "Kreye yon Kont",
+  signUpSubtitle: "Kòmanse vwayaj ou pou kondwi an sekirite jodi a.",
+  signUpGoogle: "Enskri ak Google",
+  signUpFacebook: "Enskri ak Facebook",
+  or: "oswa",
+  phoneNumber: "Nimewo Telefòn",
+  agreeTerms: "Mwen dakò ak",
+  termsAndConditions: "Tèm ak Kondisyon yo",
+  createAccountBtn: "Kreye Kont",
+  alreadyHaveAccount: "Ou deja gen yon kont?",
+};
+
+export const ageCheckerHt = {
+  title: "Verifye eligibilite selon laj",
+  desc: "Selon règ RMV yo, elèv yo dwe gen omwen 15 ane ak 9 mwa anvan premye jou klas la.",
+  dobLabel: "Dat nesans elèv la",
+  eligible: "Elèv sa a satisfè egzijans minimòm laj la.",
+  notEligible: "Elèv sa a poko satisfè egzijans minimòm 15 ane ak 9 mwa a.",
+};

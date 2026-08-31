@@ -32,16 +32,12 @@ export default async function Page() {
             <p className="font-body-md text-body-md text-on-surface-variant">{auth.signInSubtitle}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-sm mb-6">
-            <button className="flex-1 flex items-center justify-center gap-2 border border-outline-variant rounded p-3 text-on-background font-button text-button hover:bg-surface-container-low transition-colors">
-              <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
-                language
-              </span>
+            <button type="button" className="btn-social flex-1">
+              <span className="material-symbols-outlined icon-md">language</span>
               Google
             </button>
-            <button className="flex-1 flex items-center justify-center gap-2 border border-outline-variant rounded p-3 text-on-background font-button text-button hover:bg-surface-container-low transition-colors">
-              <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
-                thumb_up
-              </span>
+            <button type="button" className="btn-social flex-1">
+              <span className="material-symbols-outlined icon-md">thumb_up</span>
               Facebook
             </button>
           </div>
@@ -54,15 +50,15 @@ export default async function Page() {
           </div>
           <form action="#" method="POST">
             <div className="mb-4">
-              <label className="block font-body-md text-body-md text-primary mb-2" htmlFor="email">
+              <label className="form-label block mb-2" htmlFor="email">
                 {contact.emailAddress}
               </label>
               <div className="relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
+                <span className="material-symbols-outlined icon-base absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
                   mail
                 </span>
                 <input
-                  className="w-full pl-10 pr-3 py-3 border border-outline-variant rounded font-body-md text-body-md text-on-background bg-surface-container-lowest focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow"
+                  className="input-field-icon"
                   id="email"
                   name="email"
                   placeholder={contact.emailPlaceholder}
@@ -72,15 +68,15 @@ export default async function Page() {
               </div>
             </div>
             <div className="mb-2">
-              <label className="block font-body-md text-body-md text-primary mb-2" htmlFor="password">
+              <label className="form-label block mb-2" htmlFor="password">
                 {auth.password}
               </label>
               <div className="relative">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
+                <span className="material-symbols-outlined icon-base absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">
                   lock
                 </span>
                 <input
-                  className="w-full pl-10 pr-3 py-3 border border-outline-variant rounded font-body-md text-body-md text-on-background bg-surface-container-lowest focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow"
+                  className="input-field-icon"
                   id="password"
                   name="password"
                   placeholder="••••••••"
@@ -95,7 +91,7 @@ export default async function Page() {
               </a>
             </div>
             <button
-              className="w-full bg-secondary-container text-on-secondary-container font-button text-button py-4 rounded hover:opacity-90 active:scale-[0.98] transition-all mb-lg shadow-sm"
+              className="btn-primary btn-primary-full mb-lg"
               type="submit"
             >
               {nav.signIn}
@@ -103,8 +99,8 @@ export default async function Page() {
           </form>
           <p className="text-center font-body-md text-body-md text-on-surface-variant">
             {auth.noAccount}{" "}
-            <Link className="text-primary font-bold hover:text-secondary-container transition-colors" href="/sign-up">
-              {auth.signUp}
+            <Link className="text-primary font-bold hover:text-secondary-container transition-colors" href="/courses">
+              {nav.enroll}
             </Link>
           </p>
         </div>

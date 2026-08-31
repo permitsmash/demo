@@ -5,6 +5,7 @@ function detectLocale(request: NextRequest): Locale {
   const acceptLanguage = request.headers.get("accept-language") ?? "";
   const normalized = acceptLanguage.toLowerCase();
 
+  if (normalized.includes("ht")) return "ht";
   if (normalized.includes("pt")) return "pt";
   if (normalized.includes("es")) return "es";
   return defaultLocale;

@@ -15,7 +15,7 @@ function TrafficLightScene() {
         position={[4, 8, 6]}
         shadow-mapSize={[2048, 2048]}
       />
-      <directionalLight intensity={0.3} position={[-5, 4, -3]} color="#ffd6d6" />
+      <directionalLight intensity={0.3} position={[-5, 4, -3]} color="var(--color-avatar-light)" />
 
       <Float speed={1.2} rotationIntensity={0.04} floatIntensity={0.18}>
         <TrafficLight3D />
@@ -27,7 +27,7 @@ function TrafficLightScene() {
         scale={8}
         blur={2.6}
         far={4}
-        color="#000000"
+        color="var(--color-avatar-dark)"
       />
       <Environment preset="city" />
     </>
@@ -38,8 +38,8 @@ function AvatarFallback() {
   return (
     <div className="flex h-[360px] w-full max-w-[320px] items-center justify-center rounded-2xl bg-on-primary/10">
       <div className="flex flex-col items-center gap-sm text-on-primary/70">
-        <span className="material-symbols-outlined animate-pulse text-[40px]">traffic</span>
-        <span className="font-body-sm text-body-sm">Loading…</span>
+        <span className="material-symbols-outlined icon-2xl animate-pulse">traffic</span>
+        <span className="text-body-sm">Loading…</span>
       </div>
     </div>
   );

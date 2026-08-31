@@ -12,21 +12,21 @@ export function LanguageSwitcher({ variant = "nav" }: LanguageSwitcherProps) {
   const isBanner = variant === "banner";
 
   return (
-    <div className="relative inline-flex items-center">
+    <div className="relative inline-flex shrink-0 items-center">
       <label htmlFor={`language-select-${variant}`} className="sr-only">
         Language
       </label>
       <span
         className={`material-symbols-outlined shrink-0 ${
           isBanner
-            ? "text-on-error text-[17px]"
-            : "text-on-primary/80 text-[18px] hidden sm:inline"
+            ? "text-on-error icon-sm"
+            : "text-on-surface-variant icon-base hidden sm:inline"
         }`}
         aria-hidden
       >
         language
       </span>
-      <div className={`relative ${isBanner ? "ml-1" : "ml-1 sm:ml-1"}`}>
+      <div className={`relative shrink-0 ${isBanner ? "ml-1" : "ml-1 sm:ml-1"}`}>
         <select
           id={`language-select-${variant}`}
           value={locale}
@@ -34,8 +34,8 @@ export function LanguageSwitcher({ variant = "nav" }: LanguageSwitcherProps) {
           onChange={(event) => setLocale(event.target.value as Locale)}
           className={
             isBanner
-              ? "appearance-none bg-transparent border-0 outline-none ring-0 shadow-none text-on-error font-semibold text-body-sm leading-none py-0.5 pl-0 pr-5 cursor-pointer hover:opacity-80 focus:outline-none focus:ring-0 disabled:opacity-60"
-              : "appearance-none bg-transparent border-0 outline-none ring-0 shadow-none text-on-primary font-body-sm text-body-sm py-1.5 pl-0 pr-5 cursor-pointer hover:text-secondary-container focus:outline-none focus:ring-0 disabled:opacity-60"
+              ? "min-w-[6.75rem] appearance-none bg-transparent border-0 outline-none ring-0 shadow-none text-on-error font-semibold text-body-sm leading-normal py-0.5 pl-0 pr-6 cursor-pointer whitespace-nowrap hover:opacity-80 focus:outline-none focus:ring-0 disabled:opacity-60"
+              : "min-w-[6.75rem] appearance-none bg-transparent border-0 outline-none ring-0 shadow-none text-primary font-body-sm text-body-sm leading-normal py-1.5 pl-0 pr-6 cursor-pointer whitespace-nowrap hover:text-secondary-container focus:outline-none focus:ring-0 disabled:opacity-60"
           }
           aria-label="Select language"
         >
@@ -46,8 +46,8 @@ export function LanguageSwitcher({ variant = "nav" }: LanguageSwitcherProps) {
           ))}
         </select>
         <span
-          className={`material-symbols-outlined pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 ${
-            isBanner ? "text-on-error/80 text-[18px]" : "text-on-primary/60 text-[18px]"
+          className={`material-symbols-outlined pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 icon-sm ${
+            isBanner ? "text-on-error/80" : "text-on-surface-variant"
           }`}
           aria-hidden
         >

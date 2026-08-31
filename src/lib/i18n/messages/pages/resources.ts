@@ -120,3 +120,44 @@ export const resourcesPt = {
   roundaboutsDesc:
     "Aprenda a se aproximar, sinalizar e sair de rotatórias de várias faixas com segurança e confiança.",
 };
+
+export const resourcesHt = {
+  title: "Resous Etid",
+  subtitle:
+    "Aksede nan bibliyotèk konplè materyèl etid nou yo ki fèt pou ede ou reyisi. Soti nan tès pratik rive nan gid esansyèl, tout sa ou bezwen pou vin yon chofè ki gen konfyans ak ki an sekirite se isit la.",
+  searchPlaceholder: "Chèche gid, videyo, oswa sijè espesifik...",
+  topics: "Sijè",
+  allTopics: "Tout Sijè",
+  maneuvers: "Manyèv",
+  roadSigns: "Siy Wout",
+  legalRules: "Legal ak Règ",
+  vehicleBasics: "Baz Machin",
+  emergencies: "Ijans",
+  theoryTestPrep: "Preparasyon pou Egzamen Teorik",
+  minRead: "min lekti",
+  questions: "Kesyon",
+  officialHighwayCode: "Revizyon Ofisyèl Kòd Otowout la",
+  officialHighwayCodeDesc:
+    "Yon analiz konplè sou règ ak regleman ki pi enpòtan ou bezwen konnen pou egzamen teorik ou.",
+  readGuide: "Li Gid la",
+  roadSignsQuiz: "Kwiz Mèt Siy Wout",
+  roadSignsQuizDesc:
+    "Teste konesans ou sou siy avètisman, regleman, ak enfòmasyon ak kwiz pratik sa a.",
+  startQuiz: "Kòmanse Kwiz la",
+  practicalGuides: "Gid Pratik pou Kondwi",
+  parallelParking: "Pakè Paralèl Etap pa Etap",
+  parallelParkingDesc:
+    "Metrize atizay pakè paralèl la ak gid detaye nou an, ki gen dyagram ak pwen referans.",
+  preDriveChecklist: "Lis Verifikasyon Avan Kondwi ak Antretyen",
+  preDriveChecklistDesc:
+    "Yon lis telechajab pou verifikasyon machin chak jou ak antretyen debaz tout chofè ta dwe konnen.",
+  downloadPdf: "Telechaje PDF",
+  videoLessons: "Leson Videyo",
+  adverseWeather: "Kondwi nan Move Tan",
+  adverseWeatherDesc:
+    "Demonstrasyon vizyèl teknik kondwi defansif nan gwo lapli ak kondisyon glase.",
+  watchVideo: "Gade Videyo",
+  roundabouts: "Navige nan Wout Won Konplèks",
+  roundaboutsDesc:
+    "Aprann kijan pou apwoche, bay siyal, epi sòti nan wout won milti-vwa an sekirite ak konfyans.",
+};

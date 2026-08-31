@@ -17,62 +17,59 @@ export default async function Page() {
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHxcDLCidBBd2I21JPqGggkllMUGwxVrJDozg8tlNEV3RlZ7ziRNyB61F93Od2hvOfiZSwDiurdBNjf1TSNkxRTSGl0AzZVQYr4yMnaGsAkN8DlL0py_wqbAwcaLDCvUcvNwCfjuHxgA32P1pwLqoP7fZdHoFzxs-k2lhjE8lJPQsZ6haxkXlX02_tefVW2qBP3vmoFZgMnjbdq-PQcuOlkKm4ZmPyZ8OUgY4dyvrAfYQ_MXq1Gh9Jx5Qw9mf6bHrPbD_XPtmBbvI"
           />
         </div>
-        <div className="relative z-10 max-w-[1200px] mx-auto px-md py-xl flex flex-col items-center text-center">
-          <h1 className="font-h1 text-h1 text-on-primary mb-md max-w-[48rem]">{c.heroTitle}</h1>
-          <p className="font-body-lg text-body-lg text-primary-fixed mb-lg max-w-[42rem]">{c.heroDesc}</p>
-          <a
-            className="bg-secondary-container text-on-secondary-container font-button text-button px-lg py-sm rounded-lg hover:bg-secondary transition-colors shadow-sm"
-            href="#open-positions"
-          >
+        <div className="relative z-10 container-page py-xl flex flex-col items-center text-center">
+          <h1 className="text-h1 text-on-primary mb-md max-w-prose-xl">{c.heroTitle}</h1>
+          <p className="text-body-lg text-primary-fixed mb-lg max-w-prose">{c.heroDesc}</p>
+          <a className="btn-primary btn-primary-sm" href="#open-positions">
             {c.viewPositions}
           </a>
         </div>
       </section>
       {/*  Why Work With Us  */}
-      <section className="max-w-[1200px] mx-auto px-md py-xl">
+      <section className="container-page py-xl">
         <div className="text-center mb-lg">
-          <h2 className="font-h2 text-h2 text-primary mb-sm">{c.whyWorkTitle}</h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[42rem] mx-auto">{c.whyWorkDesc}</p>
+          <h2 className="text-h2 text-primary mb-sm">{c.whyWorkTitle}</h2>
+          <p className="text-body-lg text-on-surface-variant max-w-prose mx-auto">{c.whyWorkDesc}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
-          <div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-md text-primary">
-              <span className="material-symbols-outlined text-[32px]">schedule</span>
+          <div className="card-hover flex flex-col items-center text-center">
+            <div className="icon-box-lg rounded-full bg-surface-container text-primary mb-md">
+              <span className="material-symbols-outlined icon-xl">schedule</span>
             </div>
-            <h3 className="font-h3 text-h3 text-primary mb-sm">{c.flexibleScheduling}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">{c.flexibleSchedulingDesc}</p>
+            <h3 className="text-h3 text-primary mb-sm">{c.flexibleScheduling}</h3>
+            <p className="text-body-md text-on-surface-variant">{c.flexibleSchedulingDesc}</p>
           </div>
-          <div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-md text-primary">
-              <span className="material-symbols-outlined text-[32px]">directions_car</span>
+          <div className="card-hover flex flex-col items-center text-center">
+            <div className="icon-box-lg rounded-full bg-surface-container text-primary mb-md">
+              <span className="material-symbols-outlined icon-xl">directions_car</span>
             </div>
-            <h3 className="font-h3 text-h3 text-primary mb-sm">{c.modernFleet}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">{c.modernFleetDesc}</p>
+            <h3 className="text-h3 text-primary mb-sm">{c.modernFleet}</h3>
+            <p className="text-body-md text-on-surface-variant">{c.modernFleetDesc}</p>
           </div>
-          <div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg hover:shadow-md transition-shadow duration-300 flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-md text-primary">
-              <span className="material-symbols-outlined text-[32px]">school</span>
+          <div className="card-hover flex flex-col items-center text-center">
+            <div className="icon-box-lg rounded-full bg-surface-container text-primary mb-md">
+              <span className="material-symbols-outlined icon-xl">school</span>
             </div>
-            <h3 className="font-h3 text-h3 text-primary mb-sm">{c.professionalGrowth}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">{c.professionalGrowthDesc}</p>
+            <h3 className="text-h3 text-primary mb-sm">{c.professionalGrowth}</h3>
+            <p className="text-body-md text-on-surface-variant">{c.professionalGrowthDesc}</p>
           </div>
         </div>
       </section>
       {/*  Core Values Bento Grid  */}
-      <section className="bg-surface py-xl">
-        <div className="max-w-[1200px] mx-auto px-md">
-          <h2 className="font-h2 text-h2 text-primary mb-lg text-center">{c.coreValues}</h2>
+      <section className="bg-surface section">
+        <div className="container-page">
+          <h2 className="text-h2 text-primary mb-lg text-center">{c.coreValues}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md auto-rows-fr">
             <div className="bg-primary text-on-primary rounded-xl p-lg flex flex-col justify-end min-h-[300px] relative overflow-hidden group">
               <div className="absolute top-lg right-lg opacity-20 group-hover:opacity-40 transition-opacity">
-                <span className="material-symbols-outlined text-[120px]">verified</span>
+                <span className="material-symbols-outlined icon-hero">verified</span>
               </div>
               <div className="relative z-10">
-                <h3 className="font-h3 text-h3 mb-sm">{c.integrity}</h3>
-                <p className="font-body-md text-body-md text-primary-fixed">{c.integrityDesc}</p>
+                <h3 className="text-h3 mb-sm">{c.integrity}</h3>
+                <p className="text-body-md text-primary-fixed">{c.integrityDesc}</p>
               </div>
             </div>
-            <div className="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-end min-h-[300px] relative overflow-hidden lg:col-span-2">
+            <div className="card-elevated rounded-xl flex flex-col justify-end min-h-[300px] relative overflow-hidden lg:col-span-2">
               <div className="absolute inset-0 z-0">
                 <img
                   alt="Instructor guiding student"
@@ -83,10 +80,10 @@ export default async function Page() {
               </div>
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center mb-md">
-                  <span className="material-symbols-outlined">psychology</span>
+                  <span className="material-symbols-outlined icon-base">psychology</span>
                 </div>
-                <h3 className="font-h3 text-h3 text-primary mb-sm">{c.patience}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant max-w-[28rem]">{c.patienceDesc}</p>
+                <h3 className="text-h3 text-primary mb-sm">{c.patience}</h3>
+                <p className="text-body-md text-on-surface-variant max-w-prose-sm">{c.patienceDesc}</p>
               </div>
             </div>
             <div className="bg-secondary-container text-on-secondary-container rounded-xl p-lg flex flex-col justify-end min-h-[300px] relative overflow-hidden lg:col-span-3">
@@ -99,45 +96,45 @@ export default async function Page() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDldyOMqoEIIrJDb2YMYryT2FvRgy8iMj-ANkGlqjr-rK1jnFOtb1k7C34YLE6rtLYBdz6cpbM0K8uwaAdsPtDZ29k53PD8r3Ob8qqxm1XD8OHQE_BXAw3EVwwUdjMGp79Mc0bgaGTVTl02GX2suMo24iE7s4oB_7pS_y2GUkkXL9H6X-xwSJeMZl6dPaGsZd_8dakat1ZesfIW_ErpJ3jtOKMqvkfWIJQ8pAFc6RyJaBodlINH2c5ngQwOEupgL2A1JooGgY4_12Q"
                 />
               </div>
-              <div className="relative z-10 max-w-[36rem]">
-                <h3 className="font-h3 text-h3 mb-sm">{c.safetyFirst}</h3>
-                <p className="font-body-md text-body-md text-on-primary opacity-90">{c.safetyFirstDesc}</p>
+              <div className="relative z-10 max-w-prose-md">
+                <h3 className="text-h3 mb-sm">{c.safetyFirst}</h3>
+                <p className="text-body-md text-on-primary opacity-90">{c.safetyFirstDesc}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
       {/*  Open Positions  */}
-      <section className="max-w-[1200px] mx-auto px-md py-xl" id="hiring">
-        <h2 className="font-h2 text-h2 text-primary mb-lg text-center">{c.openPositions}</h2>
+      <section className="container-page py-xl" id="open-positions">
+        <h2 className="text-h2 text-primary mb-lg text-center">{c.openPositions}</h2>
         <div className="space-y-sm">
-          <div className="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col md:flex-row justify-between items-start md:items-center hover:shadow-md transition-shadow duration-200">
+          <div className="card flex flex-col md:flex-row justify-between items-start md:items-center hover:shadow-md transition-shadow duration-200">
             <div className="mb-md md:mb-0">
-              <h3 className="font-h3 text-h3 text-primary mb-xs">{c.certifiedInstructor}</h3>
-              <div className="flex flex-wrap gap-sm font-body-md text-body-md text-on-surface-variant">
+              <h3 className="text-h3 text-primary mb-xs">{c.certifiedInstructor}</h3>
+              <div className="flex flex-wrap gap-sm text-body-md text-on-surface-variant">
                 <span className="flex items-center gap-xs">
-                  <span className="material-symbols-outlined text-[18px]">location_on</span>
+                  <span className="material-symbols-outlined icon-base">location_on</span>
                   {c.multipleLocations}
                 </span>
                 <span className="flex items-center gap-xs">
-                  <span className="material-symbols-outlined text-[18px]">work</span>
+                  <span className="material-symbols-outlined icon-base">work</span>
                   {c.fullPartTime}
                 </span>
               </div>
             </div>
-            <button className="font-button text-button text-primary border border-primary px-md py-sm rounded hover:bg-surface-container transition-colors shrink-0">
+            <button type="button" className="btn-outline shrink-0">
               {c.viewDetails}
             </button>
           </div>
         </div>
       </section>
       {/*  Application CTA  */}
-      <section className="bg-primary-container text-on-primary text-center py-xl px-md mt-xl">
-        <div className="max-w-[42rem] mx-auto">
-          <span className="material-symbols-outlined text-[48px] text-secondary-container mb-md">waving_hand</span>
-          <h2 className="font-h2 text-h2 mb-sm">{c.dontSeeFit}</h2>
-          <p className="font-body-lg text-body-lg text-primary-fixed mb-lg">{c.generalApplicationDesc}</p>
-          <button className="bg-secondary-container text-on-secondary-container font-button text-button px-lg py-sm rounded-lg hover:bg-secondary transition-colors shadow-sm">
+      <section className="bg-primary-container text-on-primary text-center section px-md">
+        <div className="max-w-prose mx-auto">
+          <span className="material-symbols-outlined icon-2xl text-secondary-container mb-md">waving_hand</span>
+          <h2 className="text-h2 mb-sm">{c.dontSeeFit}</h2>
+          <p className="text-body-lg text-primary-fixed mb-lg">{c.generalApplicationDesc}</p>
+          <button type="button" className="btn-primary btn-primary-sm">
             {c.submitGeneralApplication}
           </button>
         </div>

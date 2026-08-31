@@ -14,22 +14,21 @@ export default function Footer() {
     { href: "/", label: footer.home },
     { href: "/courses", label: messages.nav.programs },
     { href: "/classes", label: messages.nav.classes },
-    { href: "/gift-cards", label: messages.nav.giftCards },
     { href: "/about", label: messages.nav.about },
     { href: "/faq", label: messages.nav.faq },
     { href: "/contact", label: messages.nav.contact },
   ];
 
   const enrollmentLinks = [
-    { href: "/sign-up", label: footer.driversEd },
-    { href: "/sign-up", label: footer.parentsProgram },
-    { href: "/sign-up", label: footer.adultProgram },
-    { href: "/sign-up", label: footer.roadTestForm },
+    { href: "/courses", label: footer.driversEd },
+    { href: "/courses", label: footer.parentsProgram },
+    { href: "/courses", label: footer.adultProgram },
+    { href: "/contact", label: footer.roadTestForm },
   ];
 
   return (
-    <footer className="bg-primary text-on-primary w-full border-t-4 border-secondary-container">
-      <div className="max-w-[1200px] mx-auto px-md py-xl">
+    <footer className="bg-white text-on-surface w-full">
+      <div className="container-page py-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-xl">
           <div className="lg:col-span-4 flex flex-col gap-md">
             <Link href="/" className="inline-flex">
@@ -41,14 +40,14 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="font-body-md text-body-md text-on-primary/80 max-w-[20rem]">
+            <p className="font-body-md text-body-md text-on-surface-variant max-w-[20rem]">
               {siteCopy.description}
             </p>
             <a
               href={`tel:${site.phoneTel}`}
-              className="inline-flex items-center justify-center gap-xs self-start bg-secondary-container text-on-secondary-container font-button text-button px-md py-sm rounded hover:bg-secondary transition-colors"
+              className="btn-primary btn-primary-sm self-start"
             >
-              <span className="material-symbols-outlined text-[18px]">call</span>
+              <span className="material-symbols-outlined icon-base">call</span>
               {t(footer.callNow, { phone: site.phone })}
             </a>
           </div>
@@ -61,7 +60,7 @@ export default function Footer() {
               <Link
                 key={link.href + link.label}
                 href={link.href}
-                className="font-body-md text-body-md text-on-primary/80 hover:text-secondary-container transition-colors"
+                className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors"
               >
                 {link.label}
               </Link>
@@ -76,14 +75,14 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-body-md text-body-md text-on-primary/80 hover:text-secondary-container transition-colors"
+                className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/legal#privacy-policy"
-              className="font-body-md text-body-md text-on-primary/80 hover:text-secondary-container transition-colors mt-xs pt-xs border-t border-on-primary/10"
+              className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors mt-xs pt-xs border-t border-outline-variant"
             >
               {footer.privacyPolicy}
             </Link>
@@ -93,15 +92,15 @@ export default function Footer() {
             <h3 className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
               {footer.contactUs}
             </h3>
-            <ul className="space-y-sm font-body-sm text-body-sm text-on-primary/80">
+            <ul className="space-y-sm font-body-sm text-body-sm text-on-surface-variant">
               <li className="flex items-start gap-sm">
-                <span className="material-symbols-outlined text-secondary-container text-[20px] mt-0.5 shrink-0">
+                <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">
                   location_on
                 </span>
                 <span>{site.address.full}</span>
               </li>
               <li className="flex items-start gap-sm">
-                <span className="material-symbols-outlined text-secondary-container text-[20px] mt-0.5 shrink-0">
+                <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">
                   mail
                 </span>
                 <a
@@ -112,13 +111,13 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-sm">
-                <span className="material-symbols-outlined text-secondary-container text-[20px] mt-0.5 shrink-0">
+                <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">
                   schedule
                 </span>
                 <span>{siteCopy.officeHours}</span>
               </li>
               <li className="flex items-start gap-sm">
-                <span className="material-symbols-outlined text-secondary-container text-[20px] mt-0.5 shrink-0">
+                <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">
                   translate
                 </span>
                 <span>{site.languages.join(" · ")}</span>
@@ -128,20 +127,20 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-on-primary/10 bg-black/20">
-        <div className="max-w-[1200px] mx-auto px-md py-md flex flex-col sm:flex-row justify-between items-center gap-sm text-center sm:text-left">
-          <p className="font-body-sm text-body-sm text-on-primary/70">
+      <div className="border-t border-outline-variant bg-surface-dim">
+        <div className="container-page py-md flex flex-col sm:flex-row justify-between items-center gap-sm text-center sm:text-left">
+          <p className="font-body-sm text-body-sm text-on-surface-variant">
             {t(footer.rights, { name: site.name })}
           </p>
-          <p className="font-body-sm text-body-sm text-on-primary/70">
-            {footer.by}{" "}
+          <p className="font-body-sm text-body-sm text-on-surface-variant">
+            by{" "}
             <a
               href="https://permitsmash.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-secondary-container font-semibold hover:underline"
             >
-              Permitsmash.com
+              permitsmash
             </a>
           </p>
         </div>

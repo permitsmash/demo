@@ -120,3 +120,44 @@ export const legalPt = {
   disclaimerP2:
     "Em nenhum caso seremos responsáveis por qualquer perda ou dano, incluindo sem limitação, perda ou dano indireto ou consequencial, ou qualquer perda ou dano decorrente da perda de dados ou lucros decorrentes do uso deste site.",
 };
+
+export const legalHt = {
+  title: "Enfòmasyon Legal",
+  subtitle:
+    "Tanpri revize dokiman legal nou yo ak atansyon. Dokiman sa yo eksplike tèm, règleman, ak kondisyon ki gouvène itilizasyon sèvis JMC Driving School ou.",
+  contents: "Kontni",
+  legalNotice: "Avi Legal",
+  termsOfUse: "Tèm Itilizasyon",
+  privacyPolicy: "Rezime Règleman sou Konfidansyalite",
+  cookiePolicy: "Règleman sou Cookies",
+  disclaimers: "Avètisman",
+  legalNoticeP1:
+    "Sit entènèt sa a ak sèvis ki asosye avèk li yo opere pa JMC Driving School. Lè ou aksede sit sa a, ou dakò pou respekte avi, tèm, ak kondisyon ki etabli isit la.",
+  legalNoticeP2:
+    "Tout kontni ki sou sit sa a, tankou tèks, grafik, logo, ikòn bouton, imaj, klib odyo, telechajman dijital, konpilasyon done, ak lojisyèl, se pwopriyete JMC Driving School oswa founisè kontni li yo epi yo pwoteje pa lwa entènasyonal sou dwa otè.",
+  companyInfo: "Enfòmasyon Konpayi:",
+  termsP1:
+    "Byenveni nan JMC Driving School. Si ou kontinye navige epi itilize sit entènèt sa a, ou dakò pou respekte epi pou yo mare ou ak tèm ak kondisyon itilizasyon sa yo.",
+  termsLi1:
+    "Kontni paj sit entènèt sa a se sèlman pou enfòmasyon jeneral ou ak itilizasyon ou. Li ka chanje san avètisman.",
+  termsLi2:
+    "Ni nou ni okenn twazyèm pati pa bay okenn garanti sou presizyon, alè, pèfòmans, konplè, oswa adapte enfòmasyon ak materyèl ki jwenn oswa ofri sou sit entènèt sa a.",
+  termsLi3:
+    "Itilizasyon ou nenpòt enfòmasyon oswa materyèl sou sit entènèt sa a se totalman nan pwòp risk ou, pou sa nou p ap responsab.",
+  termsLi4:
+    "Sit entènèt sa a gen materyèl ki fè pati nou oswa ki gen lisans pou nou. Materyèl sa a gen ladan, men pa limite a, konsepsyon, layout, aparans, ak grafik.",
+  privacyP1:
+    "JMC Driving School angaje pou asire ke vi prive ou pwoteje. Si nou mande ou bay sèten enfòmasyon ki ka idantifye ou lè w ap itilize sit entènèt sa a, ou ka asire ke yo pral itilize yo sèlman dapre deklarasyon konfidansyalite sa a.",
+  whatWeCollect: "Sa nou kolekte",
+  collectLi1: "Non ak enfòmasyon kontak ki gen ladan adrès imèl",
+  collectLi2: "Enfòmasyon demografik tankou kòd postal, preferans, ak enterè",
+  collectLi3: "Lòt enfòmasyon ki enpòtan pou sondaj kliyan ak/oswa òf",
+  cookieP1:
+    "Yon cookie se yon ti fichye ki mande pèmisyon pou mete sou dis dirèk òdinatè ou. Yon fwa ou dakò, fichye a ajoute epi cookie a ede analize trafik entènèt oswa fè ou konnen lè ou vizite yon sit patikilye.",
+  cookieP2:
+    "Nou itilize cookies trafik pou idantifye ki paj yo ap itilize. Sa ede nou analize done sou trafik paj entènèt epi amelyore sit nou an pou adapte li ak bezwen kliyan yo. Nou itilize enfòmasyon sa a sèlman pou analiz estatistik epi apre sa done yo retire nan sistèm nan.",
+  disclaimerP1:
+    "Enfòmasyon ki sou sit entènèt sa a se sèlman pou rezon enfòmasyon jeneral. Enfòmasyon yo bay pa JMC Driving School epi malgre nou fè efò pou kenbe yo ajou ak kòrèk, nou pa fè okenn reprezantasyon oswa garanti.",
+  disclaimerP2:
+    "Nan okenn ka nou p ap responsab pou okenn pèt oswa domaj, ki gen ladan san limitasyon, pèt oswa domaj endirèk oswa konsekans, oswa nenpòt pèt oswa domaj ki soti nan pèt done oswa pwofi ki soti nan, oswa ki gen rapò ak, itilizasyon sit entènèt sa a.",
+};

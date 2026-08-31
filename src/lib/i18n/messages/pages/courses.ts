@@ -24,10 +24,16 @@ export const coursesEn = {
   includesLabel: "This package includes:",
   lessonRatesLabel: "Lesson Rates",
   highwayRatesLabel: "Highway Lesson Rates",
+  buyButton: "Buy Now",
+  lessonLabel: "lesson",
+  lessonsLabel: "lessons",
+  decreaseQuantity: "Decrease quantity",
+  increaseQuantity: "Increase quantity",
+  selectPackageLabel: "Select package",
   driverEdPackages: [
     {
       title: "Package I – Special Offer",
-      price: "$1,150",
+      price: "$1,250",
       badge: "Full course",
       description:
         "This package qualifies for the Massachusetts Driver Education Certificate of Completion. Students must be 15 years and 9 months old to begin classroom instruction.",
@@ -64,13 +70,32 @@ export const coursesEn = {
         "For students that have already taken the behind-the-wheel instruction with another driving school.",
     },
   ],
-  adultProgram: {
-    title: "Adult Program",
+  juniorDriverProgram: {
+    title: "Junior Driving Lessons",
     fromPrice: "From $80",
     perLesson: "per lesson",
     sampleTiersLabel: "Sample rates",
     moreTiersNote:
       "1–10 lessons available at $80 per lesson. Contact the office for other quantities.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
+    highlightedTiers: [
+      { label: "1 lesson", price: "$80.00" },
+      { label: "5 lessons", price: "$400.00" },
+      { label: "10 lessons", price: "$800.00" },
+    ],
+  },
+  adultProgram: {
+    title: "Adult Driving Lessons",
+    fromPrice: "From $80",
+    perLesson: "per lesson",
+    sampleTiersLabel: "Sample rates",
+    moreTiersNote:
+      "1–10 lessons available at $80 per lesson. Contact the office for other quantities.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
     highlightedTiers: [
       { label: "1 lesson", price: "$80.00" },
       { label: "5 lessons", price: "$400.00" },
@@ -80,8 +105,8 @@ export const coursesEn = {
   adultProgramPackage: {
     title: "Adult Program Package",
     options: [
-      { label: "6 Driving Lesson Package", price: "$450.00" },
-      { label: "10 Driving Lesson Package", price: "$770.00" },
+      { id: "6-lessons", label: "6 Driving Lesson Package", price: "$450.00" },
+      { id: "10-lessons", label: "10 Driving Lesson Package", price: "$770.00" },
     ],
   },
   highwayLessons: {
@@ -93,6 +118,9 @@ export const coursesEn = {
       { label: "2 lessons", price: "$200.00" },
       { label: "3 lessons", price: "$300.00" },
     ],
+    pricePerLesson: 100,
+    minLessons: 1,
+    maxLessons: 10,
   },
   disclaimerPermit:
     "You must have an active Massachusetts Learner's Permit/Driver's License to be able to take any driving lessons with JMC.",
@@ -112,6 +140,12 @@ export type CoursesMessages = {
   includesLabel: string;
   lessonRatesLabel: string;
   highwayRatesLabel: string;
+  buyButton: string;
+  lessonLabel: string;
+  lessonsLabel: string;
+  decreaseQuantity: string;
+  increaseQuantity: string;
+  selectPackageLabel: string;
   driverEdPackages: readonly {
     title: string;
     price: string;
@@ -120,22 +154,39 @@ export type CoursesMessages = {
     includes: readonly string[];
     footnote?: string;
   }[];
+  juniorDriverProgram: {
+    title: string;
+    fromPrice: string;
+    perLesson: string;
+    sampleTiersLabel: string;
+    moreTiersNote: string;
+    pricePerLesson: number;
+    minLessons: number;
+    maxLessons: number;
+    highlightedTiers: readonly { label: string; price: string }[];
+  };
   adultProgram: {
     title: string;
     fromPrice: string;
     perLesson: string;
     sampleTiersLabel: string;
     moreTiersNote: string;
+    pricePerLesson: number;
+    minLessons: number;
+    maxLessons: number;
     highlightedTiers: readonly { label: string; price: string }[];
   };
   adultProgramPackage: {
     title: string;
-    options: readonly { label: string; price: string }[];
+    options: readonly { id: string; label: string; price: string }[];
   };
   highwayLessons: {
     title: string;
     description: string;
     tiers: readonly { label: string; price: string }[];
+    pricePerLesson: number;
+    minLessons: number;
+    maxLessons: number;
   };
   disclaimerPermit: string;
   disclaimerLocation: string;
@@ -167,10 +218,16 @@ export const coursesEs = {
   includesLabel: "Este paquete incluye:",
   lessonRatesLabel: "Tarifas por clase",
   highwayRatesLabel: "Tarifas de clases en autopista",
+  buyButton: "Comprar ahora",
+  lessonLabel: "clase",
+  lessonsLabel: "clases",
+  decreaseQuantity: "Disminuir cantidad",
+  increaseQuantity: "Aumentar cantidad",
+  selectPackageLabel: "Seleccionar paquete",
   driverEdPackages: [
     {
       title: "Paquete I – Oferta especial",
-      price: "$1,150",
+      price: "$1,250",
       badge: "Curso completo",
       description:
         "Este paquete califica para el Certificado de Finalización de Educación Vial de Massachusetts. Los estudiantes deben tener 15 años y 9 meses para comenzar la instrucción en el aula.",
@@ -207,13 +264,32 @@ export const coursesEs = {
         "Para estudiantes que ya completaron la instrucción práctica al volante en otra escuela de manejo.",
     },
   ],
-  adultProgram: {
-    title: "Programa para adultos",
+  juniorDriverProgram: {
+    title: "Lecciones de manejo para jóvenes",
     fromPrice: "Desde $80",
     perLesson: "por clase",
     sampleTiersLabel: "Tarifas de ejemplo",
     moreTiersNote:
       "Disponible de 1 a 10 clases a $80 por clase. Contacte la oficina para otras cantidades.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
+    highlightedTiers: [
+      { label: "1 clase", price: "$80.00" },
+      { label: "5 clases", price: "$400.00" },
+      { label: "10 clases", price: "$800.00" },
+    ],
+  },
+  adultProgram: {
+    title: "Lecciones de manejo para adultos",
+    fromPrice: "Desde $80",
+    perLesson: "por clase",
+    sampleTiersLabel: "Tarifas de ejemplo",
+    moreTiersNote:
+      "Disponible de 1 a 10 clases a $80 por clase. Contacte la oficina para otras cantidades.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
     highlightedTiers: [
       { label: "1 clase", price: "$80.00" },
       { label: "5 clases", price: "$400.00" },
@@ -223,8 +299,8 @@ export const coursesEs = {
   adultProgramPackage: {
     title: "Paquete para adultos",
     options: [
-      { label: "Paquete de 6 clases de manejo", price: "$450.00" },
-      { label: "Paquete de 10 clases de manejo", price: "$770.00" },
+      { id: "6-lessons", label: "Paquete de 6 clases de manejo", price: "$450.00" },
+      { id: "10-lessons", label: "Paquete de 10 clases de manejo", price: "$770.00" },
     ],
   },
   highwayLessons: {
@@ -236,6 +312,9 @@ export const coursesEs = {
       { label: "2 clases", price: "$200.00" },
       { label: "3 clases", price: "$300.00" },
     ],
+    pricePerLesson: 100,
+    minLessons: 1,
+    maxLessons: 10,
   },
   disclaimerPermit:
     "Debe tener un permiso de aprendiz o licencia de conducir de Massachusetts activo para tomar clases de manejo con JMC.",
@@ -269,10 +348,16 @@ export const coursesPt = {
   includesLabel: "Este pacote inclui:",
   lessonRatesLabel: "Tarifas por aula",
   highwayRatesLabel: "Tarifas de aulas em rodovia",
+  buyButton: "Comprar agora",
+  lessonLabel: "aula",
+  lessonsLabel: "aulas",
+  decreaseQuantity: "Diminuir quantidade",
+  increaseQuantity: "Aumentar quantidade",
+  selectPackageLabel: "Selecionar pacote",
   driverEdPackages: [
     {
       title: "Pacote I – Oferta especial",
-      price: "$1,150",
+      price: "$1,250",
       badge: "Curso completo",
       description:
         "Este pacote qualifica para o Certificado de Conclusão de Educação para Motoristas de Massachusetts. Os alunos devem ter 15 anos e 9 meses para iniciar a instrução em sala de aula.",
@@ -309,13 +394,32 @@ export const coursesPt = {
         "Para alunos que já concluíram a instrução prática ao volante em outra autoescola.",
     },
   ],
-  adultProgram: {
-    title: "Programa para adultos",
+  juniorDriverProgram: {
+    title: "Aulas de direção para jovens",
     fromPrice: "A partir de $80",
     perLesson: "por aula",
     sampleTiersLabel: "Tarifas de exemplo",
     moreTiersNote:
       "De 1 a 10 aulas disponíveis a $80 por aula. Entre em contato com o escritório para outras quantidades.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
+    highlightedTiers: [
+      { label: "1 aula", price: "$80.00" },
+      { label: "5 aulas", price: "$400.00" },
+      { label: "10 aulas", price: "$800.00" },
+    ],
+  },
+  adultProgram: {
+    title: "Aulas de direção para adultos",
+    fromPrice: "A partir de $80",
+    perLesson: "por aula",
+    sampleTiersLabel: "Tarifas de exemplo",
+    moreTiersNote:
+      "De 1 a 10 aulas disponíveis a $80 por aula. Entre em contato com o escritório para outras quantidades.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
     highlightedTiers: [
       { label: "1 aula", price: "$80.00" },
       { label: "5 aulas", price: "$400.00" },
@@ -325,8 +429,8 @@ export const coursesPt = {
   adultProgramPackage: {
     title: "Pacote para adultos",
     options: [
-      { label: "Pacote de 6 aulas de direção", price: "$450.00" },
-      { label: "Pacote de 10 aulas de direção", price: "$770.00" },
+      { id: "6-lessons", label: "Pacote de 6 aulas de direção", price: "$450.00" },
+      { id: "10-lessons", label: "Pacote de 10 aulas de direção", price: "$770.00" },
     ],
   },
   highwayLessons: {
@@ -338,9 +442,142 @@ export const coursesPt = {
       { label: "2 aulas", price: "$200.00" },
       { label: "3 aulas", price: "$300.00" },
     ],
+    pricePerLesson: 100,
+    minLessons: 1,
+    maxLessons: 10,
   },
   disclaimerPermit:
     "Você deve ter uma Permissão de Aprendiz ou Carteira de Motorista de Massachusetts ativa para fazer aulas de direção com a JMC.",
   disclaimerLocation:
     "Todas as aulas começam e terminam no escritório da JMC — não oferecemos serviço de busca ou entrega.",
+} as const;
+
+export const coursesHt = {
+  label: "Pwogram",
+  title: "Pakè Edikasyon pou Chofè",
+  subtitle:
+    "Gade pwogram ak pakè ki disponib yo epi konplete acha ou.",
+  sections: {
+    teenDriverEd: {
+      title: "Edikasyon pou Chofè Adolesan",
+      description:
+        "Pakè konplè pou nouvo chofè k ap travay pou jwenn lisans chofè Massachusetts yo.",
+      imageAlt: "Elèv nan yon sesyon klas JMC Driving School",
+    },
+    adultDrivers: {
+      title: "Chofè Adilt",
+      description:
+        "Leson fleksib peye-pou-chak-itilizasyon ak pakè gwoupe pou adilt k ap aprann.",
+    },
+    highway: {
+      title: "Leson Otowout",
+      description:
+        "Pratik kondwi otowout konsantre pou moun ki gen pèmi oswa lisans.",
+    },
+  },
+  includesLabel: "Pakè sa a gen ladan:",
+  lessonRatesLabel: "Tarif Leson",
+  highwayRatesLabel: "Tarif Leson Otowout",
+  buyButton: "Achte Kounye a",
+  lessonLabel: "leson",
+  lessonsLabel: "leson",
+  decreaseQuantity: "Diminye kantite",
+  increaseQuantity: "Ogmante kantite",
+  selectPackageLabel: "Chwazi pakè",
+  driverEdPackages: [
+    {
+      title: "Pakè I – Òf Espesyal",
+      price: "$1,250",
+      badge: "Kou konplè",
+      description:
+        "Pakè sa a kalifye pou Sètifika Finisman Edikasyon pou Chofè Massachusetts la. Elèv yo dwe gen 15 ane ak 9 mwa pou kòmanse enstriksyon klas la.",
+      includes: [
+        "30 Èdtan Enstriksyon Klas",
+        "12 Èdtan Enstriksyon Pratik nan Volan",
+        "6 Èdtan Obsèvasyon",
+        "2 Èdtan Klas Oryantasyon Paran/Gadyen",
+        "Emisyon Sètifika Edikasyon pou Chofè",
+      ],
+    },
+    {
+      title: "Pakè II",
+      price: "$870",
+      includes: [
+        "12 Èdtan Enstriksyon Pratik nan Volan",
+        "6 Èdtan Obsèvasyon",
+        "2 Èdtan Klas Oryantasyon Paran/Gadyen",
+        "Emisyon Sètifika Edikasyon pou Chofè",
+      ],
+      footnote:
+        "Pou elèv ki deja pran enstriksyon klas la nan yon lòt lekòl kondwi.",
+    },
+    {
+      title: "Pakè III",
+      price: "$500",
+      description:
+        "Elèv yo dwe gen 15 ane ak 9 mwa pou kòmanse enstriksyon klas la.",
+      includes: [
+        "30 Èdtan Enstriksyon Klas",
+        "2 Èdtan Klas Oryantasyon Paran/Gadyen",
+      ],
+      footnote:
+        "Pou elèv ki deja pran enstriksyon pratik nan volan nan yon lòt lekòl kondwi.",
+    },
+  ],
+  juniorDriverProgram: {
+    title: "Leson Kondwi pou Jèn",
+    fromPrice: "Depi $80",
+    perLesson: "pa leson",
+    sampleTiersLabel: "Tarif egzanp",
+    moreTiersNote:
+      "1–10 leson disponib nan $80 pa leson. Kontakte biwo a pou lòt kantite.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
+    highlightedTiers: [
+      { label: "1 leson", price: "$80.00" },
+      { label: "5 leson", price: "$400.00" },
+      { label: "10 leson", price: "$800.00" },
+    ],
+  },
+  adultProgram: {
+    title: "Leson Kondwi pou Adilt",
+    fromPrice: "Depi $80",
+    perLesson: "pa leson",
+    sampleTiersLabel: "Tarif egzanp",
+    moreTiersNote:
+      "1–10 leson disponib nan $80 pa leson. Kontakte biwo a pou lòt kantite.",
+    pricePerLesson: 80,
+    minLessons: 1,
+    maxLessons: 10,
+    highlightedTiers: [
+      { label: "1 leson", price: "$80.00" },
+      { label: "5 leson", price: "$400.00" },
+      { label: "10 leson", price: "$800.00" },
+    ],
+  },
+  adultProgramPackage: {
+    title: "Pakè Pwogram Adilt",
+    options: [
+      { id: "6-lessons", label: "Pakè 6 Leson Kondwi", price: "$450.00" },
+      { id: "10-lessons", label: "Pakè 10 Leson Kondwi", price: "$770.00" },
+    ],
+  },
+  highwayLessons: {
+    title: "Leson Otowout",
+    description:
+      "Leson otowout yo fèt nan jou semèn soti 10am a 12pm oswa nan wikenn. Chak leson dire 1 èdtan.",
+    tiers: [
+      { label: "1 leson", price: "$100.00" },
+      { label: "2 leson", price: "$200.00" },
+      { label: "3 leson", price: "$300.00" },
+    ],
+    pricePerLesson: 100,
+    minLessons: 1,
+    maxLessons: 10,
+  },
+  disclaimerPermit:
+    "Ou dwe gen yon Pèmi Aprantisaj/Lisans Chofè Massachusetts aktif pou ka pran nenpòt leson kondwi ak JMC.",
+  disclaimerLocation:
+    "Tout leson kòmanse epi fini nan biwo JMC — pa gen sèvis ranmase/delivre.",
 } as const;
