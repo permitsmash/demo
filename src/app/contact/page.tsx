@@ -1,18 +1,20 @@
 import PageHeader from "@/components/PageHeader";
+import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
-import { site } from "@/lib/site";
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
-  const { contact, common, site: siteCopy } = messages;
+  const catalog = await getSchoolCatalog();
+  const liveSite = buildLiveSite(catalog);
+  const { contact, common } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
 
   return (
     <>
       <PageHeader
-        title={t(contact.title, { name: site.name })}
+        title={t(contact.title, { name: liveSite.name })}
         subtitle={contact.subtitle}
       />
 
@@ -111,7 +113,7 @@ export default async function Page() {
                 </span>
                 <div className="flex flex-col">
                   <span className="font-button text-button text-primary">Waltham, MA</span>
-                  <span className="text-body-md text-on-surface-variant">{site.address.full}</span>
+                  <span className="text-body-md text-on-surface-variant">{liveSite.address.full}</span>
                 </div>
               </li>
               <li className="flex items-start gap-sm">
@@ -120,8 +122,8 @@ export default async function Page() {
                 </span>
                 <div className="flex flex-col">
                   <span className="font-button text-button text-primary">{common.phone}</span>
-                  <a className="text-body-md text-on-surface-variant hover:text-secondary transition-colors" href={`tel:${site.phoneTel}`}>
-                    {site.phone}
+                  <a className="text-body-md text-on-surface-variant hover:text-secondary transition-colors" href={`tel:${liveSite.phoneTel}`}>
+                    {liveSite.phone}
                   </a>
                 </div>
               </li>
@@ -131,8 +133,8 @@ export default async function Page() {
                 </span>
                 <div className="flex flex-col">
                   <span className="font-button text-button text-primary">{common.email}</span>
-                  <a className="text-body-md text-on-surface-variant hover:text-secondary transition-colors" href={`mailto:${site.email}`}>
-                    {site.email}
+                  <a className="text-body-md text-on-surface-variant hover:text-secondary transition-colors" href={`mailto:${liveSite.email}`}>
+                    {liveSite.email}
                   </a>
                 </div>
               </li>
@@ -142,7 +144,7 @@ export default async function Page() {
                 </span>
                 <div className="flex flex-col">
                   <span className="font-button text-button text-primary">{common.officeHours}</span>
-                  <span className="text-body-md text-on-surface-variant">{siteCopy.officeHours}</span>
+                  <span className="text-body-md text-on-surface-variant">{liveSite.officeHours}</span>
                 </div>
               </li>
             </ul>
@@ -150,7 +152,7 @@ export default async function Page() {
             <div className="flex flex-col gap-sm">
               <span className="form-label">{common.languages}</span>
               <p className="text-body-md text-on-surface-variant">
-                {site.languages.join(" · ")}
+                {liveSite.languages.join(" · ")}
               </p>
             </div>
           </div>
@@ -162,7 +164,7 @@ export default async function Page() {
           <div className="text-center mb-sm">
             <h2 className="font-h2 text-h2 text-primary">{common.findUs}</h2>
             <p className="text-body-md text-on-surface-variant">
-              {site.address.full}
+              {liveSite.address.full}
             </p>
           </div>
           <div className="w-full h-[400px] bg-surface-dim rounded-lg border border-outline-variant overflow-hidden relative">
@@ -171,7 +173,7 @@ export default async function Page() {
               className="absolute inset-0 w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=973+Main+Street+Waltham+MA+02451&output=embed"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(liveSite.address.full)}&output=embed`}
             />
           </div>
         </div>

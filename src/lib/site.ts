@@ -14,9 +14,16 @@ export const site = {
     zip: "02451",
     full: "973 Main Street, Waltham, MA 02451",
   },
-  officeHours: "Mon-Fri 10am-4pm",
-  cancellationHours: "Mon-Fri 10am-4pm",
+  officeHours: "Mon-Fri 10am-5pm",
+  cancellationHours: "Mon-Fri 10am-5pm",
   roadTestLocations: [
+    {
+      name: "JMC Office",
+      address: "973 Main Street, Waltham, MA 02451",
+      image: "/rmv/jmc-driving-school.png",
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=JMC+Driving+School+973+Main+Street+Waltham+MA+02451",
+    },
     {
       name: "Watertown",
       address: "550 Arsenal St., Watertown, MA 02472",
@@ -55,12 +62,6 @@ export const site = {
       image: "/rmv/revere.jpg",
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=Revere+RMV+301+Revere+Beach+Parkway+Revere+MA",
-    },
-    {
-      name: "Worcester",
-      address: "50 Southwest Cutoff, Worcester, MA 01604",
-      image: "/rmv/worcester.png",
-      mapsUrl: "https://maps.app.goo.gl/g7rEn858CSaNzC186",
     },
     {
       name: "Milford",
@@ -168,17 +169,17 @@ export const site = {
     {
       question: "Which areas does JMC Driving School serve?",
       answer:
-        "JMC Driving School serves Waltham, MA and surrounding areas, with road test sponsorship available at Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, and Milford.",
+        "JMC Driving School serves Waltham, MA and surrounding communities. Road test sponsorship is available at our JMC office and at RMV locations across Massachusetts.",
     },
     {
       question: "How do I register for driver's ed or driving lessons?",
       answer:
-        "You can register through our website, by phone at (781) 373-1730, or by visiting our Waltham office during office hours (Mon–Fri 10am–4pm).",
+        "You can register through our website, by phone at (781) 373-1730, or by visiting our Waltham office during office hours (Mon–Fri 10am–5pm).",
     },
     {
       question: "Do you offer road test sponsorship?",
       answer:
-        "Yes. Road test sponsorship is available at the JMC office and at RMV locations across Massachusetts, including Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester, and Milford.",
+        "Yes. Road test sponsorship is available at our JMC office in Waltham and at RMV locations across Massachusetts. Contact the office for current fees and availability.",
     },
     {
       question: "What is your refund policy?",

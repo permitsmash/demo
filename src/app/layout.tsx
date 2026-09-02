@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import { LocaleProvider } from "@/components/LocaleProvider";
+import { SiteProvider } from "@/components/SiteProvider";
+import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { getLocale } from "@/lib/i18n/get-locale";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -27,6 +29,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const catalog = await getSchoolCatalog();
+  const liveSite = buildLiveSite(catalog);
 
   return (
     <html
@@ -38,7 +42,9 @@ export default async function RootLayout({
       </head>
       <body className="bg-background text-on-background font-body-md antialiased flex flex-col min-h-screen">
         <LocaleProvider initialLocale={locale}>
-          <AppShell>{children}</AppShell>
+          <SiteProvider site={liveSite}>
+            <AppShell>{children}</AppShell>
+          </SiteProvider>
         </LocaleProvider>
       </body>
     </html>

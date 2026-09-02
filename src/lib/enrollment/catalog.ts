@@ -43,14 +43,23 @@ export function getEnrollmentAddon(id: string | null | undefined): EnrollmentAdd
   return enrollmentAddons.find((addon) => addon.id === id) ?? null;
 }
 
+export function isRoadTestProduct(id: string | null | undefined): boolean {
+  if (!id) return false;
+  return enrollmentAddons.some((addon) => addon.id === id);
+}
+
 export type ClassSession = {
   id: string;
+  sessionName?: string;
   location: string;
   startDate: string;
   endDate: string;
   scheduleLabel: string;
   scheduleDetails: readonly string[];
   notes: string;
+  capacity?: number | null;
+  enrolledCount?: number;
+  remainingSpots?: number | null;
 };
 
 export const enrollmentProducts: Record<string, EnrollmentProduct> = {
@@ -129,6 +138,46 @@ export const enrollmentProducts: Record<string, EnrollmentProduct> = {
     name: "10 Driving Lesson Package",
     price: 770,
     priceLabel: "$770.00",
+    needsClassSelection: false,
+    requiresTeenAge: false,
+    minDeposit: 0,
+    offersAddons: false,
+  },
+  "rmv-area-1-jmc": {
+    id: "rmv-area-1-jmc",
+    name: "RMV Area 1 – JMC Office",
+    price: 180,
+    priceLabel: "$180.00",
+    needsClassSelection: false,
+    requiresTeenAge: false,
+    minDeposit: 0,
+    offersAddons: false,
+  },
+  "rmv-area-2-watertown": {
+    id: "rmv-area-2-watertown",
+    name: "RMV Area 2 – Watertown",
+    price: 180,
+    priceLabel: "$180.00",
+    needsClassSelection: false,
+    requiresTeenAge: false,
+    minDeposit: 0,
+    offersAddons: false,
+  },
+  "rmv-area-3-rmv-branch": {
+    id: "rmv-area-3-rmv-branch",
+    name: "RMV Area 3 – RMV Branch",
+    price: 220,
+    priceLabel: "$220.00",
+    needsClassSelection: false,
+    requiresTeenAge: false,
+    minDeposit: 0,
+    offersAddons: false,
+  },
+  "comp-test-watertown": {
+    id: "comp-test-watertown",
+    name: "COMP Test – Watertown RMV",
+    price: 260,
+    priceLabel: "$260.00",
     needsClassSelection: false,
     requiresTeenAge: false,
     minDeposit: 0,

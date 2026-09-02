@@ -2,29 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import aboutInclass from "@/app/about-inclass.png";
 import { LessonQuantityBuy } from "@/components/LessonQuantityBuy";
-import { PackageOptionBuy } from "@/components/PackageOptionBuy";
-import { getMessages, type Messages } from "@/lib/i18n";
+import {
+  buildAdultPackagesFromCatalog,
+  buildLessonsFromCatalog,
+  buildTeenPackagesFromCatalog,
+  getSchoolCatalog,
+  type CatalogDisplayPackage,
+  type CatalogLessonDisplay,
+} from "@/lib/catalog";
+import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 
-const DRIVER_ED_ICONS = ["menu_book", "directions_car", "class"] as const;
+const DEFAULT_MIN_LESSONS = 1;
+const DEFAULT_MAX_LESSONS = 10;
 
-type DriverEdPackage = Messages["courses"]["driverEdPackages"][number];
-
-function BuyButton({ label, productId }: { label: string; productId: string }) {
-  return (
-    <Link href={`/enroll?product=${productId}`} className="btn-primary w-full sm:w-auto">
-      {label}
-    </Link>
-  );
+function enrollHref(catalogId: string) {
+  return `/enroll?package=${encodeURIComponent(catalogId)}`;
 }
 
-function PackageIcon({ icon }: { icon: string }) {
+function BuyButton({ label, catalogId }: { label: string; catalogId: string }) {
   return (
-    <div className="icon-box">
-      <span className="material-symbols-outlined icon-lg icon-filled">
-        {icon}
-      </span>
-    </div>
+    <Link href={enrollHref(catalogId)} className="btn-primary w-full sm:w-auto">
+      {label}
+    </Link>
   );
 }
 
@@ -60,102 +60,81 @@ function IncludesList({
   );
 }
 
-function FeaturedPackageCard({
-  pkg,
-  icon,
-  includesLabel,
-  buyLabel,
-  productId,
-}: {
-  pkg: DriverEdPackage;
-  icon: string;
-  includesLabel: string;
-  buyLabel: string;
-  productId: string;
-}) {
-  return (
-    <div className="card-featured">
-      <div className="flex flex-col gap-md sm:flex-row sm:items-start sm:justify-between mb-lg">
-        <div className="flex items-start gap-md">
-          <PackageIcon icon={icon} />
-          <div>
-            {"badge" in pkg && pkg.badge ? (
-              <span className="badge-outline mb-xs">
-                {pkg.badge}
-              </span>
-            ) : null}
-            <h2 className="font-h2 text-h2 text-primary">{pkg.title}</h2>
-          </div>
-        </div>
-        <div className="font-display text-display text-primary sm:text-right shrink-0">
-          {pkg.price}
-        </div>
-      </div>
-      <div className="grid gap-lg md:grid-cols-2">
-        {"description" in pkg && pkg.description ? (
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            {pkg.description}
-          </p>
-        ) : (
-          <div />
-        )}
-        <IncludesList label={includesLabel} items={pkg.includes} columns={2} />
-      </div>
-      <div className="mt-md">
-        <BuyButton label={buyLabel} productId={productId} />
-      </div>
-    </div>
-  );
-}
-
 function StandardPackageCard({
   pkg,
-  icon,
   includesLabel,
   buyLabel,
-  productId,
 }: {
-  pkg: DriverEdPackage;
-  icon: string;
+  pkg: CatalogDisplayPackage;
   includesLabel: string;
   buyLabel: string;
-  productId: string;
 }) {
   return (
     <div className="card-hover flex h-full flex-col gap-md">
-      <div className="flex items-start justify-between gap-sm">
-        <PackageIcon icon={icon} />
-        <div className="font-price text-price text-primary">{pkg.price}</div>
-      </div>
-      <div>
-        <h2 className="font-h2 text-h2 text-primary">{pkg.title}</h2>
-        {"description" in pkg && pkg.description ? (
-          <p className="mt-xs font-body-sm text-body-sm text-on-surface-variant">
-            {pkg.description}
-          </p>
-        ) : null}
-      </div>
-      <div className="border-t border-outline-variant" />
-      <IncludesList label={includesLabel} items={pkg.includes} />
-      {"footnote" in pkg && pkg.footnote ? (
-        <div className="rounded-md bg-surface-container-low px-md py-sm font-body-sm text-body-sm text-on-surface-variant">
-          {pkg.footnote}
-        </div>
+      <div className="font-price text-price text-primary">{pkg.price}</div>
+      <h2 className="font-h2 text-h2 text-primary">{pkg.title}</h2>
+      {pkg.description ? (
+        <p className="font-body-sm text-body-sm text-on-surface-variant">{pkg.description}</p>
+      ) : null}
+      {pkg.includes.length > 0 ? (
+        <>
+          <div className="border-t border-outline-variant" />
+          <IncludesList label={includesLabel} items={pkg.includes} />
+        </>
       ) : null}
       <div className="mt-auto pt-md">
-        <BuyButton label={buyLabel} productId={productId} />
+        <BuyButton label={buyLabel} catalogId={pkg.catalogId} />
       </div>
     </div>
   );
 }
 
-function SectionHeader({
-  title,
-  description,
+function LessonCard({
+  lesson,
+  buyLabel,
+  perLessonLabel,
+  lessonLabel,
+  lessonsLabel,
+  decreaseLabel,
+  increaseLabel,
 }: {
-  title: string;
-  description: string;
+  lesson: CatalogLessonDisplay;
+  buyLabel: string;
+  perLessonLabel: string;
+  lessonLabel: string;
+  lessonsLabel: string;
+  decreaseLabel: string;
+  increaseLabel: string;
 }) {
+  return (
+    <div className="card-hover flex h-full flex-col gap-md">
+      <div>
+        <div className="font-price text-price text-primary">{lesson.priceLabel}</div>
+        <div className="font-body-sm text-body-sm text-on-surface-variant">{perLessonLabel}</div>
+      </div>
+      <h2 className="font-h2 text-h2 text-primary">{lesson.title}</h2>
+      {lesson.description ? (
+        <p className="font-body-sm text-body-sm text-on-surface-variant">{lesson.description}</p>
+      ) : null}
+      <div className="border-t border-outline-variant" />
+      <div className="mt-auto pt-md">
+        <LessonQuantityBuy
+          buyLabel={buyLabel}
+          pricePerLesson={lesson.pricePerLesson}
+          minLessons={DEFAULT_MIN_LESSONS}
+          maxLessons={DEFAULT_MAX_LESSONS}
+          productId={lesson.catalogId}
+          lessonLabel={lessonLabel}
+          lessonsLabel={lessonsLabel}
+          decreaseLabel={decreaseLabel}
+          increaseLabel={increaseLabel}
+        />
+      </div>
+    </div>
+  );
+}
+
+function SectionHeader({ title, description }: { title: string; description: string }) {
   return (
     <div className="max-w-prose">
       <h2 className="font-h2 text-h2 text-primary mb-sm">{title}</h2>
@@ -164,10 +143,38 @@ function SectionHeader({
   );
 }
 
+function EmptyCatalogMessage({ message }: { message: string }) {
+  return (
+    <div className="container-page section">
+      <p className="font-body-lg text-body-lg text-on-surface-variant rounded-lg border border-outline-variant bg-surface-container-low px-lg py-md">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 export default async function Page() {
   const messages = getMessages(await getLocale());
+  const catalog = await getSchoolCatalog();
   const c = messages.courses;
-  const [featuredPkg, ...otherPkgs] = c.driverEdPackages;
+
+  if (!catalog) {
+    return (
+      <div className="flex flex-col items-center w-full">
+        <section className="w-full bg-surface-container-lowest section-padded">
+          <div className="container-page text-center">
+            <h1 className="font-h1 text-h1 text-primary">{c.title}</h1>
+          </div>
+        </section>
+        <EmptyCatalogMessage message={c.emptyCatalog} />
+      </div>
+    );
+  }
+
+  const teenPackages = buildTeenPackagesFromCatalog(catalog);
+  const adultPackages = buildAdultPackagesFromCatalog(catalog);
+  const lessons = buildLessonsFromCatalog(catalog);
+  const hasPrograms = teenPackages.length > 0 || adultPackages.length > 0 || lessons.length > 0;
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -180,187 +187,103 @@ export default async function Page() {
         </div>
       </section>
 
-      {/* Teen Driver Education */}
-      <section className="w-full section">
-        <div className="container-page flex flex-col gap-xl">
-          <div className="grid gap-lg md:grid-cols-2 md:items-center">
+      {!hasPrograms ? <EmptyCatalogMessage message={c.emptyCatalog} /> : null}
+
+      {teenPackages.length > 0 ? (
+        <section className="w-full section">
+          <div className="container-page flex flex-col gap-xl">
+            <div className="grid gap-lg md:grid-cols-2 md:items-center">
+              <SectionHeader
+                title={c.sections.teenDriverEd.title}
+                description={c.sections.teenDriverEd.description}
+              />
+              <div className="relative h-[220px] md:h-[260px] w-full overflow-hidden rounded-xl border border-outline-variant elevation-2">
+                <Image
+                  src={aboutInclass}
+                  alt={c.sections.teenDriverEd.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 560px"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+              {teenPackages.map((pkg) => (
+                <StandardPackageCard
+                  key={pkg.catalogId}
+                  pkg={pkg}
+                  includesLabel={c.includesLabel}
+                  buyLabel={c.buyButton}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {adultPackages.length > 0 ? (
+        <section className="w-full bg-surface-dim section">
+          <div className="container-page flex flex-col gap-xl">
             <SectionHeader
-              title={c.sections.teenDriverEd.title}
-              description={c.sections.teenDriverEd.description}
+              title={c.sections.adultDrivers.title}
+              description={c.sections.adultDrivers.description}
             />
-            <div className="relative h-[220px] md:h-[260px] w-full overflow-hidden rounded-xl border border-outline-variant elevation-2">
-              <Image
-                src={aboutInclass}
-                alt={c.sections.teenDriverEd.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 560px"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+              {adultPackages.map((pkg) => (
+                <StandardPackageCard
+                  key={pkg.catalogId}
+                  pkg={pkg}
+                  includesLabel={c.includesLabel}
+                  buyLabel={c.buyButton}
+                />
+              ))}
             </div>
           </div>
+        </section>
+      ) : null}
 
-          <FeaturedPackageCard
-            pkg={featuredPkg}
-            icon={DRIVER_ED_ICONS[0]}
-            includesLabel={c.includesLabel}
-            buyLabel={c.buyButton}
-            productId="driver-ed-1"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            {otherPkgs.map((pkg, index) => (
-              <StandardPackageCard
-                key={pkg.title}
-                pkg={pkg}
-                icon={DRIVER_ED_ICONS[index + 1]}
-                includesLabel={c.includesLabel}
-                buyLabel={c.buyButton}
-                productId={`driver-ed-${index + 2}`}
-              />
-            ))}
-          </div>
-
-          <div className="max-w-content-md">
-            <div className="card-hover flex flex-col gap-md">
-              <div className="flex items-start justify-between gap-sm">
-                <PackageIcon icon="school" />
-                <div className="text-right">
-                  <div className="font-price text-price text-primary">
-                    {c.juniorDriverProgram.fromPrice}
-                  </div>
-                  <div className="font-body-sm text-body-sm text-on-surface-variant">
-                    {c.juniorDriverProgram.perLesson}
-                  </div>
-                </div>
-              </div>
-              <h2 className="font-h2 text-h2 text-primary">{c.juniorDriverProgram.title}</h2>
-              <div className="border-t border-outline-variant" />
-              <div className="mt-md">
-                <LessonQuantityBuy
+      {lessons.length > 0 ? (
+        <section className={`w-full section ${adultPackages.length === 0 ? "bg-surface-dim" : ""}`}>
+          <div className="container-page flex flex-col gap-xl">
+            <SectionHeader
+              title={c.sections.individualLessons.title}
+              description={c.sections.individualLessons.description}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+              {lessons.map((lesson) => (
+                <LessonCard
+                  key={lesson.catalogId}
+                  lesson={lesson}
                   buyLabel={c.buyButton}
-                  pricePerLesson={c.juniorDriverProgram.pricePerLesson}
-                  minLessons={c.juniorDriverProgram.minLessons}
-                  maxLessons={c.juniorDriverProgram.maxLessons}
-                  productId="junior-lessons"
+                  perLessonLabel={c.perLesson}
                   lessonLabel={c.lessonLabel}
                   lessonsLabel={c.lessonsLabel}
                   decreaseLabel={c.decreaseQuantity}
                   increaseLabel={c.increaseQuantity}
                 />
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      {/* Adult Drivers */}
-      <section className="w-full bg-surface-dim section">
-        <div className="container-page flex flex-col gap-xl">
-          <SectionHeader
-            title={c.sections.adultDrivers.title}
-            description={c.sections.adultDrivers.description}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            <div className="card-hover flex flex-col gap-md">
-              <div className="flex items-start justify-between gap-sm">
-                <PackageIcon icon="person" />
-                <div className="text-right">
-                  <div className="font-price text-price text-primary">
-                    {c.adultProgram.fromPrice}
-                  </div>
-                  <div className="font-body-sm text-body-sm text-on-surface-variant">
-                    {c.adultProgram.perLesson}
-                  </div>
-                </div>
-              </div>
-              <h2 className="font-h2 text-h2 text-primary">{c.adultProgram.title}</h2>
-              <div className="border-t border-outline-variant" />
-              <div className="mt-auto pt-md">
-                <LessonQuantityBuy
-                  buyLabel={c.buyButton}
-                  pricePerLesson={c.adultProgram.pricePerLesson}
-                  minLessons={c.adultProgram.minLessons}
-                  maxLessons={c.adultProgram.maxLessons}
-                  productId="adult-lessons"
-                  lessonLabel={c.lessonLabel}
-                  lessonsLabel={c.lessonsLabel}
-                  decreaseLabel={c.decreaseQuantity}
-                  increaseLabel={c.increaseQuantity}
-                />
-              </div>
-            </div>
-
-            <div className="card-hover flex flex-col gap-md">
-              <PackageIcon icon="inventory_2" />
-              <h2 className="font-h2 text-h2 text-primary">
-                {c.adultProgramPackage.title}
-              </h2>
-              <div className="border-t border-outline-variant" />
-              <div className="mt-auto pt-md">
-                <PackageOptionBuy
-                  buyLabel={c.buyButton}
-                  selectLabel={c.selectPackageLabel}
-                  productId="adult-program-package"
-                  options={c.adultProgramPackage.options}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Highway Lessons */}
       <section className="w-full section">
-        <div className="container-page flex flex-col gap-xl">
-          <SectionHeader
-            title={c.sections.highway.title}
-            description={c.sections.highway.description}
-          />
-
-          <div className="max-w-content-md">
-            <div className="card-hover flex flex-col gap-md">
-              <div className="flex items-start justify-between gap-sm">
-                <PackageIcon icon="add_road" />
-                <div className="font-price text-price text-primary">$100</div>
-              </div>
-              <h2 className="font-h2 text-h2 text-primary">{c.highwayLessons.title}</h2>
-              <p className="font-body-sm text-body-sm text-on-surface-variant">
-                {c.highwayLessons.description}
-              </p>
-              <div className="border-t border-outline-variant" />
-              <div className="mt-md">
-                <LessonQuantityBuy
-                  buyLabel={c.buyButton}
-                  pricePerLesson={c.highwayLessons.pricePerLesson}
-                  minLessons={c.highwayLessons.minLessons}
-                  maxLessons={c.highwayLessons.maxLessons}
-                  productId="highway-lessons"
-                  lessonLabel={c.lessonLabel}
-                  lessonsLabel={c.lessonsLabel}
-                  decreaseLabel={c.decreaseQuantity}
-                  increaseLabel={c.increaseQuantity}
-                />
-              </div>
-            </div>
+        <div className="container-page">
+          <div className="flex flex-col gap-sm rounded-lg border border-outline-variant bg-surface-container-low px-lg py-md max-w-content-narrow mx-auto">
+            <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+              <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
+                info
+              </span>
+              {c.disclaimerPermit}
+            </p>
+            <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+              <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
+                location_on
+              </span>
+              {c.disclaimerLocation}
+            </p>
           </div>
-        </div>
-      </section>
-
-      <section className="w-full container-page pb-xl">
-        <div className="flex flex-col gap-sm rounded-lg border border-outline-variant bg-surface-container-low px-lg py-md max-w-content-narrow mx-auto">
-          <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
-            <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
-              info
-            </span>
-            {c.disclaimerPermit}
-          </p>
-          <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
-            <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
-              location_on
-            </span>
-            {c.disclaimerLocation}
-          </p>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import type { Messages } from "./en";
 import { coursesEs } from "./pages/courses";
+import { roadTestsEs } from "./pages/roadTests";
 import { classesEs } from "./pages/classes";
 import { faqPageEs } from "./pages/faq";
 import { legalEs } from "./pages/legal";
@@ -14,6 +15,7 @@ import { enrollmentEs } from "./pages/enrollment";
 export const es: Messages = {
   nav: {
     programs: "Programas",
+    roadTests: "Exámenes de manejo",
     classes: "Clases",
     about: "Nosotros",
     contact: "Contacto",
@@ -77,6 +79,8 @@ export const es: Messages = {
     drivingPrograms: "programas de manejo",
     classSchedule: "calendario de clases",
     contactOffice: "Contactar la oficina",
+    acceleratedUnavailable:
+      "Las fechas de cursos acelerados no están disponibles temporalmente. Llame a la oficina o consulte la página de calendario de clases.",
     roadTestTitle: "Patrocinios para examen de manejo",
     roadTestDesc: "Disponible en la oficina de JMC en Waltham o en ubicaciones del RMV en:",
     rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
@@ -104,17 +108,17 @@ export const es: Messages = {
       {
         question: "¿Qué áreas atiende JMC Driving School?",
         answer:
-          "JMC Driving School atiende Waltham, MA y áreas circundantes, con patrocinio para examen de manejo disponible en Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester y Milford.",
+          "JMC Driving School atiende Waltham, MA y comunidades cercanas. El patrocinio para examen de manejo está disponible en nuestra oficina y en ubicaciones del RMV en todo Massachusetts.",
       },
       {
         question: "¿Cómo me registro para educación vial o clases de manejo?",
         answer:
-          "Puede registrarse a través de nuestro sitio web, por teléfono al (781) 373-1730 o visitando nuestra oficina de Waltham durante el horario de oficina (lun–vie 10am–4pm).",
+          "Puede registrarse a través de nuestro sitio web, por teléfono al (781) 373-1730 o visitando nuestra oficina de Waltham durante el horario de oficina (lun–vie 10am–5pm).",
       },
       {
         question: "¿Ofrecen patrocinio para el examen de manejo?",
         answer:
-          "Sí. El patrocinio para examen de manejo está disponible en la oficina de JMC y en ubicaciones del RMV en todo Massachusetts, incluyendo Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, Worcester y Milford.",
+          "Sí. El patrocinio para examen de manejo está disponible en nuestra oficina de Waltham y en ubicaciones del RMV en todo Massachusetts. Contacte la oficina para tarifas y disponibilidad actuales.",
       },
       {
         question: "¿Cuál es su política de reembolso?",
@@ -178,10 +182,11 @@ export const es: Messages = {
     description:
       "Clases de manejo profesionales en Waltham, Massachusetts. Instructores certificados que ayudan a los nuevos conductores a ganar habilidades y confianza en la carretera.",
     serviceArea: "Waltham, MA y áreas circundantes",
-    officeHours: "Lun–Vie 10am–4pm",
-    cancellationHours: "Lun–Vie 10am–4pm",
+    officeHours: "Lun–Vie 10am–5pm",
+    cancellationHours: "Lun–Vie 10am–5pm",
   },
   courses: coursesEs,
+  roadTests: roadTestsEs,
   classes: classesEs,
   faqPage: faqPageEs,
   legal: legalEs,

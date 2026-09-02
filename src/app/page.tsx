@@ -4,14 +4,15 @@ import { GoogleMark } from "@/components/GoogleMark";
 import { AttentionAvatar3D } from "@/components/AttentionAvatar3DClient";
 import { HomepageJsonLd } from "@/components/HomepageJsonLd";
 import { ReviewScroller } from "@/components/ReviewScroller";
+import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { site } from "@/lib/site";
 
-const courseLabels = ["courseAugust", "courseOctober", "courseDecember"] as const;
-
 export default async function Page() {
   const messages = getMessages(await getLocale());
+  const catalog = await getSchoolCatalog();
+  const liveSite = buildLiveSite(catalog);
   const { home, site: siteCopy, common } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
@@ -19,7 +20,7 @@ export default async function Page() {
 
   return (
     <>
-      <HomepageJsonLd />
+      <HomepageJsonLd site={liveSite} />
 
       <section className="hero-section relative overflow-hidden flex items-center">
         <Image
@@ -58,8 +59,8 @@ export default async function Page() {
               <GoogleMark className="text-on-surface-variant" />
             </a>
             <div className="flex flex-col sm:flex-row gap-sm mt-sm justify-center">
-              <a href={`tel:${site.phoneTel}`} className="btn-primary pressable">
-                {t(common.callNow, { phone: site.phone })}
+              <a href={`tel:${liveSite.phoneTel}`} className="btn-primary pressable">
+                {t(common.callNow, { phone: liveSite.phone })}
                 <span className="material-symbols-outlined">call</span>
               </a>
               <Link href="/courses" className="btn-outline pressable">
@@ -87,7 +88,7 @@ export default async function Page() {
       <section className="section bg-surface-dim">
         <div className="container-page text-center">
           <h2 className="font-h2 text-h2 text-primary mb-sm">
-            {t(home.whyChoose, { name: site.name })}
+            {t(home.whyChoose, { name: liveSite.name })}
           </h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto mb-lg">
             {home.whyChooseDesc}
@@ -143,17 +144,23 @@ export default async function Page() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-md mb-lg">
-            {site.acceleratedCourses.map((course, index) => (
-              <div
-                key={course.label}
-                className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
-              >
-                <h3 className="font-h3 text-h3 text-primary mb-xs">
-                  {home[courseLabels[index] ?? "courseAugust"]}
-                </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
+            {liveSite.acceleratedCourses.length > 0 ? (
+              liveSite.acceleratedCourses.map((course) => (
+                <div
+                  key={`${course.label}-${course.dates}`}
+                  className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
+                >
+                  <h3 className="font-h3 text-h3 text-primary mb-xs">{course.label}</h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
+                </div>
+              ))
+            ) : (
+              <div className="md:col-span-3 rounded-lg border border-outline-variant bg-surface-container-lowest p-md text-center">
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  {home.acceleratedUnavailable}
+                </p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -167,7 +174,7 @@ export default async function Page() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
-            {site.roadTestLocations.map((location) => (
+            {liveSite.roadTestLocations.map((location) => (
               <a
                 key={location.name}
                 href={location.mapsUrl}
@@ -200,7 +207,7 @@ export default async function Page() {
           <div className="text-center">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.reviewsTitle}</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
-              {t(home.reviewsDesc, { name: site.name })}
+              {t(home.reviewsDesc, { name: liveSite.name })}
             </p>
           </div>
         </div>
@@ -224,10 +231,10 @@ export default async function Page() {
                   <strong>{home.attentionGreeting}</strong> {home.attentionP1}
                 </p>
                 <p>
-                  {t(home.attentionP2, { address: site.address.full })}
+                  {t(home.attentionP2, { address: liveSite.address.full })}
                 </p>
                 <p>
-                  {t(home.attentionP3, { email: site.email, phone: site.phone })}
+                  {t(home.attentionP3, { email: liveSite.email, phone: liveSite.phone })}
                 </p>
               </div>
             </div>
@@ -235,7 +242,7 @@ export default async function Page() {
           <div className="grid md:grid-cols-3 gap-md max-w-prose-xl md:max-w-none mx-auto text-left">
             <div className="bg-on-primary/10 rounded-lg p-md border border-on-primary/20">
               <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.officeHours}</h3>
-              <p className="font-body-md text-body-md text-on-primary-container">{siteCopy.officeHours}</p>
+              <p className="font-body-md text-body-md text-on-primary-container">{liveSite.officeHours}</p>
             </div>
             <div className="bg-on-primary/10 rounded-lg p-md border border-on-primary/20">
               <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.cancellations}</h3>

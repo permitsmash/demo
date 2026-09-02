@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import aboutInclass from "@/app/about-inclass.png";
+import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
-import { site } from "@/lib/site";
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
+  const catalog = await getSchoolCatalog();
+  const liveSite = buildLiveSite(catalog);
   const { about, site: siteCopy, common, home } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
@@ -16,18 +18,18 @@ export default async function Page() {
       <section className="relative bg-primary overflow-hidden section-padded">
         <div className="container-page flex flex-col md:flex-row items-center gap-lg">
           <div className="flex-1 text-on-primary z-10">
-            <h1 className="font-h1 text-h1 mb-md">{t(about.title, { name: site.name })}</h1>
+            <h1 className="font-h1 text-h1 mb-md">{t(about.title, { name: liveSite.name })}</h1>
             <p className="font-body-lg text-body-lg text-on-primary-container mb-lg">
               {about.heroDesc}
             </p>
-            <a href={`tel:${site.phoneTel}`} className="btn-primary">
-              {t(common.callNow, { phone: site.phone })}
+            <a href={`tel:${liveSite.phoneTel}`} className="btn-primary">
+              {t(common.callNow, { phone: liveSite.phone })}
             </a>
           </div>
           <div className="flex-1 relative">
             <div className="aspect-[4/3] rounded-xl overflow-hidden elevation-3 relative">
               <Image
-                alt={t(about.heroAlt, { name: site.name })}
+                alt={t(about.heroAlt, { name: liveSite.name })}
                 className="object-cover"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -45,17 +47,17 @@ export default async function Page() {
               <h2 className="font-h2 text-h2 mb-md">{about.missionTitle}</h2>
               <div className="space-y-md text-on-surface-variant font-body-md">
                 <p>
-                  {t(about.missionP1, { name: site.name, serviceArea: siteCopy.serviceArea })}
+                  {t(about.missionP1, { name: liveSite.name, serviceArea: siteCopy.serviceArea })}
                 </p>
                 <p>{about.missionP2}</p>
                 <p>
                   {about.missionP3Prefix}{" "}
-                  <a href={`tel:${site.phoneTel}`} className="text-primary font-semibold hover:underline">
-                    {site.phone}
+                  <a href={`tel:${liveSite.phoneTel}`} className="text-primary font-semibold hover:underline">
+                    {liveSite.phone}
                   </a>{" "}
                   {about.missionP3Or}{" "}
-                  <a href={`mailto:${site.email}`} className="text-primary font-semibold hover:underline">
-                    {site.email}
+                  <a href={`mailto:${liveSite.email}`} className="text-primary font-semibold hover:underline">
+                    {liveSite.email}
                   </a>{" "}
                   {about.missionP3Suffix}
                 </p>
@@ -65,18 +67,18 @@ export default async function Page() {
               <h3 className="font-h3 text-h3 mb-sm text-primary">{about.officeInfo}</h3>
               <ul className="space-y-sm font-body-md text-on-surface-variant">
                 <li>
-                  <span className="font-semibold text-primary">{common.address}:</span> {site.address.full}
+                  <span className="font-semibold text-primary">{common.address}:</span> {liveSite.address.full}
                 </li>
                 <li>
                   <span className="font-semibold text-primary">{common.phone}:</span>{" "}
-                  <a href={`tel:${site.phoneTel}`} className="hover:underline">{site.phone}</a>
+                  <a href={`tel:${liveSite.phoneTel}`} className="hover:underline">{liveSite.phone}</a>
                 </li>
                 <li>
                   <span className="font-semibold text-primary">{common.email}:</span>{" "}
-                  <a href={`mailto:${site.email}`} className="hover:underline">{site.email}</a>
+                  <a href={`mailto:${liveSite.email}`} className="hover:underline">{liveSite.email}</a>
                 </li>
                 <li>
-                  <span className="font-semibold text-primary">{common.hours}:</span> {siteCopy.officeHours}
+                  <span className="font-semibold text-primary">{common.hours}:</span> {liveSite.officeHours}
                 </li>
               </ul>
             </div>
@@ -88,7 +90,7 @@ export default async function Page() {
         <div className="container-page">
           <div className="text-center mb-xl">
             <h2 className="font-h2 text-h2 mb-sm text-primary">
-              {t(about.differenceTitle, { name: site.name })}
+              {t(about.differenceTitle, { name: liveSite.name })}
             </h2>
             <p className="text-on-surface-variant max-w-prose mx-auto">
               {about.differenceDesc}

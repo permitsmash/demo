@@ -15,6 +15,10 @@ export const coursesEn = {
       description:
         "Flexible pay-as-you-go lessons and bundled packages for adult learners.",
     },
+    individualLessons: {
+      title: "Driving Lessons",
+      description: "Pay-as-you-go behind-the-wheel instruction.",
+    },
     highway: {
       title: "Highway Lessons",
       description:
@@ -25,6 +29,9 @@ export const coursesEn = {
   lessonRatesLabel: "Lesson Rates",
   highwayRatesLabel: "Highway Lesson Rates",
   buyButton: "Buy Now",
+  emptyCatalog:
+    "Programs are temporarily unavailable. Please call the office or try again shortly.",
+  perLesson: "per lesson",
   lessonLabel: "lesson",
   lessonsLabel: "lessons",
   decreaseQuantity: "Decrease quantity",
@@ -135,12 +142,15 @@ export type CoursesMessages = {
   sections: {
     teenDriverEd: { title: string; description: string; imageAlt: string };
     adultDrivers: { title: string; description: string };
+    individualLessons: { title: string; description: string };
     highway: { title: string; description: string };
   };
   includesLabel: string;
   lessonRatesLabel: string;
   highwayRatesLabel: string;
   buyButton: string;
+  emptyCatalog: string;
+  perLesson: string;
   lessonLabel: string;
   lessonsLabel: string;
   decreaseQuantity: string;
@@ -209,6 +219,10 @@ export const coursesEs = {
       description:
         "Clases flexibles por separado y paquetes agrupados para adultos.",
     },
+    individualLessons: {
+      title: "Clases de manejo",
+      description: "Instrucción práctica de manejo con pago por lección.",
+    },
     highway: {
       title: "Clases en autopista",
       description:
@@ -219,6 +233,9 @@ export const coursesEs = {
   lessonRatesLabel: "Tarifas por clase",
   highwayRatesLabel: "Tarifas de clases en autopista",
   buyButton: "Comprar ahora",
+  emptyCatalog:
+    "Los programas no están disponibles temporalmente. Llame a la oficina o intente de nuevo más tarde.",
+  perLesson: "por clase",
   lessonLabel: "clase",
   lessonsLabel: "clases",
   decreaseQuantity: "Disminuir cantidad",
@@ -339,6 +356,10 @@ export const coursesPt = {
       description:
         "Aulas avulsas flexíveis e pacotes com desconto para adultos.",
     },
+    individualLessons: {
+      title: "Aulas de direção",
+      description: "Instrução prática de direção com pagamento por aula.",
+    },
     highway: {
       title: "Aulas em rodovia",
       description:
@@ -349,6 +370,9 @@ export const coursesPt = {
   lessonRatesLabel: "Tarifas por aula",
   highwayRatesLabel: "Tarifas de aulas em rodovia",
   buyButton: "Comprar agora",
+  emptyCatalog:
+    "Os programas estão temporariamente indisponíveis. Ligue para o escritório ou tente novamente em breve.",
+  perLesson: "por aula",
   lessonLabel: "aula",
   lessonsLabel: "aulas",
   decreaseQuantity: "Diminuir quantidade",
@@ -469,6 +493,10 @@ export const coursesHt = {
       description:
         "Leson fleksib peye-pou-chak-itilizasyon ak pakè gwoupe pou adilt k ap aprann.",
     },
+    individualLessons: {
+      title: "Leson Kondwi",
+      description: "Enstriksyon pratik kondwi ak peman pa leson.",
+    },
     highway: {
       title: "Leson Otowout",
       description:
@@ -479,6 +507,9 @@ export const coursesHt = {
   lessonRatesLabel: "Tarif Leson",
   highwayRatesLabel: "Tarif Leson Otowout",
   buyButton: "Achte Kounye a",
+  emptyCatalog:
+    "Pwogram yo pa disponib pou kounye a. Tanpri rele biwo a oswa eseye ankò byento.",
+  perLesson: "pa leson",
   lessonLabel: "leson",
   lessonsLabel: "leson",
   decreaseQuantity: "Diminye kantite",

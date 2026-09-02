@@ -1,12 +1,14 @@
+import { ClassSessionsPanel } from "@/components/ClassSessionsPanel";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
-import { site } from "@/lib/site";
-
-const courseLabels = ["courseAugust", "courseOctober", "courseDecember"] as const;
+import { buildClassSessionsFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
-  const { classes: c, home, common, site: siteCopy } = messages;
+  const catalog = await getSchoolCatalog();
+  const liveSite = buildLiveSite(catalog);
+  const sessions = buildClassSessionsFromCatalog(catalog);
+  const { classes: c, home, common } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
 
@@ -27,7 +29,7 @@ export default async function Page() {
                 {c.location}
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                {site.address.full}
+                {liveSite.address.full}
               </p>
             </div>
             <div className="bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm flex flex-col gap-xs">
@@ -36,7 +38,7 @@ export default async function Page() {
                 {common.officeHours}
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant">
-                {siteCopy.officeHours}
+                {liveSite.officeHours}
               </p>
             </div>
             <div className="bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm flex flex-col gap-xs">
@@ -60,51 +62,23 @@ export default async function Page() {
               {c.upcomingDesc}
             </p>
           </div>
-          <div className="flex flex-col gap-sm md:hidden">
-            {site.acceleratedCourses.map((course, index) => (
-              <article
-                key={course.label}
-                className="rounded-lg border border-outline-variant bg-surface-container-lowest p-md flex flex-col gap-sm"
-              >
-                <h3 className="font-h3 text-h3 text-primary">
-                  {home[courseLabels[index] ?? "courseAugust"]}
-                </h3>
-                <p className="text-body-sm text-on-surface-variant">{course.dates}</p>
-                <a href={`tel:${site.phoneTel}`} className="btn-outline w-full text-center">
-                  {c.contactOffice}
-                </a>
-              </article>
-            ))}
-          </div>
-          <div className="hidden md:block overflow-x-auto rounded-lg border border-outline-variant bg-surface-container-lowest">
-            <table className="min-w-full text-left text-body-sm font-body-sm">
-              <thead className="bg-surface-container-low">
-                <tr>
-                  <th className="py-xs px-sm text-on-surface-variant">{c.session}</th>
-                  <th className="py-xs px-sm text-on-surface-variant">{c.dates}</th>
-                  <th className="py-xs px-sm text-right" aria-hidden="true" />
-                </tr>
-              </thead>
-              <tbody>
-                {site.acceleratedCourses.map((course, index) => (
-                  <tr key={course.label} className="border-t border-outline-variant/60">
-                    <td className="py-xs px-sm">
-                      {home[courseLabels[index] ?? "courseAugust"]}
-                    </td>
-                    <td className="py-xs px-sm">{course.dates}</td>
-                    <td className="py-xs px-sm text-right">
-                      <a
-                        href={`tel:${site.phoneTel}`}
-                        className="btn-outline rounded-full px-sm py-xs"
-                      >
-                        {c.contactOffice}
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ClassSessionsPanel
+            sessions={sessions}
+            phoneTel={liveSite.phoneTel}
+            labels={{
+              session: c.session,
+              dates: c.dates,
+              location: c.locationLabel,
+              totalSpots: c.totalSpots,
+              availableSpots: c.availableSpots,
+              sessionFull: c.sessionFull,
+              notes: c.notes,
+              viewSchedule: c.viewSchedule,
+              close: c.close,
+              contactOffice: c.contactOffice,
+              noSessions: c.noSessions,
+            }}
+          />
         </div>
 
         <div className="bg-primary rounded-xl p-lg text-on-primary">
@@ -115,9 +89,9 @@ export default async function Page() {
             </p>
             <p>
               {c.attentionP2Prefix}{" "}
-              <a href={`mailto:${site.email}`} className="underline">{site.email}</a>{" "}
+              <a href={`mailto:${liveSite.email}`} className="underline">{liveSite.email}</a>{" "}
               {c.attentionP2Or}{" "}
-              <a href={`tel:${site.phoneTel}`} className="underline">{site.phone}</a>.
+              <a href={`tel:${liveSite.phoneTel}`} className="underline">{liveSite.phone}</a>.
             </p>
           </div>
         </div>
@@ -142,7 +116,7 @@ export default async function Page() {
               <h3 className="font-h3 text-h3 text-primary">{c.needHelp}</h3>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              {t(c.needHelpDesc, { phone: site.phone, hours: siteCopy.officeHours })}
+              {t(c.needHelpDesc, { phone: liveSite.phone, hours: liveSite.officeHours })}
             </p>
           </div>
         </div>

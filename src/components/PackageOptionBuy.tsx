@@ -7,6 +7,7 @@ type PackageOption = {
   id: string;
   label: string;
   price: string;
+  catalogId?: string;
 };
 
 type PackageOptionBuyProps = {
@@ -55,7 +56,11 @@ export function PackageOptionBuy({
       </div>
       <div className="font-h3 text-h3 text-primary">{selected.price}</div>
       <Link
-        href={`/enroll?product=${productId}&package=${selected.id}`}
+        href={
+          selected.catalogId
+            ? `/enroll?package=${encodeURIComponent(selected.catalogId)}`
+            : `/enroll?product=${encodeURIComponent(productId)}&package=${encodeURIComponent(selected.id)}`
+        }
         className="btn-primary w-full sm:w-auto self-start"
       >
         {buyLabel}
