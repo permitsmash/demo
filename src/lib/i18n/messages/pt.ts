@@ -79,6 +79,8 @@ export const pt: Messages = {
     drivingPrograms: "programas de direção",
     classSchedule: "calendário de aulas",
     contactOffice: "Contatar o escritório",
+    acceleratedUnavailable:
+      "As datas dos cursos acelerados estão temporariamente indisponíveis. Ligue para o escritório ou consulte a página de calendário de aulas.",
     roadTestTitle: "Patrocínios para exame prático",
     roadTestDesc: "Disponível no escritório da JMC em Waltham ou em locais do RMV em:",
     rmvAria: "Centro de serviços RMV de {name} — abrir no Google Maps",
@@ -106,7 +108,7 @@ export const pt: Messages = {
       {
         question: "Quais áreas a JMC Driving School atende?",
         answer:
-          "A JMC Driving School atende Waltham, MA e regiões vizinhas, com patrocínio para exame prático disponível em Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere e Milford.",
+          "A JMC Driving School atende Waltham, MA e comunidades vizinhas. O patrocínio para exame prático está disponível em nosso escritório e em locais do RMV em todo Massachusetts.",
       },
       {
         question: "Como me inscrevo para educação de motoristas ou aulas de direção?",
@@ -116,7 +118,7 @@ export const pt: Messages = {
       {
         question: "Vocês oferecem patrocínio para o exame prático?",
         answer:
-          "Sim. O patrocínio para exame prático está disponível no escritório da JMC e em locais do RMV em todo Massachusetts, incluindo Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere e Milford.",
+          "Sim. O patrocínio para exame prático está disponível em nosso escritório em Waltham e em locais do RMV em todo Massachusetts. Entre em contato com o escritório para taxas e disponibilidade atuais.",
       },
       {
         question: "Qual é a política de reembolso?",

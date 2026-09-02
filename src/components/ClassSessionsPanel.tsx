@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ClassSession } from "@/lib/enrollment/catalog";
 
@@ -26,6 +26,21 @@ const compactOutlineBtn =
   "inline-flex items-center justify-center rounded-full border-2 border-primary bg-transparent px-sm py-xs font-button text-button font-semibold text-primary transition-[color,background-color,transform] hover:bg-primary hover:text-on-primary active:scale-95";
 const compactPrimaryBtn =
   "btn-primary btn-primary-sm inline-flex rounded-full font-button text-button";
+
+const subscribeNoop = () => () => undefined;
+
+function useIsClient() {
+  return useSyncExternalStore(subscribeNoop, () => true, () => false);
+}
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+function getFocusableElements(container: HTMLElement) {
+  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+    (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1,
+  );
+}
 
 function formatAvailableSpots(session: ClassSession, sessionFullLabel: string) {
   if (session.remainingSpots == null) {
@@ -54,16 +69,58 @@ function ScheduleDialog({
   closeLabel: string;
   onClose: () => void;
 }) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
+    if (!mounted) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, []);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const focusable = getFocusableElements(dialog);
+    (focusable[0] ?? dialog).focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const items = getFocusableElements(dialog);
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [mounted, onClose]);
 
   if (!mounted) {
     return null;
@@ -72,11 +129,13 @@ function ScheduleDialog({
   return createPortal(
     <div className="enrollment-schedule-overlay" onClick={onClose} role="presentation">
       <div
+        ref={dialogRef}
         className="enrollment-schedule-dialog"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="class-schedule-dialog-title"
+        tabIndex={-1}
       >
         <div className="flex items-start justify-between gap-sm mb-md">
           <div>

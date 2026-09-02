@@ -169,7 +169,7 @@ export const site = {
     {
       question: "Which areas does JMC Driving School serve?",
       answer:
-        "JMC Driving School serves Waltham, MA and surrounding areas, with road test sponsorship available at Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, and Milford.",
+        "JMC Driving School serves Waltham, MA and surrounding communities. Road test sponsorship is available at our JMC office and at RMV locations across Massachusetts.",
     },
     {
       question: "How do I register for driver's ed or driving lessons?",
@@ -179,7 +179,7 @@ export const site = {
     {
       question: "Do you offer road test sponsorship?",
       answer:
-        "Yes. Road test sponsorship is available at the JMC office and at RMV locations across Massachusetts, including Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, and Milford.",
+        "Yes. Road test sponsorship is available at our JMC office in Waltham and at RMV locations across Massachusetts. Contact the office for current fees and availability.",
     },
     {
       question: "What is your refund policy?",

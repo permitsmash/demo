@@ -268,20 +268,22 @@ export default async function Page() {
         </section>
       ) : null}
 
-      <section className="w-full container-page pb-xl">
-        <div className="flex flex-col gap-sm rounded-lg border border-outline-variant bg-surface-container-low px-lg py-md max-w-content-narrow mx-auto">
-          <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
-            <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
-              info
-            </span>
-            {c.disclaimerPermit}
-          </p>
-          <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
-            <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
-              location_on
-            </span>
-            {c.disclaimerLocation}
-          </p>
+      <section className="w-full section">
+        <div className="container-page">
+          <div className="flex flex-col gap-sm rounded-lg border border-outline-variant bg-surface-container-low px-lg py-md max-w-content-narrow mx-auto">
+            <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+              <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
+                info
+              </span>
+              {c.disclaimerPermit}
+            </p>
+            <p className="font-body-md text-body-md text-on-surface-variant flex items-start gap-xs">
+              <span className="material-symbols-outlined text-secondary-container icon-sm icon-filled mt-0.5 shrink-0">
+                location_on
+              </span>
+              {c.disclaimerLocation}
+            </p>
+          </div>
         </div>
       </section>
     </div>

@@ -79,6 +79,8 @@ export const ht: Messages = {
     drivingPrograms: "pwogram kondwi yo",
     classSchedule: "kalandriye klas yo",
     contactOffice: "Kontakte biwo a",
+    acceleratedUnavailable:
+      "Dat sesyon kou akselere yo pa disponib pou kounye a. Tanpri rele biwo a oswa gade paj orè klas yo.",
     roadTestTitle: "Patwonej egzamen wout la",
     roadTestDesc: "Disponib nan biwo JMC nan Waltham oswa nan kote RMV yo nan:",
     rmvAria: "Sant sèvis RMV {name} — ouvri nan Google Maps",
@@ -106,7 +108,7 @@ export const ht: Messages = {
       {
         question: "Ki zòn JMC Driving School sèvi?",
         answer:
-          "JMC Driving School sèvi Waltham, MA ak zòn ki toupre yo, ak patwonej egzamen wout la disponib nan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, ak Milford.",
+          "JMC Driving School sèvi Waltham, MA ak kominote ki toupre yo. Patwone pou egzamen wout la disponib nan biwo nou an ak nan kote RMV yo atravè Massachusetts.",
       },
       {
         question: "Kijan mwen enskri pou edikasyon chofè oswa leson kondwi?",
@@ -116,7 +118,7 @@ export const ht: Messages = {
       {
         question: "Èske nou ofri patwonej egzamen wout la?",
         answer:
-          "Wi. Patwonej egzamen wout la disponib nan biwo JMC a ak nan kote RMV yo atravè Massachusetts, ki gen ladan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, ak Milford.",
+          "Wi. Patwone pou egzamen wout la disponib nan biwo nou an nan Waltham ak nan kote RMV yo atravè Massachusetts. Kontakte biwo a pou frè ak disponibilite aktyèl yo.",
       },
       {
         question: "Ki règleman ranbousman nou an?",

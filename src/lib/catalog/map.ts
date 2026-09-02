@@ -88,8 +88,12 @@ function formatTimeLabel(value: string | null) {
   });
 }
 
+function parseLocalDate(value: string) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(`${value}T12:00:00`) : new Date(value);
+}
+
 function formatBatchDate(value: string) {
-  const date = new Date(value);
+  const date = parseLocalDate(value);
   if (Number.isNaN(date.getTime())) return value;
   return date.toLocaleDateString("en-US", {
     weekday: "short",
@@ -100,8 +104,8 @@ function formatBatchDate(value: string) {
 }
 
 function formatBatchDateRange(startDate: string, endDate: string) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
+  const start = parseLocalDate(startDate);
+  const end = parseLocalDate(endDate);
   if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
     return `${formatBatchDate(startDate)} – ${formatBatchDate(endDate)}`;
   }
@@ -338,7 +342,7 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
       zip: school.address.zip ?? staticSite.address.zip,
       full: school.address.full ?? staticSite.address.full,
     },
-    officeHours: staticSite.officeHours,
+    officeHours: formatOperatingHours(school.operatingHours),
     cancellationHours: staticSite.cancellationHours,
     languages:
       school.languages.length > 0 ? school.languages : [...staticSite.languages],

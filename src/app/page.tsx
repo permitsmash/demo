@@ -144,15 +144,23 @@ export default async function Page() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-md mb-lg">
-            {liveSite.acceleratedCourses.map((course) => (
-              <div
-                key={`${course.label}-${course.dates}`}
-                className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
-              >
-                <h3 className="font-h3 text-h3 text-primary mb-xs">{course.label}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
+            {liveSite.acceleratedCourses.length > 0 ? (
+              liveSite.acceleratedCourses.map((course) => (
+                <div
+                  key={`${course.label}-${course.dates}`}
+                  className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
+                >
+                  <h3 className="font-h3 text-h3 text-primary mb-xs">{course.label}</h3>
+                  <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
+                </div>
+              ))
+            ) : (
+              <div className="md:col-span-3 rounded-lg border border-outline-variant bg-surface-container-lowest p-md text-center">
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  {home.acceleratedUnavailable}
+                </p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>

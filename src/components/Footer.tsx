@@ -9,7 +9,7 @@ import { useLocale } from "@/components/LocaleProvider";
 export default function Footer() {
   const site = useSite();
   const { messages, t } = useLocale();
-  const { footer, site: siteCopy, common } = messages;
+  const { footer, site: siteCopy } = messages;
 
   const navLinks = [
     { href: "/", label: footer.home },
@@ -116,7 +116,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">
                   schedule
                 </span>
-                <span>{siteCopy.officeHours}</span>
+                <span>{site.officeHours}</span>
               </li>
               <li className="flex items-start gap-sm">
                 <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">

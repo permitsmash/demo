@@ -173,7 +173,7 @@ export default async function Page() {
               className="absolute inset-0 w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=973+Main+Street+Waltham+MA+02451&output=embed"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(liveSite.address.full)}&output=embed`}
             />
           </div>
         </div>

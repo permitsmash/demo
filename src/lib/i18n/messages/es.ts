@@ -79,6 +79,8 @@ export const es: Messages = {
     drivingPrograms: "programas de manejo",
     classSchedule: "calendario de clases",
     contactOffice: "Contactar la oficina",
+    acceleratedUnavailable:
+      "Las fechas de cursos acelerados no están disponibles temporalmente. Llame a la oficina o consulte la página de calendario de clases.",
     roadTestTitle: "Patrocinios para examen de manejo",
     roadTestDesc: "Disponible en la oficina de JMC en Waltham o en ubicaciones del RMV en:",
     rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
@@ -106,7 +108,7 @@ export const es: Messages = {
       {
         question: "¿Qué áreas atiende JMC Driving School?",
         answer:
-          "JMC Driving School atiende Waltham, MA y áreas circundantes, con patrocinio para examen de manejo disponible en Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere y Milford.",
+          "JMC Driving School atiende Waltham, MA y comunidades cercanas. El patrocinio para examen de manejo está disponible en nuestra oficina y en ubicaciones del RMV en todo Massachusetts.",
       },
       {
         question: "¿Cómo me registro para educación vial o clases de manejo?",
@@ -116,7 +118,7 @@ export const es: Messages = {
       {
         question: "¿Ofrecen patrocinio para el examen de manejo?",
         answer:
-          "Sí. El patrocinio para examen de manejo está disponible en la oficina de JMC y en ubicaciones del RMV en todo Massachusetts, incluyendo Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere y Milford.",
+          "Sí. El patrocinio para examen de manejo está disponible en nuestra oficina de Waltham y en ubicaciones del RMV en todo Massachusetts. Contacte la oficina para tarifas y disponibilidad actuales.",
       },
       {
         question: "¿Cuál es su política de reembolso?",

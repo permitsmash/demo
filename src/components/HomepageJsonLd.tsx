@@ -5,6 +5,10 @@ type Props = {
   site: LiveSiteData;
 };
 
+function safeJsonLd(data: unknown) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export function HomepageJsonLd({ site }: Props) {
   const { rating, totalReviews, reviews } = staticSite.googleReviews;
 
@@ -61,11 +65,11 @@ export function HomepageJsonLd({ site }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(drivingSchool) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(drivingSchool) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqPage) }}
       />
     </>
   );

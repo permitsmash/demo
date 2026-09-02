@@ -58,8 +58,8 @@ export function PackageOptionBuy({
       <Link
         href={
           selected.catalogId
-            ? `/enroll?package=${selected.catalogId}`
-            : `/enroll?product=${productId}&package=${selected.id}`
+            ? `/enroll?package=${encodeURIComponent(selected.catalogId)}`
+            : `/enroll?product=${encodeURIComponent(productId)}&package=${encodeURIComponent(selected.id)}`
         }
         className="btn-primary w-full sm:w-auto self-start"
       >
