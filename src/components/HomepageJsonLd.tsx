@@ -1,13 +1,18 @@
-import { site } from "@/lib/site";
+import type { LiveSiteData } from "@/lib/catalog/map";
+import { site as staticSite } from "@/lib/site";
 
-export function HomepageJsonLd() {
-  const { rating, totalReviews, reviews } = site.googleReviews;
+type Props = {
+  site: LiveSiteData;
+};
+
+export function HomepageJsonLd({ site }: Props) {
+  const { rating, totalReviews, reviews } = staticSite.googleReviews;
 
   const drivingSchool = {
     "@context": "https://schema.org",
     "@type": "DrivingSchool",
     name: site.name,
-    description: site.description,
+    description: staticSite.description,
     url: "https://jmcdrivingschool.com",
     telephone: site.phoneTel,
     email: site.email,
@@ -19,8 +24,8 @@ export function HomepageJsonLd() {
       postalCode: site.address.zip,
       addressCountry: "US",
     },
-    areaServed: site.serviceArea,
-    openingHours: "Mo-Fr 10:00-16:00",
+    areaServed: staticSite.serviceArea,
+    openingHours: site.officeHours,
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: rating,
@@ -42,7 +47,7 @@ export function HomepageJsonLd() {
   const faqPage = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: site.homepageFaqs.map((item) => ({
+    mainEntity: staticSite.homepageFaqs.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

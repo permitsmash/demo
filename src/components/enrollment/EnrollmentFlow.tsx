@@ -6,12 +6,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useLocale } from "@/components/LocaleProvider";
 import {
-  classSessions,
-  enrollmentAddons,
   formatUsd,
-  getEnrollmentAddon,
   HIGH_SCHOOLS,
   isEligibleTeenAge,
+  isRoadTestProduct,
   type ClassSession,
   type EnrollmentAddon,
   type EnrollmentProduct,
@@ -20,6 +18,8 @@ import {
 
 type EnrollmentFlowProps = {
   product: EnrollmentProduct | null;
+  classSessions: ClassSession[];
+  enrollmentAddons: EnrollmentAddon[];
 };
 
 type StudentForm = {
@@ -440,7 +440,11 @@ function ScheduleBox({
   );
 }
 
-export function EnrollmentFlow({ product }: EnrollmentFlowProps) {
+export function EnrollmentFlow({
+  product,
+  classSessions,
+  enrollmentAddons,
+}: EnrollmentFlowProps) {
   const router = useRouter();
   const { messages } = useLocale();
   const e = messages.enrollment;
@@ -472,7 +476,8 @@ export function EnrollmentFlow({ product }: EnrollmentFlowProps) {
   }, [dobComplete, dobMonth, dobDay, dobYear]);
 
   const selectedSession = classSessions.find((session) => session.id === selectedSessionId);
-  const selectedAddon = getEnrollmentAddon(selectedAddonId);
+  const selectedAddon =
+    enrollmentAddons.find((addon) => addon.id === selectedAddonId) ?? null;
   const viewScheduleSession = classSessions.find((session) => session.id === viewScheduleSessionId);
 
   const updateForm = (field: keyof StudentForm, value: string) => {
@@ -489,7 +494,7 @@ export function EnrollmentFlow({ product }: EnrollmentFlowProps) {
       goToStep((step - 1) as 1 | 2);
       return;
     }
-    router.push("/courses");
+    router.push(isRoadTestProduct(product?.id) ? "/road-tests" : "/courses");
   };
 
   const backButton = (

@@ -5,11 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Image from "next/image";
 import logo from "@/app/logo.png";
-import { site } from '@/lib/site';
+import { useSite } from "@/components/SiteProvider";
 import { useLocale } from '@/components/LocaleProvider';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export default function TopNavBar() {
+  const site = useSite();
   const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { messages } = useLocale();
@@ -17,6 +18,7 @@ export default function TopNavBar() {
 
   const navLinks = [
     { href: "/courses", label: nav.programs },
+    { href: "/road-tests", label: nav.roadTests },
     { href: "/classes", label: nav.classes },
     { href: "/about", label: nav.about },
     { href: "/contact", label: nav.contact },
@@ -25,7 +27,7 @@ export default function TopNavBar() {
 
   return (
     <nav className="bg-white border-b border-outline-variant w-full sticky top-0 z-50">
-      <div className="hidden md:block bg-error text-on-error">
+      <div className="hidden md:block bg-banner text-on-banner">
         <div className="relative container-page py-1 flex items-center justify-between gap-md">
           <div className="text-body-sm font-body-sm">
             <span>{siteCopy.serviceArea}</span>

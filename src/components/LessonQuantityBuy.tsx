@@ -68,7 +68,7 @@ export function LessonQuantityBuy({
         </div>
       </div>
       <Link
-        href={`/enroll?product=${productId}&quantity=${quantity}`}
+        href={`/enroll?package=${encodeURIComponent(productId)}&quantity=${quantity}`}
         className="btn-primary w-full sm:w-auto self-start"
       >
         {buyLabel}

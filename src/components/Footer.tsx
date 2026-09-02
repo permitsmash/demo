@@ -3,16 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/app/logo.png";
-import { site } from "@/lib/site";
+import { useSite } from "@/components/SiteProvider";
 import { useLocale } from "@/components/LocaleProvider";
 
 export default function Footer() {
+  const site = useSite();
   const { messages, t } = useLocale();
   const { footer, site: siteCopy, common } = messages;
 
   const navLinks = [
     { href: "/", label: footer.home },
     { href: "/courses", label: messages.nav.programs },
+    { href: "/road-tests", label: messages.nav.roadTests },
     { href: "/classes", label: messages.nav.classes },
     { href: "/about", label: messages.nav.about },
     { href: "/faq", label: messages.nav.faq },
@@ -23,7 +25,7 @@ export default function Footer() {
     { href: "/courses", label: footer.driversEd },
     { href: "/courses", label: footer.parentsProgram },
     { href: "/courses", label: footer.adultProgram },
-    { href: "/contact", label: footer.roadTestForm },
+    { href: "/road-tests", label: footer.roadTestForm },
   ];
 
   return (

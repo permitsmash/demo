@@ -1,5 +1,5 @@
-import { EnrollmentFlow } from "@/components/enrollment/EnrollmentFlow";
-import { resolveEnrollmentProduct } from "@/lib/enrollment/catalog";
+import { redirect } from "next/navigation";
+import { buildPublicEnrollUrl, getSchoolCatalog } from "@/lib/catalog";
 
 type PageProps = {
   searchParams: Promise<{
@@ -11,16 +11,12 @@ type PageProps = {
 
 export default async function Page({ searchParams }: PageProps) {
   const params = await searchParams;
-  const product = resolveEnrollmentProduct(params.product, {
+  const catalog = await getSchoolCatalog();
+  const destination = buildPublicEnrollUrl(catalog, {
+    product: params.package ?? params.product,
     package: params.package,
     quantity: params.quantity,
   });
 
-  return (
-    <div className="w-full section">
-      <div className="container-page max-w-content-md">
-        <EnrollmentFlow product={product} />
-      </div>
-    </div>
-  );
+  redirect(destination);
 }
