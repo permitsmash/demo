@@ -15,11 +15,7 @@ export function getCatalogApiUrl() {
 }
 
 export function getContactApiUrl() {
-  const baseUrl = (
-    process.env.CATALOG_API_BASE_URL ?? DEFAULT_CATALOG_API_BASE_URL
-  ).replace(/\/$/, "");
-  const slug = process.env.SCHOOL_CATALOG_SLUG ?? DEFAULT_SCHOOL_SLUG;
-  return `${baseUrl}/api/public/schools/${slug}/contact`;
+  return "/api/contact";
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
