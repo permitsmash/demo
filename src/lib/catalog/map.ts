@@ -174,7 +174,7 @@ function mapCatalogProductToEnrollment(product: PublicCatalogProduct): Enrollmen
     needsClassSelection: product.productKind === "package",
     requiresTeenAge: product.operatorAudience === "junior",
     minDeposit: 0,
-    offersAddons: product.productKind === "package",
+    offersAddons: false,
   };
 }
 
@@ -200,15 +200,8 @@ export function buildEnrollmentProductsFromCatalog(
   return merged;
 }
 
-export function buildEnrollmentAddonsFromCatalog(catalog: PublicSchoolCatalog): EnrollmentAddon[] {
-  return catalog.addons
-    .slice()
-    .sort((a, b) => a.sortOrder - b.sortOrder)
-    .map((product) => ({
-      id: product.id,
-      price: product.price,
-      priceLabel: product.priceLabel,
-    }));
+export function buildEnrollmentAddonsFromCatalog(_catalog: PublicSchoolCatalog): EnrollmentAddon[] {
+  return [];
 }
 
 function scheduleDetailsFromBatch(batch: PublicCatalogBatch) {

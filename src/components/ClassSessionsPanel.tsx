@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore, useState } from "react";
-import { createPortal } from "react-dom";
+import { useState } from "react";
+import { ClassScheduleDialog } from "@/components/ClassScheduleDialog";
 import type { ClassSession } from "@/lib/enrollment/catalog";
 
 type ClassSessionsPanelProps = {
@@ -27,21 +27,6 @@ const compactOutlineBtn =
 const compactPrimaryBtn =
   "btn-primary btn-primary-sm inline-flex rounded-full font-button text-button";
 
-const subscribeNoop = () => () => undefined;
-
-function useIsClient() {
-  return useSyncExternalStore(subscribeNoop, () => true, () => false);
-}
-
-const FOCUSABLE_SELECTOR =
-  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-
-function getFocusableElements(container: HTMLElement) {
-  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-    (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1,
-  );
-}
-
 function formatAvailableSpots(session: ClassSession, sessionFullLabel: string) {
   if (session.remainingSpots == null) {
     return "—";
@@ -56,124 +41,6 @@ function formatAvailableSpots(session: ClassSession, sessionFullLabel: string) {
 
 function formatTotalSpots(session: ClassSession) {
   return session.capacity != null ? String(session.capacity) : "—";
-}
-
-function ScheduleDialog({
-  session,
-  title,
-  closeLabel,
-  onClose,
-}: {
-  session: ClassSession;
-  title: string;
-  closeLabel: string;
-  onClose: () => void;
-}) {
-  const mounted = useIsClient();
-  const dialogRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!mounted) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [mounted]);
-
-  useEffect(() => {
-    if (!mounted) return;
-
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-
-    const focusable = getFocusableElements(dialog);
-    (focusable[0] ?? dialog).focus();
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        onClose();
-        return;
-      }
-
-      if (event.key !== "Tab") return;
-
-      const items = getFocusableElements(dialog);
-      if (items.length === 0) return;
-
-      const first = items[0];
-      const last = items[items.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      previouslyFocused?.focus();
-    };
-  }, [mounted, onClose]);
-
-  if (!mounted) {
-    return null;
-  }
-
-  return createPortal(
-    <div className="enrollment-schedule-overlay" onClick={onClose} role="presentation">
-      <div
-        ref={dialogRef}
-        className="enrollment-schedule-dialog"
-        onClick={(event) => event.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="class-schedule-dialog-title"
-        tabIndex={-1}
-      >
-        <div className="flex items-start justify-between gap-sm mb-md">
-          <div>
-            <h3 id="class-schedule-dialog-title" className="font-h3 text-h3 text-primary">
-              {title}
-            </h3>
-            <p className="text-body-sm text-on-surface-variant mt-xs">
-              {session.location} · {session.startDate} – {session.endDate}
-            </p>
-          </div>
-          <button
-            type="button"
-            className="shrink-0 text-on-surface-variant hover:text-primary"
-            onClick={onClose}
-            aria-label={closeLabel}
-          >
-            <span className="material-symbols-outlined icon-base">close</span>
-          </button>
-        </div>
-        <ul className="enrollment-schedule-list">
-          {session.scheduleDetails.map((line) => (
-            <li key={line}>
-              <span className="material-symbols-outlined icon-sm text-secondary-container mt-0.5 shrink-0">
-                schedule
-              </span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-md flex justify-end">
-          <button type="button" className="btn-outline" onClick={onClose}>
-            {closeLabel}
-          </button>
-        </div>
-      </div>
-    </div>,
-    document.body,
-  );
 }
 
 export function ClassSessionsPanel({ sessions, labels, phoneTel }: ClassSessionsPanelProps) {
@@ -298,7 +165,7 @@ export function ClassSessionsPanel({ sessions, labels, phoneTel }: ClassSessions
       </div>
 
       {activeSession ? (
-        <ScheduleDialog
+        <ClassScheduleDialog
           session={activeSession}
           title={activeSession.sessionName ?? activeSession.location}
           closeLabel={labels.close}

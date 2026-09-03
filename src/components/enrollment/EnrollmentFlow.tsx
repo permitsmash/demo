@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ClassScheduleDialog } from "@/components/ClassScheduleDialog";
 import { useLocale } from "@/components/LocaleProvider";
 import {
   formatUsd,
@@ -363,86 +363,6 @@ function ClassSessionTable({
         </tbody>
       </table>
     </div>
-  );
-}
-
-const subscribeNoop = () => () => undefined;
-
-function useIsClient() {
-  return useSyncExternalStore(subscribeNoop, () => true, () => false);
-}
-
-function ScheduleBox({
-  session,
-  title,
-  closeLabel,
-  onClose,
-}: {
-  session: ClassSession;
-  title: string;
-  closeLabel: string;
-  onClose: () => void;
-}) {
-  const mounted = useIsClient();
-
-  useEffect(() => {
-    if (!mounted) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [mounted]);
-
-  if (!mounted) {
-    return null;
-  }
-
-  return createPortal(
-    <div className="enrollment-schedule-overlay" onClick={onClose} role="presentation">
-      <div
-        className="enrollment-schedule-dialog"
-        onClick={(event) => event.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="schedule-dialog-title"
-      >
-        <div className="flex items-start justify-between gap-sm mb-md">
-          <div>
-            <h3 id="schedule-dialog-title" className="font-h3 text-h3 text-primary">
-              {title}
-            </h3>
-            <p className="text-body-sm text-on-surface-variant mt-xs">
-              {session.location} · {session.startDate} – {session.endDate}
-            </p>
-          </div>
-          <button
-            type="button"
-            className="shrink-0 text-on-surface-variant hover:text-primary"
-            onClick={onClose}
-            aria-label={closeLabel}
-          >
-            <span className="material-symbols-outlined icon-base">close</span>
-          </button>
-        </div>
-        <ul className="enrollment-schedule-list">
-          {session.scheduleDetails.map((line) => (
-            <li key={line}>
-              <span className="material-symbols-outlined icon-sm text-secondary-container mt-0.5 shrink-0">
-                schedule
-              </span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-md flex justify-end">
-          <button type="button" className="btn-outline" onClick={onClose}>
-            {closeLabel}
-          </button>
-        </div>
-      </div>
-    </div>,
-    document.body,
   );
 }
 
@@ -944,9 +864,9 @@ export function EnrollmentFlow({
       {error && <p className="text-body-sm text-error">{error}</p>}
 
       {viewScheduleSession && (
-        <ScheduleBox
+        <ClassScheduleDialog
           session={viewScheduleSession}
-          title={e.scheduleTitle}
+          title={viewScheduleSession.sessionName ?? viewScheduleSession.location}
           closeLabel={e.close}
           onClose={() => setViewScheduleSessionId(null)}
         />
