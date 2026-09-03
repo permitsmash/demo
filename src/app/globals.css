@@ -159,6 +159,12 @@
   letter-spacing: -0.02em;
 }
 
+/* JMC top contact strip — explicit colors so the bar stays yellow in dev and prod */
+.jmc-top-banner {
+  background-color: #f4b400;
+  color: #0b1c30;
+}
+
 /* Layout */
 @utility container-page {
   width: 100%;
