@@ -11,6 +11,61 @@ export type ParsedScheduleDetail = {
 const TIME_RANGE_RE = /\d{1,2}:\d{2}\s*[AP]M(?:\s*[–-]\s*\d{1,2}:\d{2}\s*[AP]M)?/;
 const DATE_PART_RE = /^(?:([A-Za-z]+),\s+)?(?:([A-Za-z]+)\s+)?(\d{1,2})$/;
 
+const MONTH_NAMES = new Set([
+  "jan",
+  "january",
+  "feb",
+  "february",
+  "mar",
+  "march",
+  "apr",
+  "april",
+  "may",
+  "jun",
+  "june",
+  "jul",
+  "july",
+  "aug",
+  "august",
+  "sep",
+  "sept",
+  "september",
+  "oct",
+  "october",
+  "nov",
+  "november",
+  "dec",
+  "december",
+]);
+
+const WEEKDAY_NAMES = new Set([
+  "sun",
+  "sunday",
+  "mon",
+  "monday",
+  "tue",
+  "tues",
+  "tuesday",
+  "wed",
+  "wednesday",
+  "thu",
+  "thur",
+  "thurs",
+  "thursday",
+  "fri",
+  "friday",
+  "sat",
+  "saturday",
+]);
+
+function isValidMonthToken(month: string | undefined) {
+  return month ? MONTH_NAMES.has(month.toLowerCase()) : false;
+}
+
+function isValidWeekdayToken(weekday: string | undefined) {
+  return !weekday || WEEKDAY_NAMES.has(weekday.toLowerCase());
+}
+
 function parseDateLabel(dateLabel: string) {
   const match = dateLabel.trim().match(DATE_PART_RE);
   if (!match) {
@@ -22,6 +77,18 @@ function parseDateLabel(dateLabel: string) {
     month: match[2] ?? undefined,
     day: match[3] ?? undefined,
   };
+}
+
+function isStructuredDateLabel(parsed: {
+  weekday?: string;
+  month?: string;
+  day?: string;
+}) {
+  if (!parsed.day || !isValidMonthToken(parsed.month)) {
+    return false;
+  }
+
+  return isValidWeekdayToken(parsed.weekday);
 }
 
 export function parseScheduleDetailLine(line: string): ParsedScheduleDetail {
@@ -36,7 +103,7 @@ export function parseScheduleDetailLine(line: string): ParsedScheduleDetail {
 
     if (TIME_RANGE_RE.test(second) && !TIME_RANGE_RE.test(first)) {
       const parsedDate = parseDateLabel(first);
-      if (parsedDate.day) {
+      if (isStructuredDateLabel(parsedDate)) {
         return {
           ...parsedDate,
           dateLabel: first,
@@ -70,8 +137,8 @@ export function parseScheduleDetailLine(line: string): ParsedScheduleDetail {
 
       return {
         title: first.trim(),
-        dateLabel: second,
-        timeLabel: "",
+        dateLabel: first.trim(),
+        timeLabel: second,
         isRangeOnly: false,
       };
     }
