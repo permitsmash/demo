@@ -283,8 +283,8 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
   return {
     ...staticSite,
     name: school.name || staticSite.name,
-    phone: formatDisplayPhone(school.phone),
-    phoneTel: formatPhoneTel(school.phone),
+    phone: staticSite.phone,
+    phoneTel: staticSite.phoneTel,
     email: staticSite.email,
     address: {
       street: school.address.street ?? staticSite.address.street,
