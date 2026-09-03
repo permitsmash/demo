@@ -34,11 +34,12 @@ Site-wide branding, contact info, and Google reviews live in `src/lib/site.ts`.
 
 ## Contact form
 
-The contact form submits to the Permit Smash public API (`/api/public/schools/{slug}/contact`). Configure the school slug and API base URL if needed:
+The contact form submits to a local API route (`/api/contact`) that delivers email to the school's public inbox. Configure delivery with:
 
 ```bash
-CATALOG_API_BASE_URL=https://permitsmash.com   # optional
-SCHOOL_CATALOG_SLUG=jmc-driving-school         # optional
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=...              # server-side only
+CONTACT_FORM_TO_EMAIL=contact@jmcdrivingschool.com  # optional; defaults to site.ts email
 ```
 
-Email delivery is handled by Permit Smash via a Supabase edge function (`public_school_contact`) that uses the existing Resend secrets — no extra email env vars on the school site.
+Email delivery is handled by the Permit Smash Supabase edge function (`public_school_contact`) via Resend. The dashboard school `contact_email` is not used for website form submissions.
