@@ -17,6 +17,15 @@ export const classesEn = {
   sessionFull: "Full",
   notes: "Notes",
   viewSchedule: "View Schedule",
+  scheduleTitle: "Class Schedule",
+  scheduleTable: {
+    number: "#",
+    date: "Date",
+    session: "Session",
+    time: "Time",
+    notes: "Notes",
+    classDays: "{count} class days",
+  },
   close: "Close",
   noSessions: "No upcoming accelerated sessions are listed right now. Please call the office for availability.",
   contactOffice: "Call to schedule",
@@ -30,9 +39,17 @@ export const classesEn = {
   roadTestNonRefundable: "ROAD TEST FEE IS NON-REFUNDABLE.",
   needHelp: "Need help?",
   needHelpDesc: "Call our office at {phone} during office hours ({hours}) and we'll help you find the right class.",
+} as const;
+
+export type ClassesMessages = {
+  [K in Exclude<keyof typeof classesEn, "scheduleTable">]: string;
+} & {
+  scheduleTable: {
+    [K in keyof (typeof classesEn)["scheduleTable"]]: string;
+  };
 };
 
-export const classesEs = {
+export const classesEs: ClassesMessages = {
   label: "Actualizaciones importantes",
   title: "Educación vial: cursos acelerados",
   subtitle:
@@ -51,6 +68,15 @@ export const classesEs = {
   sessionFull: "Completo",
   notes: "Notas",
   viewSchedule: "Ver horario",
+  scheduleTitle: "Horario de clase",
+  scheduleTable: {
+    number: "#",
+    date: "Fecha",
+    session: "Sesión",
+    time: "Hora",
+    notes: "Notas",
+    classDays: "{count} días de clase",
+  },
   close: "Cerrar",
   noSessions: "No hay sesiones aceleradas próximas en este momento. Llame a la oficina para consultar disponibilidad.",
   contactOffice: "Llamar para agendar",
@@ -68,7 +94,7 @@ export const classesEs = {
     "Llame a nuestra oficina al {phone} durante el horario de oficina ({hours}) y le ayudaremos a encontrar la clase adecuada.",
 };
 
-export const classesPt = {
+export const classesPt: ClassesMessages = {
   label: "Atualizações importantes",
   title: "Educação para motoristas: cursos acelerados",
   subtitle:
@@ -88,6 +114,15 @@ export const classesPt = {
   sessionFull: "Lotado",
   notes: "Notas",
   viewSchedule: "Ver horário",
+  scheduleTitle: "Horário da aula",
+  scheduleTable: {
+    number: "#",
+    date: "Data",
+    session: "Sessão",
+    time: "Horário",
+    notes: "Notas",
+    classDays: "{count} dias de aula",
+  },
   close: "Fechar",
   noSessions: "Não há sessões aceleradas próximas no momento. Ligue para o escritório para consultar disponibilidade.",
   contactOffice: "Ligar para agendar",
@@ -105,7 +140,7 @@ export const classesPt = {
     "Ligue para nosso escritório no {phone} durante o horário de atendimento ({hours}) e ajudaremos você a encontrar a aula certa.",
 };
 
-export const classesHt = {
+export const classesHt: ClassesMessages = {
   label: "Mizajou enpòtan",
   title: "Edikasyon pou Chofè: Kou Akselere",
   subtitle:
@@ -124,6 +159,15 @@ export const classesHt = {
   sessionFull: "Plen",
   notes: "Nòt",
   viewSchedule: "Gade orè",
+  scheduleTitle: "Orè Klas",
+  scheduleTable: {
+    number: "#",
+    date: "Dat",
+    session: "Sesyon",
+    time: "Lè",
+    notes: "Nòt",
+    classDays: "{count} jou klas",
+  },
   close: "Fèmen",
   noSessions: "Pa gen okenn sesyon akselere ki parèt kounye a. Tanpri rele biwo a pou disponibilite.",
   contactOffice: "Rele pou pran randevou",

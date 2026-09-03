@@ -3,12 +3,26 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import type { ClassSession } from "@/lib/enrollment/catalog";
-import { parseScheduleDetailLine } from "@/lib/schedule/parseScheduleDetail";
+import {
+  parseScheduleDetailLine,
+  type ParsedScheduleDetail,
+} from "@/lib/schedule/parseScheduleDetail";
+
+export type ClassScheduleTableLabels = {
+  eyebrow: string;
+  number: string;
+  date: string;
+  session: string;
+  time: string;
+  notes: string;
+  classDays: string;
+};
 
 type ClassScheduleDialogProps = {
   session: ClassSession;
   title: string;
   closeLabel: string;
+  tableLabels: ClassScheduleTableLabels;
   onClose: () => void;
 };
 
@@ -27,69 +41,25 @@ function getFocusableElements(container: HTMLElement) {
   );
 }
 
-function ScheduleEntryRow({
-  entry,
-  dayNumber,
-}: {
-  entry: ReturnType<typeof parseScheduleDetailLine>;
-  dayNumber: number;
-}) {
-  const showBadge = entry.month && entry.day;
-  const dateSecondary =
-    entry.month && entry.day
-      ? `${entry.month} ${entry.day}`
-      : entry.dateLabel;
+function formatScheduleDate(entry: ParsedScheduleDetail): string {
+  if (entry.weekday && entry.month && entry.day) {
+    return `${entry.weekday}, ${entry.month} ${entry.day}`;
+  }
+  if (entry.month && entry.day) {
+    return `${entry.month} ${entry.day}`;
+  }
+  return entry.dateLabel || "—";
+}
 
-  return (
-    <li className="schedule-dialog-entry">
-      {showBadge ? (
-        <div className="schedule-dialog-date-badge" aria-hidden="true">
-          <span className="schedule-dialog-date-month">{entry.month}</span>
-          <span className="schedule-dialog-date-day">{entry.day}</span>
-        </div>
-      ) : (
-        <div className="schedule-dialog-date-badge schedule-dialog-date-badge-muted">
-          <span className="schedule-dialog-date-day">{dayNumber}</span>
-        </div>
-      )}
-      <div className="schedule-dialog-entry-body">
-        {entry.title ? (
-          <>
-            <p className="schedule-dialog-entry-primary">
-              {entry.weekday ? (
-                <span className="schedule-dialog-entry-weekday">{entry.weekday}</span>
-              ) : null}
-              <span className="schedule-dialog-entry-title">{entry.title}</span>
-            </p>
-            <p className="schedule-dialog-entry-secondary">{dateSecondary}</p>
-          </>
-        ) : entry.weekday ? (
-          <>
-            <p className="schedule-dialog-entry-primary">
-              <span className="schedule-dialog-entry-weekday">{entry.weekday}</span>
-            </p>
-            <p className="schedule-dialog-entry-secondary">{dateSecondary}</p>
-          </>
-        ) : (
-          <p className="schedule-dialog-entry-primary">
-            <span className="schedule-dialog-entry-title">{entry.dateLabel}</span>
-          </p>
-        )}
-      </div>
-      {entry.timeLabel ? (
-        <div className="schedule-dialog-entry-time">
-          <span className="material-symbols-outlined icon-sm" aria-hidden="true">schedule</span>
-          <span>{entry.timeLabel}</span>
-        </div>
-      ) : null}
-    </li>
-  );
+function formatClassDaysLabel(count: number, template: string): string {
+  return template.replace("{count}", String(count));
 }
 
 export function ClassScheduleDialog({
   session,
   title,
   closeLabel,
+  tableLabels,
   onClose,
 }: ClassScheduleDialogProps) {
   const mounted = useIsClient();
@@ -97,7 +67,7 @@ export function ClassScheduleDialog({
   const parsedEntries = session.scheduleDetails.map(parseScheduleDetailLine);
   const structuredEntries = parsedEntries.filter((entry) => !entry.isRangeOnly);
   const rangeOnlyEntry = parsedEntries.find((entry) => entry.isRangeOnly);
-  const showStructuredList = structuredEntries.length > 0;
+  const showStructuredTable = structuredEntries.length > 0;
 
   useEffect(() => {
     if (!mounted) return;
@@ -166,7 +136,7 @@ export function ClassScheduleDialog({
       >
         <div className="schedule-dialog-header">
           <div className="schedule-dialog-header-text">
-            <p className="schedule-dialog-eyebrow">Class schedule</p>
+            <p className="schedule-dialog-eyebrow">{tableLabels.eyebrow}</p>
             <h3 id="class-schedule-dialog-title" className="schedule-dialog-title">
               {title}
             </h3>
@@ -190,20 +160,45 @@ export function ClassScheduleDialog({
             <span className="material-symbols-outlined icon-sm" aria-hidden="true">event</span>
             {session.startDate} – {session.endDate}
           </span>
-          {showStructuredList ? (
+          {showStructuredTable ? (
             <span className="schedule-dialog-chip schedule-dialog-chip-muted">
-              {structuredEntries.length} class {structuredEntries.length === 1 ? "day" : "days"}
+              {formatClassDaysLabel(structuredEntries.length, tableLabels.classDays)}
             </span>
           ) : null}
         </div>
 
         <div className="schedule-dialog-body">
-          {showStructuredList ? (
-            <ol className="schedule-dialog-list">
-              {structuredEntries.map((entry, index) => (
-                <ScheduleEntryRow key={`${entry.dateLabel}-${entry.timeLabel}-${index}`} entry={entry} dayNumber={index + 1} />
-              ))}
-            </ol>
+          {showStructuredTable ? (
+            <div className="schedule-dialog-table-wrap">
+              <table className="schedule-dialog-table">
+                <thead>
+                  <tr>
+                    <th scope="col" className="schedule-dialog-table-col-number">
+                      {tableLabels.number}
+                    </th>
+                    <th scope="col">{tableLabels.date}</th>
+                    <th scope="col">{tableLabels.session}</th>
+                    <th scope="col" className="schedule-dialog-table-col-time">
+                      {tableLabels.time}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {structuredEntries.map((entry, index) => (
+                    <tr key={`${entry.dateLabel}-${entry.timeLabel}-${index}`}>
+                      <td className="schedule-dialog-table-col-number">{index + 1}</td>
+                      <td className="schedule-dialog-table-date">{formatScheduleDate(entry)}</td>
+                      <td className="schedule-dialog-table-session">
+                        {entry.title ? entry.title : "—"}
+                      </td>
+                      <td className="schedule-dialog-table-time">
+                        {entry.timeLabel ? entry.timeLabel : "—"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <div className="schedule-dialog-fallback">
               <span className="material-symbols-outlined icon-base text-secondary-container" aria-hidden="true">
@@ -217,7 +212,7 @@ export function ClassScheduleDialog({
 
           {session.notes ? (
             <div className="schedule-dialog-notes">
-              <p className="schedule-dialog-notes-label">Notes</p>
+              <p className="schedule-dialog-notes-label">{tableLabels.notes}</p>
               <p className="schedule-dialog-notes-text">{session.notes}</p>
             </div>
           ) : null}

@@ -868,6 +868,10 @@ export function EnrollmentFlow({
           session={viewScheduleSession}
           title={viewScheduleSession.sessionName ?? viewScheduleSession.location}
           closeLabel={e.close}
+          tableLabels={{
+            eyebrow: e.scheduleTitle,
+            ...e.scheduleTable,
+          }}
           onClose={() => setViewScheduleSessionId(null)}
         />
       )}

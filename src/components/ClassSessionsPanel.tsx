@@ -15,6 +15,15 @@ type ClassSessionsPanelProps = {
     sessionFull: string;
     notes: string;
     viewSchedule: string;
+    scheduleTitle: string;
+    scheduleTable: {
+      number: string;
+      date: string;
+      session: string;
+      time: string;
+      notes: string;
+      classDays: string;
+    };
     close: string;
     contactOffice: string;
     noSessions: string;
@@ -169,6 +178,10 @@ export function ClassSessionsPanel({ sessions, labels, phoneTel }: ClassSessions
           session={activeSession}
           title={activeSession.sessionName ?? activeSession.location}
           closeLabel={labels.close}
+          tableLabels={{
+            eyebrow: labels.scheduleTitle,
+            ...labels.scheduleTable,
+          }}
           onClose={() => setActiveSession(null)}
         />
       ) : null}
