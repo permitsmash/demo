@@ -19,12 +19,9 @@ export default async function Page() {
         <div className="container-page flex flex-col md:flex-row items-center gap-lg">
           <div className="flex-1 text-on-primary z-10">
             <h1 className="font-h1 text-h1 mb-md">{t(about.title, { name: liveSite.name })}</h1>
-            <p className="font-body-lg text-body-lg text-on-primary-container mb-lg">
+            <p className="font-body-lg text-body-lg text-on-primary-container">
               {about.heroDesc}
             </p>
-            <a href={`tel:${liveSite.phoneTel}`} className="btn-primary">
-              {t(common.callNow, { phone: liveSite.phone })}
-            </a>
           </div>
           <div className="flex-1 relative">
             <div className="aspect-[4/3] rounded-xl overflow-hidden elevation-3 relative">

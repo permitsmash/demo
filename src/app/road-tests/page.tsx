@@ -169,15 +169,10 @@ export default async function Page() {
               {rt.contactDesc}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-sm">
-            <a href={`tel:${liveSite.phoneTel}`} className="btn-primary">
-              <span className="material-symbols-outlined icon-base">call</span>
-              {t(common.callNow, { phone: liveSite.phone })}
-            </a>
-            <Link href="/contact" className="btn-outline">
-              {rt.contactButton}
-            </Link>
-          </div>
+          <a href={`tel:${liveSite.phoneTel}`} className="btn-primary">
+            <span className="material-symbols-outlined icon-base">call</span>
+            {t(common.callNow, { phone: liveSite.phone })}
+          </a>
         </div>
       </section>
     </div>

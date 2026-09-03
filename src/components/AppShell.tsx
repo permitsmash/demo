@@ -11,8 +11,7 @@ type Props = {
 export default function AppShell({ children }: Props) {
   const pathname = usePathname();
 
-  const hideChrome =
-    pathname === "/sign-in" || pathname === "/enroll";
+  const hideChrome = pathname === "/enroll";
 
   if (hideChrome) {
     return (
