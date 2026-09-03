@@ -19,16 +19,15 @@ type ContactDeliveryConfig = {
 function getContactDeliveryConfig(): ContactDeliveryConfig | null {
   const supabaseUrl = process.env.SUPABASE_URL?.trim();
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
-  const toEmail = process.env.CONTACT_FORM_TO_EMAIL?.trim() || site.email;
 
-  if (!supabaseUrl || !serviceRoleKey || !toEmail) {
+  if (!supabaseUrl || !serviceRoleKey) {
     return null;
   }
 
   return {
     supabaseUrl: supabaseUrl.replace(/\/$/, ""),
     serviceRoleKey,
-    toEmail,
+    toEmail: site.email,
     schoolName: site.name,
   };
 }

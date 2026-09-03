@@ -39,7 +39,6 @@ The contact form submits to a local API route (`/api/contact`) that delivers ema
 ```bash
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=...              # server-side only
-CONTACT_FORM_TO_EMAIL=contact@jmcdrivingschool.com  # optional; defaults to site.ts email
 ```
 
-Email delivery is handled by the Permit Smash Supabase edge function (`public_school_contact`) via Resend. The dashboard school `contact_email` is not used for website form submissions.
+Website contact submissions always go to the public inbox in `src/lib/site.ts` (`contact@jmcdrivingschool.com`). The Permit Smash dashboard `contact_email` is not used.
