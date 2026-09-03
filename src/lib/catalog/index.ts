@@ -1,4 +1,4 @@
-export { getSchoolCatalog, fetchSchoolCatalog, getCatalogApiUrl, getContactApiUrl } from "@/lib/catalog/fetch";
+export { getSchoolCatalog, fetchSchoolCatalog, getCatalogApiUrl, getContactApiUrl, getSchoolCatalogSlug } from "@/lib/catalog/fetch";
 export type { PublicSchoolCatalog } from "@/lib/catalog/types";
 export {
   buildAddonsDisplayFromCatalog,
