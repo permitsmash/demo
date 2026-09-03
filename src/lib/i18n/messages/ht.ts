@@ -176,6 +176,13 @@ export const ht: Messages = {
     contactInfo: "Enfòmasyon kontak",
     mapTitle: "Kat kote JMC Driving School ye",
     imageAlt: "Kontakte JMC Driving School",
+    submitting: "Ap voye...",
+    successTitle: "Mesaj la voye!",
+    successMessage: "Mèsi paske ou kontakte nou. N ap reponn ou byento.",
+    errorMessage: "Nou pa t kapab voye mesaj ou a. Eseye ankò oswa rele nou dirèkteman.",
+    sendAnother: "Voye yon lòt mesaj",
+    validationRequired: "Tanpri ranpli tout chan obligatwa yo.",
+    validationEmail: "Tanpri antre yon adrès imèl ki valab.",
   },
   site: {
     tagline: "Aprann kondwi ak konfyans",

@@ -173,6 +173,13 @@ export const en = {
     contactInfo: "Contact Information",
     mapTitle: "JMC Driving School location map",
     imageAlt: "JMC Driving School contact",
+    submitting: "Sending...",
+    successTitle: "Message sent!",
+    successMessage: "Thank you for reaching out. We'll get back to you soon.",
+    errorMessage: "We couldn't send your message. Please try again or call us directly.",
+    sendAnother: "Send another message",
+    validationRequired: "Please fill in all required fields.",
+    validationEmail: "Please enter a valid email address.",
   },
   site: {
     tagline: "Learn to Drive with Confidence",

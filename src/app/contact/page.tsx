@@ -1,5 +1,6 @@
+import { ContactForm } from "@/components/ContactForm";
 import PageHeader from "@/components/PageHeader";
-import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
+import { buildLiveSite, getSchoolCatalog, getContactApiUrl } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 
@@ -20,80 +21,7 @@ export default async function Page() {
 
       <section className="container-page section grid grid-cols-1 md:grid-cols-12 gap-lg">
         <div className="md:col-span-7 flex flex-col gap-md">
-          <div className="card elevation-2">
-            <h2 className="font-h3 text-h3 text-primary mb-md">{contact.sendMessage}</h2>
-            <form className="flex flex-col gap-md">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
-                <div className="flex flex-col gap-xs">
-                  <label className="form-label" htmlFor="name">
-                    {contact.fullName}
-                  </label>
-                  <input
-                    className="input-field"
-                    id="name"
-                    name="name"
-                    placeholder={contact.fullNamePlaceholder}
-                    type="text"
-                  />
-                </div>
-                <div className="flex flex-col gap-xs">
-                  <label className="form-label" htmlFor="email">
-                    {contact.emailAddress}
-                  </label>
-                  <input
-                    className="input-field"
-                    id="email"
-                    name="email"
-                    placeholder={contact.emailPlaceholder}
-                    type="email"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label className="form-label" htmlFor="subject">
-                  {contact.subject}
-                </label>
-                <div className="relative">
-                  <select
-                    className="input-field appearance-none pr-lg"
-                    id="subject"
-                    name="subject"
-                    defaultValue=""
-                  >
-                    <option disabled value="">
-                      {contact.selectInquiry}
-                    </option>
-                    <option value="enrollment">{contact.inquiryEnrollment}</option>
-                    <option value="parent">{contact.inquiryParent}</option>
-                    <option value="adult">{contact.inquiryAdult}</option>
-                    <option value="road-test">{contact.inquiryRoadTest}</option>
-                    <option value="other">{contact.inquiryOther}</option>
-                  </select>
-                  <span className="material-symbols-outlined icon-base absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">
-                    expand_more
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-xs">
-                <label className="form-label" htmlFor="message">
-                  {contact.yourMessage}
-                </label>
-                <textarea
-                  className="input-field resize-y"
-                  id="message"
-                  name="message"
-                  placeholder={contact.messagePlaceholder}
-                  rows={5}
-                />
-              </div>
-              <div className="pt-sm">
-                <button className="btn-solid w-full sm:w-auto" type="submit">
-                  {common.sendMessage}
-                  <span className="material-symbols-outlined icon-base icon-filled">send</span>
-                </button>
-              </div>
-            </form>
-          </div>
+          <ContactForm contactApiUrl={getContactApiUrl()} />
         </div>
 
         <div className="md:col-span-5 flex flex-col gap-lg">

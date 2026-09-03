@@ -31,3 +31,14 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Shared content
 
 Site-wide branding, contact info, and Google reviews live in `src/lib/site.ts`.
+
+## Contact form
+
+The contact form submits to the Permit Smash public API (`/api/public/schools/{slug}/contact`). Configure the school slug and API base URL if needed:
+
+```bash
+CATALOG_API_BASE_URL=https://permitsmash.com   # optional
+SCHOOL_CATALOG_SLUG=jmc-driving-school         # optional
+```
+
+Email delivery is handled by Permit Smash via a Supabase edge function (`public_school_contact`) that uses the existing Resend secrets — no extra email env vars on the school site.
