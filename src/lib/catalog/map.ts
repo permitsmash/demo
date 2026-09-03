@@ -165,48 +165,6 @@ function formatBatchClassDatesList(batch: PublicCatalogBatch) {
   return parts.join(", ");
 }
 
-function formatOperatingHours(
-  operatingHours: Record<string, unknown> | null | undefined,
-) {
-  if (!operatingHours) return staticSite.officeHours;
-
-  const dayOrder = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const openDays = dayOrder
-    .map((day) => {
-      const entry = operatingHours[day];
-      if (!entry || typeof entry !== "object") return null;
-      const record = entry as {
-        is_open?: boolean;
-        opening_time?: string;
-        closing_time?: string;
-      };
-      if (!record.is_open) return null;
-      return {
-        day,
-        opening: formatTimeLabel(record.opening_time ?? null),
-        closing: formatTimeLabel(record.closing_time ?? null),
-      };
-    })
-    .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
-
-  if (openDays.length === 0) return staticSite.officeHours;
-
-  const first = openDays[0];
-  const allSameHours = openDays.every(
-    (entry) => entry.opening === first.opening && entry.closing === first.closing,
-  );
-
-  if (allSameHours && openDays.length === 7) {
-    return `Mon–Sun ${first.opening}–${first.closing}`;
-  }
-
-  if (allSameHours && openDays.length === 5 && openDays[0]?.day === "Mon" && openDays[4]?.day === "Fri") {
-    return `Mon–Fri ${first.opening}–${first.closing}`;
-  }
-
-  return openDays.map((entry) => `${entry.day} ${entry.opening}–${entry.closing}`).join(", ");
-}
-
 function mapCatalogProductToEnrollment(product: PublicCatalogProduct): EnrollmentProduct {
   return {
     id: product.id,
@@ -334,7 +292,7 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
     name: school.name || staticSite.name,
     phone: formatDisplayPhone(school.phone),
     phoneTel: formatPhoneTel(school.phone),
-    email: school.email?.trim() || staticSite.email,
+    email: staticSite.email,
     address: {
       street: school.address.street ?? staticSite.address.street,
       city: school.address.city ?? staticSite.address.city,
@@ -342,7 +300,7 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
       zip: school.address.zip ?? staticSite.address.zip,
       full: school.address.full ?? staticSite.address.full,
     },
-    officeHours: formatOperatingHours(school.operatingHours),
+    officeHours: staticSite.officeHours,
     cancellationHours: staticSite.cancellationHours,
     languages:
       school.languages.length > 0 ? school.languages : [...staticSite.languages],

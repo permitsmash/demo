@@ -71,12 +71,6 @@ export default function TopNavBar() {
         </div>
         <div className="ml-auto hidden md:flex gap-sm items-center">
           <Link
-            href="/sign-in"
-            className="btn-ghost"
-          >
-            {nav.signIn}
-          </Link>
-          <Link
             href="/courses"
             className="btn-primary btn-primary-sm"
           >
@@ -124,17 +118,10 @@ export default function TopNavBar() {
                 </Link>
               );
             })}
-            <div className="pt-sm mt-sm border-t border-outline-variant flex gap-sm">
-              <Link
-                href="/sign-in"
-                className="flex-1 text-center font-button text-button text-primary border border-outline-variant rounded px-sm py-sm hover:bg-surface-dim"
-                onClick={() => setIsMobileOpen(false)}
-              >
-                {nav.signIn}
-              </Link>
+            <div className="pt-sm mt-sm border-t border-outline-variant">
               <Link
                 href="/courses"
-                className="flex-1 text-center btn-primary btn-primary-sm"
+                className="block w-full text-center btn-primary btn-primary-sm"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {nav.enroll}
