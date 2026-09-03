@@ -61,21 +61,6 @@ export function legacyProductIdForName(name: string) {
   return LEGACY_PRODUCT_ID_BY_NAME[normalizeProductName(name)] ?? null;
 }
 
-function formatPhoneTel(phone: string | null | undefined) {
-  const digits = (phone ?? "").replace(/\D/g, "");
-  if (digits.length === 10) return `+1${digits}`;
-  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
-  return staticSite.phoneTel;
-}
-
-function formatDisplayPhone(phone: string | null | undefined) {
-  const digits = (phone ?? "").replace(/\D/g, "");
-  if (digits.length === 10) {
-    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-  }
-  return phone?.trim() || staticSite.phone;
-}
-
 function formatTimeLabel(value: string | null) {
   if (!value) return "";
   const [hours, minutes] = value.split(":").map(Number);
@@ -283,8 +268,8 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
   return {
     ...staticSite,
     name: school.name || staticSite.name,
-    phone: formatDisplayPhone(school.phone),
-    phoneTel: formatPhoneTel(school.phone),
+    phone: staticSite.phone,
+    phoneTel: staticSite.phoneTel,
     email: staticSite.email,
     address: {
       street: school.address.street ?? staticSite.address.street,

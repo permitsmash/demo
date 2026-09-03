@@ -4,7 +4,7 @@ export const site = {
   description:
     "Professional driving lessons in Waltham, Massachusetts. Certified instructors helping new drivers gain skills and confidence on the road.",
   serviceArea: "Waltham, MA and surrounding areas",
-  phone: "(781) 373-1730",
+  phone: "781 373 1730",
   phoneTel: "+17813731730",
   email: "contact@jmcdrivingschool.com",
   address: {
