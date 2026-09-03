@@ -6,11 +6,15 @@ const DEFAULT_SCHOOL_SLUG = "jmc-driving-school";
 const CATALOG_REVALIDATE_SECONDS = 60;
 const CATALOG_FETCH_TIMEOUT_MS = 10_000;
 
+export function getSchoolCatalogSlug() {
+  return process.env.SCHOOL_CATALOG_SLUG?.trim() || DEFAULT_SCHOOL_SLUG;
+}
+
 export function getCatalogApiUrl() {
   const baseUrl = (
     process.env.CATALOG_API_BASE_URL ?? DEFAULT_CATALOG_API_BASE_URL
   ).replace(/\/$/, "");
-  const slug = process.env.SCHOOL_CATALOG_SLUG ?? DEFAULT_SCHOOL_SLUG;
+  const slug = getSchoolCatalogSlug();
   return `${baseUrl}/api/public/schools/${slug}/catalog`;
 }
 
