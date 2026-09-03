@@ -211,7 +211,6 @@ export function ClassScheduleDialog({
               </span>
               <p className="schedule-dialog-fallback-text">
                 {rangeOnlyEntry?.dateLabel ?? session.startDate}
-                {rangeOnlyEntry?.dateLabel && session.endDate ? ` – ${session.endDate}` : ""}
               </p>
             </div>
           )}
