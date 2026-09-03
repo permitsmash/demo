@@ -176,6 +176,13 @@ export const es: Messages = {
     contactInfo: "Información de contacto",
     mapTitle: "Mapa de ubicación de JMC Driving School",
     imageAlt: "Contacto de JMC Driving School",
+    submitting: "Enviando...",
+    successTitle: "¡Mensaje enviado!",
+    successMessage: "Gracias por contactarnos. Nos pondremos en contacto con usted pronto.",
+    errorMessage: "No pudimos enviar su mensaje. Inténtelo de nuevo o llámenos directamente.",
+    sendAnother: "Enviar otro mensaje",
+    validationRequired: "Complete todos los campos obligatorios.",
+    validationEmail: "Ingrese una dirección de correo electrónico válida.",
   },
   site: {
     tagline: "Aprenda a manejar con confianza",
