@@ -27,7 +27,7 @@ export default function TopNavBar() {
 
   return (
     <nav className="bg-white border-b border-outline-variant w-full sticky top-0 z-50">
-      <div className="hidden md:block bg-banner text-on-banner">
+      <div className="jmc-top-banner hidden md:block">
         <div className="relative container-page py-1 flex items-center justify-between gap-md">
           <div className="text-body-sm font-body-sm">
             <span>{siteCopy.serviceArea}</span>
