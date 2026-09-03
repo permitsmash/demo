@@ -42,22 +42,28 @@ export async function sendContactFormEmail(
     return { ok: false, error: "Email service is not configured" };
   }
 
-  const response = await fetch(
-    `${config.supabaseUrl}/functions/v1/public_school_contact`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${config.serviceRoleKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        schoolName: config.schoolName,
-        to: config.toEmail,
-        payload,
-      }),
-      signal: AbortSignal.timeout(EDGE_FUNCTION_TIMEOUT_MS),
-    }
-  );
+  let response: Response;
+  try {
+    response = await fetch(
+      `${config.supabaseUrl}/functions/v1/public_school_contact`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${config.serviceRoleKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          schoolName: config.schoolName,
+          to: config.toEmail,
+          payload,
+        }),
+        signal: AbortSignal.timeout(EDGE_FUNCTION_TIMEOUT_MS),
+      }
+    );
+  } catch (error) {
+    console.error("contact: edge function request failed", { error });
+    return { ok: false, error: "Failed to send message" };
+  }
 
   if (!response.ok) {
     const responseBody = await response.text().catch(() => "");

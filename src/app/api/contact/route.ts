@@ -1,3 +1,4 @@
+import { getClientIp, isContactRateLimited } from "@/lib/contact/rate-limit";
 import { sendContactFormEmail } from "@/lib/contact/send";
 import { NextResponse } from "next/server";
 
@@ -11,16 +12,30 @@ type ContactRequestBody = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function isContactRequestBody(value: unknown): value is ContactRequestBody {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
 export async function POST(request: Request) {
-  let body: ContactRequestBody;
+  let parsedBody: unknown;
   try {
-    body = (await request.json()) as ContactRequestBody;
+    parsedBody = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
+  if (!isContactRequestBody(parsedBody)) {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const body = parsedBody;
+
   if (String(body.website ?? "").trim()) {
     return NextResponse.json({ ok: true });
+  }
+
+  if (isContactRateLimited(getClientIp(request))) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
 
   const name = String(body.name ?? "").trim();

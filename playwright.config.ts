@@ -1,16 +1,9 @@
-import path from "node:path";
 import { defineConfig, devices } from "@playwright/test";
 
 const port = process.env.PLAYWRIGHT_PORT ?? "3100";
 const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL ?? `http://localhost:${port}`;
 const isLocalBaseURL = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/?$/i.test(baseURL);
-
-const chromiumExecutable =
-  process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ??
-  path.join(
-    process.env.HOME ?? "",
-    "Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell"
-  );
+const chromiumExecutable = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH?.trim();
 
 export default defineConfig({
   testDir: "./e2e",
@@ -22,9 +15,13 @@ export default defineConfig({
     trace: "retain-on-failure",
     actionTimeout: 15_000,
     navigationTimeout: 45_000,
-    launchOptions: {
-      executablePath: chromiumExecutable,
-    },
+    ...(chromiumExecutable
+      ? {
+          launchOptions: {
+            executablePath: chromiumExecutable,
+          },
+        }
+      : {}),
   },
   webServer: isLocalBaseURL
     ? {
