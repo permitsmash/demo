@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 
 const EDGE_FUNCTION_TIMEOUT_MS = 15_000;
+const DEFAULT_SCHOOL_SLUG = "jmc-driving-school";
 
 export type ContactFormPayload = {
   name: string;
@@ -12,13 +13,14 @@ export type ContactFormPayload = {
 type ContactDeliveryConfig = {
   supabaseUrl: string;
   serviceRoleKey: string;
-  toEmail: string;
+  schoolSlug: string;
   schoolName: string;
 };
 
 function getContactDeliveryConfig(): ContactDeliveryConfig | null {
   const supabaseUrl = process.env.SUPABASE_URL?.trim();
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  const schoolSlug = process.env.SCHOOL_CATALOG_SLUG?.trim() || DEFAULT_SCHOOL_SLUG;
 
   if (!supabaseUrl || !serviceRoleKey) {
     return null;
@@ -27,7 +29,7 @@ function getContactDeliveryConfig(): ContactDeliveryConfig | null {
   return {
     supabaseUrl: supabaseUrl.replace(/\/$/, ""),
     serviceRoleKey,
-    toEmail: site.email,
+    schoolSlug,
     schoolName: site.name,
   };
 }
@@ -52,8 +54,8 @@ export async function sendContactFormEmail(
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          schoolSlug: config.schoolSlug,
           schoolName: config.schoolName,
-          to: config.toEmail,
           payload,
         }),
         signal: AbortSignal.timeout(EDGE_FUNCTION_TIMEOUT_MS),

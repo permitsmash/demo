@@ -41,4 +41,4 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=...              # server-side only
 ```
 
-Website contact submissions always go to the public inbox in `src/lib/site.ts` (`contact@jmcdrivingschool.com`). The Permit Smash dashboard `contact_email` is not used.
+Website contact submissions are routed by school slug to `schools.website_contact_email` in Permit Smash (for JMC: `contact@jmcdrivingschool.com`). The dashboard `contact_email` is not used for website forms.
