@@ -74,6 +74,8 @@ export default async function Page() {
               sessionFull: c.sessionFull,
               notes: c.notes,
               viewSchedule: c.viewSchedule,
+              scheduleTitle: c.scheduleTitle,
+              scheduleTable: c.scheduleTable,
               close: c.close,
               contactOffice: c.contactOffice,
               noSessions: c.noSessions,

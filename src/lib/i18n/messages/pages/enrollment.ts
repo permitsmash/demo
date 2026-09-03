@@ -86,6 +86,14 @@ export const enrollmentEn = {
   browsePrograms: "Browse Programs",
   selectedSession: "Selected session",
   scheduleTitle: "Class Schedule",
+  scheduleTable: {
+    number: "#",
+    date: "Date",
+    session: "Session",
+    time: "Time",
+    notes: "Notes",
+    classDays: "{count} class days",
+  },
   close: "Close",
 } as const;
 
@@ -194,6 +202,14 @@ export const enrollmentEs: EnrollmentMessages = {
   browsePrograms: "Ver programas",
   selectedSession: "Sesión seleccionada",
   scheduleTitle: "Horario de clase",
+  scheduleTable: {
+    number: "#",
+    date: "Fecha",
+    session: "Sesión",
+    time: "Hora",
+    notes: "Notas",
+    classDays: "{count} días de clase",
+  },
   close: "Cerrar",
 };
 
@@ -285,6 +301,14 @@ export const enrollmentPt: EnrollmentMessages = {
   browsePrograms: "Ver programas",
   selectedSession: "Sessão selecionada",
   scheduleTitle: "Horário da aula",
+  scheduleTable: {
+    number: "#",
+    date: "Data",
+    session: "Sessão",
+    time: "Horário",
+    notes: "Notas",
+    classDays: "{count} dias de aula",
+  },
   close: "Fechar",
 };
 
@@ -376,5 +400,13 @@ export const enrollmentHt: EnrollmentMessages = {
   browsePrograms: "Gade Pwogram yo",
   selectedSession: "Sesyon chwazi",
   scheduleTitle: "Orè Klas",
+  scheduleTable: {
+    number: "#",
+    date: "Dat",
+    session: "Sesyon",
+    time: "Lè",
+    notes: "Nòt",
+    classDays: "{count} jou klas",
+  },
   close: "Fèmen",
 };

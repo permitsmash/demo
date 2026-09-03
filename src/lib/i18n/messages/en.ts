@@ -1,6 +1,6 @@
 import { coursesEn, type CoursesMessages } from "./pages/courses";
 import { roadTestsEn, type RoadTestsMessages } from "./pages/roadTests";
-import { classesEn } from "./pages/classes";
+import { classesEn, type ClassesMessages } from "./pages/classes";
 import { faqPageEn } from "./pages/faq";
 import { legalEn } from "./pages/legal";
 import { resourcesEn } from "./pages/resources";
@@ -208,7 +208,7 @@ export type Messages = {
   site: { [K in keyof typeof en.site]: string };
   courses: CoursesMessages;
   roadTests: RoadTestsMessages;
-  classes: { [K in keyof typeof en.classes]: string };
+  classes: ClassesMessages;
   faqPage: typeof faqPageEn;
   legal: { [K in keyof typeof en.legal]: string };
   resources: { [K in keyof typeof en.resources]: string };

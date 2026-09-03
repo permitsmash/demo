@@ -791,9 +791,9 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: min(36rem, calc(100vw - 2rem));
+  width: min(52rem, calc(100vw - 2rem));
   min-width: 0;
-  max-width: 36rem;
+  max-width: 52rem;
   max-height: min(90vh, 90dvh);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-outline-variant);
@@ -892,112 +892,79 @@ body {
   padding: var(--spacing-md);
 }
 
-.schedule-dialog-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.schedule-dialog-entry {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm);
+.schedule-dialog-table-wrap {
+  overflow-x: auto;
   border: 1px solid var(--color-outline-variant);
   border-radius: var(--radius-lg);
   background: var(--color-surface-container-lowest);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.schedule-dialog-entry:hover {
-  border-color: var(--color-outline);
-  box-shadow: 0 2px 8px rgba(11, 28, 48, 0.06);
-}
-
-.schedule-dialog-date-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  min-width: 3rem;
-  padding: 0.35rem 0.25rem;
-  border-radius: var(--radius-lg);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  text-align: center;
-  line-height: 1.1;
-}
-
-.schedule-dialog-date-badge-muted {
-  background: var(--color-surface-dim);
-  color: var(--color-primary);
-  border: 1px solid var(--color-outline-variant);
-}
-
-.schedule-dialog-date-month {
-  font-family: var(--font-label-caps);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.schedule-dialog-date-day {
-  font-family: var(--font-h3);
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.schedule-dialog-entry-body {
-  min-width: 0;
-}
-
-.schedule-dialog-entry-primary {
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-
-.schedule-dialog-entry-weekday {
-  font-family: var(--font-body-md);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.schedule-dialog-entry-title {
-  font-family: var(--font-body-md);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.schedule-dialog-entry-secondary {
-  margin: 0.15rem 0 0;
+.schedule-dialog-table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
   font-family: var(--font-body-sm);
   font-size: 13px;
-  color: var(--color-on-surface-variant);
+  line-height: 1.45;
 }
 
-.schedule-dialog-entry-time {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.35rem 0.55rem;
-  border-radius: var(--radius-full);
-  background: var(--color-secondary-fixed);
-  color: var(--color-on-secondary-fixed-variant);
-  font-family: var(--font-body-sm);
-  font-size: 12px;
+.schedule-dialog-table thead {
+  background: var(--color-surface-container-low);
+}
+
+.schedule-dialog-table th {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  font-family: var(--font-label-caps);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
   font-weight: 600;
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.schedule-dialog-table td {
+  padding: 0.65rem 0.75rem;
+  vertical-align: top;
+  color: var(--color-on-surface);
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.schedule-dialog-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-dialog-table tbody tr:nth-child(even) {
+  background: var(--color-surface-dim);
+}
+
+.schedule-dialog-table-col-number {
+  width: 2.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.schedule-dialog-table-col-time {
+  width: 11rem;
   white-space: nowrap;
+}
+
+.schedule-dialog-table-date {
+  min-width: 8.5rem;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.schedule-dialog-table-session {
+  min-width: 12rem;
+}
+
+.schedule-dialog-table-time {
+  font-weight: 600;
+  color: var(--color-on-secondary-fixed-variant);
 }
 
 .schedule-dialog-fallback {
@@ -1051,17 +1018,6 @@ body {
 
 .schedule-dialog-done {
   width: 100%;
-}
-
-@media (max-width: 480px) {
-  .schedule-dialog-entry {
-    grid-template-columns: auto 1fr;
-  }
-
-  .schedule-dialog-entry-time {
-    grid-column: 2;
-    justify-self: start;
-  }
 }
 
 /* Legacy list styles — kept for any remaining references */
