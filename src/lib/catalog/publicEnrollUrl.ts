@@ -53,6 +53,7 @@ export function buildPublicEnrollUrl(
     product?: string | null;
     package?: string | null;
     quantity?: string | null;
+    student?: string | null;
   },
 ) {
   const base = getPublicEnrollBaseUrl();
@@ -68,6 +69,9 @@ export function buildPublicEnrollUrl(
   }
   if (options?.quantity) {
     url.searchParams.set("quantity", options.quantity);
+  }
+  if (options?.student?.trim()) {
+    url.searchParams.set("student", options.student.trim());
   }
 
   return url.toString();

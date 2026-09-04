@@ -25,3 +25,4 @@ export {
   getPublicEnrollSchoolSlug,
   resolveCatalogPackageId,
 } from "@/lib/catalog/publicEnrollUrl";
+export { lookupPublicEnrollmentStudentByEmail, type PublicEnrollmentStudentSummary } from "@/lib/catalog/publicStudentLookup";
