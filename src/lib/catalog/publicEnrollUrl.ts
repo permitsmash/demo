@@ -54,6 +54,7 @@ export function buildPublicEnrollUrl(
     package?: string | null;
     quantity?: string | null;
     student?: string | null;
+    prefill?: string | null;
   },
 ) {
   const base = getPublicEnrollBaseUrl();
@@ -70,7 +71,9 @@ export function buildPublicEnrollUrl(
   if (options?.quantity) {
     url.searchParams.set("quantity", options.quantity);
   }
-  if (options?.student?.trim()) {
+  if (options?.prefill?.trim()) {
+    url.searchParams.set("prefill", options.prefill.trim());
+  } else if (options?.student?.trim()) {
     url.searchParams.set("student", options.student.trim());
   }
 

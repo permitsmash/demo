@@ -9,12 +9,21 @@ type EnrollGateClientProps = {
   enrollUrl: string;
 };
 
-type Step = "type" | "email" | "confirm";
+type Step = "type" | "email" | "code" | "confirm";
 
 const subscribeNoop = () => () => undefined;
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
 function useIsClient() {
   return useSyncExternalStore(subscribeNoop, () => true, () => false);
+}
+
+function getFocusableElements(container: HTMLElement) {
+  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+    (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1,
+  );
 }
 
 export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
@@ -24,7 +33,11 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<Step>("type");
   const [email, setEmail] = useState("");
+  const [challengeId, setChallengeId] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
+  const [verificationMessage, setVerificationMessage] = useState<string | null>(null);
   const [student, setStudent] = useState<PublicEnrollmentStudentSummary | null>(null);
+  const [prefillToken, setPrefillToken] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -39,13 +52,41 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
 
   useEffect(() => {
     if (!mounted) return;
-    dialogRef.current?.focus();
+
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const focusable = getFocusableElements(dialog);
+    (focusable[0] ?? dialog).focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+
+      const items = getFocusableElements(dialog);
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [mounted, step]);
 
-  const continueToEnrollment = (studentId?: string | null) => {
+  const continueToEnrollment = (token?: string | null) => {
     const url = new URL(enrollUrl);
-    if (studentId) {
-      url.searchParams.set("student", studentId);
+    if (token) {
+      url.searchParams.set("prefill", token);
     }
     window.location.assign(url.toString());
   };
@@ -59,7 +100,7 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
     setStep("email");
   };
 
-  const handleLookup = async () => {
+  const handleRequestCode = async () => {
     const trimmedEmail = email.trim();
     if (!trimmedEmail) {
       setError(gate.emailRequired);
@@ -68,24 +109,67 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
 
     setBusy(true);
     setError(null);
+    setVerificationMessage(null);
 
     try {
-      const response = await fetch("/api/enrollment/student-lookup", {
+      const response = await fetch("/api/enrollment/student-lookup/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: trimmedEmail }),
       });
       const payload = (await response.json()) as {
-        student?: PublicEnrollmentStudentSummary;
+        challengeId?: string;
+        message?: string;
         error?: string;
       };
 
-      if (!response.ok || !payload.student) {
-        setError(payload.error ?? gate.studentNotFound);
+      if (!response.ok || !payload.challengeId) {
+        setError(payload.error ?? gate.lookupFailed);
+        return;
+      }
+
+      setChallengeId(payload.challengeId);
+      setVerificationMessage(payload.message ?? gate.codeSent);
+      setVerificationCode("");
+      setStep("code");
+    } catch {
+      setError(gate.lookupFailed);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleVerifyCode = async () => {
+    if (!verificationCode.trim()) {
+      setError(gate.codeRequired);
+      return;
+    }
+
+    setBusy(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/enrollment/student-lookup/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          challengeId,
+          code: verificationCode.trim(),
+        }),
+      });
+      const payload = (await response.json()) as {
+        student?: PublicEnrollmentStudentSummary;
+        prefillToken?: string;
+        error?: string;
+      };
+
+      if (!response.ok || !payload.student || !payload.prefillToken) {
+        setError(payload.error ?? gate.codeInvalid);
         return;
       }
 
       setStudent(payload.student);
+      setPrefillToken(payload.prefillToken);
       setStep("confirm");
     } catch {
       setError(gate.lookupFailed);
@@ -97,12 +181,20 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
   const handleBack = () => {
     setError(null);
     if (step === "confirm") {
+      setStudent(null);
+      setPrefillToken(null);
+      setStep("code");
+      return;
+    }
+    if (step === "code") {
+      setVerificationCode("");
+      setVerificationMessage(null);
       setStep("email");
       return;
     }
     if (step === "email") {
       setEmail("");
-      setStudent(null);
+      setChallengeId("");
       setStep("type");
     }
   };
@@ -174,8 +266,47 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
               <button type="button" className="btn-outline" onClick={handleBack} disabled={busy}>
                 {gate.back}
               </button>
-              <button type="button" className="btn-primary" onClick={handleLookup} disabled={busy}>
-                {busy ? gate.lookingUp : gate.continue}
+              <button type="button" className="btn-primary" onClick={handleRequestCode} disabled={busy}>
+                {busy ? gate.sendingCode : gate.sendCode}
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {step === "code" ? (
+          <div className="flex flex-col gap-lg">
+            <div className="flex flex-col gap-sm">
+              <h1 id="enrollment-gate-title" className="font-h2 text-h2 text-primary">
+                {gate.codeTitle}
+              </h1>
+              <p className="text-body-md text-on-surface-variant">
+                {verificationMessage ?? gate.codeDescription}
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-xs">
+              <label className="form-label" htmlFor="enrollment-gate-code">
+                {gate.codeLabel}
+              </label>
+              <input
+                id="enrollment-gate-code"
+                type="text"
+                inputMode="numeric"
+                autoComplete="one-time-code"
+                className="input-field"
+                value={verificationCode}
+                onChange={(event) => setVerificationCode(event.target.value)}
+                placeholder={gate.codePlaceholder}
+                disabled={busy}
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-sm justify-between">
+              <button type="button" className="btn-outline" onClick={handleBack} disabled={busy}>
+                {gate.back}
+              </button>
+              <button type="button" className="btn-primary" onClick={handleVerifyCode} disabled={busy}>
+                {busy ? gate.verifyingCode : gate.verifyCode}
               </button>
             </div>
           </div>
@@ -208,7 +339,7 @@ export function EnrollGateClient({ enrollUrl }: EnrollGateClientProps) {
               <button
                 type="button"
                 className="btn-primary"
-                onClick={() => continueToEnrollment(student.studentId)}
+                onClick={() => continueToEnrollment(prefillToken)}
               >
                 {gate.continueToEnrollment}
               </button>
