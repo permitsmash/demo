@@ -25,8 +25,3 @@ export {
   getPublicEnrollSchoolSlug,
   resolveCatalogPackageId,
 } from "@/lib/catalog/publicEnrollUrl";
-export {
-  requestPublicEnrollmentStudentVerification,
-  verifyPublicEnrollmentStudentVerification,
-  type PublicEnrollmentStudentSummary,
-} from "@/lib/catalog/publicStudentLookup";
