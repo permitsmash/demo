@@ -38,13 +38,6 @@ export const site = {
         "https://www.google.com/maps/search/?api=1&query=Lowell+RMV+77+Middlesex+Street+Lowell+MA",
     },
     {
-      name: "Wilmington",
-      address: "355 Middlesex Ave., Wilmington, MA 01887",
-      image: "/rmv/wilmington.jpg",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Wilmington+RMV+355+Middlesex+Avenue+Wilmington+MA",
-    },
-    {
       name: "Haverhill",
       address: "229c Lincoln Ave., Haverhill, MA 01830",
       image: "/rmv/haverhill.png",
@@ -55,13 +48,6 @@ export const site = {
       address: "73 Winthrop Ave., Lawrence, MA 01843",
       image: "/rmv/lawrence.png",
       mapsUrl: "https://maps.app.goo.gl/u4PAA2nQtzofQrjA6",
-    },
-    {
-      name: "Revere",
-      address: "301 Rear Revere Beach Pkwy, Revere, MA 02151",
-      image: "/rmv/revere.jpg",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Revere+RMV+301+Revere+Beach+Parkway+Revere+MA",
     },
     {
       name: "Milford",

@@ -173,7 +173,7 @@ export default async function Page() {
               {home.roadTestDesc}
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md">
             {liveSite.roadTestLocations.map((location) => (
               <a
                 key={location.name}
@@ -189,7 +189,7 @@ export default async function Page() {
                     alt={`${location.name} RMV Service Center`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-sm py-md pt-xl">
                     <p className="text-overlay">{location.name}</p>

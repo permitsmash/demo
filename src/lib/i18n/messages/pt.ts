@@ -150,7 +150,7 @@ export const pt: Messages = {
     flexibleSchedulingDesc:
       "Inscreva-se online, por telefone ou presencialmente. Oferecemos cursos acelerados e aulas presenciais com vagas limitadas.",
     roadTestDesc:
-      "Patrocínio para exame prático disponível em nosso escritório em Waltham e em locais do RMV incluindo Watertown, Lowell, Wilmington e mais.",
+      "Patrocínio para exame prático disponível em nosso escritório em Waltham e em locais do RMV incluindo Watertown, Lowell e mais.",
     ctaTitle: "Pronto para começar sua jornada?",
     ctaDesc:
       "Entre em contato com nosso escritório para verificar disponibilidade de aulas presenciais de educação para motoristas e cursos acelerados.",
@@ -164,6 +164,8 @@ export const pt: Messages = {
     fullNamePlaceholder: "Maria Silva",
     emailAddress: "Endereço de e-mail",
     emailPlaceholder: "maria@exemplo.com",
+    phoneNumber: "Número de telefone",
+    phonePlaceholder: "(781) 555-1234",
     subject: "Assunto",
     selectInquiry: "Selecione um tipo de consulta",
     inquiryEnrollment: "Inscrição em educação para motoristas",
@@ -183,6 +185,7 @@ export const pt: Messages = {
     sendAnother: "Enviar outra mensagem",
     validationRequired: "Preencha todos os campos obrigatórios.",
     validationEmail: "Insira um endereço de e-mail válido.",
+    validationPhone: "Insira um número de telefone válido.",
   },
   site: {
     tagline: "Aprenda a dirigir com confiança",

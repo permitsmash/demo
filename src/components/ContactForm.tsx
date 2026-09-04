@@ -5,6 +5,11 @@ import { useLocale } from "@/components/LocaleProvider";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
+function isValidPhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+}
+
 type ContactFormProps = {
   contactApiUrl: string;
 };
@@ -25,12 +30,13 @@ export function ContactForm({ contactApiUrl }: ContactFormProps) {
     const payload = {
       name: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
+      phone: String(formData.get("phone") ?? "").trim(),
       subject: String(formData.get("subject") ?? "").trim(),
       message: String(formData.get("message") ?? "").trim(),
       website: String(formData.get("website") ?? "").trim(),
     };
 
-    if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+    if (!payload.name || !payload.email || !payload.phone || !payload.subject || !payload.message) {
       setStatus("error");
       setErrorMessage(contact.validationRequired);
       return;
@@ -39,6 +45,12 @@ export function ContactForm({ contactApiUrl }: ContactFormProps) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
       setStatus("error");
       setErrorMessage(contact.validationEmail);
+      return;
+    }
+
+    if (!isValidPhone(payload.phone)) {
+      setStatus("error");
+      setErrorMessage(contact.validationPhone);
       return;
     }
 
@@ -121,6 +133,23 @@ export function ContactForm({ contactApiUrl }: ContactFormProps) {
               disabled={status === "submitting"}
             />
           </div>
+        </div>
+
+        <div className="flex flex-col gap-xs">
+          <label className="form-label" htmlFor="phone">
+            {contact.phoneNumber}
+          </label>
+          <input
+            className="input-field"
+            id="phone"
+            name="phone"
+            placeholder={contact.phonePlaceholder}
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            required
+            disabled={status === "submitting"}
+          />
         </div>
 
         <div className="flex flex-col gap-xs">

@@ -150,7 +150,7 @@ export const ht: Messages = {
     flexibleSchedulingDesc:
       "Enskri sou entènèt, pa telefòn, oswa an pèsòn. Nou ofri kou akselere ak klas an pèsòn ak plas limite.",
     roadTestDesc:
-      "Patwonej egzamen wout la disponib nan biwo nou nan Waltham ak nan kote RMV yo ki gen ladan Watertown, Lowell, Wilmington, ak plis ankò.",
+      "Patwonej egzamen wout la disponib nan biwo nou nan Waltham ak nan kote RMV yo ki gen ladan Watertown, Lowell, ak plis ankò.",
     ctaTitle: "Pare pou kòmanse vwayaj ou?",
     ctaDesc:
       "Kontakte biwo nou an pou verifye disponibilite klas Edikasyon Chofè an pèsòn ak kou akselere yo.",
@@ -164,6 +164,8 @@ export const ht: Messages = {
     fullNamePlaceholder: "Jan Dupont",
     emailAddress: "Adrès imèl",
     emailPlaceholder: "jan@egzanp.com",
+    phoneNumber: "Nimewo telefòn",
+    phonePlaceholder: "(781) 555-1234",
     subject: "Sijè",
     selectInquiry: "Chwazi yon kalite demann",
     inquiryEnrollment: "Enskripsyon Edikasyon Chofè",
@@ -183,6 +185,7 @@ export const ht: Messages = {
     sendAnother: "Voye yon lòt mesaj",
     validationRequired: "Tanpri ranpli tout chan obligatwa yo.",
     validationEmail: "Tanpri antre yon adrès imèl ki valab.",
+    validationPhone: "Tanpri antre yon nimewo telefòn ki valab.",
   },
   site: {
     tagline: "Aprann kondwi ak konfyans",

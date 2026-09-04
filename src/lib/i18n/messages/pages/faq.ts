@@ -70,7 +70,7 @@ const faqTestEn: FaqItem[] = [
   {
     question: "Do you offer road test sponsorship?",
     answer:
-      "Yes. JMC Driving School offers road test sponsorship at our Waltham office and RMV locations in Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, and Milford. We offer Saturday test sponsorship at the JMC office or weekdays at certain RMV locations. Contact the office for current fees and availability. Road test fees are non-refundable.",
+      "Yes. JMC Driving School offers road test sponsorship at our Waltham office and RMV locations in Watertown, Lowell, Haverhill, Lawrence, and Milford. We offer Saturday test sponsorship at the JMC office or weekdays at certain RMV locations. Contact the office for current fees and availability. Road test fees are non-refundable.",
   },
   {
     question: "Should I call before submitting the road test form?",
@@ -98,7 +98,7 @@ const faqGeneralEn: FaqItem[] = [
   {
     question: "Which areas do you serve?",
     answer:
-      "JMC Driving School serves Waltham, MA and surrounding areas, including road test sponsorship at Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, and Milford. Contact the office to confirm program availability for your area.",
+      "JMC Driving School serves Waltham, MA and surrounding areas, including road test sponsorship at Watertown, Lowell, Haverhill, Lawrence, and Milford. Contact the office to confirm program availability for your area.",
   },
   {
     question: "Do I need my own account or can a parent sign up for me?",
@@ -247,7 +247,7 @@ const faqTestEs: FaqItem[] = [
   {
     question: "¿Ofrecen patrocinio para examen de manejo?",
     answer:
-      "Sí. JMC Driving School ofrece patrocinio para examen de manejo en nuestra oficina de Waltham y ubicaciones del RMV en Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere y Milford. Ofrecemos patrocinio los sábados en la oficina de JMC o entre semana en ciertas ubicaciones del RMV. Contacte la oficina para tarifas y disponibilidad actuales. Las tarifas del examen de manejo no son reembolsables.",
+      "Sí. JMC Driving School ofrece patrocinio para examen de manejo en nuestra oficina de Waltham y ubicaciones del RMV en Watertown, Lowell, Haverhill, Lawrence y Milford. Ofrecemos patrocinio los sábados en la oficina de JMC o entre semana en ciertas ubicaciones del RMV. Contacte la oficina para tarifas y disponibilidad actuales. Las tarifas del examen de manejo no son reembolsables.",
   },
   {
     question: "¿Debo llamar antes de enviar el formulario de examen de manejo?",
@@ -275,7 +275,7 @@ const faqGeneralEs: FaqItem[] = [
   {
     question: "¿Qué áreas atienden?",
     answer:
-      "JMC Driving School atiende Waltham, MA y áreas circundantes, incluyendo patrocinio para examen de manejo en Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere y Milford. Contacte la oficina para confirmar disponibilidad del programa en su área.",
+      "JMC Driving School atiende Waltham, MA y áreas circundantes, incluyendo patrocinio para examen de manejo en Watertown, Lowell, Haverhill, Lawrence y Milford. Contacte la oficina para confirmar disponibilidad del programa en su área.",
   },
   {
     question: "¿Necesito mi propia cuenta o puede un padre inscribirme?",
@@ -424,7 +424,7 @@ const faqTestPt: FaqItem[] = [
   {
     question: "Vocês oferecem patrocínio para exame prático?",
     answer:
-      "Sim. A JMC Driving School oferece patrocínio para exame prático em nosso escritório em Waltham e locais do RMV em Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere e Milford. Oferecemos patrocínio aos sábados no escritório da JMC ou em dias úteis em certos locais do RMV. Entre em contato com o escritório para taxas e disponibilidade atuais. As taxas do exame prático não são reembolsáveis.",
+      "Sim. A JMC Driving School oferece patrocínio para exame prático em nosso escritório em Waltham e locais do RMV em Watertown, Lowell, Haverhill, Lawrence e Milford. Oferecemos patrocínio aos sábados no escritório da JMC ou em dias úteis em certos locais do RMV. Entre em contato com o escritório para taxas e disponibilidade atuais. As taxas do exame prático não são reembolsáveis.",
   },
   {
     question: "Devo ligar antes de enviar o formulário de exame prático?",
@@ -452,7 +452,7 @@ const faqGeneralPt: FaqItem[] = [
   {
     question: "Quais áreas vocês atendem?",
     answer:
-      "A JMC Driving School atende Waltham, MA e regiões vizinhas, incluindo patrocínio para exame prático em Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere e Milford. Entre em contato com o escritório para confirmar disponibilidade do programa na sua área.",
+      "A JMC Driving School atende Waltham, MA e regiões vizinhas, incluindo patrocínio para exame prático em Watertown, Lowell, Haverhill, Lawrence e Milford. Entre em contato com o escritório para confirmar disponibilidade do programa na sua área.",
   },
   {
     question: "Preciso de minha própria conta ou um pai pode se inscrever por mim?",
@@ -603,7 +603,7 @@ const faqTestHt: FaqItem[] = [
   {
     question: "Èske nou ofri patwone pou egzamen sou wout la?",
     answer:
-      "Wi. JMC Driving School ofri patwone pou egzamen sou wout la nan biwo nou an nan Waltham ak nan kote RMV yo nan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, ak Milford. Nou ofri patwone pou egzamen samdi nan biwo JMC a oswa jou ouvrab nan kèk kote RMV. Kontakte biwo a pou frè ak disponibilite aktyèl yo. Frè egzamen sou wout la pa ranbousab.",
+      "Wi. JMC Driving School ofri patwone pou egzamen sou wout la nan biwo nou an nan Waltham ak nan kote RMV yo nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Nou ofri patwone pou egzamen samdi nan biwo JMC a oswa jou ouvrab nan kèk kote RMV. Kontakte biwo a pou frè ak disponibilite aktyèl yo. Frè egzamen sou wout la pa ranbousab.",
   },
   {
     question: "Èske mwen ta dwe rele anvan mwen soumèt fòm egzamen sou wout la?",
@@ -631,7 +631,7 @@ const faqGeneralHt: FaqItem[] = [
   {
     question: "Ki zòn nou sèvi?",
     answer:
-      "JMC Driving School sèvi Waltham, MA ak zòn ki tou pre yo, enkli patwone pou egzamen sou wout la nan Watertown, Lowell, Wilmington, Haverhill, Lawrence, Revere, ak Milford. Kontakte biwo a pou konfime disponibilite pwogram nan zòn ou an.",
+      "JMC Driving School sèvi Waltham, MA ak zòn ki tou pre yo, enkli patwone pou egzamen sou wout la nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Kontakte biwo a pou konfime disponibilite pwogram nan zòn ou an.",
   },
   {
     question: "Èske mwen bezwen pwòp kont mwen oswa yon paran ka enskri pou mwen?",

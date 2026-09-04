@@ -45,7 +45,7 @@ export const enrollmentEn = {
     "rmv-area-3-rmv-branch": {
       name: "RMV Area 3 – RMV Branch",
       description:
-        "Road Test at Branch RMV Weekdays only. Branches: Haverhill, Lawrence, Lowell, Milford, Wilmington. The road test fee is non-refundable.",
+        "Road Test at Branch RMV Weekdays only. Branches: Haverhill, Lawrence, Lowell, and Milford. The road test fee is non-refundable.",
     },
     "comp-test-watertown": {
       name: "COMP Test – Watertown RMV",
@@ -161,7 +161,7 @@ export const enrollmentEs: EnrollmentMessages = {
     "rmv-area-3-rmv-branch": {
       name: "RMV Área 3 – Sucursal RMV",
       description:
-        "Examen práctico en sucursal RMV solo entre semana. Sucursales: Haverhill, Lawrence, Lowell, Milford, Wilmington. La tarifa del examen práctico no es reembolsable.",
+        "Examen práctico en sucursal RMV solo entre semana. Sucursales: Haverhill, Lawrence, Lowell y Milford. La tarifa del examen práctico no es reembolsable.",
     },
     "comp-test-watertown": {
       name: "Examen COMP – RMV Watertown",
@@ -260,7 +260,7 @@ export const enrollmentPt: EnrollmentMessages = {
     "rmv-area-3-rmv-branch": {
       name: "RMV Área 3 – Filial RMV",
       description:
-        "Teste prático em filial RMV apenas em dias úteis. Filiais: Haverhill, Lawrence, Lowell, Milford, Wilmington. A taxa do teste prático não é reembolsável.",
+        "Teste prático em filial RMV apenas em dias úteis. Filiais: Haverhill, Lawrence, Lowell e Milford. A taxa do teste prático não é reembolsável.",
     },
     "comp-test-watertown": {
       name: "Teste COMP – RMV Watertown",
@@ -359,7 +359,7 @@ export const enrollmentHt: EnrollmentMessages = {
     "rmv-area-3-rmv-branch": {
       name: "RMV Zòn 3 – Branch RMV",
       description:
-        "Tès wout nan branch RMV jou ouvrab sèlman. Branch yo: Haverhill, Lawrence, Lowell, Milford, Wilmington. Frè tès wout la pa ranbousab.",
+        "Tès wout nan branch RMV jou ouvrab sèlman. Branch yo: Haverhill, Lawrence, Lowell, ak Milford. Frè tès wout la pa ranbousab.",
     },
     "comp-test-watertown": {
       name: "Tès COMP – RMV Watertown",

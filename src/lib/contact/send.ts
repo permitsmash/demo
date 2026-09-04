@@ -6,6 +6,7 @@ const EDGE_FUNCTION_TIMEOUT_MS = 15_000;
 export type ContactFormPayload = {
   name: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 };

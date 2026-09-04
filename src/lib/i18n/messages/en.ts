@@ -147,7 +147,7 @@ export const en = {
     flexibleSchedulingDesc:
       "Register online, by phone, or in person. We offer accelerated courses and in-person classes with limited slots.",
     roadTestDesc:
-      "Road test sponsorship available at our Waltham office and RMV locations including Watertown, Lowell, Wilmington, and more.",
+      "Road test sponsorship available at our Waltham office and RMV locations including Watertown, Lowell, and more.",
     ctaTitle: "Ready to start your journey?",
     ctaDesc:
       "Contact our office to check availability for in-person Driver's Ed classes and accelerated courses.",
@@ -161,6 +161,8 @@ export const en = {
     fullNamePlaceholder: "Jane Doe",
     emailAddress: "Email Address",
     emailPlaceholder: "jane@example.com",
+    phoneNumber: "Phone Number",
+    phonePlaceholder: "(781) 555-1234",
     subject: "Subject",
     selectInquiry: "Select an inquiry type",
     inquiryEnrollment: "Driver's Education Enrollment",
@@ -180,6 +182,7 @@ export const en = {
     sendAnother: "Send another message",
     validationRequired: "Please fill in all required fields.",
     validationEmail: "Please enter a valid email address.",
+    validationPhone: "Please enter a valid phone number.",
   },
   site: {
     tagline: "Learn to Drive with Confidence",

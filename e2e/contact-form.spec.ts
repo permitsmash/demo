@@ -44,6 +44,7 @@ test.describe("contact form", () => {
 
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email Address").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("7815551234");
     await page.getByLabel("Subject").selectOption("enrollment");
     await page.getByLabel("Your Message").fill("I would like to enroll my teen in driver's ed.");
 
@@ -64,6 +65,7 @@ test.describe("contact form", () => {
 
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email Address").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("7815551234");
     await page.getByLabel("Subject").selectOption("other");
     await page.getByLabel("Your Message").fill("Testing error handling.");
 
@@ -80,6 +82,7 @@ test.describe("contact form", () => {
 
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email Address").fill("not-an-email");
+    await page.getByLabel("Phone Number").fill("7815551234");
     await page.getByLabel("Subject").selectOption("parent");
     await page.getByLabel("Your Message").fill("Please contact me.");
 
