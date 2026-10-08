@@ -37,6 +37,8 @@ export const es: Messages = {
     callNow: "Llame ahora: {phone}",
     rights: "© 2026 {name}. Todos los derechos reservados.",
     by: "Por",
+    social: "Redes sociales",
+    poweredBy: "Desarrollado por",
   },
   common: {
     callNow: "Llame ahora: {phone}",
@@ -58,9 +60,6 @@ export const es: Messages = {
   },
   home: {
     heroAlt: "Clases de manejo de {name} en Waltham, Massachusetts",
-    whyChoose: "¿Por qué elegir {name}?",
-    whyChooseDesc:
-      "Combinamos instructores certificados con horarios flexibles y patrocinio para el examen de manejo para ayudarle a tener éxito en la carretera y en el RMV.",
     certifiedInstructors: "Instructores certificados",
     certifiedInstructorsDesc:
       "Profesionales certificados por el estado que ayudan a los nuevos conductores a ganar habilidades y confianza en la carretera.",
@@ -81,6 +80,39 @@ export const es: Messages = {
     contactOffice: "Contactar la oficina",
     acceleratedUnavailable:
       "Las fechas de cursos acelerados no están disponibles temporalmente. Llame a la oficina o consulte la página de calendario de clases.",
+    seatLeft: "1 lugar disponible",
+    seatsLeft: "{count} lugares disponibles",
+    onlySeatLeft: "Solo queda 1 lugar. La clase empieza el {date}.",
+    onlySeatsLeft: "Solo quedan {count} lugares. La clase empieza el {date}.",
+    licensePathTitle: "Pasos para la licencia de Massachusetts",
+    licensePathIntro: "Vea los pasos según su edad.",
+    pathUnder18: "Menores de 18",
+    pathAdult: "18 años o más",
+    teen1Title: "Apruebe el examen del permiso",
+    teen1Desc: "Debe tener al menos 16 años. El aula puede empezar antes de este examen.",
+    teen2Title: "Complete 30 horas de aula",
+    teen2Desc: "Termine la parte de aula de la educación vial en persona.",
+    teen2Action: "Ver grupos próximos",
+    teen3Title: "Tome las clases en la vía",
+    teen3Desc:
+      "Después del permiso: 12 horas al volante, 6 de observación y una clase de 2 horas para el padre o tutor.",
+    teen3Action: "Ver programas",
+    teen4Title: "Practique con un supervisor",
+    teen4Desc:
+      "Conserve el permiso 6 meses con un historial limpio. Registre 40 horas supervisadas, o 30 con un curso de habilidades de manejo.",
+    teen5Title: "Apruebe el examen de manejo",
+    teen5Desc:
+      "Lleve un patrocinador de 21 años o más con al menos un año de licencia de Estados Unidos.",
+    teen5Action: "Patrocinio para el examen",
+    adult1Title: "Apruebe el examen del permiso",
+    adult1Desc: "La educación vial no es obligatoria a partir de los 18 años.",
+    adult2Title: "Tome clases si lo desea",
+    adult2Desc:
+      "Las clases son opcionales. Ayudan si es nuevo al volante o se está preparando para el examen.",
+    adult2Action: "Ver programas",
+    adult3Title: "Apruebe el examen de manejo",
+    adult3Desc: "Haga el examen de clase D con un patrocinador de 21 años o más.",
+    adult3Action: "Patrocinio para el examen",
     roadTestTitle: "Patrocinios para examen de manejo",
     roadTestDesc: "Disponible en la oficina de JMC en Waltham o en ubicaciones del RMV en:",
     rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
@@ -116,14 +148,19 @@ export const es: Messages = {
           "Puede registrarse a través de nuestro sitio web, por teléfono al (781) 373-1730 o visitando nuestra oficina de Waltham durante el horario de oficina (lun–vie 10am–5pm).",
       },
       {
-        question: "¿Ofrecen patrocinio para el examen de manejo?",
+        question: "¿A qué edad puede empezar un estudiante la educación vial?",
         answer:
-          "Sí. El patrocinio para examen de manejo está disponible en nuestra oficina de Waltham y en ubicaciones del RMV en todo Massachusetts. Contacte la oficina para tarifas y disponibilidad actuales.",
+          "El aula puede empezar a los 15 años y 9 meses. El permiso de aprendizaje es obligatorio antes de cualquier clase en la vía, y hay que tener al menos 16 años para obtenerlo.",
       },
       {
-        question: "¿Cuál es su política de reembolso?",
+        question: "¿Qué debe llevar un estudiante a la primera clase en la vía?",
         answer:
-          "Tiene derecho a un reembolso completo dentro de los 7 días posteriores a la compra si no se utilizaron servicios. La tarifa del examen de manejo no es reembolsable.",
+          "Lleve un permiso de aprendizaje físico válido. No se aceptan copias digitales. Use zapatos cerrados y traiga los lentes correctivos que exija el permiso.",
+      },
+      {
+        question: "¿En qué idiomas puede ayudar la oficina?",
+        answer:
+          "La oficina puede ayudar en inglés, portugués, español y criollo haitiano.",
       },
     ],
   },

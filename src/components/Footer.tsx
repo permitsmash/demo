@@ -130,19 +130,65 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-outline-variant bg-surface-dim">
-        <div className="container-page py-md flex flex-col sm:flex-row justify-between items-center gap-sm text-center sm:text-left">
+        <div className="container-page py-md grid grid-cols-1 items-center gap-sm text-center sm:grid-cols-[1fr_auto_1fr] sm:text-left">
           <p className="font-body-sm text-body-sm text-on-surface-variant">
             {t(footer.rights, { name: site.name })}
           </p>
-          <p className="font-body-sm text-body-sm text-on-surface-variant">
-            by{" "}
+          <nav aria-label={footer.social} className="flex items-center justify-center gap-xs">
+            <a
+              href="https://www.facebook.com/jmcdrivingschoolwaltham/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex h-10 w-10 items-center justify-center text-on-surface-variant transition-colors hover:text-secondary-container"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="currentColor">
+                <path d="M14.5 8.5V6.8c0-.7.5-1 1.2-1H17V3h-2.2C12.1 3 11 4.4 11 6.6v1.9H9v2.8h2V21h3v-9.6h2.3l.4-2.9h-2.7z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/jmcdrivingschool/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex h-10 w-10 items-center justify-center text-on-surface-variant transition-colors hover:text-secondary-container"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
+                <circle cx="12" cy="12" r="3.6" />
+                <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a
+              href="https://share.google/walG9H7oKCVzlVqPS"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Google"
+              className="inline-flex h-10 w-10 items-center justify-center text-on-surface-variant transition-colors hover:text-secondary-container"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+              </svg>
+            </a>
+          </nav>
+          <p className="font-body-sm text-body-sm text-on-surface-variant sm:justify-self-end">
             <a
               href="https://permitsmash.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-secondary-container font-semibold hover:underline"
+              className="inline-flex items-center gap-1.5 text-inherit"
             >
-              permitsmash
+              <Image
+                src="/permitsmash-icon.png"
+                alt=""
+                width={167}
+                height={128}
+                className="h-4 w-auto"
+              />
+              {footer.poweredBy}{" "}
+              <span className="text-secondary-container font-semibold hover:underline">
+                Permitsmash
+              </span>
             </a>
           </p>
         </div>

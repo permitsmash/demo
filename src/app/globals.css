@@ -47,6 +47,10 @@
   --color-on-tertiary-fixed: #161c22;
   --color-on-tertiary-fixed-variant: #41474e;
 
+  --color-availability-open: #e7f6ee;
+  --color-on-availability-open: #0f6b3c;
+  --color-availability-low: #fff6db;
+  --color-on-availability-low: #8a5b00;
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
@@ -452,21 +456,21 @@ body {
 
 /* Hero */
 .hero-section {
-  min-height: calc(100dvh - 4rem);
+  min-height: calc(100dvh - 6.125rem);
 }
 
 .hero-scrim {
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--color-surface-container-lowest) 88%, transparent) 0%,
-    color-mix(in srgb, var(--color-surface-container-lowest) 76%, transparent) 50%,
-    color-mix(in srgb, var(--color-surface-container-lowest) 64%, transparent) 100%
+    color-mix(in srgb, var(--color-primary) 78%, transparent) 0%,
+    color-mix(in srgb, var(--color-primary) 68%, transparent) 50%,
+    color-mix(in srgb, var(--color-primary) 62%, transparent) 100%
   );
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    min-height: calc(100dvh - 6rem);
+    min-height: calc(100dvh - 8.1875rem);
   }
 
   .section {
@@ -704,6 +708,19 @@ body {
   box-shadow: 0 8px 30px rgba(11, 28, 48, 0.1);
 }
 
+@keyframes hero-review-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-review-in {
+  animation: hero-review-in 400ms ease;
+}
+
 @keyframes review-marquee {
   from {
     transform: translateX(0);
@@ -743,6 +760,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-review-in {
+    animation: none;
+  }
+
   .review-marquee-track {
     animation: none;
     flex-wrap: wrap;
@@ -878,13 +899,6 @@ body {
   color: var(--color-on-surface-variant);
 }
 
-.schedule-dialog-chip-muted {
-  background: var(--color-secondary-fixed);
-  border-color: var(--color-secondary-fixed-dim);
-  color: var(--color-on-secondary-fixed-variant);
-  font-weight: 600;
-}
-
 .schedule-dialog-body {
   flex: 1;
   min-height: 0;
@@ -892,11 +906,86 @@ body {
   padding: var(--spacing-md);
 }
 
+.schedule-dialog-day-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule-dialog-day {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container-lowest);
+}
+
+.schedule-dialog-day:nth-child(even) {
+  background: var(--color-surface-dim);
+}
+
+.schedule-dialog-day-number {
+  flex-shrink: 0;
+  width: 1.5rem;
+  font-family: var(--font-body-sm);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.schedule-dialog-day-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.schedule-dialog-day-date,
+.schedule-dialog-day-session,
+.schedule-dialog-day-time {
+  margin: 0;
+  font-family: var(--font-body-sm);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.schedule-dialog-day-date {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.schedule-dialog-day-session {
+  color: var(--color-on-surface);
+}
+
+.schedule-dialog-day-time {
+  font-weight: 600;
+  color: var(--color-on-secondary-fixed-variant);
+}
+
 .schedule-dialog-table-wrap {
+  display: none;
   overflow-x: auto;
   border: 1px solid var(--color-outline-variant);
   border-radius: var(--radius-lg);
   background: var(--color-surface-container-lowest);
+}
+
+@media (min-width: 768px) {
+  .schedule-dialog-day-list {
+    display: none;
+  }
+
+  .schedule-dialog-table-wrap {
+    display: block;
+  }
 }
 
 .schedule-dialog-table {

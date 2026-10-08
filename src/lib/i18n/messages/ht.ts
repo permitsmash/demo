@@ -37,6 +37,8 @@ export const ht: Messages = {
     callNow: "Rele kounye a: {phone}",
     rights: "© 2026 {name}. Tout dwa rezève.",
     by: "Pa",
+    social: "Rezo sosyal",
+    poweredBy: "Devlope pa",
   },
   common: {
     callNow: "Rele kounye a: {phone}",
@@ -58,9 +60,6 @@ export const ht: Messages = {
   },
   home: {
     heroAlt: "Leson kondwi {name} nan Waltham, Massachusetts",
-    whyChoose: "Poukisa chwazi {name}?",
-    whyChooseDesc:
-      "Nou melanje enstriktè sètifye ak orè fleksib ak patwonej pou egzamen wout la pou ede w reyisi sou wout la ak nan RMV a.",
     certifiedInstructors: "Enstriktè sètifye",
     certifiedInstructorsDesc:
       "Pwofesyonèl sètifye pa eta a ki ede nouvo chofè yo devlope konpetans ak konfyans sou wout la.",
@@ -81,6 +80,38 @@ export const ht: Messages = {
     contactOffice: "Kontakte biwo a",
     acceleratedUnavailable:
       "Dat sesyon kou akselere yo pa disponib pou kounye a. Tanpri rele biwo a oswa gade paj orè klas yo.",
+    seatLeft: "1 plas ki rete",
+    seatsLeft: "{count} plas ki rete",
+    onlySeatLeft: "Sèlman 1 plas ki rete. Klas la kòmanse {date}.",
+    onlySeatsLeft: "Sèlman {count} plas ki rete. Klas la kòmanse {date}.",
+    licensePathTitle: "Etap pou lisans Massachusetts",
+    licensePathIntro: "Gade etap yo selon laj ou.",
+    pathUnder18: "Anba 18 an",
+    pathAdult: "18 an oswa plis",
+    teen1Title: "Pase egzamen pèmi a",
+    teen1Desc: "Ou dwe gen omwen 16 an. Klas la ka kòmanse anvan egzamen sa a.",
+    teen2Title: "Fini 30 èdtan nan klas",
+    teen2Desc: "Fini pati klas edikasyon chofè a an pèsòn.",
+    teen2Action: "Gade gwoup k ap vini yo",
+    teen3Title: "Pran leson sou wout la",
+    teen3Desc:
+      "Apre pèmi a: 12 èdtan dèyè volan an, 6 ap obsève, ak yon klas 2 èdtan pou paran an.",
+    teen3Action: "Gade pwogram yo",
+    teen4Title: "Pratike ak yon sipèvizè",
+    teen4Desc:
+      "Kenbe pèmi a pandan 6 mwa ak yon dosye pwòp. Anrejistre 40 èdtan sipèvize, oswa 30 ak yon kou konpetans kondwi.",
+    teen5Title: "Pase egzamen wout la",
+    teen5Desc: "Mennen yon patwon ki gen 21 an oswa plis, ak omwen yon ane lisans Etazini.",
+    teen5Action: "Patwonej egzamen wout la",
+    adult1Title: "Pase egzamen pèmi a",
+    adult1Desc: "Edikasyon chofè pa obligatwa depi 18 an.",
+    adult2Title: "Pran leson si ou vle",
+    adult2Desc:
+      "Leson yo opsyonèl. Yo ede si ou fèk kòmanse kondwi oswa w ap prepare pou egzamen an.",
+    adult2Action: "Gade pwogram yo",
+    adult3Title: "Pase egzamen wout la",
+    adult3Desc: "Pase egzamen klas D la ak yon patwon ki gen 21 an oswa plis.",
+    adult3Action: "Patwonej egzamen wout la",
     roadTestTitle: "Patwonej egzamen wout la",
     roadTestDesc: "Disponib nan biwo JMC nan Waltham oswa nan kote RMV yo nan:",
     rmvAria: "Sant sèvis RMV {name} — ouvri nan Google Maps",
@@ -116,14 +147,19 @@ export const ht: Messages = {
           "Ou ka enskri sou sit entènèt nou an, pa telefòn nan (781) 373-1730, oswa lè w vizite biwo nou nan Waltham pandan lè biwo a (Lun–Vie 10am–5pm).",
       },
       {
-        question: "Èske nou ofri patwonej egzamen wout la?",
+        question: "A ki laj yon elèv ka kòmanse edikasyon chofè?",
         answer:
-          "Wi. Patwone pou egzamen wout la disponib nan biwo nou an nan Waltham ak nan kote RMV yo atravè Massachusetts. Kontakte biwo a pou frè ak disponibilite aktyèl yo.",
+          "Klas la ka kòmanse a 15 an ak 9 mwa. Yon pèmi aprantisaj obligatwa anvan nenpòt leson sou wout la, epi ou dwe gen omwen 16 an pou w jwenn pèmi a.",
       },
       {
-        question: "Ki règleman ranbousman nou an?",
+        question: "Kisa yon elèv dwe pote nan premye leson sou wout la?",
         answer:
-          "Ou gen dwa pou yon ranbousman konplè nan 7 jou apre acha a si pa gen sèvis ki itilize. Frè egzamen wout la pa ranbousab.",
+          "Pote yon pèmi aprantisaj fizik ki valab. Yo pa aksepte kopi dijital. Mete soulye fèmen, epi pote linèt koreksyon pèmi a mande.",
+      },
+      {
+        question: "Ki lang biwo a ka ede?",
+        answer:
+          "Biwo a ka ede an anglè, pòtigè, panyòl, ak kreyòl ayisyen.",
       },
     ],
   },

@@ -161,7 +161,7 @@ export function ClassScheduleDialog({
             {session.startDate} – {session.endDate}
           </span>
           {showStructuredTable ? (
-            <span className="schedule-dialog-chip schedule-dialog-chip-muted">
+            <span className="schedule-dialog-chip">
               {formatClassDaysLabel(structuredEntries.length, tableLabels.classDays)}
             </span>
           ) : null}
@@ -169,7 +169,29 @@ export function ClassScheduleDialog({
 
         <div className="schedule-dialog-body">
           {showStructuredTable ? (
-            <div className="schedule-dialog-table-wrap">
+            <>
+              <ol className="schedule-dialog-day-list">
+                {structuredEntries.map((entry, index) => (
+                  <li key={`${entry.dateLabel}-${entry.timeLabel}-${index}`} className="schedule-dialog-day">
+                    <span className="schedule-dialog-day-number">{index + 1}</span>
+                    <div className="schedule-dialog-day-body">
+                      <p className="schedule-dialog-day-date">
+                        <span className="sr-only">{tableLabels.date}: </span>
+                        {formatScheduleDate(entry)}
+                      </p>
+                      <p className="schedule-dialog-day-session">
+                        <span className="sr-only">{tableLabels.session}: </span>
+                        {entry.title ? entry.title : "—"}
+                      </p>
+                      <p className="schedule-dialog-day-time">
+                        <span className="sr-only">{tableLabels.time}: </span>
+                        {entry.timeLabel ? entry.timeLabel : "—"}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="schedule-dialog-table-wrap">
               <table className="schedule-dialog-table">
                 <thead>
                   <tr>
@@ -198,7 +220,8 @@ export function ClassScheduleDialog({
                   ))}
                 </tbody>
               </table>
-            </div>
+              </div>
+            </>
           ) : (
             <div className="schedule-dialog-fallback">
               <span className="material-symbols-outlined icon-base text-secondary-container" aria-hidden="true">

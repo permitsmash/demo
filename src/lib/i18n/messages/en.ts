@@ -36,6 +36,8 @@ export const en = {
     callNow: "Call Now: {phone}",
     rights: "© 2026 {name}. All Rights Reserved.",
     by: "By",
+    social: "Social media",
+    poweredBy: "Powered by",
   },
   common: {
     callNow: "Call Now: {phone}",
@@ -57,9 +59,6 @@ export const en = {
   },
   home: {
     heroAlt: "{name} driving lessons in Waltham, Massachusetts",
-    whyChoose: "Why Choose {name}?",
-    whyChooseDesc:
-      "We combine certified instructors with flexible scheduling and road test sponsorship to help you succeed on the road and at the RMV.",
     certifiedInstructors: "Certified Instructors",
     certifiedInstructorsDesc:
       "State-certified professionals helping new drivers gain skills and confidence on the road.",
@@ -80,6 +79,36 @@ export const en = {
     contactOffice: "Contact the office",
     acceleratedUnavailable:
       "Accelerated course dates are temporarily unavailable. Please call the office or check the class schedule page.",
+    seatLeft: "1 seat left",
+    seatsLeft: "{count} seats left",
+    onlySeatLeft: "Only 1 seat left. Class starts {date}.",
+    onlySeatsLeft: "Only {count} seats left. Class starts {date}.",
+    licensePathTitle: "Steps to a Massachusetts license",
+    licensePathIntro: "See the steps for your age.",
+    pathUnder18: "Under 18",
+    pathAdult: "18 and older",
+    teen1Title: "Pass the permit exam",
+    teen1Desc: "You must be at least 16. Classroom can start before this exam.",
+    teen2Title: "Finish 30 classroom hours",
+    teen2Desc: "Complete the classroom part of driver's ed in person.",
+    teen2Action: "See upcoming batches",
+    teen3Title: "Take on-road lessons",
+    teen3Desc: "After your permit: 12 hours driving, 6 observing, and a 2-hour parent class.",
+    teen3Action: "View programs",
+    teen4Title: "Practice with a supervisor",
+    teen4Desc:
+      "Hold the permit for 6 months with a clean record. Log 40 supervised hours, or 30 with a driver-skills course.",
+    teen5Title: "Pass the road test",
+    teen5Desc: "Bring a sponsor who is 21 or older with at least one year on a U.S. license.",
+    teen5Action: "Road test sponsorship",
+    adult1Title: "Pass the permit exam",
+    adult1Desc: "Driver's education is not required at 18 or older.",
+    adult2Title: "Take lessons if you want them",
+    adult2Desc: "Lessons are optional. They help if you are new to driving or preparing for the test.",
+    adult2Action: "View programs",
+    adult3Title: "Pass the road test",
+    adult3Desc: "Take the Class D road test with a sponsor who is 21 or older.",
+    adult3Action: "Road test sponsorship",
     roadTestTitle: "Road Test Sponsorships",
     roadTestDesc: "Available at the JMC office in Waltham or RMV locations in:",
     rmvAria: "{name} RMV Service Center — open in Google Maps",
@@ -113,14 +142,19 @@ export const en = {
           "You can register through our website, by phone at (781) 373-1730, or by visiting our Waltham office during office hours (Mon–Fri 10am–5pm).",
       },
       {
-        question: "Do you offer road test sponsorship?",
+        question: "What age can a student start driver's ed?",
         answer:
-          "Yes. Road test sponsorship is available at our Waltham office and at RMV locations across Massachusetts. Contact the office for current fees and availability.",
+          "Classroom can start at 15 years and 9 months. A learner's permit is required before any on-road lesson, and you must be at least 16 to get that permit.",
       },
       {
-        question: "What is your refund policy?",
+        question: "What should a student bring to the first on-road lesson?",
         answer:
-          "You are entitled to a full refund within 7 days of purchase if no services were used. The road test fee is non-refundable.",
+          "Bring a valid physical learner's permit. Digital copies are not accepted. Wear closed-toe shoes, and bring any corrective lenses the permit requires.",
+      },
+      {
+        question: "Which languages does the office support?",
+        answer:
+          "The office can help in English, Portuguese, Spanish, and Haitian Creole.",
       },
     ],
   },

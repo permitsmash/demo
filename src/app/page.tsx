@@ -4,7 +4,10 @@ import { GoogleMark } from "@/components/GoogleMark";
 import { AttentionAvatar3D } from "@/components/AttentionAvatar3DClient";
 import { HomepageJsonLd } from "@/components/HomepageJsonLd";
 import { ReviewScroller } from "@/components/ReviewScroller";
-import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
+import { HomeBatchCards } from "@/components/HomeBatchCards";
+import { LicensePath } from "@/components/LicensePath";
+import { HeroReviewCycle } from "@/components/HeroReviewCycle";
+import { buildHomeBatchCards, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { site } from "@/lib/site";
@@ -13,10 +16,11 @@ export default async function Page() {
   const messages = getMessages(await getLocale());
   const catalog = await getSchoolCatalog();
   const liveSite = buildLiveSite(catalog);
-  const { home, site: siteCopy, common } = messages;
+  const homeBatches = buildHomeBatchCards(catalog);
+  const { home, site: siteCopy, common, classes } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
-  const { rating, totalReviews, mapsUrl } = site.googleReviews;
+  const { rating, totalReviews, mapsUrl, reviews } = site.googleReviews;
 
   return (
     <>
@@ -34,8 +38,8 @@ export default async function Page() {
         <div className="hero-scrim absolute inset-0" aria-hidden="true" />
         <div className="relative container-page py-lg md:py-xl z-10 w-full">
           <div className="max-w-prose-lg mx-auto flex flex-col items-center gap-md text-center">
-            <h1 className="font-h1 text-h1 text-primary">{siteCopy.tagline}</h1>
-            <p className="font-body-lg text-body-lg text-on-surface max-w-prose">
+            <h1 className="font-h1 text-h1 text-on-primary">{siteCopy.tagline}</h1>
+            <p className="font-body-lg text-body-lg text-on-primary/80 max-w-prose">
               {siteCopy.description}
             </p>
             <a
@@ -58,74 +62,23 @@ export default async function Page() {
               </span>
               <GoogleMark className="text-on-surface-variant" />
             </a>
+            <HeroReviewCycle reviews={reviews} />
             <div className="flex flex-col sm:flex-row gap-sm mt-sm justify-center">
               <a href={`tel:${liveSite.phoneTel}`} className="btn-primary pressable">
                 {t(common.callNow, { phone: liveSite.phone })}
                 <span className="material-symbols-outlined">call</span>
               </a>
-              <Link href="/courses" className="btn-outline pressable">
+              <Link href="/courses" className="btn-outline-inverse pressable">
                 {common.viewPrograms}
               </Link>
             </div>
-            <div className="mt-md flex flex-wrap gap-sm justify-center">
-              <span className="pill pill-solid">
-                <span className="material-symbols-outlined text-secondary-container icon-base">verified</span>
-                {home.certifiedInstructors}
-              </span>
-              <span className="pill pill-solid">
-                <span className="material-symbols-outlined text-secondary-container icon-base">calendar_month</span>
-                {home.flexibleScheduling}
-              </span>
-              <span className="pill pill-solid">
-                <span className="material-symbols-outlined text-secondary-container icon-base">assignment_turned_in</span>
-                {home.roadTestSponsorship}
-              </span>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-surface-dim">
-        <div className="container-page text-center">
-          <h2 className="font-h2 text-h2 text-primary mb-sm">
-            {t(home.whyChoose, { name: liveSite.name })}
-          </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto mb-lg">
-            {home.whyChooseDesc}
-          </p>
-          <div className="grid md:grid-cols-3 gap-md">
-            <div className="card-elevated">
-              <div className="icon-box mb-md mx-auto">
-                <span className="material-symbols-outlined icon-lg icon-filled">verified</span>
-              </div>
-              <h3 className="font-h3 text-h3 text-primary mb-xs">{home.certifiedInstructors}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                {home.certifiedInstructorsDesc}
-              </p>
-            </div>
-            <div className="card-elevated">
-              <div className="icon-box mb-md mx-auto">
-                <span className="material-symbols-outlined icon-lg icon-filled">calendar_month</span>
-              </div>
-              <h3 className="font-h3 text-h3 text-primary mb-xs">{home.flexibleScheduling}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                {home.flexibleSchedulingDesc}
-              </p>
-            </div>
-            <div className="card-elevated">
-              <div className="icon-box mb-md mx-auto">
-                <span className="material-symbols-outlined icon-lg icon-filled">assignment_turned_in</span>
-              </div>
-              <h3 className="font-h3 text-h3 text-primary mb-xs">{home.roadTestSponsorship}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                {home.roadTestSponsorshipDesc}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LicensePath />
 
-      <section className="section bg-surface">
+      <section id="upcoming-classes" className="section scroll-mt-40 bg-surface-dim">
         <div className="container-page">
           <div className="text-center mb-lg">
             <h2 className="font-h2 text-h2 text-primary mb-sm">
@@ -143,29 +96,35 @@ export default async function Page() {
               {home.acceleratedDescSuffix}
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-md mb-lg">
-            {liveSite.acceleratedCourses.length > 0 ? (
-              liveSite.acceleratedCourses.map((course) => (
-                <div
-                  key={`${course.label}-${course.dates}`}
-                  className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center"
-                >
-                  <h3 className="font-h3 text-h3 text-primary mb-xs">{course.label}</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">{course.dates}</p>
-                </div>
-              ))
-            ) : (
-              <div className="md:col-span-3 rounded-lg border border-outline-variant bg-surface-container-lowest p-md text-center">
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  {home.acceleratedUnavailable}
-                </p>
-              </div>
-            )}
-          </div>
+          {homeBatches.length > 0 ? (
+            <HomeBatchCards
+              batches={homeBatches}
+              closeLabel={classes.close}
+              tableLabels={{
+                eyebrow: classes.scheduleTitle,
+                ...classes.scheduleTable,
+              }}
+              seatLabels={{
+                seatLeft: home.seatLeft,
+                seatsLeft: home.seatsLeft,
+                sessionFull: classes.sessionFull,
+              }}
+            />
+          ) : (
+            <div className="mb-lg rounded-lg border border-outline-variant bg-surface-container-lowest p-md text-center">
+              <p className="font-body-md text-body-md text-on-surface-variant">
+                {home.acceleratedUnavailable}
+              </p>
+            </div>
+          )}
+          <p className="text-center font-body-md text-body-md text-on-surface-variant max-w-prose mx-auto">
+            <span className="font-semibold text-on-surface">{common.refundPolicy}.</span>{" "}
+            {home.refundDesc}
+          </p>
         </div>
       </section>
 
-      <section className="section bg-surface-dim">
+      <section className="section bg-surface">
         <div className="container-page">
           <div className="text-center mb-lg">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.roadTestTitle}</h2>
@@ -202,7 +161,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section id="reviews" className="section bg-surface overflow-hidden">
+      <section id="reviews" className="section bg-surface-dim overflow-hidden">
         <div className="container-page mb-lg">
           <div className="text-center">
             <h2 className="font-h2 text-h2 text-primary mb-sm">{home.reviewsTitle}</h2>
@@ -239,7 +198,7 @@ export default async function Page() {
               </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-md max-w-prose-xl md:max-w-none mx-auto text-left">
+          <div className="grid md:grid-cols-2 gap-md max-w-prose-xl md:max-w-none mx-auto text-left">
             <div className="bg-on-primary/10 rounded-lg p-md border border-on-primary/20">
               <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.officeHours}</h3>
               <p className="font-body-md text-body-md text-on-primary-container">{liveSite.officeHours}</p>
@@ -248,12 +207,6 @@ export default async function Page() {
               <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.cancellations}</h3>
               <p className="font-body-md text-body-md text-on-primary-container">
                 {t(home.cancellationsDesc, { hours: siteCopy.cancellationHours })}
-              </p>
-            </div>
-            <div className="bg-on-primary/10 rounded-lg p-md border border-on-primary/20">
-              <h3 className="font-h3 text-h3 text-on-primary mb-xs">{common.refundPolicy}</h3>
-              <p className="font-body-md text-body-md text-on-primary-container">
-                {home.refundDesc}
               </p>
             </div>
           </div>
