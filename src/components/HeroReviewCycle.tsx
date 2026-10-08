@@ -40,7 +40,8 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
 
   return (
     <blockquote
-      className="max-w-prose"
+      tabIndex={0}
+      className="max-w-prose rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-primary"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -48,11 +49,11 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
     >
       <p
         key={review.quote}
-        className="hero-review-in min-h-[3lh] font-body-md text-body-md text-on-surface line-clamp-3"
+        className="hero-review-in min-h-[3lh] font-body-md text-body-md text-on-primary/80"
       >
         &ldquo;{review.quote}&rdquo;
       </p>
-      <footer className="mt-xs font-body-sm text-body-sm text-on-surface-variant">
+      <footer className="mt-xs font-body-sm text-body-sm text-on-primary/70">
         {review.name}
       </footer>
     </blockquote>

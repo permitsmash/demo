@@ -456,21 +456,21 @@ body {
 
 /* Hero */
 .hero-section {
-  min-height: calc(100dvh - 4rem);
+  min-height: calc(100dvh - 6.125rem);
 }
 
 .hero-scrim {
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--color-surface-container-lowest) 88%, transparent) 0%,
-    color-mix(in srgb, var(--color-surface-container-lowest) 76%, transparent) 50%,
-    color-mix(in srgb, var(--color-surface-container-lowest) 64%, transparent) 100%
+    color-mix(in srgb, var(--color-primary) 78%, transparent) 0%,
+    color-mix(in srgb, var(--color-primary) 68%, transparent) 50%,
+    color-mix(in srgb, var(--color-primary) 62%, transparent) 100%
   );
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    min-height: calc(100dvh - 6rem);
+    min-height: calc(100dvh - 8.1875rem);
   }
 
   .section {

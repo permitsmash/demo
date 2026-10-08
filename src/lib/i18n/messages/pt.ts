@@ -37,6 +37,8 @@ export const pt: Messages = {
     callNow: "Ligue agora: {phone}",
     rights: "© 2026 {name}. Todos os direitos reservados.",
     by: "Por",
+    social: "Redes sociais",
+    poweredBy: "Desenvolvido por",
   },
   common: {
     callNow: "Ligue agora: {phone}",
@@ -80,6 +82,8 @@ export const pt: Messages = {
       "As datas dos cursos acelerados estão temporariamente indisponíveis. Ligue para o escritório ou consulte a página de calendário de aulas.",
     seatLeft: "1 vaga disponível",
     seatsLeft: "{count} vagas disponíveis",
+    onlySeatLeft: "Só resta 1 vaga. A aula começa em {date}.",
+    onlySeatsLeft: "Só restam {count} vagas. A aula começa em {date}.",
     licensePathTitle: "Etapas para a licença de Massachusetts",
     licensePathIntro: "Veja as etapas para a sua idade.",
     pathUnder18: "Menores de 18",

@@ -36,6 +36,8 @@ export const en = {
     callNow: "Call Now: {phone}",
     rights: "© 2026 {name}. All Rights Reserved.",
     by: "By",
+    social: "Social media",
+    poweredBy: "Powered by",
   },
   common: {
     callNow: "Call Now: {phone}",
@@ -79,6 +81,8 @@ export const en = {
       "Accelerated course dates are temporarily unavailable. Please call the office or check the class schedule page.",
     seatLeft: "1 seat left",
     seatsLeft: "{count} seats left",
+    onlySeatLeft: "Only 1 seat left. Class starts {date}.",
+    onlySeatsLeft: "Only {count} seats left. Class starts {date}.",
     licensePathTitle: "Steps to a Massachusetts license",
     licensePathIntro: "See the steps for your age.",
     pathUnder18: "Under 18",

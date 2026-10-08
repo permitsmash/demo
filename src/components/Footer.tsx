@@ -134,7 +134,7 @@ export default function Footer() {
           <p className="font-body-sm text-body-sm text-on-surface-variant">
             {t(footer.rights, { name: site.name })}
           </p>
-          <nav aria-label="Social media" className="flex items-center justify-center gap-xs">
+          <nav aria-label={footer.social} className="flex items-center justify-center gap-xs">
             <a
               href="https://www.facebook.com/jmcdrivingschoolwaltham/"
               target="_blank"
@@ -185,7 +185,7 @@ export default function Footer() {
                 height={128}
                 className="h-4 w-auto"
               />
-              Powered by{" "}
+              {footer.poweredBy}{" "}
               <span className="text-secondary-container font-semibold hover:underline">
                 Permitsmash
               </span>

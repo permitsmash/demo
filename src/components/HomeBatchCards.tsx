@@ -51,9 +51,10 @@ export function HomeBatchCards({
           return (
             <button
               key={batch.session.id}
+              id={`batch-${batch.session.id}`}
               type="button"
               onClick={() => setActiveBatch(batch)}
-              className="bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center transition-colors hover:border-secondary-container"
+              className="scroll-mt-40 bg-surface-container-lowest p-md rounded-lg border border-outline-variant text-center transition-colors hover:border-secondary-container"
             >
               <h3 className="font-h3 text-h3 text-primary mb-xs">{batch.label}</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">{batch.dates}</p>

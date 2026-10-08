@@ -38,8 +38,8 @@ export default async function Page() {
         <div className="hero-scrim absolute inset-0" aria-hidden="true" />
         <div className="relative container-page py-lg md:py-xl z-10 w-full">
           <div className="max-w-prose-lg mx-auto flex flex-col items-center gap-md text-center">
-            <h1 className="font-h1 text-h1 text-primary">{siteCopy.tagline}</h1>
-            <p className="font-body-lg text-body-lg text-on-surface max-w-prose">
+            <h1 className="font-h1 text-h1 text-on-primary">{siteCopy.tagline}</h1>
+            <p className="font-body-lg text-body-lg text-on-primary/80 max-w-prose">
               {siteCopy.description}
             </p>
             <a
@@ -68,7 +68,7 @@ export default async function Page() {
                 {t(common.callNow, { phone: liveSite.phone })}
                 <span className="material-symbols-outlined">call</span>
               </a>
-              <Link href="/courses" className="btn-outline pressable">
+              <Link href="/courses" className="btn-outline-inverse pressable">
                 {common.viewPrograms}
               </Link>
             </div>

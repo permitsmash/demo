@@ -37,6 +37,8 @@ export const ht: Messages = {
     callNow: "Rele kounye a: {phone}",
     rights: "© 2026 {name}. Tout dwa rezève.",
     by: "Pa",
+    social: "Rezo sosyal",
+    poweredBy: "Devlope pa",
   },
   common: {
     callNow: "Rele kounye a: {phone}",
@@ -80,6 +82,8 @@ export const ht: Messages = {
       "Dat sesyon kou akselere yo pa disponib pou kounye a. Tanpri rele biwo a oswa gade paj orè klas yo.",
     seatLeft: "1 plas ki rete",
     seatsLeft: "{count} plas ki rete",
+    onlySeatLeft: "Sèlman 1 plas ki rete. Klas la kòmanse {date}.",
+    onlySeatsLeft: "Sèlman {count} plas ki rete. Klas la kòmanse {date}.",
     licensePathTitle: "Etap pou lisans Massachusetts",
     licensePathIntro: "Gade etap yo selon laj ou.",
     pathUnder18: "Anba 18 an",

@@ -9,6 +9,73 @@ import { useSite } from "@/components/SiteProvider";
 import { useLocale } from '@/components/LocaleProvider';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
+const FEW_SEATS_LEFT = 10;
+
+const CREOLE_MONTHS = [
+  "janvye",
+  "fevriye",
+  "mas",
+  "avril",
+  "me",
+  "jen",
+  "jiyè",
+  "out",
+  "septanm",
+  "oktòb",
+  "novanm",
+  "desanm",
+];
+
+function formatClassStart(isoDate: string, locale: string) {
+  const date = new Date(`${isoDate}T12:00:00`);
+  if (Number.isNaN(date.getTime())) return isoDate;
+  const sameYear = date.getFullYear() === new Date().getFullYear();
+  const year = sameYear ? "" : ` ${date.getFullYear()}`;
+  if (locale === "ht") {
+    return `${date.getDate()} ${CREOLE_MONTHS[date.getMonth()]}${year}`;
+  }
+  return date.toLocaleDateString(locale === "en" ? "en-US" : locale, {
+    month: "long",
+    day: "numeric",
+    ...(sameYear ? {} : { year: "numeric" }),
+  });
+}
+
+function BatchSeatBanner() {
+  const site = useSite();
+  const { locale, messages, t } = useLocale();
+  const { home } = messages;
+  const next = site.batchSeats.find(
+    (batch) => batch.remainingSpots != null && batch.remainingSpots > 0,
+  );
+
+  if (
+    !next ||
+    next.remainingSpots == null ||
+    next.remainingSpots > FEW_SEATS_LEFT ||
+    !next.firstClassDate
+  ) {
+    return null;
+  }
+
+  const date = formatClassStart(next.firstClassDate, locale);
+  const status =
+    next.remainingSpots === 1
+      ? t(home.onlySeatLeft, { date })
+      : t(home.onlySeatsLeft, { count: next.remainingSpots, date });
+
+  return (
+    <div className="bg-primary text-on-primary">
+      <Link
+        href="/courses"
+        className="container-page flex items-center justify-center py-1.5 text-center font-body-sm text-body-sm font-semibold hover:underline"
+      >
+        {status}
+      </Link>
+    </div>
+  );
+}
+
 export default function TopNavBar() {
   const site = useSite();
   const pathname = usePathname();
@@ -39,6 +106,7 @@ export default function TopNavBar() {
           <LanguageSwitcher variant="banner" />
         </div>
       </div>
+      <BatchSeatBanner />
       <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center container-page w-full py-3 gap-md">
         <Link href="/" className="flex shrink-0 items-center gap-xs justify-self-start">
           <Image
