@@ -133,6 +133,15 @@ function firstClassDate(batch: PublicCatalogBatch) {
   return classDates[0] ?? batch.startDate ?? null;
 }
 
+function todayIsoDate() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
 function formatBatchClassDatesList(batch: PublicCatalogBatch) {
   const classDates = [...new Set(
     (batch.schedule?.classes ?? [])
@@ -337,7 +346,10 @@ export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData
             ? Math.max(0, batch.capacity - (batch.enrolledCount ?? 0))
             : null),
         firstClassDate: firstClassDate(batch),
-      })),
+      }))
+      .filter(
+        (batch) => batch.firstClassDate != null && batch.firstClassDate >= todayIsoDate(),
+      ),
   };
 }
 
