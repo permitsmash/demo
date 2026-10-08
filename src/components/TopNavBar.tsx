@@ -39,8 +39,8 @@ export default function TopNavBar() {
           <LanguageSwitcher variant="banner" />
         </div>
       </div>
-      <div className="flex items-center container-page w-full py-3 gap-md">
-        <Link href="/" className="flex shrink-0 items-center gap-xs">
+      <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center container-page w-full py-3 gap-md">
+        <Link href="/" className="flex shrink-0 items-center gap-xs justify-self-start">
           <Image
             src={logo}
             alt={site.name}
@@ -51,7 +51,7 @@ export default function TopNavBar() {
           />
           <span className="sr-only">{site.name}</span>
         </Link>
-        <div className="hidden md:flex items-center gap-md">
+        <div className="hidden md:flex items-center justify-center gap-md">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -69,7 +69,7 @@ export default function TopNavBar() {
             );
           })}
         </div>
-        <div className="ml-auto hidden md:flex gap-sm items-center">
+        <div className="hidden md:flex gap-sm items-center justify-self-end">
           <Link
             href="/courses"
             className="btn-primary btn-primary-sm"
@@ -77,7 +77,7 @@ export default function TopNavBar() {
             {nav.enroll}
           </Link>
         </div>
-        <div className="ml-auto flex md:hidden gap-sm items-center">
+        <div className="flex md:hidden gap-sm items-center justify-self-end">
           <LanguageSwitcher />
           <button
             type="button"

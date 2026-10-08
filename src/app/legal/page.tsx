@@ -1,3 +1,4 @@
+import { FaqCategoryNav } from "@/components/FaqCategoryNav";
 import PageHeader from "@/components/PageHeader";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
@@ -11,32 +12,21 @@ export default async function Page() {
       <PageHeader title={l.title} subtitle={l.subtitle} />
 
       <div className="container-page section">
-        <div className="flex flex-col md:flex-row gap-xl">
-          <aside className="md:w-1/4 flex-shrink-0">
-            <div className="card elevation-2 sticky top-[100px]">
-              <h3 className="form-label mb-md">{l.contents}</h3>
-              <nav className="flex flex-col gap-sm">
-                <a className="font-button text-button text-secondary-container hover:text-secondary transition-colors duration-200" href="#legal-notice">
-                  {l.legalNotice}
-                </a>
-                <a className="font-button text-button text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#terms-of-use">
-                  {l.termsOfUse}
-                </a>
-                <a className="font-button text-button text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#privacy-policy">
-                  {l.privacyPolicy}
-                </a>
-                <a className="font-button text-button text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#cookie-policy">
-                  {l.cookiePolicy}
-                </a>
-                <a className="font-button text-button text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#disclaimers">
-                  {l.disclaimers}
-                </a>
-              </nav>
-            </div>
+        <div className="grid md:grid-cols-12 gap-xl items-start">
+          <aside className="hidden md:block md:col-span-3 sticky top-32">
+            <FaqCategoryNav
+              items={[
+                { id: "legal-notice", label: l.legalNotice },
+                { id: "terms-of-use", label: l.termsOfUse },
+                { id: "privacy-policy", label: l.privacyPolicy },
+                { id: "cookie-policy", label: l.cookiePolicy },
+                { id: "disclaimers", label: l.disclaimers },
+              ]}
+            />
           </aside>
 
-          <div className="md:w-3/4 space-y-xl">
-            <section className="card elevation-2 scroll-mt-[100px]" id="legal-notice">
+          <div className="md:col-span-9 space-y-xl">
+            <section className="card elevation-2 scroll-mt-32" id="legal-notice">
               <div className="flex items-center gap-sm mb-md">
                 <span className="material-symbols-outlined text-primary icon-md">gavel</span>
                 <h2 className="font-h2 text-h2 text-primary">{l.legalNotice}</h2>
@@ -56,7 +46,7 @@ export default async function Page() {
               </div>
             </section>
 
-            <section className="card elevation-2 scroll-mt-[100px]" id="terms-of-use">
+            <section className="card elevation-2 scroll-mt-32" id="terms-of-use">
               <div className="flex items-center gap-sm mb-md">
                 <span className="material-symbols-outlined text-primary icon-md">description</span>
                 <h2 className="font-h2 text-h2 text-primary">{l.termsOfUse}</h2>
@@ -72,7 +62,7 @@ export default async function Page() {
               </div>
             </section>
 
-            <section className="card elevation-2 scroll-mt-[100px]" id="privacy-policy">
+            <section className="card elevation-2 scroll-mt-32" id="privacy-policy">
               <div className="flex items-center gap-sm mb-md">
                 <span className="material-symbols-outlined text-primary icon-md">shield_lock</span>
                 <h2 className="font-h2 text-h2 text-primary">{l.privacyPolicy}</h2>
@@ -90,7 +80,7 @@ export default async function Page() {
               </div>
             </section>
 
-            <section className="card elevation-2 scroll-mt-[100px]" id="cookie-policy">
+            <section className="card elevation-2 scroll-mt-32" id="cookie-policy">
               <div className="flex items-center gap-sm mb-md">
                 <span className="material-symbols-outlined text-primary icon-md">cookie</span>
                 <h2 className="font-h2 text-h2 text-primary">{l.cookiePolicy}</h2>
@@ -101,7 +91,7 @@ export default async function Page() {
               </div>
             </section>
 
-            <section className="card elevation-2 scroll-mt-[100px]" id="disclaimers">
+            <section className="card elevation-2 scroll-mt-32" id="disclaimers">
               <div className="flex items-center gap-sm mb-md">
                 <span className="material-symbols-outlined text-primary icon-md">warning</span>
                 <h2 className="font-h2 text-h2 text-primary">{l.disclaimers}</h2>

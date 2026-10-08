@@ -253,6 +253,33 @@ export function buildAcceleratedCoursesFromCatalog(catalog: PublicSchoolCatalog)
   }));
 }
 
+export type HomeBatchCard = {
+  label: string;
+  dates: string;
+  session: ClassSession;
+};
+
+export function buildHomeBatchCards(catalog: PublicSchoolCatalog | null): HomeBatchCard[] {
+  if (!catalog || catalog.batches.length === 0) {
+    return [];
+  }
+
+  const sessions = buildClassSessionsFromCatalog(catalog);
+
+  return catalog.batches.flatMap((batch, index) => {
+    const session = sessions[index];
+    if (!session) return [];
+
+    return [
+      {
+        label: batch.name,
+        dates: formatBatchClassDatesList(batch),
+        session,
+      },
+    ];
+  });
+}
+
 export function buildLiveSite(catalog: PublicSchoolCatalog | null): LiveSiteData {
   if (!catalog) {
     return {

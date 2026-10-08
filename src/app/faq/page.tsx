@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaqCategoryNav } from "@/components/FaqCategoryNav";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 
@@ -73,21 +74,9 @@ export default async function Page() {
       <section className="container-page section">
         <div className="grid md:grid-cols-12 gap-xl items-start">
           <aside className="hidden md:block md:col-span-3 sticky top-32">
-            <nav className="flex flex-col gap-sm border-l border-outline-variant pl-sm">
-              {categoryNav.map((cat, index) => (
-                <a
-                  key={cat.id}
-                  className={`py-2 pl-3 transition-colors ${
-                    index === 0
-                      ? "font-button text-button text-secondary-container border-l-2 border-secondary-container -ml-[13px]"
-                      : "text-body-md text-on-surface-variant hover:text-primary"
-                  }`}
-                  href={`#${cat.id}`}
-                >
-                  {f[cat.labelKey]}
-                </a>
-              ))}
-            </nav>
+            <FaqCategoryNav
+              items={categoryNav.map((cat) => ({ id: cat.id, label: f[cat.labelKey] }))}
+            />
           </aside>
 
           <div className="md:col-span-9 flex flex-col gap-xl">

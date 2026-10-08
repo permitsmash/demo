@@ -72,10 +72,34 @@ export const site = {
   ],
   googleReviews: {
     rating: 4.9,
-    totalReviews: 1315,
+    totalReviews: 1338,
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=JMC+Driving+School+973+Main+Street+Waltham+MA+02451",
     reviews: [
+      {
+        quote:
+          "This is by far the best driving school! The entire staff is professional, friendly, and a pleasure to work with. They treat every student with respect, kindness, and genuine care.",
+        name: "Shayma",
+        rating: 5,
+      },
+      {
+        quote:
+          "I recommend anyone that needs sponsor taking their road test to go with JMC DRIVING SCHOOL & WATERTOWN RMV. My instructor Val was very kind, supportive, great energy, made sure I knew everything, even took her time and drew out images for me just to get everything right. Thank you so much, VAL!!!",
+        name: "Moise Prospere",
+        rating: 5,
+      },
+      {
+        quote:
+          "I highly recommend JMC Driving School! I'm incredibly grateful to all of my instructors for helping me overcome my driving anxiety, especially Isaac and Emilie. Their patience, encouragement, and excellent teaching made all the difference.",
+        name: "Shruti Shankar",
+        rating: 5,
+      },
+      {
+        quote:
+          "Took 2 lessons and a road test with them all within 4 days. Excellent instructors who show you exactly how to take the test and everything to look out for. Passed my road test in the first try with 0 mistakes.",
+        name: "Sia Kothari",
+        rating: 5,
+      },
       {
         quote:
           "I passed the road test the first time after 2 classes at JMC. The school helped me book the road test and encouraged me a lot. The coach was nice and patient. Thanks!",
@@ -84,7 +108,7 @@ export const site = {
       },
       {
         quote:
-          "Best driving school ever. They are very patient and very professional. If you are thinking about learning how to drive, don't hesitate — choose JMC Driving School.",
+          "Best driving school ever. They are very patient and very professional. If you are thinking about learning how to drive, don't hesitate, choose JMC Driving School.",
         name: "Cinsia Lubin",
         rating: 5,
       },
@@ -98,12 +122,6 @@ export const site = {
         quote:
           "One of the top driving schools in the area! The training is incredibly thorough, and Jane, the instructor, is outstanding. The staff is exceptionally friendly.",
         name: "Sachin Jadhav",
-        rating: 5,
-      },
-      {
-        quote:
-          "I took my road test today and passed! Although I was very nervous, I knew JMC had prepared me. I'm so thankful for my instructor Rose — she is an amazing teacher.",
-        name: "Google Reviewer",
         rating: 5,
       },
       {
@@ -132,20 +150,8 @@ export const site = {
       },
       {
         quote:
-          "Excellent school. Val is an excellent teacher! Thank you for your patience. Would highly recommend.",
-        name: "Google Reviewer",
-        rating: 5,
-      },
-      {
-        quote:
           "It was a great driving school. The teachers were good.",
         name: "Mica Gardy Ceiste",
-        rating: 5,
-      },
-      {
-        quote:
-          "I would give JMC Driving School 7 stars if I could. Their helpful admin team and highly professional instructors give the best guidance ensuring student success.",
-        name: "Google Reviewer",
         rating: 5,
       },
     ],
@@ -162,15 +168,20 @@ export const site = {
       answer:
         "You can register through our website, by phone at (781) 373-1730, or by visiting our Waltham office during office hours (Mon–Fri 10am–5pm).",
     },
-    {
-      question: "Do you offer road test sponsorship?",
-      answer:
-        "Yes. Road test sponsorship is available at our JMC office in Waltham and at RMV locations across Massachusetts. Contact the office for current fees and availability.",
-    },
-    {
-      question: "What is your refund policy?",
-      answer:
-        "You are entitled to a full refund within 7 days of purchase if no services were used. The road test fee is non-refundable.",
-    },
+      {
+        question: "What age can a student start driver's ed?",
+        answer:
+          "Classroom can start at 15 years and 9 months. A learner's permit is required before any on-road lesson, and you must be at least 16 to get that permit.",
+      },
+      {
+        question: "What should a student bring to the first on-road lesson?",
+        answer:
+          "Bring a valid physical learner's permit. Digital copies are not accepted. Wear closed-toe shoes, and bring any corrective lenses the permit requires.",
+      },
+      {
+        question: "Which languages does the office support?",
+        answer:
+          "The office can help in English, Portuguese, Spanish, and Haitian Creole.",
+      },
   ],
 } as const;

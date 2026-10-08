@@ -48,7 +48,7 @@ function AvatarFallback() {
 function AvatarCanvas() {
   return (
     <Canvas
-      shadows
+      shadows="percentage"
       dpr={[1, 2]}
       camera={{ position: [0, 0.35, 3.6], fov: 40 }}
       gl={{ antialias: true, alpha: true }}

@@ -58,9 +58,6 @@ export const pt: Messages = {
   },
   home: {
     heroAlt: "Aulas de direção da {name} em Waltham, Massachusetts",
-    whyChoose: "Por que escolher a {name}?",
-    whyChooseDesc:
-      "Combinamos instrutores certificados com horários flexíveis e patrocínio para o exame prático para ajudá-lo a ter sucesso na estrada e no RMV.",
     certifiedInstructors: "Instrutores certificados",
     certifiedInstructorsDesc:
       "Profissionais certificados pelo estado que ajudam novos motoristas a ganhar habilidades e confiança na estrada.",
@@ -81,6 +78,37 @@ export const pt: Messages = {
     contactOffice: "Contatar o escritório",
     acceleratedUnavailable:
       "As datas dos cursos acelerados estão temporariamente indisponíveis. Ligue para o escritório ou consulte a página de calendário de aulas.",
+    seatLeft: "1 vaga disponível",
+    seatsLeft: "{count} vagas disponíveis",
+    licensePathTitle: "Etapas para a licença de Massachusetts",
+    licensePathIntro: "Veja as etapas para a sua idade.",
+    pathUnder18: "Menores de 18",
+    pathAdult: "18 anos ou mais",
+    teen1Title: "Passe no exame da permissão",
+    teen1Desc: "É preciso ter pelo menos 16 anos. A sala de aula pode começar antes deste exame.",
+    teen2Title: "Conclua 30 horas de sala de aula",
+    teen2Desc: "Termine a parte de sala de aula da educação de motorista presencialmente.",
+    teen2Action: "Ver turmas próximas",
+    teen3Title: "Faça as aulas na via",
+    teen3Desc:
+      "Depois da permissão: 12 horas ao volante, 6 de observação e uma aula de 2 horas para o pai ou responsável.",
+    teen3Action: "Ver programas",
+    teen4Title: "Pratique com um supervisor",
+    teen4Desc:
+      "Mantenha a permissão por 6 meses com histórico limpo. Registre 40 horas supervisionadas, ou 30 com um curso de habilidades de direção.",
+    teen5Title: "Passe no exame prático",
+    teen5Desc:
+      "Leve um patrocinador de 21 anos ou mais com pelo menos um ano de carteira dos Estados Unidos.",
+    teen5Action: "Patrocínio para o exame",
+    adult1Title: "Passe no exame da permissão",
+    adult1Desc: "A educação de motorista não é obrigatória a partir dos 18 anos.",
+    adult2Title: "Faça aulas se quiser",
+    adult2Desc:
+      "As aulas são opcionais. Ajudam se você está começando a dirigir ou se preparando para o exame.",
+    adult2Action: "Ver programas",
+    adult3Title: "Passe no exame prático",
+    adult3Desc: "Faça o exame de classe D com um patrocinador de 21 anos ou mais.",
+    adult3Action: "Patrocínio para o exame",
     roadTestTitle: "Patrocínios para exame prático",
     roadTestDesc: "Disponível no escritório da JMC em Waltham ou em locais do RMV em:",
     rmvAria: "Centro de serviços RMV de {name} — abrir no Google Maps",
@@ -116,14 +144,19 @@ export const pt: Messages = {
           "Você pode se inscrever pelo nosso site, por telefone no (781) 373-1730 ou visitando nosso escritório em Waltham durante o horário de atendimento (seg–sex 10h–17h).",
       },
       {
-        question: "Vocês oferecem patrocínio para o exame prático?",
+        question: "Com que idade um aluno pode começar a educação de motorista?",
         answer:
-          "Sim. O patrocínio para exame prático está disponível em nosso escritório em Waltham e em locais do RMV em todo Massachusetts. Entre em contato com o escritório para taxas e disponibilidade atuais.",
+          "A sala de aula pode começar aos 15 anos e 9 meses. A permissão de aprendizagem é obrigatória antes de qualquer aula na via, e é preciso ter pelo menos 16 anos para obtê-la.",
       },
       {
-        question: "Qual é a política de reembolso?",
+        question: "O que o aluno deve levar para a primeira aula na via?",
         answer:
-          "Você tem direito a reembolso integral em até 7 dias após a compra se nenhum serviço foi utilizado. A taxa do exame prático não é reembolsável.",
+          "Leve uma permissão de aprendizagem física válida. Cópias digitais não são aceitas. Use sapatos fechados e traga as lentes corretivas exigidas pela permissão.",
+      },
+      {
+        question: "Quais idiomas o escritório atende?",
+        answer:
+          "O escritório pode atender em inglês, português, espanhol e crioulo haitiano.",
       },
     ],
   },

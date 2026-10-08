@@ -6,6 +6,7 @@ export {
   buildClassSessionsFromCatalog,
   buildDriverEdPackagesFromCatalog,
   buildEnrollmentCatalogState,
+  buildHomeBatchCards,
   buildLessonsFromCatalog,
   buildLiveSite,
   buildTeenPackagesFromCatalog,
@@ -17,6 +18,7 @@ export {
   type CatalogAddonDisplay,
   type CatalogDisplayPackage,
   type CatalogLessonDisplay,
+  type HomeBatchCard,
   type LiveSiteData,
 } from "@/lib/catalog/map";
 export {
