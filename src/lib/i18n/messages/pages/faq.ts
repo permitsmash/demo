@@ -148,9 +148,8 @@ const faqPricingEn: FaqItem[] = [
       "JMC Driving School fees cover your classroom, road lessons, observations, and certificate. Separate from that, the Massachusetts RMV charges $50 for the license and $35 for the state exam (total $85). RMV fees are paid directly to the state, ideally online before your exam date.",
   },
   {
-    question: "Do you offer gift certificates?",
-    answer:
-      "Yes. Gift certificates are available and can be used toward lessons or full programs. Visit our Gift Cards page or contact the office to purchase.",
+    question: "Do you offer gift cards?",
+    answer: "No. JMC Driving School does not offer gift cards or gift certificates.",
   },
 ];
 
@@ -325,9 +324,9 @@ const faqPricingEs: FaqItem[] = [
       "Las tarifas de JMC Driving School cubren aula, clases en carretera, observaciones y certificado. Por separado, el RMV de Massachusetts cobra $50 por la licencia y $35 por el examen estatal (total $85). Las tarifas del RMV se pagan directamente al estado, idealmente en línea antes de su examen.",
   },
   {
-    question: "¿Ofrecen certificados de regalo?",
+    question: "¿Ofrecen tarjetas de regalo?",
     answer:
-      "Sí. Los certificados de regalo están disponibles y pueden usarse para clases o programas completos. Visite nuestra página de Tarjetas de regalo o contacte la oficina para comprar.",
+      "No. JMC Driving School no ofrece tarjetas de regalo ni certificados de regalo.",
   },
 ];
 
@@ -502,9 +501,9 @@ const faqPricingPt: FaqItem[] = [
       "As taxas da JMC Driving School cobrem aula, aulas práticas, observações e certificado. Separadamente, o RMV de Massachusetts cobra $50 pela licença e $35 pelo exame estadual (total $85). As taxas do RMV são pagadas diretamente ao estado, idealmente online antes da data do exame.",
   },
   {
-    question: "Vocês oferecem certificados de presente?",
+    question: "Vocês oferecem cartões-presente?",
     answer:
-      "Sim. Certificados de presente estão disponíveis e podem ser usados para aulas ou programas completos. Visite nossa página de Cartões-presente ou entre em contato com o escritório para comprar.",
+      "Não. A JMC Driving School não oferece cartões-presente nem certificados de presente.",
   },
 ];
 
@@ -681,9 +680,8 @@ const faqPricingHt: FaqItem[] = [
       "Frè JMC Driving School yo kouvri klas, leson sou wout, obsèvasyon, ak sètifika. Apa de sa, RMV Massachusetts la chaje $50 pou lisans lan ak $35 pou egzamen eta a (total $85). Frè RMV yo peye dirèkteman bay eta a, ideyalman sou entènèt anvan dat egzamen ou an.",
   },
   {
-    question: "Èske nou ofri sètifika kado?",
-    answer:
-      "Wi. Sètifika kado disponib epi yo ka itilize pou leson oswa pwogram konplè. Vizite paj Kat Kado nou an oswa kontakte biwo a pou achte.",
+    question: "Èske nou ofri kat kado?",
+    answer: "Non. JMC Driving School pa ofri kat kado ni sètifika kado.",
   },
 ];
 

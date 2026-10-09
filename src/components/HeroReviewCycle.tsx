@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ROTATE_MS = 6000;
 const BEST_REVIEW_COUNT = 20;
@@ -15,9 +15,13 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
   const best = [...reviews]
     .sort((a, b) => b.rating - a.rating)
     .slice(0, BEST_REVIEW_COUNT);
+  const quoteRef = useRef<HTMLQuoteElement>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [inView, setInView] = useState(true);
+  const review = best[index];
+  const quoteMounted = review != null;
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -28,18 +32,31 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
   }, []);
 
   useEffect(() => {
-    if (paused || reduceMotion || best.length < 2) return;
+    if (!quoteMounted) return;
+    const quote = quoteRef.current;
+    const hero = quote?.closest(".hero-section") ?? quote;
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting);
+    });
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [quoteMounted]);
+
+  useEffect(() => {
+    if (paused || reduceMotion || !inView || best.length < 2) return;
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % best.length);
     }, ROTATE_MS);
     return () => window.clearInterval(id);
-  }, [paused, reduceMotion, best.length]);
+  }, [paused, reduceMotion, inView, best.length]);
 
-  const review = best[index];
   if (!review) return null;
 
   return (
     <blockquote
+      ref={quoteRef}
       tabIndex={0}
       className="max-w-prose rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-primary"
       onMouseEnter={() => setPaused(true)}
