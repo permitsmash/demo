@@ -655,6 +655,11 @@ body {
 .accordion-summary:hover {
   background-color: var(--color-surface-container-low);
 }
+.accordion-summary h3 {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
 
 .accordion-body {
   padding: 0 var(--spacing-md) var(--spacing-md);

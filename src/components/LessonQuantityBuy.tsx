@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 type LessonQuantityBuyProps = {
-  buyLabel: string;
+  buyTemplate: string;
+  lessonName: string;
   pricePerLesson: number;
   minLessons: number;
   maxLessons: number;
@@ -23,7 +24,8 @@ function formatPrice(amount: number) {
 }
 
 export function LessonQuantityBuy({
-  buyLabel,
+  buyTemplate,
+  lessonName,
   pricePerLesson,
   minLessons,
   maxLessons,
@@ -36,6 +38,10 @@ export function LessonQuantityBuy({
   const [quantity, setQuantity] = useState(minLessons);
   const total = quantity * pricePerLesson;
   const unitLabel = quantity === 1 ? lessonLabel : lessonsLabel;
+  const buyLabel = buyTemplate
+    .replaceAll("{count}", String(quantity))
+    .replaceAll("{name}", lessonName)
+    .replaceAll("{unit}", unitLabel);
 
   return (
     <div className="flex flex-col gap-sm">

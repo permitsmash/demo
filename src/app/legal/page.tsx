@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { FaqCategoryNav } from "@/components/FaqCategoryNav";
 import PageHeader from "@/components/PageHeader";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Terms, Privacy, and Policies",
+  description:
+    "Review JMC Driving School terms, privacy policy, and the 7-day full refund if no services were used. Questions about a policy? Call (781) 373-1730 today.",
+};
 
 export default async function Page() {
   const { legal: l } = getMessages(await getLocale());

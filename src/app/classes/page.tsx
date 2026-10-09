@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import { ClassSessionsPanel } from "@/components/ClassSessionsPanel";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 import { buildClassSessionsFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Accelerated Driver's Ed in Waltham",
+    description: descriptions.classes,
+  };
+}
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
@@ -104,7 +114,7 @@ export default async function Page() {
               <span className="material-symbols-outlined text-secondary-container icon-filled">
                 policy
               </span>
-              <h3 className="font-h3 text-h3 text-primary">{common.refundPolicy}</h3>
+              <h2 className="font-h3 text-h3 text-primary">{common.refundPolicy}</h2>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
               {c.refundDesc} <strong>{c.roadTestNonRefundable}</strong>
@@ -115,7 +125,7 @@ export default async function Page() {
               <span className="material-symbols-outlined text-secondary-container icon-filled">
                 support_agent
               </span>
-              <h3 className="font-h3 text-h3 text-primary">{c.needHelp}</h3>
+              <h2 className="font-h3 text-h3 text-primary">{c.needHelp}</h2>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
               {t(c.needHelpDesc, { phone: liveSite.phone, hours: liveSite.officeHours })}

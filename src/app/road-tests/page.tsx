@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { buildAddonsDisplayFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Road Test Sponsorship in Waltham",
+    description: descriptions.roadTests,
+  };
+}
 
 function BuyButton({ label, catalogId }: { label: string; catalogId: string }) {
   return (
@@ -93,14 +103,17 @@ export default async function Page() {
               {sponsorshipOptions.map((option) => (
                 <div key={option.catalogId} className="card-hover flex h-full flex-col gap-md">
                   <div className="font-price text-price text-primary">{option.price}</div>
-                  <h2 className="font-h2 text-h2 text-primary">{option.name}</h2>
+                  <h3 className="font-h2 text-h2 text-primary">{option.name}</h3>
                   {option.description ? (
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
                       {option.description}
                     </p>
                   ) : null}
                   <div className="mt-auto border-t border-outline-variant pt-md">
-                    <BuyButton label={rt.buyButton} catalogId={option.catalogId} />
+                    <BuyButton
+                      label={t(rt.buyButton, { name: option.name })}
+                      catalogId={option.catalogId}
+                    />
                   </div>
                 </div>
               ))}

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+
+export const metadata: Metadata = {
+  title: "Driving Instructor Jobs, Waltham",
+  description:
+    "Apply for certified driving instructor jobs in Waltham, with full-time, part-time, and weekend schedules. Call (781) 373-1730 or submit an application today.",
+};
 
 export default async function Page() {
   const messages = getMessages(await getLocale());

@@ -1,5 +1,20 @@
+import type { Metadata } from "next";
+import { getSchoolCatalog } from "@/lib/catalog";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Driver's Ed Study Resources, MA",
+    description: descriptions.resources,
+    robots: {
+      index: false,
+      follow: true,
+    },
+  };
+}
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
@@ -64,12 +79,12 @@ export default async function Page() {
         <div className="flex-1 flex flex-col gap-xl w-full">
           {/*  Category: Theory Test Prep  */}
           <div className="flex flex-col gap-md">
-            <h2 className="text-h2 text-primary flex items-center gap-sm">
-              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled">
+            <div className="flex items-center gap-sm">
+              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled" aria-hidden="true">
                 quiz
-              </span>{" "}
-              {r.theoryTestPrep}
-            </h2>
+              </span>
+              <h2 className="text-h2 text-primary">{r.theoryTestPrep}</h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
               <div className="card-hover flex flex-col gap-sm">
                 <div className="flex items-center justify-between mb-xs">
@@ -105,12 +120,12 @@ export default async function Page() {
           </div>
           {/*  Category: Practical Driving Guides  */}
           <div className="flex flex-col gap-md">
-            <h2 className="text-h2 text-primary flex items-center gap-sm">
-              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled">
+            <div className="flex items-center gap-sm">
+              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled" aria-hidden="true">
                 menu_book
-              </span>{" "}
-              {r.practicalGuides}
-            </h2>
+              </span>
+              <h2 className="text-h2 text-primary">{r.practicalGuides}</h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
               <div className="card-hover flex flex-col gap-sm">
                 <div className="flex items-center justify-between mb-xs">
@@ -146,12 +161,12 @@ export default async function Page() {
           </div>
           {/*  Category: Video Lessons  */}
           <div className="flex flex-col gap-md">
-            <h2 className="text-h2 text-primary flex items-center gap-sm">
-              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled">
+            <div className="flex items-center gap-sm">
+              <span className="material-symbols-outlined text-h2 text-secondary-container icon-filled" aria-hidden="true">
                 play_circle
-              </span>{" "}
-              {r.videoLessons}
-            </h2>
+              </span>
+              <h2 className="text-h2 text-primary">{r.videoLessons}</h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
               <div className="card-hover overflow-hidden flex flex-col p-0">
                 <div className="bg-surface-container h-40 w-full flex items-center justify-center relative group cursor-pointer">

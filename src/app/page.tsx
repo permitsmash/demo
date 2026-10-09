@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { GoogleMark } from "@/components/GoogleMark";
@@ -10,26 +11,32 @@ import { HeroReviewCycle } from "@/components/HeroReviewCycle";
 import { buildHomeBatchCards, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 import { site } from "@/lib/site";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return { description: descriptions.home };
+}
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
   const catalog = await getSchoolCatalog();
   const liveSite = buildLiveSite(catalog);
   const homeBatches = buildHomeBatchCards(catalog);
-  const { home, site: siteCopy, common, classes } = messages;
+  const { home, site: siteCopy, common, classes, nav } = messages;
   const t = (template: string, values?: Record<string, string | number>) =>
     formatMessage(template, values);
   const { rating, totalReviews, mapsUrl, reviews } = site.googleReviews;
 
   return (
     <>
-      <HomepageJsonLd site={liveSite} />
+      <HomepageJsonLd site={liveSite} description={buildSeoDescriptions(catalog).home} />
 
       <section className="hero-section relative overflow-hidden flex items-center">
         <Image
           src="/images/hero.png"
-          alt=""
+          alt={t(home.heroAlt, { name: liveSite.name })}
           fill
           className="object-cover object-center"
           priority
@@ -38,7 +45,8 @@ export default async function Page() {
         <div className="hero-scrim absolute inset-0" aria-hidden="true" />
         <div className="relative container-page py-lg md:py-xl z-10 w-full">
           <div className="max-w-prose-lg mx-auto flex flex-col items-center gap-md text-center">
-            <h1 className="font-h1 text-h1 text-on-primary">{siteCopy.tagline}</h1>
+            <p className="font-body-lg text-body-lg text-on-primary/80">{siteCopy.tagline}</p>
+            <h1 className="font-h1 text-h1 text-on-primary">{home.heroTitle}</h1>
             <p className="font-body-lg text-body-lg text-on-primary/80 max-w-prose">
               {siteCopy.description}
             </p>
@@ -64,13 +72,13 @@ export default async function Page() {
             </a>
             <HeroReviewCycle reviews={reviews} />
             <div className="flex flex-col sm:flex-row gap-sm mt-sm justify-center">
-              <a href={`tel:${liveSite.phoneTel}`} className="btn-primary pressable">
+              <Link href="/courses" className="btn-primary pressable">
+                {nav.enroll}
+              </Link>
+              <a href={`tel:${liveSite.phoneTel}`} className="btn-outline-inverse pressable">
                 {t(common.callNow, { phone: liveSite.phone })}
                 <span className="material-symbols-outlined">call</span>
               </a>
-              <Link href="/courses" className="btn-outline-inverse pressable">
-                {common.viewPrograms}
-              </Link>
             </div>
           </div>
         </div>
@@ -225,7 +233,7 @@ export default async function Page() {
             {home.faqs.map((item) => (
               <details key={item.question} className="accordion group">
                 <summary className="accordion-summary">
-                  {item.question}
+                  <h3>{item.question}</h3>
                   <span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform duration-200 shrink-0">
                     expand_more
                   </span>

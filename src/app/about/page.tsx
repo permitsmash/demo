@@ -1,9 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import aboutInclass from "@/app/about-inclass.png";
 import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "About Our Waltham Driving School",
+    description: descriptions.about,
+  };
+}
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
@@ -135,7 +145,7 @@ export default async function Page() {
                 {about.ctaDesc}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-md">
-                <Link href="/courses" className="btn-primary">
+                <Link href="/courses#drivers-education" className="btn-primary">
                   {common.enrollNow}
                 </Link>
                 <Link href="/courses" className="btn-outline-inverse">

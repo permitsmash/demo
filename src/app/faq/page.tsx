@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqCategoryNav } from "@/components/FaqCategoryNav";
+import { getSchoolCatalog } from "@/lib/catalog";
 import { getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Driving Lessons FAQ in Waltham",
+    description: descriptions.faq,
+  };
+}
 
 function FaqItems({ items }: { items: readonly { question: string; answer: string }[] }) {
   return (
@@ -9,7 +20,7 @@ function FaqItems({ items }: { items: readonly { question: string; answer: strin
       {items.map((item) => (
         <details key={item.question} className="accordion group">
           <summary className="accordion-summary">
-            {item.question}
+            <h3>{item.question}</h3>
             <span className="material-symbols-outlined icon-base text-outline-variant group-open:rotate-180 transition-transform duration-200">
               expand_more
             </span>

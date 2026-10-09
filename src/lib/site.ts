@@ -1,5 +1,6 @@
 export const site = {
   name: "JMC Driving School",
+  url: "https://www.jmcdrivingschool.com",
   tagline: "Learn to Drive with Confidence",
   description:
     "Professional driving lessons in Waltham, Massachusetts. Certified instructors helping new drivers gain skills and confidence on the road.",

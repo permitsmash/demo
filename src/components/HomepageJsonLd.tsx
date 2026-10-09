@@ -3,21 +3,22 @@ import { site as staticSite } from "@/lib/site";
 
 type Props = {
   site: LiveSiteData;
+  description: string;
 };
 
 function safeJsonLd(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
-export function HomepageJsonLd({ site }: Props) {
+export function HomepageJsonLd({ site, description }: Props) {
   const { rating, totalReviews, reviews } = staticSite.googleReviews;
 
   const drivingSchool = {
     "@context": "https://schema.org",
     "@type": "DrivingSchool",
     name: site.name,
-    description: staticSite.description,
-    url: "https://jmcdrivingschool.com",
+    description,
+    url: staticSite.url,
     telephone: site.phoneTel,
     email: site.email,
     address: {
