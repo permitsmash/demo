@@ -22,9 +22,9 @@ export default function Footer() {
   ];
 
   const enrollmentLinks = [
-    { href: "/courses", label: footer.driversEd },
-    { href: "/courses", label: footer.parentsProgram },
-    { href: "/courses", label: footer.adultProgram },
+    { href: "/courses#drivers-education", label: footer.driversEd },
+    { href: "/courses#parents-program", label: footer.parentsProgram },
+    { href: "/courses#adult-program", label: footer.adultProgram },
     { href: "/road-tests", label: footer.roadTestForm },
   ];
 
@@ -55,9 +55,9 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2 flex flex-col gap-sm">
-            <h3 className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
+            <p className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
               {footer.quickLinks}
-            </h3>
+            </p>
             {navLinks.map((link) => (
               <Link
                 key={link.href + link.label}
@@ -70,9 +70,9 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3 flex flex-col gap-sm">
-            <h3 className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
+            <p className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
               {footer.enrollment}
-            </h3>
+            </p>
             {enrollmentLinks.map((link) => (
               <Link
                 key={link.label}
@@ -91,9 +91,9 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3 flex flex-col gap-md">
-            <h3 className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
+            <p className="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-xs">
               {footer.contactUs}
-            </h3>
+            </p>
             <ul className="space-y-sm font-body-sm text-body-sm text-on-surface-variant">
               <li className="flex items-start gap-sm">
                 <span className="material-symbols-outlined icon-base text-secondary-container mt-0.5 shrink-0">

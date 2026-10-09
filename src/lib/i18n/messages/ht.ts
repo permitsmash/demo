@@ -21,7 +21,7 @@ export const ht: Messages = {
     contact: "Kontakte nou",
     faq: "Kesyon yo poze souvan",
     signIn: "Konekte",
-    enroll: "Enskri",
+    enroll: "Enskri nan JMC",
     toggleMenu: "Ouvri oswa fèmen meni navigasyon an",
   },
   footer: {
@@ -43,7 +43,7 @@ export const ht: Messages = {
   common: {
     callNow: "Rele kounye a: {phone}",
     viewPrograms: "Gade pwogram yo",
-    enrollNow: "Enskri kounye a",
+    enrollNow: "Enskri nan edikasyon chofè",
     viewAllFaqs: "Gade tout kesyon yo",
     googleReviews: "({count}+ revi sou Google)",
     googleReviewsAria: "{rating} sou 5 zetwal nan plis pase {count} revi sou Google",
@@ -59,7 +59,9 @@ export const ht: Messages = {
     findUs: "Jwenn nou",
   },
   home: {
-    heroAlt: "Leson kondwi {name} nan Waltham, Massachusetts",
+    heroTitle: "Leson kondwi nan Waltham, MA",
+    heroAlt:
+      "Enstriktè k ap gide yon elèv ki ap kondwi, akòz yon klas sou siyal wout nan {name} nan Waltham, Massachusetts",
     certifiedInstructors: "Enstriktè sètifye",
     certifiedInstructorsDesc:
       "Pwofesyonèl sètifye pa eta a ki ede nouvo chofè yo devlope konpetans ak konfyans sou wout la.",
@@ -213,7 +215,8 @@ export const ht: Messages = {
     messagePlaceholder: "Kijan nou ka ede w jodi a?",
     contactInfo: "Enfòmasyon kontak",
     mapTitle: "Kat kote JMC Driving School ye",
-    imageAlt: "Kontakte JMC Driving School",
+    imageAlt:
+      "Enstriktè kondwi ak yon blòk nòt bò kote yon elèv nan yon machin fòmasyon blan",
     submitting: "Ap voye...",
     successTitle: "Mesaj la voye!",
     successMessage: "Mèsi paske ou kontakte nou. N ap reponn ou byento.",

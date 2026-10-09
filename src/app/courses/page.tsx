@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import aboutInclass from "@/app/about-inclass.png";
@@ -10,8 +11,17 @@ import {
   type CatalogDisplayPackage,
   type CatalogLessonDisplay,
 } from "@/lib/catalog";
-import { getMessages } from "@/lib/i18n";
+import { formatMessage, getMessages } from "@/lib/i18n";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 import { getLocale } from "@/lib/i18n/get-locale";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Driving Programs in Waltham, MA",
+    description: descriptions.programs,
+  };
+}
 
 const DEFAULT_MIN_LESSONS = 1;
 const DEFAULT_MAX_LESSONS = 10;
@@ -72,7 +82,7 @@ function StandardPackageCard({
   return (
     <div className="card-hover flex h-full flex-col gap-md">
       <div className="font-price text-price text-primary">{pkg.price}</div>
-      <h2 className="font-h2 text-h2 text-primary">{pkg.title}</h2>
+      <h3 className="font-h2 text-h2 text-primary">{pkg.title}</h3>
       {pkg.description ? (
         <p className="font-body-sm text-body-sm text-on-surface-variant">{pkg.description}</p>
       ) : null}
@@ -91,7 +101,7 @@ function StandardPackageCard({
 
 function LessonCard({
   lesson,
-  buyLabel,
+  buyTemplate,
   perLessonLabel,
   lessonLabel,
   lessonsLabel,
@@ -99,7 +109,7 @@ function LessonCard({
   increaseLabel,
 }: {
   lesson: CatalogLessonDisplay;
-  buyLabel: string;
+  buyTemplate: string;
   perLessonLabel: string;
   lessonLabel: string;
   lessonsLabel: string;
@@ -112,14 +122,15 @@ function LessonCard({
         <div className="font-price text-price text-primary">{lesson.priceLabel}</div>
         <div className="font-body-sm text-body-sm text-on-surface-variant">{perLessonLabel}</div>
       </div>
-      <h2 className="font-h2 text-h2 text-primary">{lesson.title}</h2>
+      <h3 className="font-h2 text-h2 text-primary">{lesson.title}</h3>
       {lesson.description ? (
         <p className="font-body-sm text-body-sm text-on-surface-variant">{lesson.description}</p>
       ) : null}
       <div className="border-t border-outline-variant" />
       <div className="mt-auto pt-md">
         <LessonQuantityBuy
-          buyLabel={buyLabel}
+          buyTemplate={buyTemplate}
+          lessonName={lesson.title}
           pricePerLesson={lesson.pricePerLesson}
           minLessons={DEFAULT_MIN_LESSONS}
           maxLessons={DEFAULT_MAX_LESSONS}
@@ -190,7 +201,7 @@ export default async function Page() {
       {!hasPrograms ? <EmptyCatalogMessage message={c.emptyCatalog} /> : null}
 
       {teenPackages.length > 0 ? (
-        <section className="w-full section">
+        <section id="drivers-education" className="w-full section scroll-mt-40">
           <div className="container-page flex flex-col gap-xl">
             <div className="grid gap-lg md:grid-cols-2 md:items-center">
               <SectionHeader
@@ -208,13 +219,13 @@ export default async function Page() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <div id="parents-program" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter scroll-mt-40">
               {teenPackages.map((pkg) => (
                 <StandardPackageCard
                   key={pkg.catalogId}
                   pkg={pkg}
                   includesLabel={c.includesLabel}
-                  buyLabel={c.buyButton}
+                  buyLabel={formatMessage(c.buyButton, { name: pkg.title })}
                 />
               ))}
             </div>
@@ -223,7 +234,7 @@ export default async function Page() {
       ) : null}
 
       {adultPackages.length > 0 ? (
-        <section className="w-full bg-surface-dim section">
+        <section id="adult-program" className="w-full bg-surface-dim section scroll-mt-40">
           <div className="container-page flex flex-col gap-xl">
             <SectionHeader
               title={c.sections.adultDrivers.title}
@@ -235,7 +246,7 @@ export default async function Page() {
                   key={pkg.catalogId}
                   pkg={pkg}
                   includesLabel={c.includesLabel}
-                  buyLabel={c.buyButton}
+                  buyLabel={formatMessage(c.bookPackageButton, { name: pkg.title })}
                 />
               ))}
             </div>
@@ -255,7 +266,7 @@ export default async function Page() {
                 <LessonCard
                   key={lesson.catalogId}
                   lesson={lesson}
-                  buyLabel={c.buyButton}
+                  buyTemplate={c.bookLessonButton}
                   perLessonLabel={c.perLesson}
                   lessonLabel={c.lessonLabel}
                   lessonsLabel={c.lessonsLabel}

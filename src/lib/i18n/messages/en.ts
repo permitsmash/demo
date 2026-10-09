@@ -20,7 +20,7 @@ export const en = {
     contact: "Contact",
     faq: "FAQ",
     signIn: "Sign In",
-    enroll: "Enroll",
+    enroll: "Enroll in JMC",
     toggleMenu: "Toggle navigation menu",
   },
   footer: {
@@ -42,7 +42,7 @@ export const en = {
   common: {
     callNow: "Call Now: {phone}",
     viewPrograms: "View Programs",
-    enrollNow: "Enroll Now",
+    enrollNow: "Enroll in driver's ed",
     viewAllFaqs: "View all FAQs",
     googleReviews: "({count}+ Google reviews)",
     googleReviewsAria: "{rating} out of 5 stars from {count} plus Google reviews",
@@ -58,7 +58,9 @@ export const en = {
     findUs: "Find Us",
   },
   home: {
-    heroAlt: "{name} driving lessons in Waltham, Massachusetts",
+    heroTitle: "Driving Lessons in Waltham, MA",
+    heroAlt:
+      "Instructor coaching a student driver, beside a classroom lesson on road signs at {name} in Waltham, Massachusetts",
     certifiedInstructors: "Certified Instructors",
     certifiedInstructorsDesc:
       "State-certified professionals helping new drivers gain skills and confidence on the road.",
@@ -208,7 +210,8 @@ export const en = {
     messagePlaceholder: "How can we help you today?",
     contactInfo: "Contact Information",
     mapTitle: "JMC Driving School location map",
-    imageAlt: "JMC Driving School contact",
+    imageAlt:
+      "Driving instructor with a clipboard beside a student in a white training car",
     submitting: "Sending...",
     successTitle: "Message sent!",
     successMessage: "Thank you for reaching out. We'll get back to you soon.",

@@ -28,7 +28,9 @@ export const coursesEn = {
   includesLabel: "This package includes:",
   lessonRatesLabel: "Lesson Rates",
   highwayRatesLabel: "Highway Lesson Rates",
-  buyButton: "Buy Now",
+  buyButton: "Enroll in {name}",
+  bookLessonButton: "Book {count} {unit} — {name}",
+  bookPackageButton: "Book the {name}",
   emptyCatalog:
     "Programs are temporarily unavailable. Please call the office or try again shortly.",
   perLesson: "per lesson",
@@ -149,6 +151,8 @@ export type CoursesMessages = {
   lessonRatesLabel: string;
   highwayRatesLabel: string;
   buyButton: string;
+  bookLessonButton: string;
+  bookPackageButton: string;
   emptyCatalog: string;
   perLesson: string;
   lessonLabel: string;
@@ -232,7 +236,9 @@ export const coursesEs = {
   includesLabel: "Este paquete incluye:",
   lessonRatesLabel: "Tarifas por clase",
   highwayRatesLabel: "Tarifas de clases en autopista",
-  buyButton: "Comprar ahora",
+  buyButton: "Inscribirse en {name}",
+  bookLessonButton: "Reservar {count} {unit} — {name}",
+  bookPackageButton: "Reservar {name}",
   emptyCatalog:
     "Los programas no están disponibles temporalmente. Llame a la oficina o intente de nuevo más tarde.",
   perLesson: "por clase",
@@ -369,7 +375,9 @@ export const coursesPt = {
   includesLabel: "Este pacote inclui:",
   lessonRatesLabel: "Tarifas por aula",
   highwayRatesLabel: "Tarifas de aulas em rodovia",
-  buyButton: "Comprar agora",
+  buyButton: "Inscrever-se em {name}",
+  bookLessonButton: "Agendar {count} {unit} — {name}",
+  bookPackageButton: "Agendar {name}",
   emptyCatalog:
     "Os programas estão temporariamente indisponíveis. Ligue para o escritório ou tente novamente em breve.",
   perLesson: "por aula",
@@ -506,7 +514,9 @@ export const coursesHt = {
   includesLabel: "Pakè sa a gen ladan:",
   lessonRatesLabel: "Tarif Leson",
   highwayRatesLabel: "Tarif Leson Otowout",
-  buyButton: "Achte Kounye a",
+  buyButton: "Enskri nan {name}",
+  bookLessonButton: "Rezève {count} {unit} — {name}",
+  bookPackageButton: "Rezève {name}",
   emptyCatalog:
     "Pwogram yo pa disponib pou kounye a. Tanpri rele biwo a oswa eseye ankò byento.",
   perLesson: "pa leson",

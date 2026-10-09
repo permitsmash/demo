@@ -21,7 +21,7 @@ export const pt: Messages = {
     contact: "Contato",
     faq: "Perguntas frequentes",
     signIn: "Entrar",
-    enroll: "Inscrever-se",
+    enroll: "Inscrever-se na JMC",
     toggleMenu: "Abrir ou fechar menu de navegação",
   },
   footer: {
@@ -43,7 +43,7 @@ export const pt: Messages = {
   common: {
     callNow: "Ligue agora: {phone}",
     viewPrograms: "Ver programas",
-    enrollNow: "Inscrever-se agora",
+    enrollNow: "Inscrever-se na educação para motoristas",
     viewAllFaqs: "Ver todas as perguntas frequentes",
     googleReviews: "({count}+ avaliações no Google)",
     googleReviewsAria: "{rating} de 5 estrelas de mais de {count} avaliações no Google",
@@ -59,7 +59,9 @@ export const pt: Messages = {
     findUs: "Encontre-nos",
   },
   home: {
-    heroAlt: "Aulas de direção da {name} em Waltham, Massachusetts",
+    heroTitle: "Aulas de direção em Waltham, MA",
+    heroAlt:
+      "Instrutor orientando um aluno ao volante, ao lado de uma aula sobre placas de trânsito na {name} em Waltham, Massachusetts",
     certifiedInstructors: "Instrutores certificados",
     certifiedInstructorsDesc:
       "Profissionais certificados pelo estado que ajudam novos motoristas a ganhar habilidades e confiança na estrada.",
@@ -214,7 +216,8 @@ export const pt: Messages = {
     messagePlaceholder: "Como podemos ajudá-lo hoje?",
     contactInfo: "Informações de contato",
     mapTitle: "Mapa de localização da JMC Driving School",
-    imageAlt: "Contato da JMC Driving School",
+    imageAlt:
+      "Instrutor de direção com uma prancheta ao lado de um aluno em um carro de treino branco",
     submitting: "Enviando...",
     successTitle: "Mensagem enviada!",
     successMessage: "Obrigado por entrar em contato. Retornaremos em breve.",

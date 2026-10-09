@@ -6,6 +6,7 @@ import { LocaleProvider } from "@/components/LocaleProvider";
 import { SiteProvider } from "@/components/SiteProvider";
 import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { site } from "@/lib/site";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -13,9 +14,32 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "JMC Driving School | Driving Lessons in Waltham, MA",
-  description:
-    "Professional driving lessons in Waltham, Massachusetts. Certified instructors helping new drivers gain skills and confidence on the road.",
+  metadataBase: new URL(site.url),
+  alternates: {
+    canonical: "./",
+  },
+  title: {
+    default: `${site.name} | Driving Lessons in Waltham, MA`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_US",
+    url: "./",
+    images: [
+      {
+        url: "/images/hero.png",
+        width: 1672,
+        height: 941,
+        alt: "Instructor coaching a student driver, beside a classroom lesson on road signs at JMC Driving School in Waltham, Massachusetts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export const viewport: Viewport = {

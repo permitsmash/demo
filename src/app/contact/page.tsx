@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import PageHeader from "@/components/PageHeader";
 import { buildLiveSite, getSchoolCatalog, getContactApiUrl } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const descriptions = buildSeoDescriptions(await getSchoolCatalog());
+  return {
+    title: "Contact Our Waltham, MA Office",
+    description: descriptions.contact,
+  };
+}
 
 export default async function Page() {
   const messages = getMessages(await getLocale());
