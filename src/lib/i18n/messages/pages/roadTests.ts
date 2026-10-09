@@ -22,7 +22,7 @@ export const roadTestsEn = {
   contactButton: "Submit road test form",
   contactDesc:
     "Call the office to book your test date after purchase, or submit the road test form if you have questions first.",
-  buyButton: "Book {name}",
+  buyButton: "Buy {name}",
   emptyCatalog:
     "Road test options are temporarily unavailable. Please call the office or try again shortly.",
   buyAndBookNote: "Buy online, then call the office to book your test date.",
@@ -54,7 +54,7 @@ export const roadTestsEs = {
   contactButton: "Enviar formulario de examen de manejo",
   contactDesc:
     "Llame a la oficina para reservar la fecha de su examen después de la compra, o envíe el formulario si tiene preguntas primero.",
-  buyButton: "Reservar {name}",
+  buyButton: "Comprar {name}",
   emptyCatalog:
     "Las opciones de examen de manejo no están disponibles temporalmente. Llame a la oficina o intente de nuevo más tarde.",
   buyAndBookNote: "Compre en línea y luego llame a la oficina para reservar la fecha de su examen.",
@@ -86,7 +86,7 @@ export const roadTestsPt = {
   contactButton: "Enviar formulário de exame prático",
   contactDesc:
     "Ligue para o escritório para agendar a data do seu exame após a compra, ou envie o formulário se tiver dúvidas primeiro.",
-  buyButton: "Agendar {name}",
+  buyButton: "Comprar {name}",
   emptyCatalog:
     "As opções de exame prático estão temporariamente indisponíveis. Ligue para o escritório ou tente novamente em breve.",
   buyAndBookNote: "Compre online e depois ligue para o escritório para agendar a data do seu exame.",
@@ -118,7 +118,7 @@ export const roadTestsHt = {
   contactButton: "Soumèt fòmilè egzamen wout la",
   contactDesc:
     "Rele biwo a pou rezève dat egzamen wout ou a apre acha a, oswa soumèt fòmilè a si ou gen kesyon anvan.",
-  buyButton: "Rezève {name}",
+  buyButton: "Achte {name}",
   emptyCatalog:
     "Opsyon egzamen wout yo pa disponib pou kounye a. Tanpri rele biwo a oswa eseye ankò byento.",
   buyAndBookNote: "Achte sou entènèt, epi rele biwo a pou rezève dat egzamen wout ou a.",
