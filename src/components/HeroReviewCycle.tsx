@@ -20,6 +20,8 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
   const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [inView, setInView] = useState(true);
+  const review = best[index];
+  const quoteMounted = review != null;
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -30,6 +32,7 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
   }, []);
 
   useEffect(() => {
+    if (!quoteMounted) return;
     const quote = quoteRef.current;
     const hero = quote?.closest(".hero-section") ?? quote;
     if (!hero) return;
@@ -39,7 +42,7 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
     });
     observer.observe(hero);
     return () => observer.disconnect();
-  }, []);
+  }, [quoteMounted]);
 
   useEffect(() => {
     if (paused || reduceMotion || !inView || best.length < 2) return;
@@ -49,7 +52,6 @@ export function HeroReviewCycle({ reviews }: { reviews: readonly Review[] }) {
     return () => window.clearInterval(id);
   }, [paused, reduceMotion, inView, best.length]);
 
-  const review = best[index];
   if (!review) return null;
 
   return (
