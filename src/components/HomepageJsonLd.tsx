@@ -1,12 +1,6 @@
 import type { LiveSiteData } from "@/lib/catalog/map";
 import type { PublicCatalogProduct, PublicSchoolCatalog } from "@/lib/catalog/types";
-import { JsonLd } from "@/components/JsonLd";
-import { rmv } from "@/lib/rmv";
 import { site as staticSite } from "@/lib/site";
-
-type Props = {
-  faqs: readonly { question: string; answer: string; source?: "classroomAge" }[];
-};
 
 const businessId = `${staticSite.url}/#business`;
 
@@ -82,6 +76,7 @@ export function businessJsonLd(
       latitude: staticSite.geo.latitude,
       longitude: staticSite.geo.longitude,
     },
+    hasMap: staticSite.googleReviews.mapsUrl,
     areaServed: staticSite.serviceArea,
     openingHours: "Mo-Fr 10:00-17:00",
     openingHoursSpecification: [
@@ -122,26 +117,4 @@ export function businessJsonLd(
         }
       : {}),
   };
-}
-
-export function HomepageJsonLd({ faqs }: Props) {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              item.source === "classroomAge"
-                ? `${item.answer} Source: ${rmv.classroomAge}`
-                : item.answer,
-          },
-        })),
-      }}
-    />
-  );
 }

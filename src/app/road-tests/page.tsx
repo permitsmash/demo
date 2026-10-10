@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { RoadTestFeesTable } from "@/components/ComparisonTables";
 import { PageGuide } from "@/components/PageGuide";
 import { buildAddonsDisplayFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
@@ -175,7 +176,19 @@ export default async function Page() {
         </div>
       </section>
 
-      <PageGuide title={rt.guide.title} sections={rt.guide.sections} />
+      <PageGuide
+        title={rt.guide.title}
+        sections={rt.guide.sections}
+        leads={{
+          "road-test-fees": (
+            <RoadTestFeesTable
+              options={sponsorshipOptions}
+              labels={rt.feesTable}
+              showHeading={false}
+            />
+          ),
+        }}
+      />
 
       <section className="w-full bg-surface-dim section">
         <div className="container-page flex flex-col items-center gap-md text-center">

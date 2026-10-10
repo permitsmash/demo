@@ -3,13 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import aboutInclass from "@/app/about-inclass.png";
 import { CourseOffersJsonLd } from "@/components/CourseOffersJsonLd";
-import { LessonFactsList } from "@/components/LessonFactsList";
+import { PackageComparisonTable } from "@/components/ComparisonTables";
 import { LessonQuantityBuy } from "@/components/LessonQuantityBuy";
 import { PageGuide } from "@/components/PageGuide";
 import {
   buildAdultPackagesFromCatalog,
   buildLessonsFromCatalog,
-  buildTeenPackageFacts,
   buildTeenPackagesFromCatalog,
   getSchoolCatalog,
   type CatalogDisplayPackage,
@@ -172,11 +171,6 @@ export default async function Page() {
   const messages = getMessages(await getLocale());
   const catalog = await getSchoolCatalog();
   const c = messages.courses;
-  const teenPackageFacts = buildTeenPackageFacts(catalog);
-  const packageGuideLeads =
-    teenPackageFacts.length > 0
-      ? { "teen-packages": <LessonFactsList facts={teenPackageFacts} /> }
-      : undefined;
 
   if (!catalog) {
     return (
@@ -187,7 +181,7 @@ export default async function Page() {
           </div>
         </section>
         <EmptyCatalogMessage message={c.emptyCatalog} />
-        <PageGuide title={c.guide.title} sections={c.guide.sections} leads={packageGuideLeads} />
+        <PageGuide title={c.guide.title} sections={c.guide.sections} />
       </div>
     );
   }
@@ -294,7 +288,19 @@ export default async function Page() {
         </section>
       ) : null}
 
-      <PageGuide title={c.guide.title} sections={c.guide.sections} leads={packageGuideLeads} />
+      <PageGuide
+        title={c.guide.title}
+        sections={c.guide.sections}
+        leads={{
+          "teen-packages": (
+            <PackageComparisonTable
+              packages={teenPackages}
+              labels={c.packageComparison}
+              showHeading={false}
+            />
+          ),
+        }}
+      />
 
       <section className="w-full section">
         <div className="container-page">

@@ -30,6 +30,12 @@ export const roadTestsEn = {
   buyAndBookNote: "Buy online, then call the office to book your test date.",
   nonRefundable: "ROAD TEST FEE IS NON-REFUNDABLE.",
   rmvAria: "RMV Service Center {name} — open in Google Maps",
+  feesTable: {
+    caption: "Road test areas and fees",
+    area: "Area",
+    fee: "Fee",
+    details: "Where and when",
+  },
   guide: roadTestsGuideEn,
 } as const;
 
@@ -63,6 +69,12 @@ export const roadTestsEs = {
   buyAndBookNote: "Compre en línea y luego llame a la oficina para reservar la fecha de su examen.",
   nonRefundable: "LA TARIFA DEL EXAMEN DE MANEJO NO ES REEMBOLSABLE.",
   rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
+  feesTable: {
+    caption: "Zonas y tarifas del examen de manejo",
+    area: "Zona",
+    fee: "Tarifa",
+    details: "Dónde y cuándo",
+  },
   guide: roadTestsGuideEs,
 } as const;
 
@@ -96,6 +108,12 @@ export const roadTestsPt = {
   buyAndBookNote: "Compre online e depois ligue para o escritório para agendar a data do seu exame.",
   nonRefundable: "A TAXA DO EXAME PRÁTICO NÃO É REEMBOLSÁVEL.",
   rmvAria: "Centro de serviços RMV de {name} — abrir no Google Maps",
+  feesTable: {
+    caption: "Regiões e taxas do exame prático",
+    area: "Região",
+    fee: "Taxa",
+    details: "Onde e quando",
+  },
   guide: roadTestsGuidePt,
 } as const;
 
@@ -129,6 +147,12 @@ export const roadTestsHt = {
   buyAndBookNote: "Achte sou entènèt, epi rele biwo a pou rezève dat egzamen wout ou a.",
   nonRefundable: "FRÈ EGZAMEN WOUT LA PA REMBOURSAB.",
   rmvAria: "Sant sèvis RMV {name} — ouvri nan Google Maps",
+  feesTable: {
+    caption: "Zòn ak frè egzamen wout",
+    area: "Zòn",
+    fee: "Frè",
+    details: "Ki kote ak kilè",
+  },
   guide: roadTestsGuideHt,
 } as const;
 
@@ -151,5 +175,11 @@ export type RoadTestsMessages = {
   buyAndBookNote: string;
   nonRefundable: string;
   rmvAria: string;
+  feesTable: {
+    caption: string;
+    area: string;
+    fee: string;
+    details: string;
+  };
   guide: ContentGuide;
 };

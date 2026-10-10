@@ -85,7 +85,7 @@ export function LicensePath() {
   }
 
   return (
-    <section className="section bg-surface">
+    <section id="license-path" className="section bg-surface">
       <div className="container-page">
         <div className="mx-auto flex max-w-prose-lg flex-col items-center">
           <h2 className="font-h2 text-h2 text-primary text-center">{home.licensePathTitle}</h2>
@@ -149,6 +149,7 @@ export function LicensePath() {
           {steps.map((step, index) => (
             <li
               key={`${audience}-${index}`}
+              id={`license-path-step-${index + 1}`}
               className="flex h-full flex-col rounded-lg border border-outline-variant bg-surface-container-lowest p-md"
             >
               <span className="font-h3 text-h3 text-secondary-container">{index + 1}</span>

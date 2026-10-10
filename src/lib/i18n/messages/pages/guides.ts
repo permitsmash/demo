@@ -11,6 +11,14 @@ export const coursesGuideEn: ContentGuide = {
   title: "How to choose a driving program",
   sections: [
     {
+      id: "what-is-drivers-ed",
+      heading: "What is driver's ed in Massachusetts?",
+      paragraphs: [
+        "Driver's education in Massachusetts is the program a driver under 18 must complete before a Class D license: 30 hours of classroom instruction, 12 hours of behind-the-wheel driving, 6 hours of observation, and a 2-hour parent or guardian class.",
+        "At 18 or older, driver's education is not required. A learner's permit is still required before the road test.",
+      ],
+    },
+    {
       id: "teen-packages",
       heading: "How Package 1, Package II, and Package III differ",
       paragraphs: [
@@ -58,6 +66,14 @@ export const coursesGuideEn: ContentGuide = {
 export const coursesGuideEs: ContentGuide = {
   title: "Cómo elegir un programa de manejo",
   sections: [
+    {
+      id: "what-is-drivers-ed",
+      heading: "¿Qué es la educación vial en Massachusetts?",
+      paragraphs: [
+        "La educación vial en Massachusetts es el programa que un conductor menor de 18 años debe completar antes de una licencia Clase D: 30 horas de instrucción en el aula, 12 horas de práctica al volante, 6 horas de observación y una clase de 2 horas para el padre, la madre o el tutor.",
+        "A partir de los 18 años, la educación vial no es obligatoria. Un permiso de aprendizaje sigue siendo necesario antes del examen de manejo.",
+      ],
+    },
     {
       id: "teen-packages",
       heading: "En qué se diferencian Package 1, Package II y Package III",
@@ -107,6 +123,14 @@ export const coursesGuidePt: ContentGuide = {
   title: "Como escolher um programa de direção",
   sections: [
     {
+      id: "what-is-drivers-ed",
+      heading: "O que é a educação para motoristas em Massachusetts?",
+      paragraphs: [
+        "A educação para motoristas em Massachusetts é o programa que um motorista menor de 18 anos precisa concluir antes de uma carteira Classe D: 30 horas de instrução em sala, 12 horas de prática ao volante, 6 horas de observação e uma aula de 2 horas para o pai, a mãe ou o responsável.",
+        "A partir dos 18 anos, a educação para motoristas não é obrigatória. A permissão de aprendiz continua necessária antes do exame prático.",
+      ],
+    },
+    {
       id: "teen-packages",
       heading: "Como Package 1, Package II e Package III se diferenciam",
       paragraphs: [
@@ -154,6 +178,14 @@ export const coursesGuidePt: ContentGuide = {
 export const coursesGuideHt: ContentGuide = {
   title: "Kijan pou chwazi yon pwogram kondwi",
   sections: [
+    {
+      id: "what-is-drivers-ed",
+      heading: "Kisa edikasyon pou chofè ye nan Massachusetts?",
+      paragraphs: [
+        "Edikasyon pou chofè nan Massachusetts se pwogram yon chofè ki poko gen 18 an dwe fini anvan yon lisans Klas D: 30 èdtan enstriksyon nan klas, 12 èdtan pratik dèyè volan, 6 èdtan obsèvasyon, ak yon klas 2 èdtan pou paran oswa gadyen.",
+        "Depi 18 an, edikasyon pou chofè pa obligatwa. Yon pèmi aprantisaj toujou nesesè anvan egzamen wout la.",
+      ],
+    },
     {
       id: "teen-packages",
       heading: "Kijan Package 1, Package II, ak Package III diferan",
@@ -203,9 +235,17 @@ export const roadTestsGuideEn: ContentGuide = {
   title: "What road test sponsorship includes",
   sections: [
     {
-      heading: "The car and the instructor",
+      id: "what-is-road-test-sponsorship",
+      heading: "What is road test sponsorship?",
       paragraphs: [
-        "Road test sponsorship means JMC Driving School provides the training car and a certified instructor for your Massachusetts road test. Saturday tests are held at the JMC office, 973 Main Street, Waltham. Weekday tests are held at Registry of Motor Vehicles sites in Watertown, Lowell, Haverhill, Lawrence, and Milford. The fee depends on the location. Buy the sponsorship on this page, then call the office to reserve the date. A call first is the surest way to confirm that the RMV area, the day, and the open seats still match your plan.",
+        "Road test sponsorship is JMC Driving School providing the training car and a certified instructor for a Massachusetts road test.",
+      ],
+    },
+    {
+      id: "road-test-fees",
+      heading: "Road test areas and fees",
+      paragraphs: [
+        "Saturday tests are held at the JMC office, 973 Main Street, Waltham. Weekday tests are held at Registry of Motor Vehicles sites in Watertown, Lowell, Haverhill, Lawrence, and Milford. The fee depends on the location. Buy the sponsorship on this page, then call the office to reserve the date. A call first is the surest way to confirm that the RMV area, the day, and the open seats still match your plan.",
       ],
     },
     {
@@ -235,9 +275,17 @@ export const roadTestsGuideEs: ContentGuide = {
   title: "Qué incluye el patrocinio del examen de manejo",
   sections: [
     {
-      heading: "El auto y el instructor",
+      id: "what-is-road-test-sponsorship",
+      heading: "¿Qué es el patrocinio del examen de manejo?",
       paragraphs: [
-        "El patrocinio del examen de manejo significa que JMC Driving School pone el auto de práctica y un instructor certificado para su examen de Massachusetts. Los exámenes del sábado se hacen en la oficina de JMC, 973 Main Street, Waltham. Los exámenes de lunes a viernes se hacen en sedes del Registry of Motor Vehicles en Watertown, Lowell, Haverhill, Lawrence y Milford. La tarifa depende del lugar. Compre el patrocinio en esta página y luego llame a la oficina para reservar la fecha. Llamar primero es la forma más segura de confirmar que la zona del RMV, el día y los lugares disponibles siguen coincidiendo con su plan.",
+        "El patrocinio del examen de manejo es JMC Driving School poniendo el auto de práctica y un instructor certificado para un examen de manejo de Massachusetts.",
+      ],
+    },
+    {
+      id: "road-test-fees",
+      heading: "Zonas y tarifas del examen de manejo",
+      paragraphs: [
+        "Los exámenes del sábado se hacen en la oficina de JMC, 973 Main Street, Waltham. Los exámenes de lunes a viernes se hacen en sedes del Registry of Motor Vehicles en Watertown, Lowell, Haverhill, Lawrence y Milford. La tarifa depende del lugar. Compre el patrocinio en esta página y luego llame a la oficina para reservar la fecha. Llamar primero es la forma más segura de confirmar que la zona del RMV, el día y los lugares disponibles siguen coincidiendo con su plan.",
       ],
     },
     {
@@ -267,9 +315,17 @@ export const roadTestsGuidePt: ContentGuide = {
   title: "O que o patrocínio do exame prático inclui",
   sections: [
     {
-      heading: "O carro e o instrutor",
+      id: "what-is-road-test-sponsorship",
+      heading: "O que é o patrocínio do exame prático?",
       paragraphs: [
-        "O patrocínio do exame prático significa que a JMC Driving School fornece o carro de treino e um instrutor certificado para o exame de Massachusetts. Os exames de sábado acontecem no escritório da JMC, na 973 Main Street, em Waltham. Os exames em dias úteis acontecem em postos do Registry of Motor Vehicles em Watertown, Lowell, Haverhill, Lawrence e Milford. A taxa depende do local. Compre o patrocínio nesta página e depois ligue para o escritório para reservar a data. Ligar antes é a forma mais segura de confirmar se a região do RMV, o dia e as vagas ainda combinam com o seu plano.",
+        "O patrocínio do exame prático é a JMC Driving School fornecendo o carro de treino e um instrutor certificado para um exame prático de Massachusetts.",
+      ],
+    },
+    {
+      id: "road-test-fees",
+      heading: "Regiões e taxas do exame prático",
+      paragraphs: [
+        "Os exames de sábado acontecem no escritório da JMC, na 973 Main Street, em Waltham. Os exames em dias úteis acontecem em postos do Registry of Motor Vehicles em Watertown, Lowell, Haverhill, Lawrence e Milford. A taxa depende do local. Compre o patrocínio nesta página e depois ligue para o escritório para reservar a data. Ligar antes é a forma mais segura de confirmar se a região do RMV, o dia e as vagas ainda combinam com o seu plano.",
       ],
     },
     {
@@ -299,9 +355,17 @@ export const roadTestsGuideHt: ContentGuide = {
   title: "Kisa patwonej egzamen wout la gen ladan",
   sections: [
     {
-      heading: "Machin nan ak enstriktè a",
+      id: "what-is-road-test-sponsorship",
+      heading: "Kisa patwonej egzamen wout ye?",
       paragraphs: [
-        "Patwonej egzamen wout la vle di JMC Driving School bay machin fòmasyon an ak yon enstriktè sètifye pou egzamen Massachusetts ou a. Egzamen samdi yo fèt nan biwo JMC, 973 Main Street, Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry of Motor Vehicles nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Frè a depann de kote a. Achte patwonej la sou paj sa a, epi rele biwo a pou rezève dat la. Yon apèl anvan se fason ki pi sèten pou konfime zòn RMV a, jou a, ak plas ki ouvè yo toujou koresponn ak plan ou.",
+        "Patwonej egzamen wout se JMC Driving School ki bay machin fòmasyon an ak yon enstriktè sètifye pou yon egzamen wout Massachusetts.",
+      ],
+    },
+    {
+      id: "road-test-fees",
+      heading: "Zòn ak frè egzamen wout",
+      paragraphs: [
+        "Egzamen samdi yo fèt nan biwo JMC, 973 Main Street, Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry of Motor Vehicles nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Frè a depann de kote a. Achte patwonej la sou paj sa a, epi rele biwo a pou rezève dat la. Yon apèl anvan se fason ki pi sèten pou konfime zòn RMV a, jou a, ak plas ki ouvè yo toujou koresponn ak plan ou.",
       ],
     },
     {

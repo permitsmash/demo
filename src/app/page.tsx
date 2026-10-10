@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { GoogleMark } from "@/components/GoogleMark";
 import { AttentionAvatar3D } from "@/components/AttentionAvatar3DClient";
-import { HomepageJsonLd } from "@/components/HomepageJsonLd";
 import { OfficialSourceLink } from "@/components/OfficialText";
 import { ReviewScroller } from "@/components/ReviewScroller";
 import { HomeBatchCards } from "@/components/HomeBatchCards";
@@ -34,8 +33,6 @@ export default async function Page() {
 
   return (
     <>
-      <HomepageJsonLd faqs={home.faqs} />
-
       <section className="hero-section relative overflow-hidden flex items-center">
         <Image
           src="/images/hero.png"
@@ -236,7 +233,7 @@ export default async function Page() {
             {home.faqs.map((item) => (
               <details key={item.question} className="accordion group">
                 <summary className="accordion-summary">
-                  <h3>{item.question}</h3>
+                  <h3 className="min-w-0 flex-1 font-h3 text-h3 text-primary">{item.question}</h3>
                   <span className="material-symbols-outlined text-outline-variant group-open:rotate-180 transition-transform duration-200 shrink-0">
                     expand_more
                   </span>
