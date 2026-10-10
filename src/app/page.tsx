@@ -11,6 +11,7 @@ import { HeroReviewCycle } from "@/components/HeroReviewCycle";
 import { buildHomeBatchCards, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 import { rmv } from "@/lib/rmv";
 import { site } from "@/lib/site";
@@ -33,6 +34,7 @@ export default async function Page() {
 
   return (
     <>
+      <RouteAnswerJsonLd pathname="/" />
       <section className="hero-section relative overflow-hidden flex items-center">
         <Image
           src="/images/hero.png"

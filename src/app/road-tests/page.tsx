@@ -6,6 +6,7 @@ import { PageGuide } from "@/components/PageGuide";
 import { buildAddonsDisplayFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -76,6 +77,7 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col items-center w-full">
+      <RouteAnswerJsonLd pathname="/road-tests" />
       <section className="relative w-full bg-surface-container-lowest overflow-hidden section-padded">
         <div className="relative container-page text-center flex flex-col items-center gap-md">
           <h1 className="font-h1 text-h1 text-primary">{rt.title}</h1>

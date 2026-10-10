@@ -12,9 +12,6 @@ import { languageAlternates, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import type { Locale } from "@/lib/i18n/locales";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
-import { buildRouteFaqJsonLd } from "@/lib/seo/faq-jsonld";
-import { buildLicenseHowToJsonLd } from "@/lib/seo/howto-jsonld";
-import { buildSpeakableJsonLd } from "@/lib/seo/speakable";
 import { site } from "@/lib/site";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -77,13 +74,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-  const headerStore = await headers();
-  const pathname = headerStore.get("x-pathname") ?? "/";
   const catalog = await getSchoolCatalog();
   const liveSite = buildLiveSite(catalog);
-  const faqJsonLd = buildRouteFaqJsonLd(locale, pathname, catalog);
-  const howToJsonLd = pathname === "/" ? buildLicenseHowToJsonLd(locale) : null;
-  const speakableJsonLd = buildSpeakableJsonLd(locale, pathname);
 
   return (
     <html
@@ -99,9 +91,6 @@ export default async function RootLayout({
             catalog,
           )}
         />
-        {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
-        {howToJsonLd ? <JsonLd data={howToJsonLd} /> : null}
-        {speakableJsonLd ? <JsonLd data={speakableJsonLd} /> : null}
       </head>
       <body className="bg-background text-on-background font-body-md antialiased flex flex-col min-h-screen">
         <LocaleProvider initialLocale={locale}>

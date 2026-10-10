@@ -8,7 +8,7 @@ const faqProgramsEn: FaqItem[] = [
   {
     question: "What is driver's ed in Massachusetts?",
     answer:
-      "Driver's education in Massachusetts is the program a driver under 18 must complete before a Class D license: 30 hours of classroom instruction, 12 hours of behind-the-wheel driving, 6 hours of observation, and a 2-hour parent or guardian class. At 18 or older, driver's education is not required. A learner's permit is still required before the road test.",
+      "Driver's education in Massachusetts is the program a driver under 18 must complete before a Class D license: 30 hours of classroom instruction, 12 hours of behind-the-wheel driving, 6 hours of observation, and a 2-hour parent or guardian class. A parent or guardian who completed that class within the past five years does not take it again. At 18 or older, driver's education is not required. A learner's permit is still required before the road test.",
   },
   {
     question: "How do Package 1, Package II, and Package III differ?",
@@ -34,7 +34,7 @@ const faqProgramsEn: FaqItem[] = [
   {
     question: "Can I use an out-of-state permit?",
     answer:
-      "No. The road test uses a Massachusetts learner's permit. The Registry requires Massachusetts residency, a passed permit exam, and no license or permit from another state. [Apply for a passenger Class D learner's permit](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
+      "No. The road test uses a Massachusetts learner's permit. A Massachusetts resident who already holds a learner's permit from another state can convert it when that permit was issued less than 2 years ago. The Registry also converts permits from the District of Columbia, Canada, Mexico, Puerto Rico, and U.S. territories. It does not convert a permit from any other country. Someone without an out-of-state permit applies for a new Massachusetts permit, which requires a passed permit exam and no license or permit from another state. [Transfer your out-of-state learner's permit to Massachusetts](https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-learners-permit-to-massachusetts). [Apply for a passenger Class D learner's permit](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
   },
   {
     question: "What programs do you offer?",
@@ -111,7 +111,7 @@ const faqTestEn: FaqItem[] = [
   {
     question: "How do I book a road test?",
     answer:
-      "Buy the sponsorship for your test location on the road test page, then call (781) 373-1730 to reserve the date. Saturday tests are at the JMC office in Waltham. Weekday tests are at Registry sites. A call first confirms that the area and the day are still open. Office hours are Monday through Friday, 10am to 5pm. The sponsorship fee is non-refundable.",
+      "Call (781) 373-1730 before you buy, and confirm that the area and the date are still open. Then buy the sponsorship for that location on the road test page. Saturday tests are at the JMC office in Waltham. Weekday tests are at Registry sites. Office hours are Monday through Friday, 10am to 5pm. The sponsorship fee is non-refundable.",
   },
   {
     question: "What if I fail my road test?",
@@ -232,7 +232,7 @@ const faqProgramsEs: FaqItem[] = [
   {
     question: "¿Qué es la educación vial en Massachusetts?",
     answer:
-      "La educación vial en Massachusetts es el programa que un conductor menor de 18 años debe completar antes de una licencia Clase D: 30 horas de instrucción en el aula, 12 horas de práctica al volante, 6 horas de observación y una clase de 2 horas para el padre, la madre o el tutor. A partir de los 18 años, la educación vial no es obligatoria. Un permiso de aprendizaje sigue siendo necesario antes del examen de manejo.",
+      "La educación vial en Massachusetts es el programa que un conductor menor de 18 años debe completar antes de una licencia Clase D: 30 horas de instrucción en el aula, 12 horas de práctica al volante, 6 horas de observación y una clase de 2 horas para el padre, la madre o el tutor. Un padre, una madre o un tutor que completó esa clase en los últimos cinco años no tiene que tomarla de nuevo. A partir de los 18 años, la educación vial no es obligatoria. Un permiso de aprendizaje sigue siendo necesario antes del examen de manejo.",
   },
   {
     question: "¿En qué se diferencian Package 1, Package II y Package III?",
@@ -258,7 +258,7 @@ const faqProgramsEs: FaqItem[] = [
   {
     question: "¿Puedo usar un permiso de otro estado?",
     answer:
-      "No. El examen de manejo usa un permiso de aprendizaje de Massachusetts. El Registry exige residencia en Massachusetts, aprobar el examen del permiso y no tener licencia ni permiso de otro estado. [Solicitar un permiso de aprendizaje de pasajeros Clase D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
+      "No. El examen de manejo usa un permiso de aprendizaje de Massachusetts. Un residente de Massachusetts que ya tiene un permiso de aprendizaje de otro estado puede convertirlo si se emitió hace menos de 2 años. El Registry también convierte permisos del Distrito de Columbia, Canadá, México, Puerto Rico y territorios de EE. UU. No convierte un permiso de ningún otro país. Quien no tiene un permiso de otro estado solicita uno nuevo de Massachusetts, que exige aprobar el examen del permiso y no tener licencia ni permiso de otro estado. [Transfiera su permiso de aprendizaje de otro estado a Massachusetts](https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-learners-permit-to-massachusetts). [Solicitar un permiso de aprendizaje de pasajeros Clase D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
   },
   {
     question: "¿Qué programas ofrecen?",
@@ -335,7 +335,7 @@ const faqTestEs: FaqItem[] = [
   {
     question: "¿Cómo reservo un examen de manejo?",
     answer:
-      "Compre el patrocinio del lugar de su examen en la página del examen de manejo y luego llame al (781) 373-1730 para reservar la fecha. Los exámenes del sábado son en la oficina de JMC en Waltham. Los exámenes de lunes a viernes son en sedes del Registry. Llamar primero confirma que la zona y el día siguen disponibles. El horario de oficina es de lunes a viernes, de 10am a 5pm. La tarifa de patrocinio no es reembolsable.",
+      "Llame al (781) 373-1730 antes de comprar y confirme que la zona y la fecha siguen disponibles. Luego compre el patrocinio de ese lugar en la página del examen de manejo. Los exámenes del sábado son en la oficina de JMC en Waltham. Los exámenes de lunes a viernes son en sedes del Registry. El horario de oficina es de lunes a viernes, de 10am a 5pm. La tarifa de patrocinio no es reembolsable.",
   },
   {
     question: "¿Qué pasa si no apruebo mi examen de manejo?",
@@ -457,7 +457,7 @@ const faqProgramsPt: FaqItem[] = [
   {
     question: "O que é a educação para motoristas em Massachusetts?",
     answer:
-      "A educação para motoristas em Massachusetts é o programa que um motorista menor de 18 anos precisa concluir antes de uma carteira Classe D: 30 horas de instrução em sala, 12 horas de prática ao volante, 6 horas de observação e uma aula de 2 horas para o pai, a mãe ou o responsável. A partir dos 18 anos, a educação para motoristas não é obrigatória. A permissão de aprendiz continua necessária antes do exame prático.",
+      "A educação para motoristas em Massachusetts é o programa que um motorista menor de 18 anos precisa concluir antes de uma carteira Classe D: 30 horas de instrução em sala, 12 horas de prática ao volante, 6 horas de observação e uma aula de 2 horas para o pai, a mãe ou o responsável. Um pai, uma mãe ou um responsável que concluiu essa aula nos últimos cinco anos não precisa fazê-la de novo. A partir dos 18 anos, a educação para motoristas não é obrigatória. A permissão de aprendiz continua necessária antes do exame prático.",
   },
   {
     question: "Como Package 1, Package II e Package III se diferenciam?",
@@ -483,7 +483,7 @@ const faqProgramsPt: FaqItem[] = [
   {
     question: "Posso usar uma permissão de outro estado?",
     answer:
-      "Não. O exame prático usa uma permissão de aprendiz de Massachusetts. O Registry exige residência em Massachusetts, aprovação no exame da permissão e nenhuma carteira ou permissão de outro estado. [Solicitar uma permissão de aprendiz de passageiros Classe D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
+      "Não. O exame prático usa uma permissão de aprendiz de Massachusetts. Um residente de Massachusetts que já tem uma permissão de aprendiz de outro estado pode convertê-la se ela foi emitida há menos de 2 anos. O Registry também converte permissões do Distrito de Columbia, do Canadá, do México, de Porto Rico e de territórios dos EUA. Não converte uma permissão de nenhum outro país. Quem não tem uma permissão de outro estado solicita uma nova permissão de Massachusetts, que exige aprovação no exame da permissão e nenhuma carteira ou permissão de outro estado. [Transferir sua permissão de aprendiz de outro estado para Massachusetts](https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-learners-permit-to-massachusetts). [Solicitar uma permissão de aprendiz de passageiros Classe D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
   },
   {
     question: "Quais programas vocês oferecem?",
@@ -560,7 +560,7 @@ const faqTestPt: FaqItem[] = [
   {
     question: "Como eu marco um exame prático?",
     answer:
-      "Compre o patrocínio do local do exame na página do exame prático e depois ligue para (781) 373-1730 para reservar a data. Os exames de sábado são no escritório da JMC em Waltham. Os exames em dias úteis são em postos do Registry. Ligar antes confirma se a região e o dia ainda estão abertos. O horário do escritório é de segunda a sexta, das 10h às 17h. A taxa de patrocínio não é reembolsável.",
+      "Ligue para (781) 373-1730 antes de comprar e confirme se a região e a data ainda estão abertas. Depois compre o patrocínio daquele local na página do exame prático. Os exames de sábado são no escritório da JMC em Waltham. Os exames em dias úteis são em postos do Registry. O horário do escritório é de segunda a sexta, das 10h às 17h. A taxa de patrocínio não é reembolsável.",
   },
   {
     question: "E se eu não passar no exame prático?",
@@ -684,7 +684,7 @@ const faqProgramsHt: FaqItem[] = [
   {
     question: "Kisa edikasyon pou chofè ye nan Massachusetts?",
     answer:
-      "Edikasyon pou chofè nan Massachusetts se pwogram yon chofè ki poko gen 18 an dwe fini anvan yon lisans Klas D: 30 èdtan enstriksyon nan klas, 12 èdtan pratik dèyè volan, 6 èdtan obsèvasyon, ak yon klas 2 èdtan pou paran oswa gadyen. Depi 18 an, edikasyon pou chofè pa obligatwa. Yon pèmi aprantisaj toujou nesesè anvan egzamen wout la.",
+      "Edikasyon pou chofè nan Massachusetts se pwogram yon chofè ki poko gen 18 an dwe fini anvan yon lisans Klas D: 30 èdtan enstriksyon nan klas, 12 èdtan pratik dèyè volan, 6 èdtan obsèvasyon, ak yon klas 2 èdtan pou paran oswa gadyen. Yon paran oswa gadyen ki te fini klas sa a nan senk dènye ane yo pa oblije pran li ankò. Depi 18 an, edikasyon pou chofè pa obligatwa. Yon pèmi aprantisaj toujou nesesè anvan egzamen wout la.",
   },
   {
     question: "Kijan Package 1, Package II, ak Package III diferan?",
@@ -710,7 +710,7 @@ const faqProgramsHt: FaqItem[] = [
   {
     question: "Èske mwen ka itilize yon pèmi ki soti nan yon lòt eta?",
     answer:
-      "Non. Egzamen wout la itilize yon pèmi aprantisaj Massachusetts. Registry a mande rezidans nan Massachusetts, pase egzamen pèmi a, epi pa gen lisans oswa pèmi nan yon lòt eta. [Mande yon pèmi aprantisaj pasaje Klas D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
+      "Non. Egzamen wout la itilize yon pèmi aprantisaj Massachusetts. Yon rezidan Massachusetts ki deja gen yon pèmi aprantisaj nan yon lòt eta ka konvèti pèmi sa a si yo te bay li depi mwens pase 2 an. Registry a konvèti pèmi ki soti nan Distri Columbia, Kanada, Meksik, Pòtoriko, ak teritwa Etazini tou. Li pa konvèti yon pèmi ki soti nan okenn lòt peyi. Moun ki pa gen yon pèmi nan yon lòt eta mande yon nouvo pèmi Massachusetts, ki mande pou pase egzamen pèmi a epi pa gen lisans oswa pèmi nan yon lòt eta. [Transfere pèmi aprantisaj ou ki soti nan yon lòt eta nan Massachusetts](https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-learners-permit-to-massachusetts). [Mande yon pèmi aprantisaj pasaje Klas D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit).",
   },
   {
     question: "Ki pwogram nou ofri?",
@@ -787,7 +787,7 @@ const faqTestHt: FaqItem[] = [
   {
     question: "Kijan mwen rezève yon egzamen wout?",
     answer:
-      "Achte patwonej kote egzamen an sou paj egzamen wout la, epi rele (781) 373-1730 pou rezève dat la. Egzamen samdi yo fèt nan biwo JMC nan Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry. Yon apèl anvan konfime zòn nan ak jou a toujou ouvè. Lè biwo a se lendi rive vandredi, 10am rive 5pm. Frè patwonej la pa ranbousab.",
+      "Rele (781) 373-1730 anvan ou achte, epi konfime zòn nan ak dat la toujou ouvè. Apre sa, achte patwonej kote sa a sou paj egzamen wout la. Egzamen samdi yo fèt nan biwo JMC nan Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry. Lè biwo a se lendi rive vandredi, 10am rive 5pm. Frè patwonej la pa ranbousab.",
   },
   {
     question: "Kisa k rive si mwen echwe egzamen wout la?",

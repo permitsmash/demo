@@ -14,7 +14,7 @@ export const coursesGuideEn: ContentGuide = {
       id: "what-is-drivers-ed",
       heading: "What is driver's ed in Massachusetts?",
       paragraphs: [
-        "Driver's education in Massachusetts is the program a driver under 18 must complete before a Class D license: 30 hours of classroom instruction, 12 hours of behind-the-wheel driving, 6 hours of observation, and a 2-hour parent or guardian class.",
+        "Driver's education in Massachusetts is the program a driver under 18 must complete before a Class D license: 30 hours of classroom instruction, 12 hours of behind-the-wheel driving, 6 hours of observation, and a 2-hour parent or guardian class. A parent or guardian who completed that class within the past five years does not take it again.",
         "At 18 or older, driver's education is not required. A learner's permit is still required before the road test.",
       ],
     },
@@ -70,7 +70,7 @@ export const coursesGuideEs: ContentGuide = {
       id: "what-is-drivers-ed",
       heading: "¿Qué es la educación vial en Massachusetts?",
       paragraphs: [
-        "La educación vial en Massachusetts es el programa que un conductor menor de 18 años debe completar antes de una licencia Clase D: 30 horas de instrucción en el aula, 12 horas de práctica al volante, 6 horas de observación y una clase de 2 horas para el padre, la madre o el tutor.",
+        "La educación vial en Massachusetts es el programa que un conductor menor de 18 años debe completar antes de una licencia Clase D: 30 horas de instrucción en el aula, 12 horas de práctica al volante, 6 horas de observación y una clase de 2 horas para el padre, la madre o el tutor. Un padre, una madre o un tutor que completó esa clase en los últimos cinco años no tiene que tomarla de nuevo.",
         "A partir de los 18 años, la educación vial no es obligatoria. Un permiso de aprendizaje sigue siendo necesario antes del examen de manejo.",
       ],
     },
@@ -126,7 +126,7 @@ export const coursesGuidePt: ContentGuide = {
       id: "what-is-drivers-ed",
       heading: "O que é a educação para motoristas em Massachusetts?",
       paragraphs: [
-        "A educação para motoristas em Massachusetts é o programa que um motorista menor de 18 anos precisa concluir antes de uma carteira Classe D: 30 horas de instrução em sala, 12 horas de prática ao volante, 6 horas de observação e uma aula de 2 horas para o pai, a mãe ou o responsável.",
+        "A educação para motoristas em Massachusetts é o programa que um motorista menor de 18 anos precisa concluir antes de uma carteira Classe D: 30 horas de instrução em sala, 12 horas de prática ao volante, 6 horas de observação e uma aula de 2 horas para o pai, a mãe ou o responsável. Um pai, uma mãe ou um responsável que concluiu essa aula nos últimos cinco anos não precisa fazê-la de novo.",
         "A partir dos 18 anos, a educação para motoristas não é obrigatória. A permissão de aprendiz continua necessária antes do exame prático.",
       ],
     },
@@ -182,7 +182,7 @@ export const coursesGuideHt: ContentGuide = {
       id: "what-is-drivers-ed",
       heading: "Kisa edikasyon pou chofè ye nan Massachusetts?",
       paragraphs: [
-        "Edikasyon pou chofè nan Massachusetts se pwogram yon chofè ki poko gen 18 an dwe fini anvan yon lisans Klas D: 30 èdtan enstriksyon nan klas, 12 èdtan pratik dèyè volan, 6 èdtan obsèvasyon, ak yon klas 2 èdtan pou paran oswa gadyen.",
+        "Edikasyon pou chofè nan Massachusetts se pwogram yon chofè ki poko gen 18 an dwe fini anvan yon lisans Klas D: 30 èdtan enstriksyon nan klas, 12 èdtan pratik dèyè volan, 6 èdtan obsèvasyon, ak yon klas 2 èdtan pou paran oswa gadyen. Yon paran oswa gadyen ki te fini klas sa a nan senk dènye ane yo pa oblije pran li ankò.",
         "Depi 18 an, edikasyon pou chofè pa obligatwa. Yon pèmi aprantisaj toujou nesesè anvan egzamen wout la.",
       ],
     },
@@ -245,7 +245,7 @@ export const roadTestsGuideEn: ContentGuide = {
       id: "road-test-fees",
       heading: "Road test areas and fees",
       paragraphs: [
-        "Saturday tests are held at the JMC office, 973 Main Street, Waltham. Weekday tests are held at Registry of Motor Vehicles sites in Watertown, Lowell, Haverhill, Lawrence, and Milford. The fee depends on the location. Buy the sponsorship on this page, then call the office to reserve the date. A call first is the surest way to confirm that the RMV area, the day, and the open seats still match your plan.",
+        "Saturday tests are held at the JMC office, 973 Main Street, Waltham. Weekday tests are held at Registry of Motor Vehicles sites in Watertown, Lowell, Haverhill, Lawrence, and Milford. The fee depends on the location. Call the office at (781) 373-1730 before you buy, and confirm that the area, the day, and the open seats still match your plan. Then buy the sponsorship on this page to reserve that date.",
       ],
     },
     {
@@ -285,7 +285,7 @@ export const roadTestsGuideEs: ContentGuide = {
       id: "road-test-fees",
       heading: "Zonas y tarifas del examen de manejo",
       paragraphs: [
-        "Los exámenes del sábado se hacen en la oficina de JMC, 973 Main Street, Waltham. Los exámenes de lunes a viernes se hacen en sedes del Registry of Motor Vehicles en Watertown, Lowell, Haverhill, Lawrence y Milford. La tarifa depende del lugar. Compre el patrocinio en esta página y luego llame a la oficina para reservar la fecha. Llamar primero es la forma más segura de confirmar que la zona del RMV, el día y los lugares disponibles siguen coincidiendo con su plan.",
+        "Los exámenes del sábado se hacen en la oficina de JMC, 973 Main Street, Waltham. Los exámenes de lunes a viernes se hacen en sedes del Registry of Motor Vehicles en Watertown, Lowell, Haverhill, Lawrence y Milford. La tarifa depende del lugar. Llame a la oficina al (781) 373-1730 antes de comprar y confirme que la zona del RMV, el día y los lugares disponibles siguen coincidiendo con su plan. Luego compre el patrocinio en esta página para reservar esa fecha.",
       ],
     },
     {
@@ -325,7 +325,7 @@ export const roadTestsGuidePt: ContentGuide = {
       id: "road-test-fees",
       heading: "Regiões e taxas do exame prático",
       paragraphs: [
-        "Os exames de sábado acontecem no escritório da JMC, na 973 Main Street, em Waltham. Os exames em dias úteis acontecem em postos do Registry of Motor Vehicles em Watertown, Lowell, Haverhill, Lawrence e Milford. A taxa depende do local. Compre o patrocínio nesta página e depois ligue para o escritório para reservar a data. Ligar antes é a forma mais segura de confirmar se a região do RMV, o dia e as vagas ainda combinam com o seu plano.",
+        "Os exames de sábado acontecem no escritório da JMC, na 973 Main Street, em Waltham. Os exames em dias úteis acontecem em postos do Registry of Motor Vehicles em Watertown, Lowell, Haverhill, Lawrence e Milford. A taxa depende do local. Ligue para o escritório no (781) 373-1730 antes de comprar e confirme se a região do RMV, o dia e as vagas ainda combinam com o seu plano. Depois compre o patrocínio nesta página para reservar essa data.",
       ],
     },
     {
@@ -365,7 +365,7 @@ export const roadTestsGuideHt: ContentGuide = {
       id: "road-test-fees",
       heading: "Zòn ak frè egzamen wout",
       paragraphs: [
-        "Egzamen samdi yo fèt nan biwo JMC, 973 Main Street, Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry of Motor Vehicles nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Frè a depann de kote a. Achte patwonej la sou paj sa a, epi rele biwo a pou rezève dat la. Yon apèl anvan se fason ki pi sèten pou konfime zòn RMV a, jou a, ak plas ki ouvè yo toujou koresponn ak plan ou.",
+        "Egzamen samdi yo fèt nan biwo JMC, 973 Main Street, Waltham. Egzamen jou lasemèn yo fèt nan lokal Registry of Motor Vehicles nan Watertown, Lowell, Haverhill, Lawrence, ak Milford. Frè a depann de kote a. Rele biwo a nan (781) 373-1730 anvan ou achte, epi konfime zòn RMV a, jou a, ak plas ki ouvè yo toujou koresponn ak plan ou. Apre sa, achte patwonej la sou paj sa a pou rezève dat sa a.",
       ],
     },
     {

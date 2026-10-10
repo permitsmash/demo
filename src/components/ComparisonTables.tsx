@@ -36,13 +36,39 @@ const features: { key: FeatureKey; test: RegExp }[] = [
   { key: "certificate", test: /certificate/i },
 ];
 
-function matchedFeature(line: string): FeatureKey | null {
-  return features.find((feature) => feature.test.test(line))?.key ?? null;
+function featureTest(key: FeatureKey) {
+  return features.find((feature) => feature.key === key)?.test;
 }
 
-function includesFeature(includes: readonly string[], key: FeatureKey) {
-  const test = features.find((feature) => feature.key === key)?.test;
-  return test ? includes.some((line) => test.test(line)) : false;
+function statedQuantity(label: string) {
+  const match = label.match(/\d+/);
+  return match ? Number(match[0]) : null;
+}
+
+function lineHasQuantity(line: string, quantity: number) {
+  return new RegExp(String.raw`(?<!\d)${quantity}(?!\d)`).test(line);
+}
+
+function lineMatchesFeature(line: string, key: FeatureKey, label?: string) {
+  const test = featureTest(key);
+  if (!test?.test(line)) return false;
+  const quantity = label ? statedQuantity(label) : null;
+  return quantity == null || lineHasQuantity(line, quantity);
+}
+
+function matchedFeature(line: string, labels: PackageComparisonLabels): FeatureKey | null {
+  return (
+    features.find((feature) => lineMatchesFeature(line, feature.key, labels[feature.key]))?.key ??
+    null
+  );
+}
+
+function includesFeature(
+  includes: readonly string[],
+  key: FeatureKey,
+  label?: string,
+) {
+  return includes.some((line) => lineMatchesFeature(line, key, label));
 }
 
 function chooseWhen(includes: readonly string[], labels: PackageComparisonLabels) {
@@ -54,13 +80,16 @@ function chooseWhen(includes: readonly string[], labels: PackageComparisonLabels
   return "—";
 }
 
-function extraIncludeRows(packages: readonly CatalogDisplayPackage[]) {
+function extraIncludeRows(
+  packages: readonly CatalogDisplayPackage[],
+  labels: PackageComparisonLabels,
+) {
   const rows: { label: string; present: boolean[] }[] = [];
 
   packages.forEach((pkg, index) => {
     for (const line of pkg.includes) {
       const label = line.trim();
-      if (!label || matchedFeature(label)) continue;
+      if (!label || matchedFeature(label, labels)) continue;
       const key = label.toLowerCase();
       let row = rows.find((entry) => entry.label.toLowerCase() === key);
       if (!row) {
@@ -86,10 +115,12 @@ export function PackageComparisonTable({
   if (packages.length < 2) return null;
 
   const featureRows = features.filter((feature) =>
-    packages.some((pkg) => includesFeature(pkg.includes, feature.key)),
+    packages.some((pkg) =>
+      includesFeature(pkg.includes, feature.key, labels[feature.key]),
+    ),
   );
 
-  const extras = extraIncludeRows(packages);
+  const extras = extraIncludeRows(packages, labels);
 
   return (
     <div className="flex max-w-full flex-col gap-sm">
@@ -116,7 +147,9 @@ export function PackageComparisonTable({
                 >
                   <dt className="text-body-sm text-on-surface-variant">{labels[feature.key]}</dt>
                   <dd className="font-semibold text-primary">
-                    {includesFeature(pkg.includes, feature.key) ? labels.yes : labels.no}
+                    {includesFeature(pkg.includes, feature.key, labels[feature.key])
+                      ? labels.yes
+                      : labels.no}
                   </dd>
                 </div>
               ))}
@@ -177,7 +210,11 @@ export function PackageComparisonTable({
                 {labels[feature.key]}
               </th>
               {packages.map((pkg) => {
-                const included = includesFeature(pkg.includes, feature.key);
+                const included = includesFeature(
+                  pkg.includes,
+                  feature.key,
+                  labels[feature.key],
+                );
                 return (
                   <td key={pkg.catalogId} className={bodyCell}>
                     {included ? labels.yes : labels.no}

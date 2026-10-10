@@ -15,6 +15,7 @@ import {
   type CatalogLessonDisplay,
 } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 import { getLocale } from "@/lib/i18n/get-locale";
 
@@ -175,6 +176,7 @@ export default async function Page() {
   if (!catalog) {
     return (
       <div className="flex flex-col items-center w-full">
+        <RouteAnswerJsonLd pathname="/courses" />
         <section className="w-full bg-surface-container-lowest section-padded">
           <div className="container-page text-center">
             <h1 className="font-h1 text-h1 text-primary">{c.title}</h1>
@@ -193,6 +195,7 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col items-center w-full">
+      <RouteAnswerJsonLd pathname="/courses" />
       <CourseOffersJsonLd
         packages={[...catalog.packages, ...catalog.individualLessons]}
         schoolName={catalog.school.name}

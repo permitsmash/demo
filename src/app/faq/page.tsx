@@ -8,6 +8,7 @@ import { buildLessonFacts, buildTeenPackagesFromCatalog, getSchoolCatalog } from
 import { getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { rmv } from "@/lib/rmv";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -97,6 +98,7 @@ export default async function Page() {
 
   return (
     <>
+      <RouteAnswerJsonLd pathname="/faq" />
       <section className="relative bg-primary section-padded overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-cover bg-center"
