@@ -45,22 +45,44 @@ function statedQuantity(label: string) {
   return match ? Number(match[0]) : null;
 }
 
-function lineHasQuantity(line: string, quantity: number) {
-  return new RegExp(String.raw`(?<!\d)${quantity}(?!\d)`).test(line);
+function featureHits(line: string) {
+  return features.flatMap((feature) => {
+    const match = line.match(feature.test);
+    if (!match || match.index == null) return [];
+    return [{ key: feature.key, index: match.index }];
+  });
+}
+
+function quantitiesForFeature(line: string, key: FeatureKey) {
+  const hits = featureHits(line);
+  const numbers = [...line.matchAll(/\d+/g)].flatMap((match) =>
+    match.index == null ? [] : [{ value: Number(match[0]), index: match.index }],
+  );
+
+  return numbers
+    .filter((number) => {
+      const nearest = hits.reduce((best, hit) =>
+        Math.abs(hit.index - number.index) < Math.abs(best.index - number.index) ? hit : best,
+      );
+      return nearest?.key === key;
+    })
+    .map((number) => number.value);
 }
 
 function lineMatchesFeature(line: string, key: FeatureKey, label?: string) {
   const test = featureTest(key);
   if (!test?.test(line)) return false;
   const quantity = label ? statedQuantity(label) : null;
-  return quantity == null || lineHasQuantity(line, quantity);
+  return quantity == null || quantitiesForFeature(line, key).includes(quantity);
 }
 
 function matchedFeature(line: string, labels: PackageComparisonLabels): FeatureKey | null {
-  return (
-    features.find((feature) => lineMatchesFeature(line, feature.key, labels[feature.key]))?.key ??
-    null
+  const hits = featureHits(line);
+  if (hits.length === 0) return null;
+  const accounted = hits.every((hit) =>
+    lineMatchesFeature(line, hit.key, labels[hit.key]),
   );
+  return accounted ? hits[0].key : null;
 }
 
 function includesFeature(
