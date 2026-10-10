@@ -16,8 +16,6 @@ export type ResourcesContent = {
 import { rmv } from "@/lib/rmv";
 
 const rmvManuals = "https://www.mass.gov/lists/drivers-manuals";
-const learnersPermit = "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit";
-const roadTest = "https://www.mass.gov/how-to/schedule-your-road-test";
 
 export const resourcesEn: ResourcesContent = {
   title: "Massachusetts driving resources",
@@ -36,13 +34,13 @@ export const resourcesEn: ResourcesContent = {
       title: "Apply for a learner's permit",
       description:
         "How to apply for a Class D learner's permit, including age, documents, and the knowledge test.",
-      href: learnersPermit,
+      href: rmv.learnersPermit,
     },
     {
       title: "Schedule a road test",
       description:
         "How the Massachusetts road test is scheduled, and what the RMV expects on test day.",
-      href: roadTest,
+      href: rmv.scheduleRoadTest,
     },
     {
       title: "Driver education rules, 540 CMR 23.00",
@@ -104,13 +102,13 @@ export const resourcesEs: ResourcesContent = {
       title: "Solicitar un permiso de aprendizaje",
       description:
         "Cómo solicitar un permiso de aprendizaje Clase D, incluida la edad, los documentos y el examen de conocimientos.",
-      href: learnersPermit,
+      href: rmv.learnersPermit,
     },
     {
       title: "Programar un examen de manejo",
       description:
         "Cómo se programa el examen de manejo de Massachusetts y qué espera el RMV el día del examen.",
-      href: roadTest,
+      href: rmv.scheduleRoadTest,
     },
     {
       title: "Reglas de educación vial, 540 CMR 23.00",
@@ -172,13 +170,13 @@ export const resourcesPt: ResourcesContent = {
       title: "Solicitar a permissão de aprendiz",
       description:
         "Como solicitar uma permissão de aprendiz Classe D, incluindo idade, documentos e o teste de conhecimentos.",
-      href: learnersPermit,
+      href: rmv.learnersPermit,
     },
     {
       title: "Agendar o exame prático",
       description:
         "Como o exame prático de Massachusetts é agendado e o que o RMV espera no dia do exame.",
-      href: roadTest,
+      href: rmv.scheduleRoadTest,
     },
     {
       title: "Regras de educação para motoristas, 540 CMR 23.00",
@@ -240,13 +238,13 @@ export const resourcesHt: ResourcesContent = {
       title: "Mande yon pèmi aprantisaj",
       description:
         "Kijan pou mande yon pèmi aprantisaj Klas D, ansanm ak laj, dokiman, ak egzamen konesans lan.",
-      href: learnersPermit,
+      href: rmv.learnersPermit,
     },
     {
       title: "Pwograme yon egzamen wout",
       description:
         "Kijan egzamen wout Massachusetts la pwograme, ak sa RMV la tann jou egzamen an.",
-      href: roadTest,
+      href: rmv.scheduleRoadTest,
     },
     {
       title: "Règ edikasyon pou chofè, 540 CMR 23.00",

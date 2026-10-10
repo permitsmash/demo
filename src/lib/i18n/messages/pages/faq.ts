@@ -111,7 +111,7 @@ const faqTestEn: FaqItem[] = [
   {
     question: "Where can I practice for the permit test?",
     answer:
-      "You can use our Resources page for study guides and practice materials, and the main JMC Driving School site also links to official permit practice tests. These tools are a great way to prepare before scheduling your permit exam.",
+      "Study the Massachusetts Driver's Manual from the Registry of Motor Vehicles. That is the book for the learner's permit exam: [Driver's manuals](https://www.mass.gov/lists/drivers-manuals).",
   },
 ];
 
@@ -310,7 +310,7 @@ const faqTestEs: FaqItem[] = [
   {
     question: "¿Dónde puedo practicar para el examen de permiso?",
     answer:
-      "Puede usar nuestra página de Recursos para guías de estudio y materiales de práctica, y el sitio principal de JMC Driving School también enlaza a exámenes de práctica oficiales de permiso. Estas herramientas son una excelente forma de prepararse antes de programar su examen de permiso.",
+      "Estudie el manual del conductor de Massachusetts del Registry of Motor Vehicles. Es el libro para el examen del permiso de aprendizaje: [Manuales del conductor](https://www.mass.gov/lists/drivers-manuals).",
   },
 ];
 
@@ -510,7 +510,7 @@ const faqTestPt: FaqItem[] = [
   {
     question: "Onde posso praticar para o exame de permissão?",
     answer:
-      "Você pode usar nossa página de Recursos para guias de estudo e materiais de prática, e o site principal da JMC Driving School também vincula a testes oficiais de prática de permissão. Essas ferramentas são ótimas para se preparar antes de agendar seu exame de permissão.",
+      "Estude o manual do motorista de Massachusetts do Registry of Motor Vehicles. É o livro para o exame da permissão de aprendiz: [Manuais do motorista](https://www.mass.gov/lists/drivers-manuals).",
   },
 ];
 
@@ -712,7 +712,7 @@ const faqTestHt: FaqItem[] = [
   {
     question: "Kote mwen ka pratike pou egzamen pèmi a?",
     answer:
-      "Ou ka itilize paj Resous nou an pou gid etid ak materyèl pratik, epi sit prensipal JMC Driving School la gen lyen tou pou tès pratik pèmi ofisyèl yo. Zouti sa yo se yon bon fason pou prepare anvan ou pran randevou pou egzamen pèmi ou an.",
+      "Etidye Manyèl Chofè Massachusetts nan Registry of Motor Vehicles. Se liv sa a pou egzamen pèmi aprantisaj la: [Manyèl chofè yo](https://www.mass.gov/lists/drivers-manuals).",
   },
 ];
 

@@ -320,7 +320,7 @@ export const roadTestsGuideHt: ContentGuide = {
       id: "failed-road-test",
       heading: "Si ou pa pase",
       paragraphs: [
-        "Si egzaminatè a pa pase egzamen wout Klas D la, Registry of Motor Vehicles mande yon datant de semèn anvan yon lòt egzamen. Yon moun pa ka eseye plis pase sis egzamen Klas D nan yon peryòd 12 mwa. Frè egzamen Registry a se $35, epi frè eta sa a pa ranbouse apre yon echèk, yon rive an reta, yon absans, oswa yon anilasyon ak mwens pase 72 èdtan avi. Règ sa yo sou [Pwograme egzamen wout ou](https://www.mass.gov/how-to/schedule-your-road-test) ak [Egzamen wout pasaje Klas D](https://www.mass.gov/info-details/passenger-class-d-road-tests).",
+        "Si ou pa pase egzamen wout Klas D la, Registry of Motor Vehicles mande yon datant de semèn anvan yon lòt egzamen. Yon moun pa ka eseye plis pase sis egzamen Klas D nan yon peryòd 12 mwa. Frè egzamen Registry a se $35, epi frè eta sa a pa ranbouse apre yon echèk, yon rive an reta, yon absans, oswa yon anilasyon ak mwens pase 72 èdtan avi. Règ sa yo sou [Pwograme egzamen wout ou](https://www.mass.gov/how-to/schedule-your-road-test) ak [Egzamen wout pasaje Klas D](https://www.mass.gov/info-details/passenger-class-d-road-tests).",
         "Frè patwonej JMC ki sou paj sa a pa ranbousab non plis. Yon lòt egzamen nan yon machin lekòl la vle di achte patwonej kote sa a ankò epi rele biwo a pou rezève nouvo dat la. Yon leson pratik anvan dat sa a ka revize manèv premye egzamen an. Chofè ki deja gen eksperyans ta dwe toujou pran omwen de leson anvan jou egzamen an. Leson sa yo rezève sou paj pwogram yo, epi yo kòmanse epi fini nan biwo Waltham.",
       ],
     },

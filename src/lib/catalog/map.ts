@@ -164,7 +164,7 @@ function firstClassDate(batch: PublicCatalogBatch) {
   return classCalendarDates(batch)[0] ?? calendarDate(batch.startDate) ?? batch.startDate ?? null;
 }
 
-function todayIsoDate() {
+export function todayIsoDate() {
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/New_York",
     year: "numeric",

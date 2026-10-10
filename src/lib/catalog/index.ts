@@ -18,6 +18,7 @@ export {
   legacyProductIdForName,
   parseCustomerIncludes,
   resolveLiveEnrollmentProduct,
+  todayIsoDate,
   type CatalogAddonDisplay,
   type CatalogDisplayPackage,
   type CatalogLessonDisplay,

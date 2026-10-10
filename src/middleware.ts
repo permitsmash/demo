@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { localizedPath, splitLocalePrefix } from "@/lib/i18n/paths";
-import { defaultLocale, isValidLocale, LOCALE_COOKIE, type Locale } from "@/lib/i18n/locales";
+import { splitLocalePrefix } from "@/lib/i18n/paths";
+import { defaultLocale, LOCALE_COOKIE, type Locale } from "@/lib/i18n/locales";
 
 const COOKIE_OPTIONS = {
   path: "/",
@@ -10,9 +10,11 @@ const COOKIE_OPTIONS = {
 
 function isLocaleNeutral(pathname: string) {
   return (
-    pathname.startsWith("/api") ||
+    pathname === "/api" ||
+    pathname.startsWith("/api/") ||
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/enroll") ||
+    pathname === "/enroll" ||
+    pathname.startsWith("/enroll/") ||
     pathname === "/sitemap.xml" ||
     pathname === "/robots.txt" ||
     pathname === "/favicon.ico"
@@ -48,16 +50,11 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  const cookie = request.cookies.get(LOCALE_COOKIE)?.value;
-  if (isValidLocale(cookie) && cookie !== defaultLocale) {
-    const url = request.nextUrl.clone();
-    url.pathname = localizedPath(cookie, pathname);
-    return NextResponse.redirect(url);
-  }
-
-  return NextResponse.next({
+  const response = NextResponse.next({
     request: { headers: withLocaleHeaders(request, defaultLocale, pathname) },
   });
+  response.cookies.set(LOCALE_COOKIE, defaultLocale, COOKIE_OPTIONS);
+  return response;
 }
 
 export const config = {

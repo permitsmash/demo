@@ -1,5 +1,5 @@
 import { JsonLd } from "@/components/JsonLd";
-import { buildScheduledClassFacts } from "@/lib/catalog";
+import { buildScheduledClassFacts, todayIsoDate } from "@/lib/catalog";
 import type { PublicSchoolCatalog } from "@/lib/catalog/types";
 import { site } from "@/lib/site";
 
@@ -17,7 +17,10 @@ export function ClassSessionsJsonLd({
     zip: string;
   };
 }) {
-  const sessions = buildScheduledClassFacts(catalog);
+  const today = todayIsoDate();
+  const sessions = buildScheduledClassFacts(catalog).filter(
+    (session) => session.endDate >= today,
+  );
   if (sessions.length === 0) return null;
 
   return (
