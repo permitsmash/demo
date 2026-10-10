@@ -82,6 +82,10 @@ const SCHOOL_TIME_ZONE = "America/New_York";
 
 function calendarDate(value: string) {
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  const localDate = value.match(/^(\d{4}-\d{2}-\d{2})(?:T|\s)/);
+  if (localDate && !/[zZ]|[+-]\d{2}:?\d{2}$/.test(value)) {
+    return localDate[1];
+  }
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   return new Intl.DateTimeFormat("en-CA", {
@@ -97,6 +101,7 @@ function classCalendarDates(batch: PublicCatalogBatch) {
     ...new Set(
       (batch.schedule?.classes ?? [])
         .map((entry) => entry.date)
+        .map((date) => (date ? (calendarDate(date) ?? date) : null))
         .filter((date): date is string => Boolean(date)),
     ),
   ].sort();
@@ -247,8 +252,9 @@ function scheduleDetailsFromBatch(batch: PublicCatalogBatch) {
   }
 
   return classes.map((entry) => {
-    const dateLabel = entry.date
-      ? new Date(`${entry.date}T12:00:00`).toLocaleDateString("en-US", {
+    const date = entry.date ? calendarDate(entry.date) : null;
+    const dateLabel = date
+      ? new Date(`${date}T12:00:00`).toLocaleDateString("en-US", {
           weekday: "short",
           month: "short",
           day: "numeric",
