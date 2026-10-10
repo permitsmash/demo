@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqCategoryNav } from "@/components/FaqCategoryNav";
-import { getSchoolCatalog } from "@/lib/catalog";
-import { getMessages } from "@/lib/i18n";
+import { JsonLd } from "@/components/JsonLd";
+import { LessonFactsList } from "@/components/LessonFactsList";
+import { OfficialSourceLink, OfficialText, plainOfficialText } from "@/components/OfficialText";
+import { buildLessonFacts, buildTeenPackageFacts, getSchoolCatalog } from "@/lib/catalog";
+import { getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { rmv } from "@/lib/rmv";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,7 +18,21 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function FaqItems({ items }: { items: readonly { question: string; answer: string }[] }) {
+function FaqItems({
+  items,
+  lessonFacts,
+  teenPackageFacts,
+  classroomAgeLabel,
+}: {
+  items: readonly {
+    question: string;
+    answer: string;
+    source?: "lessonLength" | "classroomAge" | "teenPackages";
+  }[];
+  lessonFacts: ReturnType<typeof buildLessonFacts>;
+  teenPackageFacts: ReturnType<typeof buildTeenPackageFacts>;
+  classroomAgeLabel: string;
+}) {
   return (
     <div className="flex flex-col gap-sm">
       {items.map((item) => (
@@ -26,7 +44,24 @@ function FaqItems({ items }: { items: readonly { question: string; answer: strin
             </span>
           </summary>
           <div className="accordion-body">
-            <p>{item.answer}</p>
+            <p>
+              <OfficialText text={item.answer} />
+            </p>
+            {item.source === "lessonLength" ? (
+              <div className="mt-sm">
+                <LessonFactsList facts={lessonFacts} />
+              </div>
+            ) : null}
+            {item.source === "teenPackages" ? (
+              <div className="mt-sm">
+                <LessonFactsList facts={teenPackageFacts} />
+              </div>
+            ) : null}
+            {item.source === "classroomAge" ? (
+              <p className="mt-sm">
+                <OfficialSourceLink href={rmv.classroomAge} label={classroomAgeLabel} />
+              </p>
+            ) : null}
           </div>
         </details>
       ))}
@@ -51,11 +86,49 @@ const categorySections = [
 ] as const;
 
 export default async function Page() {
-  const messages = getMessages(await getLocale());
-  const { faqPage: f } = messages;
+  const locale = await getLocale();
+  const messages = getMessages(locale);
+  const catalog = await getSchoolCatalog();
+  const lessonFacts = buildLessonFacts(catalog);
+  const teenPackageFacts = buildTeenPackageFacts(catalog);
+  const { faqPage: f, common } = messages;
+  const faqEntities = categorySections.flatMap((section) =>
+    f.categories[section.itemsKey].map((item) => {
+      const facts =
+        item.source === "lessonLength"
+          ? lessonFacts
+          : item.source === "teenPackages"
+            ? teenPackageFacts
+            : [];
+      const details = facts
+        .map((fact) => [fact.name, fact.priceLabel, ...fact.details].join(". "))
+        .join(" ");
+      return {
+        "@type": "Question" as const,
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer" as const,
+          text: [
+            plainOfficialText(item.answer),
+            details,
+            item.source === "classroomAge" ? `Source: ${rmv.classroomAge}` : "",
+          ]
+            .filter(Boolean)
+            .join(" "),
+        },
+      };
+    }),
+  );
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqEntities,
+        }}
+      />
       <section className="relative bg-primary section-padded overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-cover bg-center"
@@ -99,7 +172,12 @@ export default async function Page() {
                   </span>
                   <h2 className="font-h2 text-h2 text-primary">{f[section.labelKey]}</h2>
                 </div>
-                <FaqItems items={f.categories[section.itemsKey]} />
+                <FaqItems
+                  items={f.categories[section.itemsKey]}
+                  lessonFacts={lessonFacts}
+                  teenPackageFacts={teenPackageFacts}
+                  classroomAgeLabel={common.sourceClassroomAge}
+                />
               </div>
             ))}
           </div>
@@ -111,7 +189,7 @@ export default async function Page() {
           <span className="material-symbols-outlined icon-2xl text-primary mb-sm">support_agent</span>
           <h2 className="font-h2 text-h2 text-primary mb-sm">{f.ctaTitle}</h2>
           <p className="text-body-md text-on-surface-variant mb-lg">{f.ctaDesc}</p>
-          <Link href="/contact" className="btn-primary w-full sm:w-auto">
+          <Link href={localizedPath(locale, "/contact")} className="btn-primary w-full sm:w-auto">
             {f.contactSupport}
           </Link>
         </div>

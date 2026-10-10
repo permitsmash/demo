@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { ClassSessionsJsonLd } from "@/components/ClassSessionsJsonLd";
 import { ClassSessionsPanel } from "@/components/ClassSessionsPanel";
+import { PageGuide } from "@/components/PageGuide";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
@@ -24,6 +26,11 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col items-center w-full">
+      <ClassSessionsJsonLd
+        catalog={catalog}
+        schoolName={liveSite.name}
+        address={liveSite.address}
+      />
       <section className="w-full bg-surface-container-lowest border-b border-outline-variant section-padded">
         <div className="container-page flex flex-col gap-md">
           <div className="flex flex-col gap-xs">
@@ -133,6 +140,8 @@ export default async function Page() {
           </div>
         </div>
       </section>
+
+      <PageGuide title={c.guide.title} sections={c.guide.sections} />
     </div>
   );
 }

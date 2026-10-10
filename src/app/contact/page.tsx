@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { LessonFactsList } from "@/components/LessonFactsList";
+import { PageGuide } from "@/components/PageGuide";
 import PageHeader from "@/components/PageHeader";
-import { buildLiveSite, getSchoolCatalog, getContactApiUrl } from "@/lib/catalog";
+import { buildLessonFacts, buildLiveSite, getSchoolCatalog, getContactApiUrl } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
@@ -116,6 +118,12 @@ export default async function Page() {
           </div>
         </div>
       </section>
+
+      <PageGuide
+        title={contact.guide.title}
+        sections={contact.guide.sections}
+        after={<LessonFactsList facts={buildLessonFacts(catalog)} />}
+      />
     </>
   );
 }

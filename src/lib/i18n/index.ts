@@ -1,6 +1,7 @@
 export { formatMessage } from "./format-message";
 export { getMessages } from "./messages";
 export type { Messages } from "./messages";
+export { languageAlternates, localizedPath, splitLocalePrefix } from "./paths";
 export {
   defaultLocale,
   isValidLocale,

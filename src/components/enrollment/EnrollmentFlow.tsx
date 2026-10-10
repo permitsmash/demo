@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ClassScheduleDialog } from "@/components/ClassScheduleDialog";
 import { useLocale } from "@/components/LocaleProvider";
+import { localizedPath } from "@/lib/i18n";
 import {
   formatUsd,
   HIGH_SCHOOLS,
@@ -372,7 +373,7 @@ export function EnrollmentFlow({
   enrollmentAddons,
 }: EnrollmentFlowProps) {
   const router = useRouter();
-  const { messages } = useLocale();
+  const { locale, messages } = useLocale();
   const e = messages.enrollment;
   const formTopRef = useRef<HTMLDivElement>(null);
   const isFirstStepRender = useRef(true);
@@ -440,7 +441,7 @@ export function EnrollmentFlow({
         {backButton}
         <div className="card text-center flex flex-col gap-md items-center">
           <p className="text-body-md text-on-surface-variant">{e.selectProduct}</p>
-          <Link href="/courses" className="btn-primary">
+          <Link href={localizedPath(locale, "/courses")} className="btn-primary">
             {e.browsePrograms}
           </Link>
         </div>

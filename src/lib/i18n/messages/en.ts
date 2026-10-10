@@ -3,13 +3,14 @@ import { roadTestsEn, type RoadTestsMessages } from "./pages/roadTests";
 import { classesEn, type ClassesMessages } from "./pages/classes";
 import { faqPageEn } from "./pages/faq";
 import { legalEn } from "./pages/legal";
-import { resourcesEn } from "./pages/resources";
+import { resourcesEn, type ResourcesContent } from "./pages/resources";
 import {
   ageCheckerEn,
   authEn,
   careersEn,
 } from "./pages/misc";
 import { enrollmentEn, type EnrollmentMessages } from "./pages/enrollment";
+import { aboutGuideEn, contactGuideEn, type ContentGuide } from "./pages/guides";
 
 export const en = {
   nav: {
@@ -44,6 +45,9 @@ export const en = {
     viewPrograms: "View Programs",
     enrollNow: "Enroll in driver's ed",
     viewAllFaqs: "View all FAQs",
+    sourceClassroomAge: "Driver education rules, 540 CMR 23.00",
+    sourceJuniorOperator: "Junior operator license requirements",
+    sourceRoadTest: "Passenger Class D road tests",
     googleReviews: "({count}+ Google reviews)",
     googleReviewsAria: "{rating} out of 5 stars from {count} plus Google reviews",
     address: "Address",
@@ -83,8 +87,8 @@ export const en = {
       "Accelerated course dates are temporarily unavailable. Please call the office or check the class schedule page.",
     seatLeft: "1 seat left",
     seatsLeft: "{count} seats left",
-    onlySeatLeft: "Only 1 seat left. Class starts {date}.",
-    onlySeatsLeft: "Only {count} seats left. Class starts {date}.",
+    onlySeatLeft: "Only 1 seat left in {name}. First class is {date}.",
+    onlySeatsLeft: "Only {count} seats left in {name}. First class is {date}.",
     licensePathTitle: "Steps to a Massachusetts license",
     licensePathIntro: "See the steps for your age.",
     pathUnder18: "Under 18",
@@ -147,6 +151,7 @@ export const en = {
         question: "What age can a student start driver's ed?",
         answer:
           "Classroom can start at 15 years and 9 months. A learner's permit is required before any on-road lesson, and you must be at least 16 to get that permit.",
+        source: "classroomAge",
       },
       {
         question: "What should a student bring to the first on-road lesson?",
@@ -184,9 +189,15 @@ export const en = {
       "Register online, by phone, or in person. We offer accelerated courses and in-person classes with limited slots.",
     roadTestDesc:
       "Road test sponsorship available at our Waltham office and RMV locations including Watertown, Lowell, and more.",
+    schoolTitle: "The school",
+    schoolP1:
+      "JMC Driving School has taught teens and adults from 973 Main Street in Waltham since 2011. Classroom driver's education, behind-the-wheel lessons, and Massachusetts road test sponsorship are arranged from that office.",
+    schoolP2:
+      "State-certified instructors teach the lessons. The office can help in English, Portuguese, Spanish, and Haitian Creole.",
     ctaTitle: "Ready to start your journey?",
     ctaDesc:
       "Contact our office to check availability for in-person Driver's Ed classes and accelerated courses.",
+    guide: aboutGuideEn,
   },
   contact: {
     title: "Contact {name}",
@@ -220,6 +231,7 @@ export const en = {
     validationRequired: "Please fill in all required fields.",
     validationEmail: "Please enter a valid email address.",
     validationPhone: "Please enter a valid phone number.",
+    guide: contactGuideEn,
   },
   site: {
     tagline: "Learn to Drive with Confidence",
@@ -242,23 +254,29 @@ export const en = {
 } as const;
 
 type HomeStringKey = Exclude<keyof typeof en.home, "faqs">;
+type AboutStringKey = Exclude<keyof typeof en.about, "guide">;
+type ContactStringKey = Exclude<keyof typeof en.contact, "guide">;
 
 export type Messages = {
   nav: { [K in keyof typeof en.nav]: string };
   footer: { [K in keyof typeof en.footer]: string };
   common: { [K in keyof typeof en.common]: string };
   home: { [K in HomeStringKey]: string } & {
-    faqs: readonly { question: string; answer: string }[];
+    faqs: readonly {
+      question: string;
+      answer: string;
+      source?: "classroomAge";
+    }[];
   };
-  about: { [K in keyof typeof en.about]: string };
-  contact: { [K in keyof typeof en.contact]: string };
+  about: { [K in AboutStringKey]: string } & { guide: ContentGuide };
+  contact: { [K in ContactStringKey]: string } & { guide: ContentGuide };
   site: { [K in keyof typeof en.site]: string };
   courses: CoursesMessages;
   roadTests: RoadTestsMessages;
   classes: ClassesMessages;
   faqPage: typeof faqPageEn;
   legal: { [K in keyof typeof en.legal]: string };
-  resources: { [K in keyof typeof en.resources]: string };
+  resources: ResourcesContent;
   careers: { [K in keyof typeof en.careers]: string };
   auth: { [K in keyof typeof en.auth]: string };
   ageChecker: { [K in keyof typeof en.ageChecker]: string };

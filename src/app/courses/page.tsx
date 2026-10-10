@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import aboutInclass from "@/app/about-inclass.png";
+import { CourseOffersJsonLd } from "@/components/CourseOffersJsonLd";
+import { LessonFactsList } from "@/components/LessonFactsList";
 import { LessonQuantityBuy } from "@/components/LessonQuantityBuy";
+import { PageGuide } from "@/components/PageGuide";
 import {
   buildAdultPackagesFromCatalog,
   buildLessonsFromCatalog,
+  buildTeenPackageFacts,
   buildTeenPackagesFromCatalog,
   getSchoolCatalog,
   type CatalogDisplayPackage,
@@ -168,6 +172,11 @@ export default async function Page() {
   const messages = getMessages(await getLocale());
   const catalog = await getSchoolCatalog();
   const c = messages.courses;
+  const teenPackageFacts = buildTeenPackageFacts(catalog);
+  const packageGuideLeads =
+    teenPackageFacts.length > 0
+      ? { "teen-packages": <LessonFactsList facts={teenPackageFacts} /> }
+      : undefined;
 
   if (!catalog) {
     return (
@@ -178,6 +187,7 @@ export default async function Page() {
           </div>
         </section>
         <EmptyCatalogMessage message={c.emptyCatalog} />
+        <PageGuide title={c.guide.title} sections={c.guide.sections} leads={packageGuideLeads} />
       </div>
     );
   }
@@ -189,6 +199,11 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col items-center w-full">
+      <CourseOffersJsonLd
+        packages={[...catalog.packages, ...catalog.individualLessons]}
+        schoolName={catalog.school.name}
+        currency={catalog.school.currency}
+      />
       <section className="relative w-full bg-surface-container-lowest overflow-hidden section-padded">
         <div className="relative container-page text-center flex flex-col items-center gap-md">
           <h1 className="font-h1 text-h1 text-primary">{c.title}</h1>
@@ -278,6 +293,8 @@ export default async function Page() {
           </div>
         </section>
       ) : null}
+
+      <PageGuide title={c.guide.title} sections={c.guide.sections} leads={packageGuideLeads} />
 
       <section className="w-full section">
         <div className="container-page">

@@ -1,3 +1,5 @@
+import { classesGuideEn, classesGuideEs, classesGuidePt, classesGuideHt, type ContentGuide } from "./guides";
+
 export const classesEn = {
   label: "Important updates",
   title: "Driver's Ed: Accelerated Courses",
@@ -39,14 +41,16 @@ export const classesEn = {
   roadTestNonRefundable: "ROAD TEST FEE IS NON-REFUNDABLE.",
   needHelp: "Need help?",
   needHelpDesc: "Call our office at {phone} during office hours ({hours}) and we'll help you find the right class.",
+  guide: classesGuideEn,
 } as const;
 
 export type ClassesMessages = {
-  [K in Exclude<keyof typeof classesEn, "scheduleTable">]: string;
+  [K in Exclude<keyof typeof classesEn, "scheduleTable" | "guide">]: string;
 } & {
   scheduleTable: {
     [K in keyof (typeof classesEn)["scheduleTable"]]: string;
   };
+  guide: ContentGuide;
 };
 
 export const classesEs: ClassesMessages = {
@@ -92,6 +96,7 @@ export const classesEs: ClassesMessages = {
   needHelp: "¿Necesita ayuda?",
   needHelpDesc:
     "Llame a nuestra oficina al {phone} durante el horario de oficina ({hours}) y le ayudaremos a encontrar la clase adecuada.",
+  guide: classesGuideEs,
 };
 
 export const classesPt: ClassesMessages = {
@@ -138,6 +143,7 @@ export const classesPt: ClassesMessages = {
   needHelp: "Precisa de ajuda?",
   needHelpDesc:
     "Ligue para nosso escritório no {phone} durante o horário de atendimento ({hours}) e ajudaremos você a encontrar a aula certa.",
+  guide: classesGuidePt,
 };
 
 export const classesHt: ClassesMessages = {
@@ -182,4 +188,5 @@ export const classesHt: ClassesMessages = {
   needHelp: "Ou bezwen èd?",
   needHelpDesc:
     "Rele biwo nou an nan {phone} pandan lè biwo a ({hours}) epi n ap ede ou jwenn klas ki bon pou ou.",
+  guide: classesGuideHt,
 };

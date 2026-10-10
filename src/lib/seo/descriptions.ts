@@ -81,8 +81,6 @@ export function buildSeoDescriptions(catalog: PublicSchoolCatalog | null) {
     faq: pkg
       ? `Find answers about programs, lesson scheduling, road tests, and packages from ${pkg}. Still have a question? Call ${phone} and we will help today.`
       : `Find answers about programs, lesson scheduling, road tests, and school policies. Still have a question? Call ${phone} and we will help you today.`,
-    resources: lesson
-      ? `Practice with Driver's Ed study guides, road-sign quizzes, and maneuver tips. Ready for lessons from ${lesson}? Call ${phone} to book a lesson in ${city}.`
-      : `Practice with our Driver's Ed study guides, road-sign quizzes, and maneuver tips before your test. Call ${phone} to book a lesson in ${city} today.`,
+    resources: `Study with the official Massachusetts driver's manuals, learner's permit steps, and road test instructions. Ready to train in ${city}? Call ${phone}.`,
   };
 }

@@ -17,6 +17,15 @@ export const site = {
   },
   officeHours: "Mon-Fri 10am-5pm",
   cancellationHours: "Mon-Fri 10am-5pm",
+  geo: {
+    latitude: 42.3764522,
+    longitude: -71.2506378,
+  },
+  social: {
+    facebook: "https://www.facebook.com/jmcdrivingschoolwaltham/",
+    instagram: "https://www.instagram.com/jmcdrivingschool/",
+    google: "https://share.google/walG9H7oKCVzlVqPS",
+  },
   roadTestLocations: [
     {
       name: "JMC Office",
@@ -55,20 +64,6 @@ export const site = {
       address: "138 S Main St., Milford, MA 01757",
       image: "/rmv/milford.png",
       mapsUrl: "https://maps.app.goo.gl/C1kZMWREwe3sSopA8",
-    },
-  ],
-  acceleratedCourses: [
-    {
-      label: "August Session",
-      dates: "August 10th, 11th, 12th, 13th, 14th",
-    },
-    {
-      label: "October Session",
-      dates: "October 12th, 13th, 14th, 15th, 16th, 19th, 20th",
-    },
-    {
-      label: "December Session",
-      dates: "December 24th, 28th, 29th, 30th, 31st",
     },
   ],
   googleReviews: {

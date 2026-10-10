@@ -4,14 +4,16 @@ import Image from "next/image";
 import { GoogleMark } from "@/components/GoogleMark";
 import { AttentionAvatar3D } from "@/components/AttentionAvatar3DClient";
 import { HomepageJsonLd } from "@/components/HomepageJsonLd";
+import { OfficialSourceLink } from "@/components/OfficialText";
 import { ReviewScroller } from "@/components/ReviewScroller";
 import { HomeBatchCards } from "@/components/HomeBatchCards";
 import { LicensePath } from "@/components/LicensePath";
 import { HeroReviewCycle } from "@/components/HeroReviewCycle";
 import { buildHomeBatchCards, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
-import { formatMessage, getMessages } from "@/lib/i18n";
+import { formatMessage, getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
+import { rmv } from "@/lib/rmv";
 import { site } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,7 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const messages = getMessages(await getLocale());
+  const locale = await getLocale();
+  const messages = getMessages(locale);
   const catalog = await getSchoolCatalog();
   const liveSite = buildLiveSite(catalog);
   const homeBatches = buildHomeBatchCards(catalog);
@@ -31,7 +34,7 @@ export default async function Page() {
 
   return (
     <>
-      <HomepageJsonLd site={liveSite} description={buildSeoDescriptions(catalog).home} />
+      <HomepageJsonLd faqs={home.faqs} />
 
       <section className="hero-section relative overflow-hidden flex items-center">
         <Image
@@ -72,7 +75,7 @@ export default async function Page() {
             </a>
             <HeroReviewCycle reviews={reviews} />
             <div className="flex flex-col sm:flex-row gap-sm mt-sm justify-center">
-              <Link href="/courses" className="btn-primary pressable">
+              <Link href={localizedPath(locale, "/courses")} className="btn-primary pressable">
                 {nav.enroll}
               </Link>
               <a href={`tel:${liveSite.phoneTel}`} className="btn-outline-inverse pressable">
@@ -94,11 +97,11 @@ export default async function Page() {
             </h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto">
               {home.acceleratedDescPrefix}{" "}
-              <Link href="/courses" className="text-secondary-container font-semibold hover:underline">
+              <Link href={localizedPath(locale, "/courses")} className="text-secondary-container font-semibold hover:underline">
                 {home.drivingPrograms}
               </Link>{" "}
               {home.acceleratedDescJoin}{" "}
-              <Link href="/classes" className="text-secondary-container font-semibold hover:underline">
+              <Link href={localizedPath(locale, "/classes")} className="text-secondary-container font-semibold hover:underline">
                 {home.classSchedule}
               </Link>{" "}
               {home.acceleratedDescSuffix}
@@ -240,12 +243,17 @@ export default async function Page() {
                 </summary>
                 <div className="accordion-body">
                   <p>{item.answer}</p>
+                  {"source" in item && item.source === "classroomAge" ? (
+                    <p className="mt-sm">
+                      <OfficialSourceLink href={rmv.classroomAge} label={common.sourceClassroomAge} />
+                    </p>
+                  ) : null}
                 </div>
               </details>
             ))}
           </div>
           <div className="text-center mt-lg">
-            <Link href="/faq" className="btn-link">
+            <Link href={localizedPath(locale, "/faq")} className="btn-link">
               {common.viewAllFaqs}
               <span className="material-symbols-outlined icon-base">arrow_forward</span>
             </Link>

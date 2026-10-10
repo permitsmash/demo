@@ -11,6 +11,7 @@ import {
   careersEs,
 } from "./pages/misc";
 import { enrollmentEs } from "./pages/enrollment";
+import { aboutGuideEs, contactGuideEs } from "./pages/guides";
 
 export const es: Messages = {
   nav: {
@@ -45,6 +46,9 @@ export const es: Messages = {
     viewPrograms: "Ver programas",
     enrollNow: "Inscribirse en educación vial",
     viewAllFaqs: "Ver todas las preguntas frecuentes",
+    sourceClassroomAge: "Reglas de educación vial, 540 CMR 23.00",
+    sourceJuniorOperator: "Requisitos de la licencia de operador junior",
+    sourceRoadTest: "Exámenes de manejo de pasajeros Clase D",
     googleReviews: "({count}+ reseñas de Google)",
     googleReviewsAria: "{rating} de 5 estrellas de más de {count} reseñas de Google",
     address: "Dirección",
@@ -84,8 +88,8 @@ export const es: Messages = {
       "Las fechas de cursos acelerados no están disponibles temporalmente. Llame a la oficina o consulte la página de calendario de clases.",
     seatLeft: "1 lugar disponible",
     seatsLeft: "{count} lugares disponibles",
-    onlySeatLeft: "Solo queda 1 lugar. La clase empieza el {date}.",
-    onlySeatsLeft: "Solo quedan {count} lugares. La clase empieza el {date}.",
+    onlySeatLeft: "Solo queda 1 lugar en {name}. La primera clase es el {date}.",
+    onlySeatsLeft: "Solo quedan {count} lugares en {name}. La primera clase es el {date}.",
     licensePathTitle: "Pasos para la licencia de Massachusetts",
     licensePathIntro: "Vea los pasos según su edad.",
     pathUnder18: "Menores de 18",
@@ -153,6 +157,7 @@ export const es: Messages = {
         question: "¿A qué edad puede empezar un estudiante la educación vial?",
         answer:
           "El aula puede empezar a los 15 años y 9 meses. El permiso de aprendizaje es obligatorio antes de cualquier clase en la vía, y hay que tener al menos 16 años para obtenerlo.",
+        source: "classroomAge",
       },
       {
         question: "¿Qué debe llevar un estudiante a la primera clase en la vía?",
@@ -190,9 +195,15 @@ export const es: Messages = {
       "Regístrese en línea, por teléfono o en persona. Ofrecemos cursos acelerados y clases en persona con cupos limitados.",
     roadTestDesc:
       "Patrocinio para examen de manejo disponible en nuestra oficina de Waltham y ubicaciones del RMV incluyendo Watertown, Lowell y más.",
+    schoolTitle: "La escuela",
+    schoolP1:
+      "JMC Driving School enseña a adolescentes y adultos desde 973 Main Street en Waltham desde 2011. La educación vial en el aula, las clases al volante y el patrocinio del examen de manejo de Massachusetts se organizan desde esa oficina.",
+    schoolP2:
+      "Instructores certificados por el estado imparten las clases. La oficina puede atender en inglés, portugués, español y criollo haitiano.",
     ctaTitle: "¿Listo para comenzar su camino?",
     ctaDesc:
       "Contacte nuestra oficina para consultar disponibilidad de clases de educación vial en persona y cursos acelerados.",
+    guide: aboutGuideEs,
   },
   contact: {
     title: "Contacto {name}",
@@ -226,6 +237,7 @@ export const es: Messages = {
     validationRequired: "Complete todos los campos obligatorios.",
     validationEmail: "Ingrese una dirección de correo electrónico válida.",
     validationPhone: "Ingrese un número de teléfono válido.",
+    guide: contactGuideEs,
   },
   site: {
     tagline: "Aprenda a manejar con confianza",

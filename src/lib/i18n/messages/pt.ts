@@ -11,6 +11,7 @@ import {
   careersPt,
 } from "./pages/misc";
 import { enrollmentPt } from "./pages/enrollment";
+import { aboutGuidePt, contactGuidePt } from "./pages/guides";
 
 export const pt: Messages = {
   nav: {
@@ -45,6 +46,9 @@ export const pt: Messages = {
     viewPrograms: "Ver programas",
     enrollNow: "Inscrever-se na educação para motoristas",
     viewAllFaqs: "Ver todas as perguntas frequentes",
+    sourceClassroomAge: "Regras de educação para motoristas, 540 CMR 23.00",
+    sourceJuniorOperator: "Requisitos da licença de operador júnior",
+    sourceRoadTest: "Exames práticos de passageiros Classe D",
     googleReviews: "({count}+ avaliações no Google)",
     googleReviewsAria: "{rating} de 5 estrelas de mais de {count} avaliações no Google",
     address: "Endereço",
@@ -84,8 +88,8 @@ export const pt: Messages = {
       "As datas dos cursos acelerados estão temporariamente indisponíveis. Ligue para o escritório ou consulte a página de calendário de aulas.",
     seatLeft: "1 vaga disponível",
     seatsLeft: "{count} vagas disponíveis",
-    onlySeatLeft: "Só resta 1 vaga. A aula começa em {date}.",
-    onlySeatsLeft: "Só restam {count} vagas. A aula começa em {date}.",
+    onlySeatLeft: "Só resta 1 vaga em {name}. A primeira aula é em {date}.",
+    onlySeatsLeft: "Só restam {count} vagas em {name}. A primeira aula é em {date}.",
     licensePathTitle: "Etapas para a licença de Massachusetts",
     licensePathIntro: "Veja as etapas para a sua idade.",
     pathUnder18: "Menores de 18",
@@ -153,6 +157,7 @@ export const pt: Messages = {
         question: "Com que idade um aluno pode começar a educação de motorista?",
         answer:
           "A sala de aula pode começar aos 15 anos e 9 meses. A permissão de aprendizagem é obrigatória antes de qualquer aula na via, e é preciso ter pelo menos 16 anos para obtê-la.",
+        source: "classroomAge",
       },
       {
         question: "O que o aluno deve levar para a primeira aula na via?",
@@ -190,9 +195,15 @@ export const pt: Messages = {
       "Inscreva-se online, por telefone ou presencialmente. Oferecemos cursos acelerados e aulas presenciais com vagas limitadas.",
     roadTestDesc:
       "Patrocínio para exame prático disponível em nosso escritório em Waltham e em locais do RMV incluindo Watertown, Lowell e mais.",
+    schoolTitle: "A escola",
+    schoolP1:
+      "A JMC Driving School ensina adolescentes e adultos na 973 Main Street, em Waltham, desde 2011. A educação para motoristas em sala, as aulas ao volante e o patrocínio do exame prático de Massachusetts são organizados nesse escritório.",
+    schoolP2:
+      "Instrutores certificados pelo estado dão as aulas. O escritório atende em inglês, português, espanhol e crioulo haitiano.",
     ctaTitle: "Pronto para começar sua jornada?",
     ctaDesc:
       "Entre em contato com nosso escritório para verificar disponibilidade de aulas presenciais de educação para motoristas e cursos acelerados.",
+    guide: aboutGuidePt,
   },
   contact: {
     title: "Contato {name}",
@@ -226,6 +237,7 @@ export const pt: Messages = {
     validationRequired: "Preencha todos os campos obrigatórios.",
     validationEmail: "Insira um endereço de e-mail válido.",
     validationPhone: "Insira um número de telefone válido.",
+    guide: contactGuidePt,
   },
   site: {
     tagline: "Aprenda a dirigir com confiança",

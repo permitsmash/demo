@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import aboutInclass from "@/app/about-inclass.png";
-import { buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
-import { formatMessage, getMessages } from "@/lib/i18n";
+import { LessonFactsList } from "@/components/LessonFactsList";
+import { PageGuide } from "@/components/PageGuide";
+import { buildLessonFacts, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
+import { formatMessage, getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
@@ -16,7 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const messages = getMessages(await getLocale());
+  const locale = await getLocale();
+  const messages = getMessages(locale);
   const catalog = await getSchoolCatalog();
   const liveSite = buildLiveSite(catalog);
   const { about, site: siteCopy, common, home } = messages;
@@ -93,6 +96,16 @@ export default async function Page() {
         </div>
       </section>
 
+      <section className="w-full section border-t border-outline-variant">
+        <div className="container-page max-w-prose-xl flex flex-col gap-md">
+          <h2 className="font-h2 text-h2 text-primary">{about.schoolTitle}</h2>
+          <div className="space-y-md font-body-md text-body-md text-on-surface-variant">
+            <p>{about.schoolP1}</p>
+            <p>{about.schoolP2}</p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-surface-container-low section">
         <div className="container-page">
           <div className="text-center mb-xl">
@@ -135,6 +148,12 @@ export default async function Page() {
         </div>
       </section>
 
+      <PageGuide
+        title={about.guide.title}
+        sections={about.guide.sections}
+        after={<LessonFactsList facts={buildLessonFacts(catalog)} />}
+      />
+
       <section className="w-full section mb-xl">
         <div className="container-page">
           <div className="bg-primary-container rounded-3xl p-xl text-center relative overflow-hidden">
@@ -145,10 +164,10 @@ export default async function Page() {
                 {about.ctaDesc}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-md">
-                <Link href="/courses#drivers-education" className="btn-primary">
+                <Link href={localizedPath(locale, "/courses#drivers-education")} className="btn-primary">
                   {common.enrollNow}
                 </Link>
-                <Link href="/courses" className="btn-outline-inverse">
+                <Link href={localizedPath(locale, "/courses")} className="btn-outline-inverse">
                   {common.viewPrograms}
                 </Link>
               </div>

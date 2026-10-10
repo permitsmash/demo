@@ -5,10 +5,11 @@ import Image from "next/image";
 import logo from "@/app/logo.png";
 import { useSite } from "@/components/SiteProvider";
 import { useLocale } from "@/components/LocaleProvider";
+import { localizedPath } from "@/lib/i18n";
 
 export default function Footer() {
   const site = useSite();
-  const { messages, t } = useLocale();
+  const { locale, messages, t } = useLocale();
   const { footer, site: siteCopy } = messages;
 
   const navLinks = [
@@ -33,7 +34,7 @@ export default function Footer() {
       <div className="container-page py-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-xl">
           <div className="lg:col-span-4 flex flex-col gap-md">
-            <Link href="/" className="inline-flex">
+            <Link href={localizedPath(locale, "/")} className="inline-flex">
               <Image
                 src={logo}
                 alt={site.name}
@@ -61,7 +62,7 @@ export default function Footer() {
             {navLinks.map((link) => (
               <Link
                 key={link.href + link.label}
-                href={link.href}
+                href={localizedPath(locale, link.href)}
                 className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors"
               >
                 {link.label}
@@ -76,14 +77,14 @@ export default function Footer() {
             {enrollmentLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href}
+                href={localizedPath(locale, link.href)}
                 className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="/legal#privacy-policy"
+              href={localizedPath(locale, "/legal#privacy-policy")}
               className="font-body-md text-body-md text-on-surface-variant hover:text-secondary-container transition-colors mt-xs pt-xs border-t border-outline-variant"
             >
               {footer.privacyPolicy}
@@ -136,7 +137,7 @@ export default function Footer() {
           </p>
           <nav aria-label={footer.social} className="flex items-center justify-center gap-xs">
             <a
-              href="https://www.facebook.com/jmcdrivingschoolwaltham/"
+              href={site.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -147,7 +148,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://www.instagram.com/jmcdrivingschool/"
+              href={site.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -160,7 +161,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://share.google/walG9H7oKCVzlVqPS"
+              href={site.social.google}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Google"

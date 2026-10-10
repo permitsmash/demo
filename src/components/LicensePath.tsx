@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useLocale } from "@/components/LocaleProvider";
+import { localizedPath } from "@/lib/i18n";
+import { rmv } from "@/lib/rmv";
 
 type Audience = "teen" | "adult";
 
@@ -11,11 +13,13 @@ type Step = {
   description: string;
   action?: string;
   href?: string;
+  source?: { href: string; label: string };
 };
 
 export function LicensePath() {
-  const { messages } = useLocale();
+  const { locale, messages } = useLocale();
   const home = messages.home;
+  const { sourceJuniorOperator, sourceRoadTest } = messages.common;
   const [audience, setAudience] = useState<Audience>("teen");
   const teenTabRef = useRef<HTMLButtonElement>(null);
   const adultTabRef = useRef<HTMLButtonElement>(null);
@@ -40,12 +44,14 @@ export function LicensePath() {
     {
       title: home.teen4Title,
       description: home.teen4Desc,
+      source: { href: rmv.juniorOperator, label: sourceJuniorOperator },
     },
     {
       title: home.teen5Title,
       description: home.teen5Desc,
       action: home.teen5Action,
       href: "/road-tests",
+      source: { href: rmv.classDRoadTest, label: sourceRoadTest },
     },
   ];
 
@@ -58,13 +64,14 @@ export function LicensePath() {
       title: home.adult2Title,
       description: home.adult2Desc,
       action: home.adult2Action,
-      href: "/courses",
+      href: "/courses#adult-license",
     },
     {
       title: home.adult3Title,
       description: home.adult3Desc,
       action: home.adult3Action,
       href: "/road-tests",
+      source: { href: rmv.classDRoadTest, label: sourceRoadTest },
     },
   ];
 
@@ -149,9 +156,19 @@ export function LicensePath() {
               <p className="mt-xs flex-1 font-body-md text-body-md text-on-surface-variant">
                 {step.description}
               </p>
+              {step.source ? (
+                <a
+                  href={step.source.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-xs font-body-sm text-body-sm text-secondary-container underline hover:text-primary"
+                >
+                  {step.source.label}
+                </a>
+              ) : null}
               {step.href && step.action ? (
                 <Link
-                  href={step.href}
+                  href={localizedPath(locale, step.href)}
                   className="mt-sm inline-flex font-button text-button text-secondary-container hover:underline"
                 >
                   {step.action}

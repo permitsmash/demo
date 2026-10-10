@@ -8,6 +8,7 @@ import logo from "@/app/logo.png";
 import { useSite } from "@/components/SiteProvider";
 import { useLocale } from '@/components/LocaleProvider';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { localizedPath, splitLocalePrefix } from '@/lib/i18n';
 
 const FEW_SEATS_LEFT = 10;
 
@@ -61,13 +62,13 @@ function BatchSeatBanner() {
   const date = formatClassStart(next.firstClassDate, locale);
   const status =
     next.remainingSpots === 1
-      ? t(home.onlySeatLeft, { date })
-      : t(home.onlySeatsLeft, { count: next.remainingSpots, date });
+      ? t(home.onlySeatLeft, { date, name: next.label })
+      : t(home.onlySeatsLeft, { count: next.remainingSpots, date, name: next.label });
 
   return (
     <div className="bg-primary text-on-primary">
       <Link
-        href="/courses"
+        href={localizedPath(locale, "/courses")}
         className="container-page flex items-center justify-center py-1.5 text-center font-body-sm text-body-sm font-semibold hover:underline"
       >
         {status}
@@ -79,8 +80,9 @@ function BatchSeatBanner() {
 export default function TopNavBar() {
   const site = useSite();
   const pathname = usePathname();
+  const currentPath = splitLocalePrefix(pathname).pathname;
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { messages } = useLocale();
+  const { locale, messages } = useLocale();
   const { nav, site: siteCopy } = messages;
 
   const navLinks = [
@@ -108,7 +110,7 @@ export default function TopNavBar() {
       </div>
       <BatchSeatBanner />
       <div className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center container-page w-full py-3 gap-md">
-        <Link href="/" className="flex shrink-0 items-center gap-xs justify-self-start">
+        <Link href={localizedPath(locale, "/")} className="flex shrink-0 items-center gap-xs justify-self-start">
           <Image
             src={logo}
             alt={site.name}
@@ -121,11 +123,11 @@ export default function TopNavBar() {
         </Link>
         <div className="hidden md:flex items-center justify-center gap-md">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = currentPath === link.href;
             return (
               <Link 
                 key={link.href}
-                href={link.href} 
+                href={localizedPath(locale, link.href)} 
                 className={`font-button text-button transition-colors duration-200 hover:text-secondary-container ${
                   isActive 
                     ? 'text-secondary-container font-bold border-b-2 border-secondary-container pb-xs' 
@@ -139,7 +141,7 @@ export default function TopNavBar() {
         </div>
         <div className="hidden md:flex gap-sm items-center justify-self-end">
           <Link
-            href="/courses"
+            href={localizedPath(locale, "/courses")}
             className="btn-primary btn-primary-sm"
           >
             {nav.enroll}
@@ -170,11 +172,11 @@ export default function TopNavBar() {
               </a>
             </p>
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = currentPath === link.href;
               return (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={localizedPath(locale, link.href)}
                   className={`font-button text-button py-xs ${
                     isActive
                       ? 'text-secondary-container font-bold'
@@ -188,7 +190,7 @@ export default function TopNavBar() {
             })}
             <div className="pt-sm mt-sm border-t border-outline-variant">
               <Link
-                href="/courses"
+                href={localizedPath(locale, "/courses")}
                 className="block w-full text-center btn-primary btn-primary-sm"
                 onClick={() => setIsMobileOpen(false)}
               >

@@ -1,29 +1,59 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { defaultLocale, isValidLocale, LOCALE_COOKIE, type Locale } from "@/lib/i18n/locales";
+import { splitLocalePrefix } from "@/lib/i18n/paths";
+import { defaultLocale, LOCALE_COOKIE, type Locale } from "@/lib/i18n/locales";
 
-function detectLocale(request: NextRequest): Locale {
-  const acceptLanguage = request.headers.get("accept-language") ?? "";
-  const normalized = acceptLanguage.toLowerCase();
+const COOKIE_OPTIONS = {
+  path: "/",
+  maxAge: 60 * 60 * 24 * 365,
+  sameSite: "lax" as const,
+};
 
-  if (normalized.includes("ht")) return "ht";
-  if (normalized.includes("pt")) return "pt";
-  if (normalized.includes("es")) return "es";
-  return defaultLocale;
+function isLocaleNeutral(pathname: string) {
+  return (
+    pathname === "/api" ||
+    pathname.startsWith("/api/") ||
+    pathname.startsWith("/_next") ||
+    pathname === "/enroll" ||
+    pathname.startsWith("/enroll/") ||
+    pathname === "/sitemap.xml" ||
+    pathname === "/robots.txt" ||
+    pathname === "/favicon.ico"
+  );
+}
+
+function withLocaleHeaders(request: NextRequest, locale: Locale, pathname: string) {
+  const headers = new Headers(request.headers);
+  headers.set("x-locale", locale);
+  headers.set("x-pathname", pathname);
+  return headers;
 }
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
-  const existing = request.cookies.get(LOCALE_COOKIE)?.value;
+  const { pathname } = request.nextUrl;
+  if (isLocaleNeutral(pathname)) return NextResponse.next();
 
-  if (!isValidLocale(existing)) {
-    const locale = detectLocale(request);
-    response.cookies.set(LOCALE_COOKIE, locale, {
-      path: "/",
-      maxAge: 60 * 60 * 24 * 365,
-      sameSite: "lax",
-    });
+  const parsed = splitLocalePrefix(pathname);
+
+  if (parsed.locale === defaultLocale) {
+    const url = request.nextUrl.clone();
+    url.pathname = parsed.pathname;
+    return NextResponse.redirect(url);
   }
 
+  if (parsed.locale) {
+    const url = request.nextUrl.clone();
+    url.pathname = parsed.pathname;
+    const response = NextResponse.rewrite(url, {
+      request: { headers: withLocaleHeaders(request, parsed.locale, parsed.pathname) },
+    });
+    response.cookies.set(LOCALE_COOKIE, parsed.locale, COOKIE_OPTIONS);
+    return response;
+  }
+
+  const response = NextResponse.next({
+    request: { headers: withLocaleHeaders(request, defaultLocale, pathname) },
+  });
+  response.cookies.set(LOCALE_COOKIE, defaultLocale, COOKIE_OPTIONS);
   return response;
 }
 
