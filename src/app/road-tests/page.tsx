@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { RoadTestFeesTable } from "@/components/ComparisonTables";
 import { PageGuide } from "@/components/PageGuide";
 import { buildAddonsDisplayFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -75,6 +77,7 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col items-center w-full">
+      <RouteAnswerJsonLd pathname="/road-tests" />
       <section className="relative w-full bg-surface-container-lowest overflow-hidden section-padded">
         <div className="relative container-page text-center flex flex-col items-center gap-md">
           <h1 className="font-h1 text-h1 text-primary">{rt.title}</h1>
@@ -175,7 +178,19 @@ export default async function Page() {
         </div>
       </section>
 
-      <PageGuide title={rt.guide.title} sections={rt.guide.sections} />
+      <PageGuide
+        title={rt.guide.title}
+        sections={rt.guide.sections}
+        leads={{
+          "road-test-fees": (
+            <RoadTestFeesTable
+              options={sponsorshipOptions}
+              labels={rt.feesTable}
+              showHeading={false}
+            />
+          ),
+        }}
+      />
 
       <section className="w-full bg-surface-dim section">
         <div className="container-page flex flex-col items-center gap-md text-center">

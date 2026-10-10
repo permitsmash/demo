@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqCategoryNav } from "@/components/FaqCategoryNav";
-import { JsonLd } from "@/components/JsonLd";
+import { PackageComparisonTable, type PackageComparisonLabels } from "@/components/ComparisonTables";
 import { LessonFactsList } from "@/components/LessonFactsList";
-import { OfficialSourceLink, OfficialText, plainOfficialText } from "@/components/OfficialText";
-import { buildLessonFacts, buildTeenPackageFacts, getSchoolCatalog } from "@/lib/catalog";
+import { OfficialSourceLink, OfficialText } from "@/components/OfficialText";
+import { buildLessonFacts, buildTeenPackagesFromCatalog, getSchoolCatalog } from "@/lib/catalog";
 import { getMessages, localizedPath } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
 import { rmv } from "@/lib/rmv";
+import { RouteAnswerJsonLd } from "@/components/RouteAnswerJsonLd";
 import { buildSeoDescriptions } from "@/lib/seo/descriptions";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,7 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 function FaqItems({
   items,
   lessonFacts,
-  teenPackageFacts,
+  teenPackages,
+  packageComparison,
   classroomAgeLabel,
 }: {
   items: readonly {
@@ -30,7 +32,8 @@ function FaqItems({
     source?: "lessonLength" | "classroomAge" | "teenPackages";
   }[];
   lessonFacts: ReturnType<typeof buildLessonFacts>;
-  teenPackageFacts: ReturnType<typeof buildTeenPackageFacts>;
+  teenPackages: ReturnType<typeof buildTeenPackagesFromCatalog>;
+  packageComparison: PackageComparisonLabels;
   classroomAgeLabel: string;
 }) {
   return (
@@ -38,7 +41,7 @@ function FaqItems({
       {items.map((item) => (
         <details key={item.question} className="accordion group">
           <summary className="accordion-summary">
-            <h3>{item.question}</h3>
+            <h2 className="min-w-0 flex-1 font-h3 text-h3 text-primary">{item.question}</h2>
             <span className="material-symbols-outlined icon-base text-outline-variant group-open:rotate-180 transition-transform duration-200">
               expand_more
             </span>
@@ -54,7 +57,7 @@ function FaqItems({
             ) : null}
             {item.source === "teenPackages" ? (
               <div className="mt-sm">
-                <LessonFactsList facts={teenPackageFacts} />
+                <PackageComparisonTable packages={teenPackages} labels={packageComparison} />
               </div>
             ) : null}
             {item.source === "classroomAge" ? (
@@ -90,45 +93,12 @@ export default async function Page() {
   const messages = getMessages(locale);
   const catalog = await getSchoolCatalog();
   const lessonFacts = buildLessonFacts(catalog);
-  const teenPackageFacts = buildTeenPackageFacts(catalog);
+  const teenPackages = buildTeenPackagesFromCatalog(catalog);
   const { faqPage: f, common } = messages;
-  const faqEntities = categorySections.flatMap((section) =>
-    f.categories[section.itemsKey].map((item) => {
-      const facts =
-        item.source === "lessonLength"
-          ? lessonFacts
-          : item.source === "teenPackages"
-            ? teenPackageFacts
-            : [];
-      const details = facts
-        .map((fact) => [fact.name, fact.priceLabel, ...fact.details].join(". "))
-        .join(" ");
-      return {
-        "@type": "Question" as const,
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer" as const,
-          text: [
-            plainOfficialText(item.answer),
-            details,
-            item.source === "classroomAge" ? `Source: ${rmv.classroomAge}` : "",
-          ]
-            .filter(Boolean)
-            .join(" "),
-        },
-      };
-    }),
-  );
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqEntities,
-        }}
-      />
+      <RouteAnswerJsonLd pathname="/faq" />
       <section className="relative bg-primary section-padded overflow-hidden">
         <div
           className="absolute inset-0 opacity-10 bg-cover bg-center"
@@ -170,12 +140,13 @@ export default async function Page() {
                   <span className="material-symbols-outlined icon-base text-secondary-container">
                     {section.icon}
                   </span>
-                  <h2 className="font-h2 text-h2 text-primary">{f[section.labelKey]}</h2>
+                  <p className="font-h2 text-h2 text-primary">{f[section.labelKey]}</p>
                 </div>
                 <FaqItems
                   items={f.categories[section.itemsKey]}
                   lessonFacts={lessonFacts}
-                  teenPackageFacts={teenPackageFacts}
+                  teenPackages={teenPackages}
+                  packageComparison={messages.courses.packageComparison}
                   classroomAgeLabel={common.sourceClassroomAge}
                 />
               </div>

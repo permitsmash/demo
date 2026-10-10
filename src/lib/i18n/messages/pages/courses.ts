@@ -42,6 +42,22 @@ export const coursesEn = {
     "You must have an active Massachusetts Learner's Permit/Driver's License to be able to take any driving lessons with JMC.",
   disclaimerLocation:
     "All lessons start and finish at JMC office — no pick up/drop off services are offered.",
+  packageComparison: {
+    caption: "How Package 1, Package II, and Package III differ",
+    feature: "What's included",
+    price: "Price",
+    choose: "Choose this when",
+    classroom: "30 hours of classroom instruction",
+    behindWheel: "12 hours behind the wheel",
+    observation: "6 hours of observation",
+    parentClass: "2-hour parent or guardian class",
+    certificate: "Driver's education certificate",
+    fullCourse: "The student still needs every part of driver's education",
+    classroomDone: "Classroom hours were already finished at another school",
+    needsClassroom: "The student still needs the classroom course",
+    yes: "Yes",
+    no: "No",
+  },
   guide: coursesGuideEn,
 } as const;
 
@@ -67,6 +83,22 @@ export type CoursesMessages = {
   increaseQuantity: string;
   disclaimerPermit: string;
   disclaimerLocation: string;
+  packageComparison: {
+    caption: string;
+    feature: string;
+    price: string;
+    choose: string;
+    classroom: string;
+    behindWheel: string;
+    observation: string;
+    parentClass: string;
+    certificate: string;
+    fullCourse: string;
+    classroomDone: string;
+    needsClassroom: string;
+    yes: string;
+    no: string;
+  };
   guide: ContentGuide;
 };
 
@@ -112,6 +144,22 @@ export const coursesEs = {
     "Debe tener un permiso de aprendiz o licencia de conducir de Massachusetts activo para tomar clases de manejo con JMC.",
   disclaimerLocation:
     "Todas las clases comienzan y terminan en la oficina de JMC — no se ofrece servicio de recogida o entrega.",
+  packageComparison: {
+    caption: "En qué se diferencian Package 1, Package II y Package III",
+    feature: "Qué incluye",
+    price: "Precio",
+    choose: "Conviene cuando",
+    classroom: "30 horas de instrucción en el aula",
+    behindWheel: "12 horas de práctica al volante",
+    observation: "6 horas de observación",
+    parentClass: "Clase de 2 horas para el padre, la madre o el tutor",
+    certificate: "Certificado de educación vial",
+    fullCourse: "El estudiante todavía necesita cada parte de la educación vial",
+    classroomDone: "Las horas de aula ya se completaron en otra escuela",
+    needsClassroom: "El estudiante todavía necesita el curso de aula",
+    yes: "Sí",
+    no: "No",
+  },
   guide: coursesGuideEs,
 } as const;
 
@@ -157,6 +205,22 @@ export const coursesPt = {
     "Você deve ter uma Permissão de Aprendiz ou Carteira de Motorista de Massachusetts ativa para fazer aulas de direção com a JMC.",
   disclaimerLocation:
     "Todas as aulas começam e terminam no escritório da JMC — não oferecemos serviço de busca ou entrega.",
+  packageComparison: {
+    caption: "Como Package 1, Package II e Package III se diferenciam",
+    feature: "O que inclui",
+    price: "Preço",
+    choose: "Escolha quando",
+    classroom: "30 horas de instrução em sala",
+    behindWheel: "12 horas de prática ao volante",
+    observation: "6 horas de observação",
+    parentClass: "Aula de 2 horas para o pai, a mãe ou o responsável",
+    certificate: "Certificado de educação para motoristas",
+    fullCourse: "O aluno ainda precisa de cada parte da educação para motoristas",
+    classroomDone: "As horas de sala já foram concluídas em outra escola",
+    needsClassroom: "O aluno ainda precisa do curso em sala",
+    yes: "Sim",
+    no: "Não",
+  },
   guide: coursesGuidePt,
 } as const;
 
@@ -202,5 +266,21 @@ export const coursesHt = {
     "Ou dwe gen yon Pèmi Aprantisaj/Lisans Chofè Massachusetts aktif pou ka pran nenpòt leson kondwi ak JMC.",
   disclaimerLocation:
     "Tout leson kòmanse epi fini nan biwo JMC — pa gen sèvis ranmase/delivre.",
+  packageComparison: {
+    caption: "Kijan Package 1, Package II, ak Package III diferan",
+    feature: "Sa ki enkli",
+    price: "Pri",
+    choose: "Chwazi lè",
+    classroom: "30 èdtan enstriksyon nan klas",
+    behindWheel: "12 èdtan pratik dèyè volan",
+    observation: "6 èdtan obsèvasyon",
+    parentClass: "Klas 2 èdtan pou paran oswa gadyen",
+    certificate: "Sètifika edikasyon pou chofè",
+    fullCourse: "Elèv la toujou bezwen chak pati edikasyon pou chofè",
+    classroomDone: "Èdtan klas yo deja fini nan yon lòt lekòl",
+    needsClassroom: "Elèv la toujou bezwen kou klas la",
+    yes: "Wi",
+    no: "Non",
+  },
   guide: coursesGuideHt,
 } as const;
