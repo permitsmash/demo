@@ -100,8 +100,7 @@ function classCalendarDates(batch: PublicCatalogBatch) {
   return [
     ...new Set(
       (batch.schedule?.classes ?? [])
-        .map((entry) => entry.date)
-        .map((date) => (date ? (calendarDate(date) ?? date) : null))
+        .map((entry) => (entry.date ? calendarDate(entry.date) : null))
         .filter((date): date is string => Boolean(date)),
     ),
   ].sort();
