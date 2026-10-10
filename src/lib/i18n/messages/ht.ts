@@ -11,6 +11,7 @@ import {
   careersHt,
 } from "./pages/misc";
 import { enrollmentHt } from "./pages/enrollment";
+import { aboutGuideHt, contactGuideHt } from "./pages/guides";
 
 export const ht: Messages = {
   nav: {
@@ -45,6 +46,9 @@ export const ht: Messages = {
     viewPrograms: "Gade pwogram yo",
     enrollNow: "Enskri nan edikasyon chofè",
     viewAllFaqs: "Gade tout kesyon yo",
+    sourceClassroomAge: "Règ edikasyon pou chofè, 540 CMR 23.00",
+    sourceJuniorOperator: "Egzijans lisans operatè jinyò",
+    sourceRoadTest: "Egzamen wout pasaje Klas D",
     googleReviews: "({count}+ revi sou Google)",
     googleReviewsAria: "{rating} sou 5 zetwal nan plis pase {count} revi sou Google",
     address: "Adrès",
@@ -84,8 +88,8 @@ export const ht: Messages = {
       "Dat sesyon kou akselere yo pa disponib pou kounye a. Tanpri rele biwo a oswa gade paj orè klas yo.",
     seatLeft: "1 plas ki rete",
     seatsLeft: "{count} plas ki rete",
-    onlySeatLeft: "Sèlman 1 plas ki rete. Klas la kòmanse {date}.",
-    onlySeatsLeft: "Sèlman {count} plas ki rete. Klas la kòmanse {date}.",
+    onlySeatLeft: "Sèlman 1 plas ki rete nan {name}. Premye klas la se {date}.",
+    onlySeatsLeft: "Sèlman {count} plas ki rete nan {name}. Premye klas la se {date}.",
     licensePathTitle: "Etap pou lisans Massachusetts",
     licensePathIntro: "Gade etap yo selon laj ou.",
     pathUnder18: "Anba 18 an",
@@ -152,6 +156,7 @@ export const ht: Messages = {
         question: "A ki laj yon elèv ka kòmanse edikasyon chofè?",
         answer:
           "Klas la ka kòmanse a 15 an ak 9 mwa. Yon pèmi aprantisaj obligatwa anvan nenpòt leson sou wout la, epi ou dwe gen omwen 16 an pou w jwenn pèmi a.",
+        source: "classroomAge",
       },
       {
         question: "Kisa yon elèv dwe pote nan premye leson sou wout la?",
@@ -189,9 +194,15 @@ export const ht: Messages = {
       "Enskri sou entènèt, pa telefòn, oswa an pèsòn. Nou ofri kou akselere ak klas an pèsòn ak plas limite.",
     roadTestDesc:
       "Patwonej egzamen wout la disponib nan biwo nou nan Waltham ak nan kote RMV yo ki gen ladan Watertown, Lowell, ak plis ankò.",
+    schoolTitle: "Lekòl la",
+    schoolP1:
+      "JMC Driving School ap anseye adolesan ak adilt depi 973 Main Street nan Waltham depi 2011. Edikasyon pou chofè nan klas, leson dèyè volan, ak patwonej egzamen wout Massachusetts yo òganize nan biwo sa a.",
+    schoolP2:
+      "Enstriktè sètifye pa eta a bay leson yo. Biwo a ka ede an anglè, pòtigè, panyòl, ak kreyòl ayisyen.",
     ctaTitle: "Pare pou kòmanse vwayaj ou?",
     ctaDesc:
       "Kontakte biwo nou an pou verifye disponibilite klas Edikasyon Chofè an pèsòn ak kou akselere yo.",
+    guide: aboutGuideHt,
   },
   contact: {
     title: "Kontakte {name}",
@@ -225,6 +236,7 @@ export const ht: Messages = {
     validationRequired: "Tanpri ranpli tout chan obligatwa yo.",
     validationEmail: "Tanpri antre yon adrès imèl ki valab.",
     validationPhone: "Tanpri antre yon nimewo telefòn ki valab.",
+    guide: contactGuideHt,
   },
   site: {
     tagline: "Aprann kondwi ak konfyans",

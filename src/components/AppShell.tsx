@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import TopNavBar from "@/components/TopNavBar";
 import Footer from "@/components/Footer";
 
@@ -24,6 +25,7 @@ export default function AppShell({ children }: Props) {
   return (
     <>
       <TopNavBar />
+      <BreadcrumbJsonLd />
       <main className="flex-grow flex flex-col w-full">{children}</main>
       <Footer />
     </>

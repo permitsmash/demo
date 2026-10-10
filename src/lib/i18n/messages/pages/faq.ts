@@ -1,6 +1,26 @@
-type FaqItem = { question: string; answer: string };
+type FaqItem = {
+  question: string;
+  answer: string;
+  source?: "lessonLength" | "classroomAge" | "teenPackages";
+};
 
 const faqProgramsEn: FaqItem[] = [
+  {
+    question: "How do Package 1, Package II, and Package III differ?",
+    answer:
+      "Package 1 is the full teen course. Package II fits a student whose classroom hours were already finished at another school. Package III fits a student who still needs the classroom course. What each package includes is listed below. Current prices are on the programs page.",
+    source: "teenPackages",
+  },
+  {
+    question: "What does driver's education cost in Massachusetts?",
+    answer:
+      "Massachusetts does not publish one tuition that every driving school must charge. JMC prices are the package cards on the programs page. Registry fees are separate. The Class D road test fee is $35 and is not refunded if you fail: [Schedule your road test](https://www.mass.gov/how-to/schedule-your-road-test). The learner's permit exam has its own Registry fee: [Apply for a passenger Class D learner's permit](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit). JMC road test sponsorship is a separate, non-refundable fee and depends on the test location.",
+  },
+  {
+    question: "What is the license path at 18 or older?",
+    answer:
+      "At 18, driver's education is not required for a Class D license. A Massachusetts learner's permit is still required, and parental consent is required only under 18. The six-month permit hold, 40 supervised hours, and parent class are junior operator rules for applicants under 18: [Junior operator license requirements](https://www.mass.gov/info-details/junior-operator-license-jol-requirements). The road test still needs a sponsor who is 21 or older. Lessons are optional. The full path is on the programs page.",
+  },
   {
     question: "What programs do you offer?",
     answer:
@@ -46,8 +66,9 @@ const faqLessonsEn: FaqItem[] = [
   },
   {
     question: "How long is each driving lesson?",
+    source: "lessonLength",
     answer:
-      "Our standard behind-the-wheel lessons are 90 minutes long. We have found this duration optimal for maintaining focus while allowing enough time to practice multiple maneuvers and routes.",
+      "There is not one length for every lesson. Each current listing states its own:",
   },
   {
     question: "How do I find and register for a class?",
@@ -67,6 +88,11 @@ const faqLessonsEn: FaqItem[] = [
 ];
 
 const faqTestEn: FaqItem[] = [
+  {
+    question: "What happens if I do not pass the road test?",
+    answer:
+      "The Registry requires a two-week wait before another Class D road test, and an applicant can attempt no more than six Class D tests in 12 months. The Registry's $35 road test fee is not refunded after a failure. The JMC sponsorship fee is also non-refundable, so another test in a school car means buying that location again and calling the office for a new date. These Registry rules are on [Schedule your road test](https://www.mass.gov/how-to/schedule-your-road-test).",
+  },
   {
     question: "Do you offer road test sponsorship?",
     answer:
@@ -94,6 +120,7 @@ const faqGeneralEn: FaqItem[] = [
     question: "What are the age requirements to start driving lessons?",
     answer:
       "Per Massachusetts RMV rules, students must be at least 15 years and 9 months old before the first day of class. A valid learner's permit is required before any road (behind-the-wheel) lessons can be scheduled.",
+    source: "classroomAge",
   },
   {
     question: "Which areas do you serve?",
@@ -178,6 +205,22 @@ export const faqPageEn = {
 
 const faqProgramsEs: FaqItem[] = [
   {
+    question: "¿En qué se diferencian Package 1, Package II y Package III?",
+    answer:
+      "Package 1 es el curso completo para adolescentes. Package II sirve para un estudiante cuyas horas de aula ya se completaron en otra escuela. Package III sirve para un estudiante que todavía necesita el curso de aula. Lo que incluye cada paquete aparece abajo. Los precios actuales están en la página de programas.",
+    source: "teenPackages",
+  },
+  {
+    question: "¿Cuánto cuesta la educación vial en Massachusetts?",
+    answer:
+      "Massachusetts no publica una sola colegiatura que toda escuela de manejo deba cobrar. Los precios de JMC son las fichas de la página de programas. Las tarifas del Registry son aparte. La tarifa del examen de manejo Clase D es de $35 y no se reembolsa si no aprueba: [Programe su examen de manejo](https://www.mass.gov/how-to/schedule-your-road-test). El examen del permiso tiene su propia tarifa del Registry: [Solicitar un permiso de aprendizaje de pasajeros Clase D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit). El patrocinio del examen de JMC es una tarifa aparte, no reembolsable, y depende del lugar del examen.",
+  },
+  {
+    question: "¿Cuál es el camino a la licencia a partir de los 18 años?",
+    answer:
+      "A los 18 años, la educación vial no es obligatoria para una licencia Clase D. Igual se necesita un permiso de aprendizaje de Massachusetts, y el consentimiento de un padre o tutor solo se exige a los menores de 18. La espera de seis meses, las 40 horas supervisadas y la clase para padres son reglas de operador junior para solicitantes menores de 18: [Requisitos de la licencia de operador junior](https://www.mass.gov/info-details/junior-operator-license-jol-requirements). El examen de manejo igual necesita un patrocinador de 21 años o más. Las clases son opcionales. El camino completo está en la página de programas.",
+  },
+  {
     question: "¿Qué programas ofrecen?",
     answer:
       "Ofrecemos programa de educación vial, clase para padres/tutores, clases de manejo para adultos, clases en autopista y patrocinio para examen de manejo. Puede ver todas las opciones en nuestra página de Programas o contactar la oficina para orientación.",
@@ -222,8 +265,9 @@ const faqLessonsEs: FaqItem[] = [
   },
   {
     question: "¿Cuánto dura cada clase de manejo?",
+    source: "lessonLength",
     answer:
-      "Nuestras clases estándar en carretera duran 90 minutos. Hemos encontrado que esta duración es óptima para mantener el enfoque y practicar múltiples maniobras y rutas.",
+      "No hay una sola duración para todas las clases. Cada anuncio actual indica la suya:",
   },
   {
     question: "¿Cómo encuentro e inscribo una clase?",
@@ -243,6 +287,11 @@ const faqLessonsEs: FaqItem[] = [
 ];
 
 const faqTestEs: FaqItem[] = [
+  {
+    question: "¿Qué pasa si no apruebo el examen de manejo?",
+    answer:
+      "El Registry exige esperar dos semanas antes de otro examen Clase D, y un solicitante no puede intentar más de seis exámenes Clase D en 12 meses. La tarifa de $35 del Registry no se reembolsa después de un suspenso. La tarifa de patrocinio de JMC tampoco es reembolsable, así que otro examen en un auto de la escuela significa comprar de nuevo ese lugar y llamar a la oficina para una nueva fecha. Esas reglas del Registry están en [Programe su examen de manejo](https://www.mass.gov/how-to/schedule-your-road-test).",
+  },
   {
     question: "¿Ofrecen patrocinio para examen de manejo?",
     answer:
@@ -270,6 +319,7 @@ const faqGeneralEs: FaqItem[] = [
     question: "¿Cuáles son los requisitos de edad para comenzar clases de manejo?",
     answer:
       "Según las reglas del RMV de Massachusetts, los estudiantes deben tener al menos 15 años y 9 meses antes del primer día de clase. Se requiere un permiso de aprendiz válido antes de programar cualquier clase en carretera.",
+    source: "classroomAge",
   },
   {
     question: "¿Qué áreas atienden?",
@@ -355,6 +405,22 @@ export const faqPageEs = {
 
 const faqProgramsPt: FaqItem[] = [
   {
+    question: "Como Package 1, Package II e Package III se diferenciam?",
+    answer:
+      "Package 1 é o curso completo para adolescentes. Package II serve para um aluno cujas horas de sala já foram concluídas em outra escola. Package III serve para um aluno que ainda precisa do curso em sala. O que cada pacote inclui aparece abaixo. Os preços atuais estão na página de programas.",
+    source: "teenPackages",
+  },
+  {
+    question: "Quanto custa a educação para motoristas em Massachusetts?",
+    answer:
+      "Massachusetts não publica uma mensalidade única que toda autoescola deva cobrar. Os preços da JMC são os cartões na página de programas. As taxas do Registry ficam à parte. A taxa do exame prático Classe D é de $35 e não é reembolsada se você não passar: [Agende seu exame prático](https://www.mass.gov/how-to/schedule-your-road-test). O exame da permissão tem a própria taxa do Registry: [Solicitar uma permissão de aprendiz de passageiros Classe D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit). O patrocínio do exame da JMC é uma taxa separada, não reembolsável, e depende do local do exame.",
+  },
+  {
+    question: "Qual é o caminho da carteira a partir dos 18 anos?",
+    answer:
+      "Aos 18 anos, a educação para motoristas não é obrigatória para uma carteira Classe D. A permissão de aprendiz de Massachusetts ainda é necessária, e o consentimento de um pai ou responsável só é exigido para menores de 18. A espera de seis meses, as 40 horas supervisionadas e a aula dos pais são regras de operador júnior para candidatos menores de 18: [Requisitos da licença de operador júnior](https://www.mass.gov/info-details/junior-operator-license-jol-requirements). O exame prático ainda precisa de um patrocinador de 21 anos ou mais. As aulas são opcionais. O caminho completo está na página de programas.",
+  },
+  {
     question: "Quais programas vocês oferecem?",
     answer:
       "Oferecemos programa de educação para motoristas, aula para pais/responsáveis, aulas de direção para adultos, aulas em rodovia e patrocínio para exame prático. Veja todas as opções na nossa página de Programas ou entre em contato com o escritório para orientação.",
@@ -399,8 +465,9 @@ const faqLessonsPt: FaqItem[] = [
   },
   {
     question: "Quanto tempo dura cada aula de direção?",
+    source: "lessonLength",
     answer:
-      "Nossas aulas práticas padrão duram 90 minutos. Descobrimos que essa duração é ideal para manter o foco e praticar várias manobras e rotas.",
+      "Não há uma única duração para todas as aulas. Cada anúncio atual indica a sua:",
   },
   {
     question: "Como encontro e me inscrevo em uma aula?",
@@ -420,6 +487,11 @@ const faqLessonsPt: FaqItem[] = [
 ];
 
 const faqTestPt: FaqItem[] = [
+  {
+    question: "O que acontece se eu não passar no exame prático?",
+    answer:
+      "O Registry exige uma espera de duas semanas antes de outro exame Classe D, e um candidato não pode tentar mais de seis exames Classe D em 12 meses. A taxa de $35 do Registry não é reembolsada depois de uma reprovação. A taxa de patrocínio da JMC também não é reembolsável, então outro exame em um carro da escola significa comprar aquele local de novo e ligar para o escritório para uma nova data. Essas regras do Registry estão em [Agende seu exame prático](https://www.mass.gov/how-to/schedule-your-road-test).",
+  },
   {
     question: "Vocês oferecem patrocínio para exame prático?",
     answer:
@@ -447,6 +519,7 @@ const faqGeneralPt: FaqItem[] = [
     question: "Quais são os requisitos de idade para começar aulas de direção?",
     answer:
       "Segundo as regras do RMV de Massachusetts, os alunos devem ter pelo menos 15 anos e 9 meses antes do primeiro dia de aula. É necessária uma permissão de aprendizagem válida antes de agendar qualquer aula prática.",
+    source: "classroomAge",
   },
   {
     question: "Quais áreas vocês atendem?",
@@ -534,6 +607,22 @@ export type FaqPageMessages = typeof faqPageEn;
 
 const faqProgramsHt: FaqItem[] = [
   {
+    question: "Kijan Package 1, Package II, ak Package III diferan?",
+    answer:
+      "Package 1 se kou konplè pou adolesan an. Package II bon pou yon elèv ki deja fini èdtan klas yo nan yon lòt lekòl. Package III bon pou yon elèv ki toujou bezwen kou klas la. Sa chak pakè genyen parèt anba a. Pri aktyèl yo sou paj pwogram yo.",
+    source: "teenPackages",
+  },
+  {
+    question: "Konbyen edikasyon pou chofè koute nan Massachusetts?",
+    answer:
+      "Massachusetts pa pibliye yon sèl frè tout lekòl kondwi dwe mande. Pri JMC yo se kat ki sou paj pwogram yo. Frè Registry yo apa. Frè egzamen wout Klas D la se $35 epi li pa ranbouse si ou pa pase: [Pwograme egzamen wout ou](https://www.mass.gov/how-to/schedule-your-road-test). Egzamen pèmi a gen pwòp frè Registry a: [Mande yon pèmi aprantisaj pasaje Klas D](https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit). Patwonej egzamen JMC a se yon frè apa, li pa ranbousab, epi li depann de kote egzamen an.",
+  },
+  {
+    question: "Ki chemen lisans lan depi 18 an?",
+    answer:
+      "Depi 18 an, edikasyon pou chofè pa obligatwa pou yon lisans Klas D. Yon pèmi aprantisaj Massachusetts toujou obligatwa, epi konsantman yon paran oswa gadyen obligatwa sèlman anba 18 an. Datant sis mwa a, 40 èdtan sipèvize yo, ak klas paran an se règ operatè jinyò pou moun ki poko gen 18 an: [Egzijans lisans operatè jinyò](https://www.mass.gov/info-details/junior-operator-license-jol-requirements). Egzamen wout la toujou bezwen yon patwon ki gen 21 an oswa plis. Leson yo opsyonèl. Chemen konplè a sou paj pwogram yo.",
+  },
+  {
     question: "Ki pwogram nou ofri?",
     answer:
       "Nou ofri Pwogram Edikasyon Chofè, Klas Paran/Gadyen, Leson Kondwi pou Granmoun, Leson sou Otowout, ak Patwone pou Egzamen sou Wout la. Ou ka wè tout opsyon yo sou paj Pwogram nou an oswa kontakte biwo a pou jwenn gid.",
@@ -578,8 +667,9 @@ const faqLessonsHt: FaqItem[] = [
   },
   {
     question: "Konbyen tan chak leson kondwi dire?",
+    source: "lessonLength",
     answer:
-      "Leson kondwi estanda nou yo dire 90 minit. Nou jwenn ke dire sa a se pi bon pou kenbe konsantrasyon pandan nou gen ase tan pou pratike plizyè manèv ak wout.",
+      "Pa gen yon sèl dire pou tout leson. Chak anons aktyèl la di pwòp dire pa li:",
   },
   {
     question: "Kijan mwen ka jwenn yon klas epi enskri?",
@@ -599,6 +689,11 @@ const faqLessonsHt: FaqItem[] = [
 ];
 
 const faqTestHt: FaqItem[] = [
+  {
+    question: "Kisa k rive si mwen pa pase egzamen wout la?",
+    answer:
+      "Registry a mande yon datant de semèn anvan yon lòt egzamen Klas D, epi yon moun pa ka eseye plis pase sis egzamen Klas D nan 12 mwa. Frè $35 Registry a pa ranbouse apre yon echèk. Frè patwonej JMC a pa ranbousab non plis, kidonk yon lòt egzamen nan yon machin lekòl la vle di achte kote sa a ankò epi rele biwo a pou yon nouvo dat. Règ Registry sa yo sou [Pwograme egzamen wout ou](https://www.mass.gov/how-to/schedule-your-road-test).",
+  },
   {
     question: "Èske nou ofri patwone pou egzamen sou wout la?",
     answer:
@@ -626,6 +721,7 @@ const faqGeneralHt: FaqItem[] = [
     question: "Ki egzijans laj pou kòmanse leson kondwi?",
     answer:
       "Selon règ RMV Massachusetts la, elèv yo dwe gen omwen 15 an ak 9 mwa anvan premye jou klas la. Yon pèmi aprantisaj valab obligatwa anvan nenpòt leson sou wout (kondwi) ka pran randevou.",
+    source: "classroomAge",
   },
   {
     question: "Ki zòn nou sèvi?",

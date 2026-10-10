@@ -30,7 +30,6 @@ export type LiveSiteData = Omit<
   | "officeHours"
   | "cancellationHours"
   | "languages"
-  | "acceleratedCourses"
 > & {
   name: string;
   phone: string;
@@ -79,8 +78,45 @@ function formatTimeLabel(value: string | null) {
   });
 }
 
+const SCHOOL_TIME_ZONE = "America/New_York";
+
+function calendarDate(value: string) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: SCHOOL_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
+function classCalendarDates(batch: PublicCatalogBatch) {
+  return [
+    ...new Set(
+      (batch.schedule?.classes ?? [])
+        .map((entry) => entry.date)
+        .filter((date): date is string => Boolean(date)),
+    ),
+  ].sort();
+}
+
+function batchRangeDates(batch: PublicCatalogBatch) {
+  const classDates = classCalendarDates(batch);
+  if (classDates.length > 0) {
+    return { start: classDates[0], end: classDates[classDates.length - 1] };
+  }
+
+  return {
+    start: calendarDate(batch.startDate) ?? batch.startDate,
+    end: calendarDate(batch.endDate) ?? batch.endDate,
+  };
+}
+
 function parseLocalDate(value: string) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(`${value}T12:00:00`) : new Date(value);
+  const day = calendarDate(value) ?? value;
+  return /^\d{4}-\d{2}-\d{2}$/.test(day) ? new Date(`${day}T12:00:00`) : new Date(day);
 }
 
 function formatBatchDate(value: string) {
@@ -125,12 +161,7 @@ function ordinalDay(day: number) {
 }
 
 function firstClassDate(batch: PublicCatalogBatch) {
-  const classDates = (batch.schedule?.classes ?? [])
-    .map((entry) => entry.date)
-    .filter((date): date is string => Boolean(date))
-    .sort();
-
-  return classDates[0] ?? batch.startDate ?? null;
+  return classCalendarDates(batch)[0] ?? calendarDate(batch.startDate) ?? batch.startDate ?? null;
 }
 
 function todayIsoDate() {
@@ -143,11 +174,7 @@ function todayIsoDate() {
 }
 
 function formatBatchClassDatesList(batch: PublicCatalogBatch) {
-  const classDates = [...new Set(
-    (batch.schedule?.classes ?? [])
-      .map((entry) => entry.date)
-      .filter((date): date is string => Boolean(date)),
-  )].sort();
+  const classDates = classCalendarDates(batch);
 
   if (classDates.length === 0) {
     return formatBatchDateRange(batch.startDate, batch.endDate);
@@ -246,12 +273,14 @@ export function buildClassSessionsFromCatalog(catalog: PublicSchoolCatalog | nul
     const location =
       batch.schedule?.classes.find((entry) => entry.location)?.location ?? "Waltham";
 
+    const range = batchRangeDates(batch);
+
     return {
       id: batch.id,
       sessionName: batch.name,
       location,
-      startDate: formatBatchDate(batch.startDate),
-      endDate: formatBatchDate(batch.endDate),
+      startDate: formatBatchDate(range.start),
+      endDate: formatBatchDate(range.end),
       scheduleLabel: "View Schedule",
       scheduleDetails: scheduleDetailsFromBatch(batch),
       notes: batch.notes ?? "",
@@ -263,6 +292,47 @@ export function buildClassSessionsFromCatalog(catalog: PublicSchoolCatalog | nul
           ? Math.max(0, batch.capacity - (batch.enrolledCount ?? 0))
           : null),
     };
+  });
+}
+
+export type ScheduledClassFact = {
+  id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  capacity: number | null;
+  remainingSpots: number | null;
+};
+
+export function buildScheduledClassFacts(
+  catalog: PublicSchoolCatalog | null,
+): ScheduledClassFact[] {
+  if (!catalog) return [];
+
+  return catalog.batches.flatMap((batch) => {
+    const range = batchRangeDates(batch);
+    if (!range.start || !range.end) return [];
+
+    const location =
+      batch.schedule?.classes.find((entry) => entry.location)?.location ?? "Waltham";
+    const remainingSpots =
+      batch.remainingSpots ??
+      (batch.capacity != null
+        ? Math.max(0, batch.capacity - (batch.enrolledCount ?? 0))
+        : null);
+
+    return [
+      {
+        id: batch.id,
+        name: batch.name,
+        startDate: range.start,
+        endDate: range.end,
+        location,
+        capacity: batch.capacity,
+        remainingSpots,
+      },
+    ];
   });
 }
 
@@ -403,6 +473,55 @@ export type CatalogLessonDisplay = {
   pricePerLesson: number;
   priceLabel: string;
 };
+
+export type CatalogLessonFact = {
+  id: string;
+  name: string;
+  priceLabel: string;
+  details: string[];
+};
+
+function productDetails(product: PublicCatalogProduct) {
+  const details: string[] = [];
+  const description = product.description?.trim();
+  if (
+    description &&
+    description.toLowerCase() !== product.name.trim().toLowerCase() &&
+    (description.length >= 12 || /\d/.test(description))
+  ) {
+    details.push(description);
+  }
+  for (const line of parseCustomerIncludes(product.customerIncludes)) {
+    if (!details.includes(line)) details.push(line);
+  }
+  return details;
+}
+
+function toLessonFact(product: PublicCatalogProduct): CatalogLessonFact {
+  return {
+    id: product.id,
+    name: product.name,
+    priceLabel: product.priceLabel,
+    details: productDetails(product),
+  };
+}
+
+export function buildLessonFacts(catalog: PublicSchoolCatalog | null): CatalogLessonFact[] {
+  if (!catalog) return [];
+
+  return [...catalog.packages.filter(isAdultPackage), ...catalog.individualLessons]
+    .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name))
+    .map(toLessonFact);
+}
+
+export function buildTeenPackageFacts(catalog: PublicSchoolCatalog | null): CatalogLessonFact[] {
+  if (!catalog) return [];
+
+  return catalog.packages
+    .filter(isTeenPackage)
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .map(toLessonFact);
+}
 
 export function parseCustomerIncludes(text: string | null | undefined): string[] {
   if (!text?.trim()) return [];

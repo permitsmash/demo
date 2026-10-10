@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PageGuide } from "@/components/PageGuide";
 import { buildAddonsDisplayFromCatalog, buildLiveSite, getSchoolCatalog } from "@/lib/catalog";
 import { formatMessage, getMessages } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/get-locale";
@@ -173,6 +174,8 @@ export default async function Page() {
           </ul>
         </div>
       </section>
+
+      <PageGuide title={rt.guide.title} sections={rt.guide.sections} />
 
       <section className="w-full bg-surface-dim section">
         <div className="container-page flex flex-col items-center gap-md text-center">

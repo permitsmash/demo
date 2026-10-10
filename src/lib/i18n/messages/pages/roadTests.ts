@@ -1,3 +1,5 @@
+import { roadTestsGuideEn, roadTestsGuideEs, roadTestsGuidePt, roadTestsGuideHt, type ContentGuide } from "./guides";
+
 export const roadTestsEn = {
   label: "Road Tests",
   title: "Road Test Sponsorship",
@@ -28,6 +30,7 @@ export const roadTestsEn = {
   buyAndBookNote: "Buy online, then call the office to book your test date.",
   nonRefundable: "ROAD TEST FEE IS NON-REFUNDABLE.",
   rmvAria: "RMV Service Center {name} — open in Google Maps",
+  guide: roadTestsGuideEn,
 } as const;
 
 export const roadTestsEs = {
@@ -60,6 +63,7 @@ export const roadTestsEs = {
   buyAndBookNote: "Compre en línea y luego llame a la oficina para reservar la fecha de su examen.",
   nonRefundable: "LA TARIFA DEL EXAMEN DE MANEJO NO ES REEMBOLSABLE.",
   rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
+  guide: roadTestsGuideEs,
 } as const;
 
 export const roadTestsPt = {
@@ -92,6 +96,7 @@ export const roadTestsPt = {
   buyAndBookNote: "Compre online e depois ligue para o escritório para agendar a data do seu exame.",
   nonRefundable: "A TAXA DO EXAME PRÁTICO NÃO É REEMBOLSÁVEL.",
   rmvAria: "Centro de serviços RMV de {name} — abrir no Google Maps",
+  guide: roadTestsGuidePt,
 } as const;
 
 export const roadTestsHt = {
@@ -124,6 +129,7 @@ export const roadTestsHt = {
   buyAndBookNote: "Achte sou entènèt, epi rele biwo a pou rezève dat egzamen wout ou a.",
   nonRefundable: "FRÈ EGZAMEN WOUT LA PA REMBOURSAB.",
   rmvAria: "Sant sèvis RMV {name} — ouvri nan Google Maps",
+  guide: roadTestsGuideHt,
 } as const;
 
 export type RoadTestsMessages = {
@@ -145,4 +151,5 @@ export type RoadTestsMessages = {
   buyAndBookNote: string;
   nonRefundable: string;
   rmvAria: string;
+  guide: ContentGuide;
 };

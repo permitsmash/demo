@@ -7,8 +7,11 @@ export {
   buildDriverEdPackagesFromCatalog,
   buildEnrollmentCatalogState,
   buildHomeBatchCards,
+  buildLessonFacts,
   buildLessonsFromCatalog,
   buildLiveSite,
+  buildScheduledClassFacts,
+  buildTeenPackageFacts,
   buildTeenPackagesFromCatalog,
   getCatalogLessonPrice,
   getCatalogPriceLabel,
@@ -18,8 +21,10 @@ export {
   type CatalogAddonDisplay,
   type CatalogDisplayPackage,
   type CatalogLessonDisplay,
+  type CatalogLessonFact,
   type HomeBatchCard,
   type LiveSiteData,
+  type ScheduledClassFact,
 } from "@/lib/catalog/map";
 export {
   buildPublicEnrollUrl,

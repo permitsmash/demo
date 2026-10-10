@@ -1,163 +1,292 @@
-export const resourcesEn = {
-  title: "Study Resources",
-  subtitle:
-    "Access our comprehensive library of study materials designed to help you succeed. From practice tests to essential guides, everything you need to become a confident, safe driver is right here.",
-  searchPlaceholder: "Search for guides, videos, or specific topics...",
-  topics: "Topics",
-  allTopics: "All Topics",
-  maneuvers: "Maneuvers",
-  roadSigns: "Road Signs",
-  legalRules: "Legal & Rules",
-  vehicleBasics: "Vehicle Basics",
-  emergencies: "Emergencies",
-  theoryTestPrep: "Theory Test Prep",
-  minRead: "min read",
-  questions: "Questions",
-  officialHighwayCode: "Official Highway Code Review",
-  officialHighwayCodeDesc:
-    "A comprehensive breakdown of the most critical rules and regulations you need to know for your theory exam.",
-  readGuide: "Read Guide",
-  roadSignsQuiz: "Road Signs Masterclass Quiz",
-  roadSignsQuizDesc:
-    "Test your knowledge of warning, regulatory, and informational signs with this extensive practice quiz.",
-  startQuiz: "Start Quiz",
-  practicalGuides: "Practical Driving Guides",
-  parallelParking: "Parallel Parking Step-by-Step",
-  parallelParkingDesc:
-    "Master the art of parallel parking with our detailed guide, complete with diagrams and reference points.",
-  preDriveChecklist: "Pre-Drive Checklist & Maintenance",
-  preDriveChecklistDesc:
-    "A downloadable checklist for daily vehicle checks and basic maintenance every driver should know.",
-  downloadPdf: "Download PDF",
-  videoLessons: "Video Lessons",
-  adverseWeather: "Handling Adverse Weather",
-  adverseWeatherDesc:
-    "Visual demonstration of defensive driving techniques in heavy rain and icy conditions.",
-  watchVideo: "Watch Video",
-  roundabouts: "Navigating Complex Roundabouts",
-  roundaboutsDesc:
-    "Learn how to approach, signal, and exit multi-lane roundabouts safely and confidently.",
+export type ResourceLink = {
+  title: string;
+  description: string;
+  href: string;
 };
 
-export const resourcesEs = {
-  title: "Recursos de estudio",
-  subtitle:
-    "Acceda a nuestra biblioteca completa de materiales de estudio diseñados para ayudarle a tener éxito. Desde exámenes de práctica hasta guías esenciales, todo lo que necesita para ser un conductor seguro y confiado está aquí.",
-  searchPlaceholder: "Buscar guías, videos o temas específicos...",
-  topics: "Temas",
-  allTopics: "Todos los temas",
-  maneuvers: "Maniobras",
-  roadSigns: "Señales de tránsito",
-  legalRules: "Legal y reglas",
-  vehicleBasics: "Conceptos básicos del vehículo",
-  emergencies: "Emergencias",
-  theoryTestPrep: "Preparación para examen teórico",
-  minRead: "min de lectura",
-  questions: "Preguntas",
-  officialHighwayCode: "Revisión oficial del código de carreteras",
-  officialHighwayCodeDesc:
-    "Un desglose completo de las reglas y regulaciones más críticas que necesita conocer para su examen teórico.",
-  readGuide: "Leer guía",
-  roadSignsQuiz: "Cuestionario de señales de tránsito",
-  roadSignsQuizDesc:
-    "Ponga a prueba su conocimiento de señales de advertencia, regulatorias e informativas con este extenso cuestionario de práctica.",
-  startQuiz: "Iniciar cuestionario",
-  practicalGuides: "Guías prácticas de manejo",
-  parallelParking: "Estacionamiento en paralelo paso a paso",
-  parallelParkingDesc:
-    "Domine el arte del estacionamiento en paralelo con nuestra guía detallada, con diagramas y puntos de referencia.",
-  preDriveChecklist: "Lista de verificación previa y mantenimiento",
-  preDriveChecklistDesc:
-    "Una lista descargable para revisiones diarias del vehículo y mantenimiento básico que todo conductor debe conocer.",
-  downloadPdf: "Descargar PDF",
-  videoLessons: "Lecciones en video",
-  adverseWeather: "Manejo en condiciones climáticas adversas",
-  adverseWeatherDesc:
-    "Demostración visual de técnicas de conducción defensiva en lluvia intensa y condiciones heladas.",
-  watchVideo: "Ver video",
-  roundabouts: "Navegación de rotondas complejas",
-  roundaboutsDesc:
-    "Aprenda a acercarse, señalizar y salir de rotondas de varios carriles de forma segura y confiada.",
+export type ResourcesContent = {
+  title: string;
+  subtitle: string;
+  officialTitle: string;
+  schoolTitle: string;
+  official: readonly ResourceLink[];
+  school: readonly ResourceLink[];
 };
 
-export const resourcesPt = {
-  title: "Recursos de estudo",
+import { rmv } from "@/lib/rmv";
+
+const rmvManuals = "https://www.mass.gov/lists/drivers-manuals";
+const learnersPermit = "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit";
+const roadTest = "https://www.mass.gov/how-to/schedule-your-road-test";
+
+export const resourcesEn: ResourcesContent = {
+  title: "Massachusetts driving resources",
   subtitle:
-    "Acesse nossa biblioteca completa de materiais de estudo projetados para ajudá-lo a ter sucesso. De testes práticos a guias essenciais, tudo o que você precisa para se tornar um motorista confiante e seguro está aqui.",
-  searchPlaceholder: "Buscar guias, vídeos ou tópicos específicos...",
-  topics: "Tópicos",
-  allTopics: "Todos os tópicos",
-  maneuvers: "Manobras",
-  roadSigns: "Placas de trânsito",
-  legalRules: "Legal e regras",
-  vehicleBasics: "Noções básicas do veículo",
-  emergencies: "Emergências",
-  theoryTestPrep: "Preparação para teste teórico",
-  minRead: "min de leitura",
-  questions: "Perguntas",
-  officialHighwayCode: "Revisão oficial do código de estradas",
-  officialHighwayCodeDesc:
-    "Uma análise completa das regras e regulamentos mais críticos que você precisa saber para seu exame teórico.",
-  readGuide: "Ler guia",
-  roadSignsQuiz: "Quiz de placas de trânsito",
-  roadSignsQuizDesc:
-    "Teste seu conhecimento de placas de advertência, regulamentação e informativas com este extenso quiz de prática.",
-  startQuiz: "Iniciar quiz",
-  practicalGuides: "Guias práticos de direção",
-  parallelParking: "Estacionamento paralelo passo a passo",
-  parallelParkingDesc:
-    "Domine a arte do estacionamento paralelo com nosso guia detalhado, com diagramas e pontos de referência.",
-  preDriveChecklist: "Checklist pré-viagem e manutenção",
-  preDriveChecklistDesc:
-    "Um checklist para download de verificações diárias do veículo e manutenção básica que todo motorista deve conhecer.",
-  downloadPdf: "Baixar PDF",
-  videoLessons: "Aulas em vídeo",
-  adverseWeather: "Condução em condições climáticas adversas",
-  adverseWeatherDesc:
-    "Demonstração visual de técnicas de direção defensiva em chuva forte e condições geladas.",
-  watchVideo: "Assistir vídeo",
-  roundabouts: "Navegação em rotatórias complexas",
-  roundaboutsDesc:
-    "Aprenda a se aproximar, sinalizar e sair de rotatórias de várias faixas com segurança e confiança.",
+    "JMC Driving School does not publish its own quizzes, videos, or study guides. Use the Registry of Motor Vehicles pages below to study, then book lessons, classes, or a road test with the office.",
+  officialTitle: "Official Massachusetts RMV",
+  schoolTitle: "Continue with JMC",
+  official: [
+    {
+      title: "Driver's manuals",
+      description:
+        "Free PDFs of the Massachusetts Driver's Manual, including Spanish and Portuguese editions. This is the book for the learner's permit exam.",
+      href: rmvManuals,
+    },
+    {
+      title: "Apply for a learner's permit",
+      description:
+        "How to apply for a Class D learner's permit, including age, documents, and the knowledge test.",
+      href: learnersPermit,
+    },
+    {
+      title: "Schedule a road test",
+      description:
+        "How the Massachusetts road test is scheduled, and what the RMV expects on test day.",
+      href: roadTest,
+    },
+    {
+      title: "Driver education rules, 540 CMR 23.00",
+      description:
+        "The rule that classroom driver education can begin at 15 years and 9 months, and that a learner's permit is required before on-road instruction.",
+      href: rmv.classroomAge,
+    },
+    {
+      title: "Junior operator license requirements",
+      description:
+        "The six-month permit period, the clean driving record, and the 40 supervised hours for drivers under 18. A driver-skills course can reduce the supervised hours to 30.",
+      href: rmv.juniorOperator,
+    },
+    {
+      title: "Passenger Class D road tests",
+      description:
+        "The road test sponsor must be 21 or older, with at least one year of driving experience and a valid license from their home state.",
+      href: rmv.classDRoadTest,
+    },
+  ],
+  school: [
+    {
+      title: "Driving programs",
+      description: "Teen packages, adult lessons, and what each option includes.",
+      href: "/courses",
+    },
+    {
+      title: "Accelerated classes",
+      description: "In-person driver's education dates at the Waltham office.",
+      href: "/classes",
+    },
+    {
+      title: "Road test sponsorship",
+      description: "Saturday tests at the JMC office and weekday tests at RMV sites.",
+      href: "/road-tests",
+    },
+    {
+      title: "FAQ",
+      description: "Permit age, the parent class, what to bring, and how to reschedule.",
+      href: "/faq",
+    },
+  ],
 };
 
-export const resourcesHt = {
-  title: "Resous Etid",
+export const resourcesEs: ResourcesContent = {
+  title: "Recursos de manejo en Massachusetts",
   subtitle:
-    "Aksede nan bibliyotèk konplè materyèl etid nou yo ki fèt pou ede ou reyisi. Soti nan tès pratik rive nan gid esansyèl, tout sa ou bezwen pou vin yon chofè ki gen konfyans ak ki an sekirite se isit la.",
-  searchPlaceholder: "Chèche gid, videyo, oswa sijè espesifik...",
-  topics: "Sijè",
-  allTopics: "Tout Sijè",
-  maneuvers: "Manyèv",
-  roadSigns: "Siy Wout",
-  legalRules: "Legal ak Règ",
-  vehicleBasics: "Baz Machin",
-  emergencies: "Ijans",
-  theoryTestPrep: "Preparasyon pou Egzamen Teorik",
-  minRead: "min lekti",
-  questions: "Kesyon",
-  officialHighwayCode: "Revizyon Ofisyèl Kòd Otowout la",
-  officialHighwayCodeDesc:
-    "Yon analiz konplè sou règ ak regleman ki pi enpòtan ou bezwen konnen pou egzamen teorik ou.",
-  readGuide: "Li Gid la",
-  roadSignsQuiz: "Kwiz Mèt Siy Wout",
-  roadSignsQuizDesc:
-    "Teste konesans ou sou siy avètisman, regleman, ak enfòmasyon ak kwiz pratik sa a.",
-  startQuiz: "Kòmanse Kwiz la",
-  practicalGuides: "Gid Pratik pou Kondwi",
-  parallelParking: "Pakè Paralèl Etap pa Etap",
-  parallelParkingDesc:
-    "Metrize atizay pakè paralèl la ak gid detaye nou an, ki gen dyagram ak pwen referans.",
-  preDriveChecklist: "Lis Verifikasyon Avan Kondwi ak Antretyen",
-  preDriveChecklistDesc:
-    "Yon lis telechajab pou verifikasyon machin chak jou ak antretyen debaz tout chofè ta dwe konnen.",
-  downloadPdf: "Telechaje PDF",
-  videoLessons: "Leson Videyo",
-  adverseWeather: "Kondwi nan Move Tan",
-  adverseWeatherDesc:
-    "Demonstrasyon vizyèl teknik kondwi defansif nan gwo lapli ak kondisyon glase.",
-  watchVideo: "Gade Videyo",
-  roundabouts: "Navige nan Wout Won Konplèks",
-  roundaboutsDesc:
-    "Aprann kijan pou apwoche, bay siyal, epi sòti nan wout won milti-vwa an sekirite ak konfyans.",
+    "JMC Driving School no publica sus propios cuestionarios, videos ni guías de estudio. Use las páginas del Registry of Motor Vehicles de abajo para estudiar y luego reserve clases o un examen de manejo con la oficina.",
+  officialTitle: "RMV oficial de Massachusetts",
+  schoolTitle: "Continuar con JMC",
+  official: [
+    {
+      title: "Manuales del conductor",
+      description:
+        "PDF gratuitos del manual del conductor de Massachusetts, incluidas ediciones en español y portugués. Es el libro para el examen del permiso de aprendizaje.",
+      href: rmvManuals,
+    },
+    {
+      title: "Solicitar un permiso de aprendizaje",
+      description:
+        "Cómo solicitar un permiso de aprendizaje Clase D, incluida la edad, los documentos y el examen de conocimientos.",
+      href: learnersPermit,
+    },
+    {
+      title: "Programar un examen de manejo",
+      description:
+        "Cómo se programa el examen de manejo de Massachusetts y qué espera el RMV el día del examen.",
+      href: roadTest,
+    },
+    {
+      title: "Reglas de educación vial, 540 CMR 23.00",
+      description:
+        "La regla que permite empezar la educación vial en el aula a los 15 años y 9 meses, y que exige un permiso de aprendizaje antes de la instrucción en la carretera.",
+      href: rmv.classroomAge,
+    },
+    {
+      title: "Requisitos de la licencia de operador junior",
+      description:
+        "El período de 6 meses con el permiso, el historial limpio y las 40 horas supervisadas para conductores menores de 18 años. Un curso de habilidades puede reducir las horas supervisadas a 30.",
+      href: rmv.juniorOperator,
+    },
+    {
+      title: "Exámenes de manejo de pasajeros Clase D",
+      description:
+        "El patrocinador del examen debe tener 21 años o más, al menos un año de experiencia al volante y una licencia válida de su estado.",
+      href: rmv.classDRoadTest,
+    },
+  ],
+  school: [
+    {
+      title: "Programas de manejo",
+      description: "Paquetes para adolescentes, clases para adultos y lo que incluye cada opción.",
+      href: "/courses",
+    },
+    {
+      title: "Clases aceleradas",
+      description: "Fechas de educación vial en persona en la oficina de Waltham.",
+      href: "/classes",
+    },
+    {
+      title: "Patrocinio del examen de manejo",
+      description: "Exámenes los sábados en la oficina de JMC y entre semana en sedes del RMV.",
+      href: "/road-tests",
+    },
+    {
+      title: "Preguntas frecuentes",
+      description: "Edad del permiso, la clase para padres, qué llevar y cómo reprogramar.",
+      href: "/faq",
+    },
+  ],
+};
+
+export const resourcesPt: ResourcesContent = {
+  title: "Recursos de direção em Massachusetts",
+  subtitle:
+    "A JMC Driving School não publica os próprios testes, vídeos ou guias de estudo. Use as páginas do Registry of Motor Vehicles abaixo para estudar e depois marque aulas ou o exame prático com o escritório.",
+  officialTitle: "RMV oficial de Massachusetts",
+  schoolTitle: "Continuar com a JMC",
+  official: [
+    {
+      title: "Manuais do motorista",
+      description:
+        "PDFs gratuitos do manual do motorista de Massachusetts, inclusive edições em espanhol e português. É o livro para o exame da permissão de aprendiz.",
+      href: rmvManuals,
+    },
+    {
+      title: "Solicitar a permissão de aprendiz",
+      description:
+        "Como solicitar uma permissão de aprendiz Classe D, incluindo idade, documentos e o teste de conhecimentos.",
+      href: learnersPermit,
+    },
+    {
+      title: "Agendar o exame prático",
+      description:
+        "Como o exame prático de Massachusetts é agendado e o que o RMV espera no dia do exame.",
+      href: roadTest,
+    },
+    {
+      title: "Regras de educação para motoristas, 540 CMR 23.00",
+      description:
+        "A regra que permite começar a educação para motoristas em sala aos 15 anos e 9 meses, e que exige a permissão de aprendiz antes da instrução na rua.",
+      href: rmv.classroomAge,
+    },
+    {
+      title: "Requisitos da licença de operador júnior",
+      description:
+        "O período de 6 meses com a permissão, o histórico limpo e as 40 horas supervisionadas para motoristas menores de 18 anos. Um curso de habilidades pode reduzir as horas supervisionadas para 30.",
+      href: rmv.juniorOperator,
+    },
+    {
+      title: "Exames práticos de passageiros Classe D",
+      description:
+        "O patrocinador do exame deve ter 21 anos ou mais, pelo menos um ano de experiência ao volante e uma carteira válida do estado de origem.",
+      href: rmv.classDRoadTest,
+    },
+  ],
+  school: [
+    {
+      title: "Programas de direção",
+      description: "Pacotes para adolescentes, aulas para adultos e o que cada opção inclui.",
+      href: "/courses",
+    },
+    {
+      title: "Cursos acelerados",
+      description: "Datas de educação para motoristas presencial no escritório de Waltham.",
+      href: "/classes",
+    },
+    {
+      title: "Patrocínio do exame prático",
+      description: "Exames aos sábados no escritório da JMC e em dias úteis em postos do RMV.",
+      href: "/road-tests",
+    },
+    {
+      title: "Perguntas frequentes",
+      description: "Idade da permissão, a aula dos pais, o que levar e como remarcar.",
+      href: "/faq",
+    },
+  ],
+};
+
+export const resourcesHt: ResourcesContent = {
+  title: "Resous kondwi nan Massachusetts",
+  subtitle:
+    "JMC Driving School pa pibliye pwòp kwiz, videyo, oswa gid etid pa li. Sèvi ak paj Registry of Motor Vehicles ki anba yo pou etidye, epi rezève leson, klas, oswa yon egzamen wout ak biwo a.",
+  officialTitle: "RMV ofisyèl Massachusetts",
+  schoolTitle: "Kontinye ak JMC",
+  official: [
+    {
+      title: "Manyèl chofè yo",
+      description:
+        "PDF gratis Manyèl Chofè Massachusetts la, ki gen ladan edisyon panyòl ak pòtigè. Se liv sa a pou egzamen pèmi aprantisaj la.",
+      href: rmvManuals,
+    },
+    {
+      title: "Mande yon pèmi aprantisaj",
+      description:
+        "Kijan pou mande yon pèmi aprantisaj Klas D, ansanm ak laj, dokiman, ak egzamen konesans lan.",
+      href: learnersPermit,
+    },
+    {
+      title: "Pwograme yon egzamen wout",
+      description:
+        "Kijan egzamen wout Massachusetts la pwograme, ak sa RMV la tann jou egzamen an.",
+      href: roadTest,
+    },
+    {
+      title: "Règ edikasyon pou chofè, 540 CMR 23.00",
+      description:
+        "Règ ki pèmèt edikasyon pou chofè nan klas kòmanse a 15 an ak 9 mwa, epi ki mande yon pèmi aprantisaj anvan enstriksyon sou wout.",
+      href: rmv.classroomAge,
+    },
+    {
+      title: "Egzijans lisans operatè jinyò",
+      description:
+        "Peryòd 6 mwa ak pèmi a, dosye pwòp la, ak 40 èdtan sipèvize pou chofè ki poko gen 18 an. Yon kou konpetans ka diminye èdtan sipèvize yo a 30.",
+      href: rmv.juniorOperator,
+    },
+    {
+      title: "Egzamen wout pasaje Klas D",
+      description:
+        "Patwon egzamen an dwe gen 21 an oswa plis, omwen yon ane eksperyans kondwi, ak yon lisans valab nan eta li.",
+      href: rmv.classDRoadTest,
+    },
+  ],
+  school: [
+    {
+      title: "Pwogram kondwi",
+      description: "Pakè pou adolesan, leson pou adilt, ak sa chak opsyon gen ladan.",
+      href: "/courses",
+    },
+    {
+      title: "Klas akselere",
+      description: "Dat edikasyon pou chofè an pèsòn nan biwo Waltham.",
+      href: "/classes",
+    },
+    {
+      title: "Patwonej egzamen wout",
+      description: "Egzamen samdi nan biwo JMC ak egzamen jou lasemèn nan lokal RMV.",
+      href: "/road-tests",
+    },
+    {
+      title: "Kesyon yo poze souvan",
+      description: "Laj pèmi a, klas paran an, kisa pou pote, ak kijan pou chanje yon randevou.",
+      href: "/faq",
+    },
+  ],
 };
