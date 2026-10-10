@@ -54,17 +54,20 @@ function featureHits(line: string) {
 }
 
 function quantitiesForFeature(line: string, key: FeatureKey) {
-  const hits = featureHits(line);
+  const hits = featureHits(line).sort((a, b) => a.index - b.index);
+  if (hits.length === 0) return [];
   const numbers = [...line.matchAll(/\d+/g)].flatMap((match) =>
-    match.index == null ? [] : [{ value: Number(match[0]), index: match.index }],
+    match.index == null
+      ? []
+      : [{ value: Number(match[0]), index: match.index, end: match.index + match[0].length }],
   );
 
   return numbers
     .filter((number) => {
-      const nearest = hits.reduce((best, hit) =>
-        Math.abs(hit.index - number.index) < Math.abs(best.index - number.index) ? hit : best,
-      );
-      return nearest?.key === key;
+      const following = hits.find((hit) => hit.index >= number.end);
+      if (following) return following.key === key;
+      const preceding = [...hits].reverse().find((hit) => hit.index < number.index);
+      return preceding?.key === key;
     })
     .map((number) => number.value);
 }
