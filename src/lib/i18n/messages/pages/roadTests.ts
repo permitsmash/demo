@@ -23,11 +23,11 @@ export const roadTestsEn = {
   contactTitle: "Need help scheduling?",
   contactButton: "Submit road test form",
   contactDesc:
-    "Call the office to book your test date after purchase, or submit the road test form if you have questions first.",
+    "Please call the office to book the test date before you buy it, or submit the road test form if you have questions first.",
   buyButton: "Buy {name}",
   emptyCatalog:
     "Road test options are temporarily unavailable. Please call the office or try again shortly.",
-  buyAndBookNote: "Buy online, then call the office to book your test date.",
+  buyAndBookNote: "Please call the office to book the test date before you buy it.",
   nonRefundable: "ROAD TEST FEE IS NON-REFUNDABLE.",
   rmvAria: "RMV Service Center {name} — open in Google Maps",
   feesTable: {
@@ -62,11 +62,11 @@ export const roadTestsEs = {
   contactTitle: "¿Necesita ayuda para programar?",
   contactButton: "Enviar formulario de examen de manejo",
   contactDesc:
-    "Llame a la oficina para reservar la fecha de su examen después de la compra, o envíe el formulario si tiene preguntas primero.",
+    "Llame a la oficina para reservar la fecha del examen antes de comprarlo, o envíe el formulario si tiene preguntas primero.",
   buyButton: "Comprar {name}",
   emptyCatalog:
     "Las opciones de examen de manejo no están disponibles temporalmente. Llame a la oficina o intente de nuevo más tarde.",
-  buyAndBookNote: "Compre en línea y luego llame a la oficina para reservar la fecha de su examen.",
+  buyAndBookNote: "Llame a la oficina para reservar la fecha del examen antes de comprarlo.",
   nonRefundable: "LA TARIFA DEL EXAMEN DE MANEJO NO ES REEMBOLSABLE.",
   rmvAria: "Centro de servicios RMV de {name} — abrir en Google Maps",
   feesTable: {
@@ -101,11 +101,11 @@ export const roadTestsPt = {
   contactTitle: "Precisa de ajuda para agendar?",
   contactButton: "Enviar formulário de exame prático",
   contactDesc:
-    "Ligue para o escritório para agendar a data do seu exame após a compra, ou envie o formulário se tiver dúvidas primeiro.",
+    "Ligue para o escritório para agendar a data do exame antes de comprá-lo, ou envie o formulário se tiver dúvidas primeiro.",
   buyButton: "Comprar {name}",
   emptyCatalog:
     "As opções de exame prático estão temporariamente indisponíveis. Ligue para o escritório ou tente novamente em breve.",
-  buyAndBookNote: "Compre online e depois ligue para o escritório para agendar a data do seu exame.",
+  buyAndBookNote: "Ligue para o escritório para agendar a data do exame antes de comprá-lo.",
   nonRefundable: "A TAXA DO EXAME PRÁTICO NÃO É REEMBOLSÁVEL.",
   rmvAria: "Centro de serviços RMV de {name} — abrir no Google Maps",
   feesTable: {
@@ -140,11 +140,11 @@ export const roadTestsHt = {
   contactTitle: "Bezwen èd pou pwograme?",
   contactButton: "Soumèt fòmilè egzamen wout la",
   contactDesc:
-    "Rele biwo a pou rezève dat egzamen wout ou a apre acha a, oswa soumèt fòmilè a si ou gen kesyon anvan.",
+    "Tanpri rele biwo a pou rezève dat egzamen an anvan ou achte li, oswa soumèt fòmilè a si ou gen kesyon anvan.",
   buyButton: "Achte {name}",
   emptyCatalog:
     "Opsyon egzamen wout yo pa disponib pou kounye a. Tanpri rele biwo a oswa eseye ankò byento.",
-  buyAndBookNote: "Achte sou entènèt, epi rele biwo a pou rezève dat egzamen wout ou a.",
+  buyAndBookNote: "Tanpri rele biwo a pou rezève dat egzamen an anvan ou achte li.",
   nonRefundable: "FRÈ EGZAMEN WOUT LA PA REMBOURSAB.",
   rmvAria: "Sant sèvis RMV {name} — ouvri nan Google Maps",
   feesTable: {
