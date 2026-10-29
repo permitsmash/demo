@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, useMemo, useTransition, type ReactNode } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import {
   defaultLocale,
   formatMessage,
@@ -30,9 +30,8 @@ type Props = {
 };
 
 export function LocaleProvider({ children, initialLocale }: Props) {
-  const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
   const locale = isValidLocale(initialLocale) ? initialLocale : defaultLocale;
   const messages = useMemo(() => getMessages(locale), [locale]);
 
@@ -42,21 +41,21 @@ export function LocaleProvider({ children, initialLocale }: Props) {
       messages,
       isPending,
       setLocale(nextLocale: Locale) {
+        if (nextLocale === locale || isPending) return;
         document.cookie = `${LOCALE_COOKIE}=${nextLocale};path=/;max-age=31536000;SameSite=Lax`;
         const { pathname: stripped } = splitLocalePrefix(pathname);
         const target = localizedPath(
           nextLocale,
           `${stripped}${window.location.search}${window.location.hash}`,
         );
-        startTransition(() => {
-          router.push(target);
-        });
+        setIsPending(true);
+        window.location.assign(target);
       },
       t(template, values) {
         return formatMessage(template, values);
       },
     }),
-    [locale, messages, isPending, pathname, router]
+    [locale, messages, isPending, pathname]
   );
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
