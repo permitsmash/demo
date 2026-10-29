@@ -10,7 +10,7 @@ import { useLocale } from '@/components/LocaleProvider';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { localizedPath, splitLocalePrefix } from '@/lib/i18n';
 
-const FEW_SEATS_LEFT = 10;
+const FEW_SEATS_LEFT = 20;
 
 const CREOLE_MONTHS = [
   "janvye",
