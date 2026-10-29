@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import {
   defaultLocale,
@@ -32,6 +32,15 @@ type Props = {
 export function LocaleProvider({ children, initialLocale }: Props) {
   const pathname = usePathname();
   const [isPending, setIsPending] = useState(false);
+
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) setIsPending(false);
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
   const locale = isValidLocale(initialLocale) ? initialLocale : defaultLocale;
   const messages = useMemo(() => getMessages(locale), [locale]);
 
